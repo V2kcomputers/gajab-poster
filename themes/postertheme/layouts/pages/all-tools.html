@@ -1,0 +1,147 @@
+
+{{ define "main" }}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title> All Tools Update </title>
+
+<style>
+.card-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 15px;
+    margin:20px auto;
+    max-width: 1200px;
+}
+/* Card */
+.card {
+    display: flex;
+    background: var(--card);
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    height: 100%;   /* important */
+}
+/* Image */
+.card img {
+    width: 80px;
+    height: 80px;
+    border-radius: 8px;
+    object-fit: cover;
+    margin-right: 12px;
+}
+
+/* Content */
+.card-content {
+    flex: 1;
+}
+.card-content a:link {
+  color: var(--primary);
+  text-decoration:none; }
+  .card-content a:visited {
+    color: var(--text);
+  } 
+  .card-content a:hover {
+    color: green;
+  }
+/* Title */
+.card-title {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+/* Description (2 line limit) */
+.card-desc {
+    font-size: 14px;
+    color: #555;
+
+    display: -webkit-box;
+    -webkit-line-clamp: 2;   /* 2 lines */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+.pagination {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+
+.pagination a,
+.pagination span {
+  padding: 6px 12px;
+  border: 1px solid #ddd;
+  text-decoration: none;
+  color: var(--text);
+  border-radius: 6px;
+}
+
+.pagination a:hover {
+  background: var(--card);
+}
+
+.pagination .active {
+  background: var(--primary);
+  color: var(--text);
+  border-color: var(--primary);
+}
+</style>
+
+</head>
+
+
+<div class="card-list">
+
+{{ $paginator := .Paginate (where .Site.RegularPages "Draft" false) 12 }}
+
+{{ range $paginator.Pages }}
+
+  <div class="card">
+    <img src="{{ with .Params.imagebanner }}{{ . | relURL }}{{ else }}/images/default.jpg{{ end }}" alt="{{ .Title }}">
+
+    <div class="card-content">
+      <div class="card-title">
+        <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+      </div>
+
+      <div class="card-desc">
+        {{ .Params.description | default .Summary }}
+      </div>
+    </div>
+  </div>
+
+{{ end }}
+</div>
+
+
+<!-- Pagination Buttons -->
+<!-- Pagination Buttons -->
+<div class="pagination">
+
+  <!-- Previous Button -->
+  {{ if $paginator.HasPrev }}
+    <a href="{{ $paginator.Prev.URL }}">⬅ Previous</a>
+  {{ end }}
+
+  <!-- Page Numbers -->
+  {{ range $paginator.Pagers }}
+    {{ if eq . $paginator }}
+      <!-- Active Page -->
+      <span class="active">{{ .PageNumber }}</span>
+    {{ else }}
+      <a href="{{ .URL }}">{{ .PageNumber }}</a>
+    {{ end }}
+  {{ end }}
+
+  <!-- Next Button -->
+  {{ if $paginator.HasNext }}
+    <a href="{{ $paginator.Next.URL }}">Next ➡</a>
+  {{ end }}
+
+</div>
+{{ end }}

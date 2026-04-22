@@ -1,0 +1,106 @@
+<div class="link-list">
+  <h3 style="margin-left: 10px;">You May Also Like</h3>
+
+  {{ $now := now }}
+  {{ $currentSection := .Section }}
+
+  <!-- ✅ Latest 50 Posts -->
+  {{ $latest := first 50 (sort .Site.RegularPages "Date" "desc") }}
+
+  <!-- ✅ SAME SECTION -->
+  {{ $same := where $latest "Section" $currentSection }}
+  {{ $same = shuffle $same }}
+
+  <!-- ✅ OTHER SECTION -->
+  {{ $other := where $latest "Section" "ne" $currentSection }}
+  {{ $other = shuffle $other }}
+
+  {{ $count := 0 }}
+
+  <!-- 🔹 1. SAME SECTION (Min 3) -->
+  {{ range $same }}
+    {{ if and (lt $count 3) (ne .Permalink $.Permalink) }}
+
+      {{ $lastdate := .Params.lastdate }}
+      {{ $show := false }}
+
+      {{ if $lastdate }}
+        {{ $ld := time $lastdate }}
+        {{ if ge $ld $now }}
+          {{ $show = true }}
+        {{ else if or (eq .Params.admitcard "yes") (eq .Params.result "yes") }}
+          {{ $show = true }}
+        {{ end }}
+      {{ else }}
+        {{ $show = true }}
+      {{ end }}
+
+      {{ if $show }}
+        <a href="{{ .RelPermalink }}">
+          <div class="left">
+            <div class="link-text">
+              {{ with .Params.seo_title }}{{ . }}{{ else }}{{ .Title }}{{ end }}
+            </div>
+
+            {{ if $lastdate }}
+              {{ $ld := time $lastdate }}
+              {{ if ge $ld $now }}
+                <small>📅 Last Date: {{ $ld.Format "02-01-2006" }}</small>
+              {{ end }}
+            {{ end }}
+
+          </div>
+          <span>›</span>
+        </a>
+
+        {{ $count = add $count 1 }}
+      {{ end }}
+
+    {{ end }}
+  {{ end }}
+
+  <!-- 🔹 2. OTHER POSTS (Fill up to 5) -->
+  {{ if lt $count 5 }}
+    {{ range $other }}
+      {{ if and (lt $count 5) (ne .Permalink $.Permalink) }}
+
+        {{ $lastdate := .Params.lastdate }}
+        {{ $show := false }}
+
+        {{ if $lastdate }}
+          {{ $ld := time $lastdate }}
+          {{ if ge $ld $now }}
+            {{ $show = true }}
+          {{ else if or (eq .Params.admitcard "yes") (eq .Params.result "yes") }}
+            {{ $show = true }}
+          {{ end }}
+        {{ else }}
+          {{ $show = true }}
+        {{ end }}
+
+        {{ if $show }}
+          <a href="{{ .RelPermalink }}">
+            <div class="left">
+              <div class="link-text">
+                {{ with .Params.seo_title }}{{ . }}{{ else }}{{ .Title }}{{ end }}
+              </div>
+
+              {{ if $lastdate }}
+                {{ $ld := time $lastdate }}
+                {{ if ge $ld $now }}
+                  <small>📅 Last Date: {{ $ld.Format "02-01-2006" }}</small>
+                {{ end }}
+              {{ end }}
+
+            </div>
+            <span>›</span>
+          </a>
+
+          {{ $count = add $count 1 }}
+        {{ end }}
+
+      {{ end }}
+    {{ end }}
+  {{ end }}
+
+</div>

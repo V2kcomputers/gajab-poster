@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+{{ partial "imp-codes/seo-meta.html" . }}
+<link rel="manifest" href="/site.webmanifest">
+{{ partial "imp-codes/article-schema.html" . }}
+{{ partial "imp-codes/analytics.html" . }}
+{{ partial "cssStyles/home.html" . }}
+</head>
+<body>
+
+<header>
+    {{ partial "mainbase/logo.html" . }}
+    <div class="menu-btn" onclick="toggleMenu()">☰</div>
+    <div class="nav-links" id="navLinks">
+        <div class="close-btn" onclick="closeMenu()">✕</div>
+        <a href="/" onclick="closeMenu()">🏠 Home</a>
+        <a href="/all-tools/" onclick="closeMenu()">🛠️ All Tools</a>
+        <a href="/search/" onclick="closeMenu()">🔎 Search</a>
+        <button class="toggle-btn" onclick="toggleDarkMode()">🌙</button>
+    </div>
+</header>
+
+<section class="hero">
+    <h1>All Online Tools</h1>
+    <p>All Important Tools And AI Mensioned Here।</p>
+  <div class="search-box">
+    <input 
+        type="text" 
+        id="searchInput" 
+        placeholder="Search Tool..." 
+        onfocus="goToSearchPage()"
+        onkeyup="searchTool()"
+    >
+</div>
+</section>
+
+<section class="tools">
+  {{ range first 8 (sort .Site.RegularPages "Date" "desc") }}
+ <div class="tool-card">
+   <a href="{{ .RelPermalink }}"><img src="{{ with .Params.imagebanner }}{{ . | relURL }}{{ else }}/images/default.jpg{{ end }}"  alt="{{ .Title }}"loading="lazy" ></a>
+    <div> <h3> <a href="{{ .RelPermalink }}">{{ .Title }} </a></h3> <p>{{ .Params.description | default .Summary }} </p></div>
+</div> 
+
+    {{ end }}
+
+ <div class="tool-card">
+   <a href="/all-tools/"><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjaSZVcBhdY9LVNvA8NVd95n81b363ULpkWR-cLAv_PI4pnxB7U6WjBatSI-9idyskSmGEaLUfh06ddGW5NQ5zhF2dvwvNjipjUPYSLA2RTwo1HCKBmgPGYsRnABbBgRrpUCqkUxlvpf7izc1liNztGOKm_yqhBNwhw8KGxAgEGt6UsCvrS-Arak4kRNQ/s1600/banner%20deginge.jpg
+"  alt="All Tools"loading="lazy" ></a>
+    <div> <h3> <a href="/all-tools/"> Browse All Smart Tools </a></h3> <p>Check All Smart Tools and Post on Gajab tools</p></div>
+</div> 
+
+</section>
+
+<section class="features">
+    <h2>Why Choose Our Tools?</h2>
+    <div class="features-grid">
+        <div>⚡ Fast Processing</div>
+        <div>🔒 Secure & Safe</div>
+        <div>📱 Mobile Friendly</div>
+    </div>
+</section>
+  <!-- Why Choose -->
+<section class="about-section">
+
+    <h2>About Gajab Tools</h2>
+
+    <p>
+      <strong>Gajab Tools</strong> is a modern platform that provides a wide range of free online tools
+      designed to make your digital tasks faster, easier, and more efficient. Our platform is built
+      for students, developers, content creators, and everyday users who want simple solutions without
+      installing heavy software.
+    </p>
+
+    <p>
+      At Gajab Tools, we focus on delivering tools that are easy to use, fast, and accessible from any device.
+      Whether you need AI-powered tools, image editing utilities, PDF solutions, or productivity tools,
+      everything is available in one place.
+    </p>
+
+    <h3>Our Mission</h3>
+    <p>
+      Our mission is to simplify digital work by providing powerful tools that anyone can use without
+      technical knowledge. We believe that technology should be accessible to everyone, and our goal is
+      to create a platform where users can solve their problems quickly and efficiently.
+    </p>
+
+    <h3>What You Can Find on Gajab Tools</h3>
+    <ul>
+      <li><strong>AI Tools:</strong> Smart tools powered by artificial intelligence to generate content, images, and code.</li>
+      <li><strong>Image Tools:</strong> Resize, crop, compress, and edit images online.</li>
+      <li><strong>PDF Tools:</strong> Convert, merge, and manage PDF files easily.</li>
+      <li><strong>Developer Tools:</strong> Code helpers and utilities for faster development.</li>
+      <li><strong>Productivity Tools:</strong> Tools that help you save time and increase efficiency.</li>
+    </ul>
+
+    <h3>Why Choose Gajab Tools?</h3>
+    <ul>
+      <li>✔ 100% Free Online Tools</li>
+      <li>✔ No Installation Required</li>
+      <li>✔ Fast and Secure Processing</li>
+      <li>✔ Beginner-Friendly Interface</li>
+      <li>✔ Regular Updates and New Tools</li>
+    </ul>
+
+    <h3>How Gajab Tools Works</h3>
+    <p>
+      Using Gajab Tools is simple. Just select the tool you need, upload or enter your data, and get
+      instant results. All tools are designed to work directly in your browser, so you don’t need to
+      download or install anything.
+    </p>
+
+    <h3>Who Can Use Gajab Tools?</h3>
+    <ul>
+      <li>Students for assignments and projects</li>
+      <li>Developers for coding assistance</li>
+      <li>Content creators for AI and media tools</li>
+      <li>Professionals for daily productivity tasks</li>
+    </ul>
+
+    <h3>Our Vision</h3>
+    <p>
+      We aim to become one of the most trusted platforms for online tools by continuously improving
+      our services and adding new features. Our vision is to create a powerful ecosystem of tools that
+      can help users worldwide.
+    </p>
+
+</section>
+
+
+
+<footer>
+    
+ 
+  <div class="footer-container">
+
+    <!-- About Section -->
+    <div class="footer-col">
+      <h3>About GajabTools</h3>
+      <p> GajabTools.com is a privacy-focused online tools platform. All tools work directly in your browser without uploading data to any server. </p>
+      <div class="footer-highlight">
+        Client-Side Processing • Privacy First • Fast & Free Tools
+      </div>
+    </div>
+
+    <!-- Quick Links -->
+    <div class="footer-col">
+      <h3>Quick Links</h3>
+      <ul class="footer-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/about-us/">About Us</a></li>
+        <li><a href="/contact/">Contact</a></li>
+        <li><a href="/privacy-policy/">Privacy Policy</a></li>
+       
+      </ul>
+    </div>
+
+    <!-- Legal Pages -->
+    <div class="footer-col">
+      <h3>Legal</h3>
+      <ul class="footer-links">
+         <li><a href="/terms-and-conditions/">Terms & Conditions</a></li>
+         <li><a href="/disclaimer/">Disclaimer</a></li>
+         <li><a href="/cookie-policy/">Cookie Policy</a></li>
+         <li><a href="/dmca-policy/">DMCA Policy</a></li>
+         <li><a href="/index.xml">RSS Feed</a></li>
+      </ul>
+    </div>
+ </div>
+
+  <div class="footer-bottom">
+    © {{ now.Year }}  GajabTools.com | All Rights Reserved
+  </div>
+
+</footer>
+
+{{ partial "jsFiles/home.html" . }}
+
+</body>
+</html>

@@ -1,0 +1,13 @@
+
+{{ define "main" }}
+<div class="search-container" id="searchContainer">
+  <div class="search-box">
+    <input type="text" id="searchInput" placeholder="🔍 Search any Tools..." autocomplete="on">
+    <span id="clearBtn">&times;</span>
+  </div>
+
+  <div id="results"></div>
+  <div id="recentSearches" class="recent-box"></div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.6.2"></script>
+{{ end}}

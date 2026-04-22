@@ -1,0 +1,6 @@
+baseURL = 'https://example.org/'
+languageCode = 'en-us'
+title = 'My New Hugo Site'
+theme = "postertheme"
+[outputs]
+  home = ["HTML", "JSON", "RSS"]
