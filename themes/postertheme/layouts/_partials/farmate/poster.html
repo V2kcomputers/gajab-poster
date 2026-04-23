@@ -91,10 +91,12 @@
 
 
 <div class="top-actions">
-  <button onclick="openModal()">👁 View</button>
-  <button onclick="downloadImg()">⬇️ Download</button>
-  <button onclick="shareImg()">🔗 Share</button>
-  <button onclick="printImg()">🖨️ Print</button>
+ <a href="{{ with .Params.link }}{{ . }}{{ else }}https://yojnaportal.com/search?q={{ .Title | urlize }}{{ end }}" target="_blank">
+  <button id="viewBtn">🔗 Link</button>
+</a>
+<button id="downloadBtn" onclick="downloadImg()">⬇️ Download</button>
+<button id="shareBtn" onclick="shareImg()">🔗 Share</button>
+<button id="printBtn" onclick="printImg()">🖨️ Print</button>
 </div>
 
 <div class="preview">
@@ -106,9 +108,9 @@
   <img class="modal-content" id="modalImg">
 
   <div class="actions">
-    <button onclick="downloadImg()">⬇️ Download</button>
-    <button onclick="shareImg()">🔗 Share</button>
-    <button onclick="printImg()">🖨️ Print</button>
+   <button id="downloadBtn" onclick="downloadImg()">⬇️ Download</button>
+<button id="shareBtn" onclick="shareImg()">🔗 Share</button>
+<button id="printBtn" onclick="printImg()">🖨️ Print</button>
   </div>
 </div>
 
@@ -151,6 +153,7 @@ modal.addEventListener("click", e=>{
 
 // ✅ Download
 async function downloadImg(){
+    document.getElementById("downloadBtn").innerText = "Waiting...";
   const currentImage = getCurrentImage();
 
   let res = await fetch(currentImage.src + "?t=" + Date.now());
@@ -168,6 +171,7 @@ async function downloadImg(){
 
 // ✅ Share
 async function shareImg(){
+     document.getElementById("shareBtn").innerText = "Sharing...";
   const currentImage = getCurrentImage();
 
   let res = await fetch(currentImage.src);
@@ -189,7 +193,7 @@ async function shareImg(){
 
 // ✅ Print
 function printImg(){
-
+ document.getElementById("printBtn").innerText = "Preparing...";
   const currentImage = getCurrentImage();
 
   closeModal();
@@ -223,7 +227,7 @@ function printImg(){
 
               setTimeout(function(){
                 window.close();
-              },1500);
+              },0);
             };
           <\/script>
 
@@ -237,6 +241,7 @@ function printImg(){
 }
 
 </script>
+
 
 </body>
 </html>
