@@ -1,7 +1,7 @@
 {{ define "main" }}
   {{- $type := .Type -}}
-  {{- if eq $type "yojna" -}}
-    {{ partial "farmate/yojna.html" . }}
+  {{- if eq $type "poster" -}}
+    {{ partial "farmate/poster.html" . }}
   {{- else if eq $type "info" -}}
     {{ partial "farmate/info.html" . }}
   {{- else if eq $type "form" -}}

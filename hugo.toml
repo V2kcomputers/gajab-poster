@@ -2,5 +2,6 @@ baseURL = 'https://poster.yojnaportal.com/'
 languageCode = 'en-us'
 title = 'My New Hugo Site'
 theme = "postertheme"
+enableGitInfo = true
 [outputs]
   home = ["HTML", "JSON", "RSS"]

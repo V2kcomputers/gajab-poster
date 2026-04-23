@@ -1,7 +1,8 @@
-baseURL = 'https://example.org/'
+baseURL = 'https://poster.yojnaportal.com/'
 languageCode = 'en-US'
 title = 'My New Hugo Site'
 theme = "postertheme"
+enableGitInfo = true
 [menus]
   [[menus.main]]
     name = 'Home'

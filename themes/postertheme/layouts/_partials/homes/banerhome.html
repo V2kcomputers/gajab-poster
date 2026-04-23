@@ -1,0 +1,85 @@
+{{ $types := slice "Banking" "Schemes" "forms"}}
+
+{{ $titles := dict 
+  "Banking" "🏦 Banking Related Posters"
+  "Schemes" "📄 Schemes & Jobs"
+  "forms" "📄 Entry & Forms"
+}}
+
+<!-- Step 1: Build category data -->
+{{ $catData := slice }}
+
+{{ range $types }}
+  {{ $pages := where $.Site.RegularPages "Params.banertype" . }}
+  {{ $sorted := sort $pages ".Lastmod" "desc" }}
+
+  {{ if gt (len $sorted) 0 }}
+    {{ $latest := index $sorted 0 }}
+
+    {{ $catData = $catData | append (dict 
+      "type" . 
+      "posts" $sorted 
+      "latest" $latest.Lastmod
+    ) }}
+  {{ end }}
+{{ end }}
+<!-- Step 2: Sort categories by latest update -->
+{{ $catData = sort $catData "latest" "desc" }}
+
+<!-- Step 3: Render -->
+{{ range $catData }}
+
+  {{ $type := .type }}
+  {{ $allPosts := .posts }}
+  {{ $posts := first 10 $allPosts }}
+
+  <div class="category">
+
+    <!-- Title -->
+    <h2>
+      {{ with index $titles $type }}
+        {{ . }}
+      {{ else }}
+        {{ $type }} Posters
+      {{ end }}
+    </h2>
+
+    <!-- Gallery -->
+    <div class="gallery">
+      {{ range $posts }}
+
+        <a href="{{ .RelPermalink }}" class="gallery-item">
+
+          <img src="{{ .Params.imagePoster }}" 
+               alt="{{ .Params.PosterName }}" 
+               loading="lazy">
+
+          <!-- NEW Badge -->
+          {{ if and 
+              (eq .Date.Year now.Year) 
+              (eq .Date.Month now.Month) 
+              (eq .Date.Day now.Day) 
+          }}
+            <span class="badge-new">NEW</span>
+          {{ end }}
+
+          <div class="icon">{{ .Params.icon }}</div> 
+          <div class="image-title">{{ .Params.PosterName }}</div>
+
+        </a>
+
+      {{ end }}
+    </div>
+
+    <!-- View More -->
+    {{ if gt (len $allPosts) 10 }}
+      <div class="view-more-wrap">
+        <a href="/banertype/{{ lower $type }}/" class="view-more-btn">
+          View More →
+        </a>
+      </div>
+    {{ end }}
+
+  </div>
+
+{{ end }}
