@@ -1,8 +1,227 @@
+{{ define "main" }}
 <style>
-    :root { --primary-color: #5c6bc0; --hover-color: #3f51b5; --text-color: #333; --light-bg: #f5f5f5; } .search-container { width: 100%; max-width: 600px; margin: 0 auto; padding: 20px; border-radius: 8px; background-color: white; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); } .search-form { display: flex; position: relative; } .search-input { flex: 1; padding: 14px 20px; border: 2px solid #e0e0e0; border-radius: 50px; font-size: 16px; color: var(--text-color); background-color: white; transition: all 0.3s ease; width: 100%; } .search-input:focus { border-color: var(--primary-color); outline: none; box-shadow: 0 0 0 3px rgba(92, 107, 192, 0.2); } .search-input::placeholder { color: #9e9e9e; } .search-button { position: absolute; right: 5px; top: 5px; background-color: var(--primary-color); color: white; border: none; border-radius: 50px; padding: 10px 24px; font-size: 16px; cursor: pointer; transition: background-color 0.3s ease; } .search-button:hover { background-color: var(--hover-color); } @media (max-width: 500px) { .search-button { padding: 10px 18px; font-size: 14px; } .search-input { padding: 12px 18px; font-size: 14px; } } .category { margin-bottom: 30px; } .category h2 { margin: 10px 0; padding-left: 10px; color: #444; } .gallery { display: flex; overflow-x: auto; padding: 10px; gap: 15px; } .gallery::-webkit-scrollbar { height: 8px; } .gallery::-webkit-scrollbar-thumb { background: #ccc; border-radius: 4px; } .gallery-item { position: relative; min-width: 180px; border-radius: 10px; overflow: hidden; background-color: white; box-shadow: 0 2px 5px rgba(0,0,0,0.1); cursor: pointer; flex-shrink: 0; } .gallery-item img { width: 100%; height: 180px; object-fit: cover; } .gallery-item .icon { position: absolute; bottom: 50px; right: 10px; background-color: rgba(255, 255, 255, 0.8); border-radius: 50%; width: 24px; height: 24px; font-size: 16px; display: flex; align-items: center; justify-content: center; } .image-title { padding: 10px; text-align: center; font-size: 14px; color: #333; } /* Modal */ .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.9); justify-content: center; align-items: center; z-index: 999; flex-direction: column; } .modal img { max-width: 90%; max-height: 80vh; } .modal-buttons { margin-top: 20px; display: flex; gap: 10px; flex-wrap: wrap; } .modal-button { padding: 10px 16px; border: none; border-radius: 6px; font-weight: bold; color: white; cursor: pointer; } #downloadBtn { background-color: #2196F3; } #shareBtn { background-color: #e91e63; } #printBtn { background-color: #ff9800; } #detailBtn { background-color: #013508; } .close { position: absolute; top: 20px; right: 30px; font-size: 30px; color: white; cursor: pointer; } table.gsc-search-box td, .gsc-clear-button {display:none;} @media (max-width: 600px) { .gallery-item { min-width: 150px; } }
+    :root {
+  --primary-color: #5c6bc0;
+  --hover-color: #3f51b5;
+  --text-color: #333;
+  --light-bg: #f5f5f5;
+}
+
+/* Search */
+.search-container {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  border-radius: 8px;
+  background-color: white;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.search-form {
+  display: flex;
+  position: relative;
+}
+
+.search-input {
+  flex: 1;
+  padding: 14px 20px;
+  border: 2px solid #e0e0e0;
+  border-radius: 50px;
+  font-size: 16px;
+  color: var(--text-color);
+  background-color: white;
+  transition: 0.3s;
+}
+
+.search-input:focus {
+  border-color: var(--primary-color);
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(92, 107, 192, 0.2);
+}
+
+.search-button {
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 50px;
+  padding: 10px 24px;
+  cursor: pointer;
+}
+
+/* Category */
+.category {
+  margin-bottom: 30px;
+}
+
+.category h2 {
+  margin: 10px 0;
+  padding-left: 10px;
+  color: #444;
+}
+
+/* Gallery */
+.gallery {
+  display: flex;
+  overflow-x: auto;
+  padding: 10px;
+  gap: 15px;
+}
+
+/* Scrollbar */
+.gallery::-webkit-scrollbar {
+  height: 6px;
+}
+.gallery::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 4px;
+}
+
+/* Card */
+.gallery-item {
+  position: relative;
+  min-width: 180px;
+  border-radius: 10px;
+  overflow: hidden;
+  background-color: white;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  flex-shrink: 0;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.2s ease;
+}
+
+/* Hover effect 🔥 */
+.gallery-item:hover {
+  transform: translateY(-5px);
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+/* Icon */
+.gallery-item .icon {
+  position: absolute;
+  bottom: 50px;
+  right: 10px;
+  background: rgba(255,255,255,0.9);
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Title */
+.image-title {
+  padding: 10px;
+  text-align: center;
+  font-size: 14px;
+  color: #333;
+}
+
+/* 🔥 BADGES */
+.badge-new {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  background: red;
+  color: #fff;
+  font-size: 10px;
+  padding: 3px 6px;
+  border-radius: 4px;
+}
+
+.badge-update {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: orange;
+  color: #fff;
+  font-size: 10px;
+  padding: 3px 6px;
+  border-radius: 4px;
+}
+
+/* View More */
+.view-more-wrap {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.view-more-btn {
+  display: inline-block;
+  padding: 8px 18px;
+  background: var(--primary-color);
+  color: #fff;
+  border-radius: 20px;
+  text-decoration: none;
+  font-size: 14px;
+  transition: 0.3s;
+}
+
+.view-more-btn:hover {
+  background: var(--hover-color);
+}
+
+/* Modal */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.9);
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  z-index: 999;
+}
+
+.modal img {
+  max-width: 90%;
+  max-height: 80vh;
+}
+
+.close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 30px;
+  color: white;
+  cursor: pointer;
+}
+.badge-new {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  background: red;
+  color: #fff;
+  font-size: 10px;
+  padding: 3px 6px;
+  border-radius: 4px;
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .gallery-item {
+    min-width: 150px;
+  }
+}
 </style>
+
 
 
 {{ partial "homes/banerhome.html" . }}
 
 
+{{ end }}

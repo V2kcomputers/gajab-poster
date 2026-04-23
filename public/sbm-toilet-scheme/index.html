@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en-us" dir="ltr">
-
 <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
   
 <meta charset="UTF-8">
@@ -54,7 +53,7 @@
 
 
 <meta property="article:published_time" content="2026-04-23T08:45:03&#43;05:30">
-<meta property="article:modified_time" content="2026-04-23T08:45:03&#43;05:30">
+<meta property="article:modified_time" content="2026-04-23T12:12:50&#43;05:30">
 
 
 
@@ -153,18 +152,214 @@
 
       </header>
   <main>
-    
-  <h1>Sbm Toilet Scheme</h1>
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Image Popup Tool</title>
 
-  
-  
-  <time datetime="2026-04-23T08:45:03&#43;05:30">April 23, 2026</time>
-
-   
+<style>
 
 
-  
+ 
+.imgcontainer{
+  text-align:center;
+  max-width:900px;
+  width:100%;
+    padding:20px;
+    margin: auto;
 
+}
+
+ 
+.preview{
+  display:flex;
+  justify-content:center;
+}
+
+.preview img{
+  max-width:60%;
+  border:6px solid #5c6bc0;
+  cursor:pointer;
+  border-radius:10px;
+  transition:0.3s;
+}
+
+.preview img:hover{
+  transform:scale(1.03);
+}
+
+ 
+.top-actions{
+  margin-bottom:15px;
+}
+
+.top-actions button{
+  padding:10px 15px;
+  margin:5px;
+  border:none;
+  border-radius:8px;
+  background:#5c6bc0;
+  color:#fff;
+  cursor:pointer;
+}
+
+.top-actions button:hover{
+  background:#3f51b5;
+}
+
+ 
+.modal{
+  display:none;
+  position:fixed;
+  z-index:99999;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:rgba(0,0,0,0.85);
+
+  justify-content:center;
+  align-items:center;
+  flex-direction:column;
+}
+
+ 
+.modal-content{
+  max-width:95vw;
+  max-height:85vh;
+  object-fit:contain;
+  border:8px solid #fff;
+  border-radius:10px;
+}
+
+ 
+.close{
+  position:absolute;
+  top:20px;
+  right:30px;
+  color:#fff;
+  font-size:32px;
+  cursor:pointer;
+}
+
+ 
+.actions{
+  margin-top:15px;
+}
+
+.actions button{
+  padding:10px 15px;
+  margin:5px;
+  border:none;
+  border-radius:8px;
+  background:#5c6bc0;
+  color:#fff;
+  cursor:pointer;
+}
+
+.actions button:hover{
+  background:#3f51b5;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="imgcontainer">
+<h2>Sbm Toilet Scheme</h2>
+
+
+<div class="top-actions">
+  <button onclick="openModal()">👁 View</button>
+  <button onclick="downloadImg()">⬇️ Download</button>
+  <button onclick="shareImg()">🔗 Share</button>
+  <button onclick="printImg()">🖨️ Print</button>
+</div>
+
+
+<div class="preview">
+  <img id="previewImg" src="https://cdn.yojnaportal.com/Banner/25x32/sbm-scheme-poster.webp" onclick="openModal()">
+</div>
+
+
+<div id="modal" class="modal">
+  <span class="close" onclick="closeModal()">×</span>
+
+  <img class="modal-content" id="modalImg">
+
+  <div class="actions">
+    <button onclick="downloadImg()">⬇️ Download</button>
+    <button onclick="shareImg()">🔗 Share</button>
+    <button onclick="printImg()">🖨️ Print</button>
+  </div>
+</div>
+
+</div>
+
+<script>
+
+let preview = document.getElementById("previewImg");
+let modal = document.getElementById("modal");
+let modalImg = document.getElementById("modalImg");
+
+
+function openModal(){
+  if(!preview.src) return;
+  modal.style.display = "flex";
+  modalImg.src = preview.src;
+}
+
+
+function closeModal(){
+  modal.style.display = "none";
+}
+
+
+async function downloadImg(){
+  let res = await fetch(preview.src + "?t=" + new Date().getTime());
+  let blob = await res.blob();
+
+  let url = URL.createObjectURL(blob);
+
+  let a = document.createElement("a");
+  a.href = url;
+  a.download = "poster.png";
+  a.click();
+
+  URL.revokeObjectURL(url);
+}
+
+
+async function shareImg(){
+  let res = await fetch(preview.src);
+  let blob = await res.blob();
+
+  let file = new File([blob], "poster.png", {type: blob.type});
+
+  if(navigator.canShare && navigator.canShare({files:[file]})){
+    await navigator.share({
+      title:"Poster",
+      files:[file]
+    });
+  }else{
+    alert("Sharing not supported on this device");
+  }
+}
+
+
+function printImg(){
+  let win = window.open("");
+  win.document.write(`<img src="${preview.src}" style="width:100%">`);
+  win.print();
+}
+
+</script>
+
+</body>
+</html>
 
   </main>
   <footer>

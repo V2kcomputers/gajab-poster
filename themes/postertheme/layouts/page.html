@@ -1,10 +1,24 @@
 {{ define "main" }}
-  <h1>{{ .Title }}</h1>
-
-  {{ $dateMachine := .Date | time.Format "2006-01-02T15:04:05-07:00" }}
-  {{ $dateHuman := .Date | time.Format ":date_long" }}
-  <time datetime="{{ $dateMachine }}">{{ $dateHuman }}</time>
-
-  {{ .Content }}
-  {{ partial "terms.html" (dict "taxonomy" "tags" "page" .) }}
+  {{- $type := .Type -}}
+  {{- if eq $type "poster" -}}
+    {{ partial "farmate/poster.html" . }}
+  {{- else if eq $type "info" -}}
+    {{ partial "farmate/info.html" . }}
+  {{- else if eq $type "form" -}}
+    {{ partial "farmate/form.html" . }}
+  {{- else if eq $type "tools" -}}
+    {{ partial "farmate/tools.html" . }}
+  {{- else if eq $type "exams" -}}
+    {{ partial "farmate/exams.html" . }}
+  {{- else if eq $type "howto" -}}
+    {{ partial "farmate/howto.html" . }}
+     {{- else if eq $type "Scheme" -}}
+    {{ partial "farmate/Scheme.html" . }}
+      {{- else if eq $type "Recruitment" -}}
+    {{ partial "farmate/Recruitment.html" . }}
+     {{- else if eq $type "jobsupdate" -}}
+    {{ partial "farmate/jobsupdate.html" . }}
+  {{- else -}}
+    {{ partial "farmate/default.html" . }}
+  {{- end }}
 {{ end }}

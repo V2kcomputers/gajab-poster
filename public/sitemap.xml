@@ -2,17 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://localhost:1313/daily-fast-shop-enteries/</loc>
-    <lastmod>2026-04-23T10:59:23+05:30</lastmod>
+    <loc>http://localhost:1313/fast-shop-entry-forms/</loc>
+    <lastmod>2026-04-23T12:26:31+05:30</lastmod>
   </url><url>
     <loc>http://localhost:1313/forms/</loc>
-    <lastmod>2026-04-23T10:59:23+05:30</lastmod>
+    <lastmod>2026-04-23T12:26:31+05:30</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/daily-fast-shop-enteries/</loc>
+    <lastmod>2026-04-23T12:12:50+05:30</lastmod>
   </url><url>
     <loc>http://localhost:1313/poster/</loc>
-    <lastmod>2026-04-23T08:45:03+05:30</lastmod>
+    <lastmod>2026-04-23T12:12:50+05:30</lastmod>
   </url><url>
     <loc>http://localhost:1313/sbm-toilet-scheme/</loc>
-    <lastmod>2026-04-23T08:45:03+05:30</lastmod>
+    <lastmod>2026-04-23T12:12:50+05:30</lastmod>
   </url><url>
     <loc>http://localhost:1313/all-tools/</loc>
     <lastmod>2026-04-22T18:41:34+05:30</lastmod>

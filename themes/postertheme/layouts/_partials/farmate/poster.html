@@ -6,71 +6,42 @@
 <title>Image Popup Tool</title>
 
 <style>
-body {
-  font-family: Arial;
-  background:#f4f6fb;
+
+
+/* Main Container Center */
+.imgcontainer{
   text-align:center;
-  padding:20px;
-}
-
-.container {
-  max-width:700px;
-  margin:auto;
-  background:#fff;
-  padding:20px;
-  border-radius:12px;
-}
-
-.preview img {
-  max-width:100%;
-  border:6px solid #5c6bc0;
-  cursor:pointer;
-}
-
-/* ✅ MODAL FIX */
-.modal {
-  display:none;
-  position:fixed;
-  z-index:999;
-  top:0;
-  left:0;
+  max-width:900px;
   width:100%;
-  height:100%;
-  background:rgba(0,0,0,0.85);
+    padding:20px;
+    margin: auto;
 
+}
+
+/* Preview Image Center */
+.preview{
   display:flex;
   justify-content:center;
-  align-items:center;
-  flex-direction:column;
-
-  overflow:auto;
 }
 
-/* ✅ IMAGE FULL VISIBLE */
-.modal-content {
-  max-width:95vw;
-  max-height:85vh;
-  object-fit:contain;
-  border:8px solid #fff;
-  border-radius:10px;
-}
-
-/* Close button */
-.close {
-  position:absolute;
-  top:20px;
-  right:30px;
-  color:#fff;
-  font-size:32px;
+.preview img{
+  max-width:60%;
+  border:6px solid #5c6bc0;
   cursor:pointer;
+  border-radius:10px;
+  transition:0.3s;
 }
 
-/* Buttons */
-.actions {
-  margin-top:15px;
+.preview img:hover{
+  transform:scale(1.03);
 }
 
-.actions button {
+/* Top Buttons */
+.top-actions{
+  margin-bottom:15px;
+}
+
+.top-actions button{
   padding:10px 15px;
   margin:5px;
   border:none;
@@ -80,28 +51,87 @@ body {
   cursor:pointer;
 }
 
-.actions button:hover {
+.top-actions button:hover{
   background:#3f51b5;
 }
+
+/* MODAL */
+.modal{
+  display:none;
+  position:fixed;
+  z-index:99999;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:rgba(0,0,0,0.85);
+
+  justify-content:center;
+  align-items:center;
+  flex-direction:column;
+}
+
+/* Image */
+.modal-content{
+  max-width:95vw;
+  max-height:85vh;
+  object-fit:contain;
+  border:8px solid #fff;
+  border-radius:10px;
+}
+
+/* Close */
+.close{
+  position:absolute;
+  top:20px;
+  right:30px;
+  color:#fff;
+  font-size:32px;
+  cursor:pointer;
+}
+
+/* Bottom Actions */
+.actions{
+  margin-top:15px;
+}
+
+.actions button{
+  padding:10px 15px;
+  margin:5px;
+  border:none;
+  border-radius:8px;
+  background:#5c6bc0;
+  color:#fff;
+  cursor:pointer;
+}
+
+.actions button:hover{
+  background:#3f51b5;
+}
+
 </style>
 </head>
 
 <body>
 
-<div class="container">
+<div class="imgcontainer">
+<h2>{{ .Title }}</h2>
 
-<h2>{{.Title }}</h2>
-
-<div class="preview">
-  <!-- ✅ Hugo Dynamic Image -->
-  <img id="previewImg" src="{{ .Params.imagePoster| relURL }}">
+<!-- Top Buttons -->
+<div class="top-actions">
+  <button onclick="openModal()">👁 View</button>
+  <button onclick="downloadImg()">⬇️ Download</button>
+  <button onclick="shareImg()">🔗 Share</button>
+  <button onclick="printImg()">🖨️ Print</button>
 </div>
 
+<!-- Preview Image -->
+<div class="preview">
+  <img id="previewImg" src="{{ .Params.imagePoster | relURL }}" onclick="openModal()">
 </div>
 
 <!-- MODAL -->
 <div id="modal" class="modal">
-
   <span class="close" onclick="closeModal()">×</span>
 
   <img class="modal-content" id="modalImg">
@@ -111,6 +141,7 @@ body {
     <button onclick="shareImg()">🔗 Share</button>
     <button onclick="printImg()">🖨️ Print</button>
   </div>
+</div>
 
 </div>
 
@@ -120,8 +151,8 @@ let preview = document.getElementById("previewImg");
 let modal = document.getElementById("modal");
 let modalImg = document.getElementById("modalImg");
 
-// Open Modal
-preview.onclick = function(){
+// ✅ Open Modal (Button + Image click both)
+function openModal(){
   if(!preview.src) return;
   modal.style.display = "flex";
   modalImg.src = preview.src;
@@ -132,8 +163,7 @@ function closeModal(){
   modal.style.display = "none";
 }
 
-
-// ⬇️ Download Latest Image (No Cache)
+// ⬇️ Download
 async function downloadImg(){
   let res = await fetch(preview.src + "?t=" + new Date().getTime());
   let blob = await res.blob();
@@ -147,7 +177,6 @@ async function downloadImg(){
 
   URL.revokeObjectURL(url);
 }
-
 
 // 🔗 Share
 async function shareImg(){
@@ -165,7 +194,6 @@ async function shareImg(){
     alert("Sharing not supported on this device");
   }
 }
-
 
 // 🖨️ Print
 function printImg(){
