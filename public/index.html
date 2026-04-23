@@ -157,8 +157,9 @@
       </header>
   <main>
     
-<style>
-    :root {
+ 
+ <style>
+:root {
   --primary-color: #5c6bc0;
   --hover-color: #3f51b5;
   --text-color: #333;
@@ -339,17 +340,20 @@
   width: 100%;
   height: 100%;
   background: rgba(0,0,0,0.9);
+
+  display: flex;
   justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  z-index: 999;
+  align-items: flex-start;    
+  overflow-y: auto;           
+  padding-top: 10px;
 }
 
 .modal img {
-  max-width: 90%;
-  max-height: 80vh;
+  width: 95%;
+  height: auto;               
+  display: block;
+  margin: 0 auto;
 }
-
 .close {
   position: absolute;
   top: 20px;
@@ -376,8 +380,6 @@
   }
 }
 </style>
-
-
 
 
 
