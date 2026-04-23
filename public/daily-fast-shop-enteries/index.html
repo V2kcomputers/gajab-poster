@@ -161,15 +161,12 @@
 
 <style>
 
-
  
 .imgcontainer{
   text-align:center;
   max-width:900px;
-  width:100%;
-    padding:20px;
-    margin: auto;
-
+  margin:auto;
+  padding:20px;
 }
 
  
@@ -181,9 +178,9 @@
 .preview img{
   max-width:60%;
   border:6px solid #5c6bc0;
-  cursor:pointer;
   border-radius:10px;
-  transition:0.3s;
+  cursor:pointer;
+  transition:.3s;
 }
 
 .preview img:hover{
@@ -191,11 +188,8 @@
 }
 
  
-.top-actions{
-  margin-bottom:15px;
-}
-
-.top-actions button{
+.top-actions button,
+.actions button{
   padding:10px 15px;
   margin:5px;
   border:none;
@@ -205,7 +199,8 @@
   cursor:pointer;
 }
 
-.top-actions button:hover{
+.top-actions button:hover,
+.actions button:hover{
   background:#3f51b5;
 }
 
@@ -219,22 +214,18 @@
   width:100%;
   height:100%;
   background:rgba(0,0,0,0.85);
-
   justify-content:center;
   align-items:center;
   flex-direction:column;
 }
 
- 
 .modal-content{
   max-width:95vw;
   max-height:85vh;
-  object-fit:contain;
   border:8px solid #fff;
   border-radius:10px;
 }
 
- 
 .close{
   position:absolute;
   top:20px;
@@ -244,33 +235,13 @@
   cursor:pointer;
 }
 
- 
-.actions{
-  margin-top:15px;
-}
-
-.actions button{
-  padding:10px 15px;
-  margin:5px;
-  border:none;
-  border-radius:8px;
-  background:#5c6bc0;
-  color:#fff;
-  cursor:pointer;
-}
-
-.actions button:hover{
-  background:#3f51b5;
-}
-
 </style>
 </head>
 
 <body>
 
 <div class="imgcontainer">
-<h2>Daily Fast Shop Enteries</h2>
-
+<h2 id="title">Daily Fast Shop Enteries</h2>
 
 <div class="top-actions">
   <button onclick="openModal()">👁 View</button>
@@ -279,15 +250,12 @@
   <button onclick="printImg()">🖨️ Print</button>
 </div>
 
-
 <div class="preview">
   <img id="previewImg" src="https://cdn.yojnaportal.com/forms/daily-fast-entry.webp" onclick="openModal()">
 </div>
 
-
 <div id="modal" class="modal">
   <span class="close" onclick="closeModal()">×</span>
-
   <img class="modal-content" id="modalImg">
 
   <div class="actions">
@@ -306,27 +274,46 @@ let modal = document.getElementById("modal");
 let modalImg = document.getElementById("modalImg");
 
 
+function getCurrentImage(){
+  return {
+    src: preview.src,
+    title: document.getElementById("title").innerText || "poster"
+  };
+}
+
+
 function openModal(){
   if(!preview.src) return;
   modal.style.display = "flex";
   modalImg.src = preview.src;
 }
 
-
 function closeModal(){
   modal.style.display = "none";
 }
 
 
+document.addEventListener("keydown", e=>{
+  if(e.key==="Escape") closeModal();
+});
+
+
+modal.addEventListener("click", e=>{
+  if(e.target===modal) closeModal();
+});
+
+
 async function downloadImg(){
-  let res = await fetch(preview.src + "?t=" + new Date().getTime());
+  const currentImage = getCurrentImage();
+
+  let res = await fetch(currentImage.src + "?t=" + Date.now());
   let blob = await res.blob();
 
   let url = URL.createObjectURL(blob);
 
   let a = document.createElement("a");
   a.href = url;
-  a.download = "poster.png";
+  a.download = currentImage.title + ".gif";
   a.click();
 
   URL.revokeObjectURL(url);
@@ -334,26 +321,72 @@ async function downloadImg(){
 
 
 async function shareImg(){
-  let res = await fetch(preview.src);
+  const currentImage = getCurrentImage();
+
+  let res = await fetch(currentImage.src);
   let blob = await res.blob();
 
-  let file = new File([blob], "poster.png", {type: blob.type});
+  let file = new File([blob], currentImage.title + ".gif", {
+    type: blob.type
+  });
 
   if(navigator.canShare && navigator.canShare({files:[file]})){
     await navigator.share({
-      title:"Poster",
+      title: currentImage.title,
       files:[file]
     });
   }else{
-    alert("Sharing not supported on this device");
+    alert("Sharing not supported");
   }
 }
 
 
 function printImg(){
-  let win = window.open("");
-  win.document.write(`<img src="${preview.src}" style="width:100%">`);
-  win.print();
+
+  const currentImage = getCurrentImage();
+
+  closeModal();
+
+  setTimeout(()=>{
+
+    const printWindow = window.open('', '_blank');
+
+    printWindow.document.write(`
+      <html>
+        <head>
+          <title>${currentImage.title}</title>
+          <style>
+            body{margin:0;text-align:center;}
+            img{max-width:100%;max-height:100vh;}
+          </style>
+        </head>
+        <body>
+
+          <img id="img" src="${currentImage.src}">
+
+          \x3Cscript>
+            const img = document.getElementById("img");
+
+            img.onload = function(){
+              window.print();
+
+              window.onafterprint = function(){
+                window.close();
+              };
+
+              setTimeout(function(){
+                window.close();
+              },1500);
+            };
+          <\/script>
+
+        </body>
+      </html>
+    `);
+
+    printWindow.document.close();
+
+  },0);
 }
 
 </script>
