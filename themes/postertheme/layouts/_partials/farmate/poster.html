@@ -6,11 +6,19 @@
 <title>Image Popup Tool</title>
 
 <style>
-body {font-family:Arial;background:#f4f6fb;text-align:center;padding:20px;}
 
+/* Container */
 .imgcontainer{
+  text-align:center;
   max-width:900px;
   margin:auto;
+  padding:20px;
+}
+
+/* Preview */
+.preview{
+  display:flex;
+  justify-content:center;
 }
 
 .preview img{
@@ -20,9 +28,14 @@ body {font-family:Arial;background:#f4f6fb;text-align:center;padding:20px;}
   cursor:pointer;
   transition:.3s;
 }
-.preview img:hover{transform:scale(1.03);}
 
-button{
+.preview img:hover{
+  transform:scale(1.03);
+}
+
+/* Buttons */
+.top-actions button,
+.actions button{
   padding:10px 15px;
   margin:5px;
   border:none;
@@ -31,15 +44,21 @@ button{
   color:#fff;
   cursor:pointer;
 }
-button:hover{background:#3f51b5;}
+
+.top-actions button:hover,
+.actions button:hover{
+  background:#3f51b5;
+}
 
 /* Modal */
 .modal{
   display:none;
   position:fixed;
   z-index:99999;
-  top:0;left:0;
-  width:100%;height:100%;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
   background:rgba(0,0,0,0.85);
   justify-content:center;
   align-items:center;
@@ -61,52 +80,47 @@ button:hover{background:#3f51b5;}
   font-size:32px;
   cursor:pointer;
 }
+
 </style>
 </head>
 
 <body>
 
 <div class="imgcontainer">
-
 <h2 id="title">{{ .Title }}</h2>
 
-<!-- TOP BUTTONS -->
-<div>
-<a href="{{ with .Params.link }}{{ . }}{{ else }}https://yojnaportal.com/search?q={{ .Title | urlize }}{{ end }}" target="_blank">
-  <button>🔗 Link</button>
+
+<div class="top-actions">
+ <a href="{{ with .Params.link }}{{ . }}{{ else }}https://yojnaportal.com/search?q={{ .Title | urlize }}{{ end }}" target="_blank">
+  <button id="viewBtn">🔗 Link</button>
 </a>
-
 <button onclick="downloadImg(this)">⬇️ Download</button>
 <button onclick="shareImg(this)">🔗 Share</button>
 <button onclick="printImg(this)">🖨️ Print</button>
 </div>
 
-<!-- IMAGE -->
 <div class="preview">
-<img id="previewImg" src="{{ .Params.imagePoster | relURL }}" onclick="openModal()">
+  <img id="previewImg" src="{{ .Params.imagePoster | relURL }}" onclick="openModal()">
 </div>
 
-<!-- MODAL -->
 <div id="modal" class="modal">
-<span class="close" onclick="closeModal()">×</span>
-<img class="modal-content" id="modalImg">
+  <span class="close" onclick="closeModal()">×</span>
+  <img class="modal-content" id="modalImg">
 
-<div>
-<button onclick="downloadImg(this)">⬇️ Download</button>
+  <div class="actions">
+  <button onclick="downloadImg(this)">⬇️ Download</button>
 <button onclick="shareImg(this)">🔗 Share</button>
 <button onclick="printImg(this)">🖨️ Print</button>
-</div>
+  </div>
 </div>
 
 </div>
 
 <script>
-
 let preview = document.getElementById("previewImg");
 let modal = document.getElementById("modal");
 let modalImg = document.getElementById("modalImg");
 
-// ✅ Get Image
 function getCurrentImage(){
   return {
     src: preview.src,
@@ -114,26 +128,18 @@ function getCurrentImage(){
   };
 }
 
-// ✅ Modal
+// OPEN MODAL
 function openModal(){
   modal.style.display = "flex";
   modalImg.src = preview.src;
 }
+
+// CLOSE
 function closeModal(){
   modal.style.display = "none";
 }
 
-// Close on ESC
-document.addEventListener("keydown", e=>{
-  if(e.key==="Escape") closeModal();
-});
-
-// Close outside click
-modal.addEventListener("click", e=>{
-  if(e.target===modal) closeModal();
-});
-
-// ✅ DOWNLOAD
+// ================= DOWNLOAD =================
 async function downloadImg(btn){
   btn.innerText = "Waiting...";
 
@@ -151,6 +157,7 @@ async function downloadImg(btn){
     a.click();
 
     URL.revokeObjectURL(url);
+
   }catch(e){
     alert("Download failed");
   }
@@ -158,42 +165,47 @@ async function downloadImg(btn){
   btn.innerText = "⬇️ Download";
 }
 
-// ✅ SHARE
-shareBtn.onclick = async () => {
-  shareBtn.innerText = "Sharing...";
+// ================= SHARE =================
+async function shareImg(btn){
+  btn.innerText = "Sharing...";
+
+  const img = {
+    src: document.getElementById("previewImg").src,
+    title: document.getElementById("title").innerText || "image"
+  };
 
   try {
-    const response = await fetch(currentImage.src + "?t=" + Date.now());
-    const blob = await response.blob();
+    const res = await fetch(img.src + "?t=" + Date.now());
 
-    const file = new File([blob], currentImage.title + ".gif", {
+    if (!res.ok) throw new Error("Fetch failed");
+
+    const blob = await res.blob();
+
+    const file = new File([blob], img.title + ".gif", {
       type: blob.type || "image/gif"
     });
 
-    // ✅ Try native share
+    // ✅ ONLY FILE SHARE
     if (navigator.canShare && navigator.canShare({ files: [file] })) {
+
       await navigator.share({
-        title: currentImage.title,
-        text: currentImage.title,
+        title: img.title,
         files: [file]
       });
 
     } else {
-      // 🔥 Fallback (Desktop / unsupported devices)
-      window.open(currentImage.src, "_blank");
+      alert("❌ आपका device file share support नहीं करता");
     }
 
   } catch (err) {
     console.error("Share Error:", err);
-
-    // 🔥 Backup fallback
-    window.open(currentImage.src, "_blank");
+    alert("❌ Sharing failed (CORS / Device issue)");
   }
 
-  shareBtn.innerText = "🔗 Share";
-};
+  btn.innerText = "🔗 Share";
+}
 
-// ✅ PRINT
+// ================= PRINT =================
 function printImg(btn){
   btn.innerText = "Preparing...";
 
@@ -203,17 +215,10 @@ function printImg(btn){
 
   win.document.write(`
     <html>
-    <head>
-      <title>${img.title}</title>
-      <style>
-        body{text-align:center;margin:0;}
-        img{max-width:100%;max-height:100vh;}
-      </style>
-    </head>
-    <body>
-      <img src="${img.src}">
+    <body style="margin:0;text-align:center;">
+      <img src="${img.src}" style="max-width:100%;">
       <script>
-        window.onload = function(){
+        window.onload=function(){
           window.print();
           setTimeout(()=>window.close(),500);
         }
@@ -226,8 +231,8 @@ function printImg(btn){
 
   btn.innerText = "🖨️ Print";
 }
-
 </script>
+
 
 </body>
 </html>

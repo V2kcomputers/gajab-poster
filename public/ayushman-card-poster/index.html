@@ -272,136 +272,197 @@
 
 <script>
 
-let preview = document.getElementById("previewImg");
-let modal = document.getElementById("modal");
-let modalImg = document.getElementById("modalImg");
+const modal = document.getElementById("imageModal");
+const modalImage = document.getElementById("modalImage");
+const closeModal = document.getElementById("closeModal");
+
+const downloadBtn = document.getElementById("downloadBtn");
+const shareBtn = document.getElementById("shareBtn");
+const printBtn = document.getElementById("printBtn");
+const detailBtn = document.getElementById("detailBtn");
+
+const categoryContainer = document.getElementById("categoryContainer");
+const searchInput = document.getElementById("searchInput");
+
+let currentImage = {};
 
 
-function getCurrentImage(){
-  return {
-    src: preview.src,
-    title: document.getElementById("title").innerText || "poster"
-  };
+function renderGallery(filteredImages) {
+  categoryContainer.innerHTML = '';
+
+  const categories = [...new Set(filteredImages.map(img => img.category))];
+
+  categories.forEach(cat => {
+    const catDiv = document.createElement('div');
+    catDiv.className = "category";
+
+    catDiv.innerHTML = `
+      <h2>${cat}</h2>
+      <div class="gallery"></div>
+    `;
+
+    const container = catDiv.querySelector('.gallery');
+
+    filteredImages
+      .filter(img => img.category === cat)
+      .forEach(img => {
+
+        const item = document.createElement('div');
+        item.className = "gallery-item";
+
+        item.innerHTML = `
+          <img loading="lazy" src="${img.src}" alt="${img.title}">
+          <div class="icon">${img.icon || ""}</div>
+          <div class="image-title">${img.title}</div>
+        `;
+
+        item.onclick = () => openModal(img);
+        container.appendChild(item);
+      });
+
+    categoryContainer.appendChild(catDiv);
+  });
 }
 
 
-function openModal(){
-  if(!preview.src) return;
+function openModal(img) {
   modal.style.display = "flex";
-  modalImg.src = preview.src;
-}
-
-function closeModal(){
-  modal.style.display = "none";
+  modalImage.src = img.src;
+  currentImage = img;
 }
 
 
-document.addEventListener("keydown", e=>{
-  if(e.key==="Escape") closeModal();
-});
+closeModal.onclick = () => modal.style.display = "none";
+
+window.onclick = e => {
+  if (e.target === modal) modal.style.display = "none";
+};
 
 
-modal.addEventListener("click", e=>{
-  if(e.target===modal) closeModal();
-});
 
 
-async function downloadImg(){
-    document.getElementById("downloadBtn").innerText = "Waiting...";
-  const currentImage = getCurrentImage();
-
-  let res = await fetch(currentImage.src + "?t=" + Date.now());
-  let blob = await res.blob();
-
-  let url = URL.createObjectURL(blob);
-
-  let a = document.createElement("a");
-  a.href = url;
-  a.download = currentImage.title + ".gif";
-  a.click();
-
-  URL.revokeObjectURL(url);
-}
-
-
-async function shareImg(btn){
-  btn.innerText = "Sharing...";
-
-  const currentImage = getCurrentImage();
+downloadBtn.onclick = async () => {
+  downloadBtn.innerText = "Waiting...";
 
   try {
-    let res = await fetch(currentImage.src);
-    let blob = await res.blob();
+    const res = await fetch(currentImage.src + "?t=" + Date.now());
+    const blob = await res.blob();
 
-    let file = new File([blob], currentImage.title + ".gif", {
-      type: blob.type
+    const url = URL.createObjectURL(blob);
+
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = (currentImage.title || "image") + ".gif";
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+
+    URL.revokeObjectURL(url);
+
+  } catch (err) {
+    console.error("Download Error:", err);
+    alert("Download failed");
+  }
+
+  downloadBtn.innerText = "⬇️ Download";
+};
+
+
+
+
+shareBtn.onclick = async () => {
+  shareBtn.innerText = "Sharing...";
+
+  try {
+    const res = await fetch(currentImage.src + "?t=" + Date.now());
+    const blob = await res.blob();
+
+    const file = new File([blob], (currentImage.title || "image") + ".gif", {
+      type: blob.type || "image/gif"
     });
 
+    
     if (navigator.canShare && navigator.canShare({ files: [file] })) {
       await navigator.share({
         title: currentImage.title,
+        text: currentImage.title,
         files: [file]
       });
+
     } else {
-      window.open(currentImage.src, "_blank"); 
+      
+      window.open(currentImage.src, "_blank");
     }
 
-  } catch (e) {
-    console.error(e);
-    alert("Sharing failed");
+  } catch (err) {
+    console.error("Share Error:", err);
+
+    
+    window.open(currentImage.src, "_blank");
   }
 
-  btn.innerText = "🔗 Share";
-}
+  shareBtn.innerText = "🔗 Share";
+};
 
-function printImg(){
- document.getElementById("printBtn").innerText = "Preparing...";
-  const currentImage = getCurrentImage();
 
-  closeModal();
 
-  setTimeout(()=>{
 
-    const printWindow = window.open('', '_blank');
+printBtn.onclick = () => {
+  const win = window.open('', '_blank');
 
-    printWindow.document.write(`
-      <html>
-        <head>
-          <title>${currentImage.title}</title>
-          <style>
-            body{margin:0;text-align:center;}
-            img{max-width:100%;max-height:100vh;}
-          </style>
-        </head>
-        <body>
+  win.document.write(`
+    <html>
+      <head>
+        <title>${currentImage.title}</title>
+        <style>
+          body { margin: 0; text-align: center; }
+          img { max-width: 100%; max-height: 100vh; }
+        </style>
+      </head>
+      <body>
+        <img src="${currentImage.src}">
+        \x3Cscript>
+          window.onload = function(){
+            window.print();
+            setTimeout(()=>window.close(), 500);
+          }
+        <\/script>
+      </body>
+    </html>
+  `);
 
-          <img id="img" src="${currentImage.src}">
+  win.document.close();
+};
 
-          \x3Cscript>
-            const img = document.getElementById("img");
 
-            img.onload = function(){
-              window.print();
 
-              window.onafterprint = function(){
-                window.close();
-              };
 
-              setTimeout(function(){
-                window.close();
-              },0);
-            };
-          <\/script>
+detailBtn.onclick = () => {
+  if (currentImage.link) {
+    window.open(currentImage.link, "_blank");
+  } else {
+    alert("कोई डिटेल लिंक उपलब्ध नहीं है।");
+  }
+};
 
-        </body>
-      </html>
-    `);
 
-    printWindow.document.close();
 
-  },0);
-}
 
+searchInput.addEventListener("input", () => {
+  const keyword = searchInput.value.toLowerCase();
+
+  const filtered = images.filter(img =>
+    img.title.toLowerCase().includes(keyword) ||
+    img.category.toLowerCase().includes(keyword)
+  );
+
+  renderGallery(filtered);
+});
+
+
+
+
+renderGallery(images);
 </script>
 
 
