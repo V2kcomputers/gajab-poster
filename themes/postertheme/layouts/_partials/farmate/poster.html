@@ -81,23 +81,6 @@
   cursor:pointer;
 }
 
-/* Loader */
-#loader{
-  display:none;
-  position:fixed;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
-  background:rgba(0,0,0,0.7);
-  color:#fff;
-  font-size:20px;
-  justify-content:center;
-  align-items:center;
-  flex-direction:column;
-  z-index:999999;
-}
-
 </style>
 </head>
 
@@ -105,6 +88,7 @@
 
 <div class="imgcontainer">
 <h2 id="title">{{ .Title }}</h2>
+
 
 <div class="top-actions">
   <button onclick="openModal()">👁 View</button>
@@ -117,7 +101,6 @@
   <img id="previewImg" src="{{ .Params.imagePoster | relURL }}" onclick="openModal()">
 </div>
 
-<!-- Modal -->
 <div id="modal" class="modal">
   <span class="close" onclick="closeModal()">×</span>
   <img class="modal-content" id="modalImg">
@@ -131,40 +114,13 @@
 
 </div>
 
-<!-- Loader -->
-<div id="loader">
-  <div id="loaderText">Loading...</div>
-  <div id="progressText" style="margin-top:10px;font-size:16px;"></div>
-</div>
-
 <script>
 
 let preview = document.getElementById("previewImg");
 let modal = document.getElementById("modal");
 let modalImg = document.getElementById("modalImg");
 
-const loader = document.getElementById("loader");
-const loaderText = document.getElementById("loaderText");
-const progressText = document.getElementById("progressText");
-
-// Loader functions
-function showLoader(text="Loading..."){
-  loader.style.display = "flex";
-  loaderText.innerText = text;
-  progressText.innerText = "";
-}
-
-function hideLoader(){
-  loader.style.display = "none";
-}
-
-// Image load loader
-showLoader("Image Loading...");
-
-preview.onload = ()=> hideLoader();
-preview.onerror = ()=> loaderText.innerText = "Image load failed ❌";
-
-// Get current image
+// ✅ Get Current Image Info
 function getCurrentImage(){
   return {
     src: preview.src,
@@ -172,7 +128,7 @@ function getCurrentImage(){
   };
 }
 
-// Modal
+// ✅ Modal
 function openModal(){
   if(!preview.src) return;
   modal.style.display = "flex";
@@ -183,44 +139,23 @@ function closeModal(){
   modal.style.display = "none";
 }
 
-// Close events
+// ESC close
 document.addEventListener("keydown", e=>{
   if(e.key==="Escape") closeModal();
 });
 
+// outside click close
 modal.addEventListener("click", e=>{
   if(e.target===modal) closeModal();
 });
 
-// Download with progress
+// ✅ Download
 async function downloadImg(){
   const currentImage = getCurrentImage();
 
-  showLoader("Downloading...");
+  let res = await fetch(currentImage.src + "?t=" + Date.now());
+  let blob = await res.blob();
 
-  const response = await fetch(currentImage.src);
-  const reader = response.body.getReader();
-  const contentLength = +response.headers.get('Content-Length');
-
-  let receivedLength = 0;
-  let chunks = [];
-
-  while(true){
-    const {done, value} = await reader.read();
-    if(done) break;
-
-    chunks.push(value);
-    receivedLength += value.length;
-
-    if(contentLength){
-      let percent = Math.floor((receivedLength / contentLength) * 100);
-      progressText.innerText = percent + "% Downloaded";
-    }else{
-      progressText.innerText = "Downloading...";
-    }
-  }
-
-  let blob = new Blob(chunks);
   let url = URL.createObjectURL(blob);
 
   let a = document.createElement("a");
@@ -229,46 +164,38 @@ async function downloadImg(){
   a.click();
 
   URL.revokeObjectURL(url);
-  hideLoader();
 }
 
-// Share with loader
+// ✅ Share
 async function shareImg(){
   const currentImage = getCurrentImage();
 
-  try{
-    showLoader("Preparing for Share...");
+  let res = await fetch(currentImage.src);
+  let blob = await res.blob();
 
-    let res = await fetch(currentImage.src);
-    let blob = await res.blob();
+  let file = new File([blob], currentImage.title + ".gif", {
+    type: blob.type
+  });
 
-    let file = new File([blob], currentImage.title + ".gif", {
-      type: blob.type
+  if(navigator.canShare && navigator.canShare({files:[file]})){
+    await navigator.share({
+      title: currentImage.title,
+      files:[file]
     });
-
-    if(navigator.canShare && navigator.canShare({files:[file]})){
-      await navigator.share({
-        title: currentImage.title,
-        files:[file]
-      });
-    }else{
-      alert("Sharing not supported");
-    }
-
-  }catch(err){
-    alert("Error sharing");
+  }else{
+    alert("Sharing not supported");
   }
-
-  hideLoader();
 }
 
-// Print
+// ✅ Print
 function printImg(){
+
   const currentImage = getCurrentImage();
 
   closeModal();
 
   setTimeout(()=>{
+
     const printWindow = window.open('', '_blank');
 
     printWindow.document.write(`
@@ -289,9 +216,11 @@ function printImg(){
 
             img.onload = function(){
               window.print();
+
               window.onafterprint = function(){
                 window.close();
               };
+
               setTimeout(function(){
                 window.close();
               },1500);
@@ -303,6 +232,7 @@ function printImg(){
     `);
 
     printWindow.document.close();
+
   },0);
 }
 
