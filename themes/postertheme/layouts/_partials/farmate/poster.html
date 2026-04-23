@@ -159,36 +159,39 @@ async function downloadImg(btn){
 }
 
 // ✅ SHARE
-async function shareImg(btn){
-  btn.innerText = "Sharing...";
+shareBtn.onclick = async () => {
+  shareBtn.innerText = "Sharing...";
 
-  const img = getCurrentImage();
+  try {
+    const response = await fetch(currentImage.src + "?t=" + Date.now());
+    const blob = await response.blob();
 
-  try{
-    let res = await fetch(img.src);
-    let blob = await res.blob();
-
-    let file = new File([blob], img.title + ".gif", {
-      type: blob.type
+    const file = new File([blob], currentImage.title + ".gif", {
+      type: blob.type || "image/gif"
     });
 
-    if(navigator.canShare && navigator.canShare({files:[file]})){
+    // ✅ Try native share
+    if (navigator.canShare && navigator.canShare({ files: [file] })) {
       await navigator.share({
-        title: img.title,
-        files:[file]
+        title: currentImage.title,
+        text: currentImage.title,
+        files: [file]
       });
-    }else{
-      // fallback
-      window.open(img.src, "_blank");
+
+    } else {
+      // 🔥 Fallback (Desktop / unsupported devices)
+      window.open(currentImage.src, "_blank");
     }
 
-  }catch(e){
-    console.error(e);
-    alert("Sharing failed");
+  } catch (err) {
+    console.error("Share Error:", err);
+
+    // 🔥 Backup fallback
+    window.open(currentImage.src, "_blank");
   }
 
-  btn.innerText = "🔗 Share";
-}
+  shareBtn.innerText = "🔗 Share";
+};
 
 // ✅ PRINT
 function printImg(btn){
