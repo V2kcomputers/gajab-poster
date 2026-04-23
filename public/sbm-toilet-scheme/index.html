@@ -160,19 +160,11 @@
 <title>Image Popup Tool</title>
 
 <style>
+body {font-family:Arial;background:#f4f6fb;text-align:center;padding:20px;}
 
- 
 .imgcontainer{
-  text-align:center;
   max-width:900px;
   margin:auto;
-  padding:20px;
-}
-
- 
-.preview{
-  display:flex;
-  justify-content:center;
 }
 
 .preview img{
@@ -182,14 +174,9 @@
   cursor:pointer;
   transition:.3s;
 }
+.preview img:hover{transform:scale(1.03);}
 
-.preview img:hover{
-  transform:scale(1.03);
-}
-
- 
-.top-actions button,
-.actions button{
+button{
   padding:10px 15px;
   margin:5px;
   border:none;
@@ -198,21 +185,15 @@
   color:#fff;
   cursor:pointer;
 }
-
-.top-actions button:hover,
-.actions button:hover{
-  background:#3f51b5;
-}
+button:hover{background:#3f51b5;}
 
  
 .modal{
   display:none;
   position:fixed;
   z-index:99999;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
+  top:0;left:0;
+  width:100%;height:100%;
   background:rgba(0,0,0,0.85);
   justify-content:center;
   align-items:center;
@@ -234,38 +215,41 @@
   font-size:32px;
   cursor:pointer;
 }
-
 </style>
 </head>
 
 <body>
 
 <div class="imgcontainer">
+
 <h2 id="title">Sbm Toilet Scheme</h2>
 
 
-<div class="top-actions">
- <a href="https://yojnaportal.com/search?q=sbm-toilet-scheme" target="_blank">
-  <button id="viewBtn">🔗 Link</button>
+<div>
+<a href="https://yojnaportal.com/search?q=sbm-toilet-scheme" target="_blank">
+  <button>🔗 Link</button>
 </a>
-<button id="downloadBtn" onclick="downloadImg()">⬇️ Download</button>
-<button id="shareBtn" onclick="shareImg()">🔗 Share</button>
-<button id="printBtn" onclick="printImg()">🖨️ Print</button>
+
+<button onclick="downloadImg(this)">⬇️ Download</button>
+<button onclick="shareImg(this)">🔗 Share</button>
+<button onclick="printImg(this)">🖨️ Print</button>
 </div>
+
 
 <div class="preview">
-  <img id="previewImg" src="https://cdn.yojnaportal.com/Banner/25x32/sbm-scheme-poster.webp" onclick="openModal()">
+<img id="previewImg" src="https://cdn.yojnaportal.com/Banner/25x32/sbm-scheme-poster.webp" onclick="openModal()">
 </div>
 
-<div id="modal" class="modal">
-  <span class="close" onclick="closeModal()">×</span>
-  <img class="modal-content" id="modalImg">
 
-  <div class="actions">
-   <button id="downloadBtn" onclick="downloadImg()">⬇️ Download</button>
-<button id="shareBtn" onclick="shareImg()">🔗 Share</button>
-<button id="printBtn" onclick="printImg()">🖨️ Print</button>
-  </div>
+<div id="modal" class="modal">
+<span class="close" onclick="closeModal()">×</span>
+<img class="modal-content" id="modalImg">
+
+<div>
+<button onclick="downloadImg(this)">⬇️ Download</button>
+<button onclick="shareImg(this)">🔗 Share</button>
+<button onclick="printImg(this)">🖨️ Print</button>
+</div>
 </div>
 
 </div>
@@ -286,11 +270,9 @@ function getCurrentImage(){
 
 
 function openModal(){
-  if(!preview.src) return;
   modal.style.display = "flex";
   modalImg.src = preview.src;
 }
-
 function closeModal(){
   modal.style.display = "none";
 }
@@ -306,96 +288,97 @@ modal.addEventListener("click", e=>{
 });
 
 
-async function downloadImg(){
-    document.getElementById("downloadBtn").innerText = "Waiting...";
-  const currentImage = getCurrentImage();
+async function downloadImg(btn){
+  btn.innerText = "Waiting...";
 
-  let res = await fetch(currentImage.src + "?t=" + Date.now());
-  let blob = await res.blob();
+  const img = getCurrentImage();
 
-  let url = URL.createObjectURL(blob);
+  try{
+    let res = await fetch(img.src + "?t=" + Date.now());
+    let blob = await res.blob();
 
-  let a = document.createElement("a");
-  a.href = url;
-  a.download = currentImage.title + ".gif";
-  a.click();
+    let url = URL.createObjectURL(blob);
 
-  URL.revokeObjectURL(url);
-}
+    let a = document.createElement("a");
+    a.href = url;
+    a.download = img.title + ".gif";
+    a.click();
 
-
-async function shareImg(){
-     document.getElementById("shareBtn").innerText = "Sharing...";
-  const currentImage = getCurrentImage();
-
-  let res = await fetch(currentImage.src);
-  let blob = await res.blob();
-
-  let file = new File([blob], currentImage.title + ".gif", {
-    type: blob.type
-  });
-
-  if(navigator.canShare && navigator.canShare({files:[file]})){
-    await navigator.share({
-      title: currentImage.title,
-      files:[file]
-    });
-  }else{
-    alert("Sharing not supported");
+    URL.revokeObjectURL(url);
+  }catch(e){
+    alert("Download failed");
   }
+
+  btn.innerText = "⬇️ Download";
 }
 
 
-function printImg(){
- document.getElementById("printBtn").innerText = "Preparing...";
-  const currentImage = getCurrentImage();
+async function shareImg(btn){
+  btn.innerText = "Sharing...";
 
-  closeModal();
+  const img = getCurrentImage();
 
-  setTimeout(()=>{
+  try{
+    let res = await fetch(img.src);
+    let blob = await res.blob();
 
-    const printWindow = window.open('', '_blank');
+    let file = new File([blob], img.title + ".gif", {
+      type: blob.type
+    });
 
-    printWindow.document.write(`
-      <html>
-        <head>
-          <title>${currentImage.title}</title>
-          <style>
-            body{margin:0;text-align:center;}
-            img{max-width:100%;max-height:100vh;}
-          </style>
-        </head>
-        <body>
+    if(navigator.canShare && navigator.canShare({files:[file]})){
+      await navigator.share({
+        title: img.title,
+        files:[file]
+      });
+    }else{
+      
+      window.open(img.src, "_blank");
+    }
 
-          <img id="img" src="${currentImage.src}">
+  }catch(e){
+    console.error(e);
+    alert("Sharing failed");
+  }
 
-          \x3Cscript>
-            const img = document.getElementById("img");
+  btn.innerText = "🔗 Share";
+}
 
-            img.onload = function(){
-              window.print();
 
-              window.onafterprint = function(){
-                window.close();
-              };
+function printImg(btn){
+  btn.innerText = "Preparing...";
 
-              setTimeout(function(){
-                window.close();
-              },0);
-            };
-          <\/script>
+  const img = getCurrentImage();
 
-        </body>
-      </html>
-    `);
+  const win = window.open("");
 
-    printWindow.document.close();
+  win.document.write(`
+    <html>
+    <head>
+      <title>${img.title}</title>
+      <style>
+        body{text-align:center;margin:0;}
+        img{max-width:100%;max-height:100vh;}
+      </style>
+    </head>
+    <body>
+      <img src="${img.src}">
+      \x3Cscript>
+        window.onload = function(){
+          window.print();
+          setTimeout(()=>window.close(),500);
+        }
+      <\/script>
+    </body>
+    </html>
+  `);
 
-  },0);
+  win.document.close();
+
+  btn.innerText = "🖨️ Print";
 }
 
 </script>
-
 
 </body>
 </html>

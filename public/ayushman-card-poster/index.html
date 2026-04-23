@@ -324,27 +324,35 @@ async function downloadImg(){
 }
 
 
-async function shareImg(){
-     document.getElementById("shareBtn").innerText = "Sharing...";
+async function shareImg(btn){
+  btn.innerText = "Sharing...";
+
   const currentImage = getCurrentImage();
 
-  let res = await fetch(currentImage.src);
-  let blob = await res.blob();
+  try {
+    let res = await fetch(currentImage.src);
+    let blob = await res.blob();
 
-  let file = new File([blob], currentImage.title + ".gif", {
-    type: blob.type
-  });
-
-  if(navigator.canShare && navigator.canShare({files:[file]})){
-    await navigator.share({
-      title: currentImage.title,
-      files:[file]
+    let file = new File([blob], currentImage.title + ".gif", {
+      type: blob.type
     });
-  }else{
-    alert("Sharing not supported");
-  }
-}
 
+    if (navigator.canShare && navigator.canShare({ files: [file] })) {
+      await navigator.share({
+        title: currentImage.title,
+        files: [file]
+      });
+    } else {
+      window.open(currentImage.src, "_blank"); 
+    }
+
+  } catch (e) {
+    console.error(e);
+    alert("Sharing failed");
+  }
+
+  btn.innerText = "🔗 Share";
+}
 
 function printImg(){
  document.getElementById("printBtn").innerText = "Preparing...";

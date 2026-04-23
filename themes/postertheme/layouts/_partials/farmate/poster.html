@@ -6,19 +6,11 @@
 <title>Image Popup Tool</title>
 
 <style>
+body {font-family:Arial;background:#f4f6fb;text-align:center;padding:20px;}
 
-/* Container */
 .imgcontainer{
-  text-align:center;
   max-width:900px;
   margin:auto;
-  padding:20px;
-}
-
-/* Preview */
-.preview{
-  display:flex;
-  justify-content:center;
 }
 
 .preview img{
@@ -28,14 +20,9 @@
   cursor:pointer;
   transition:.3s;
 }
+.preview img:hover{transform:scale(1.03);}
 
-.preview img:hover{
-  transform:scale(1.03);
-}
-
-/* Buttons */
-.top-actions button,
-.actions button{
+button{
   padding:10px 15px;
   margin:5px;
   border:none;
@@ -44,21 +31,15 @@
   color:#fff;
   cursor:pointer;
 }
-
-.top-actions button:hover,
-.actions button:hover{
-  background:#3f51b5;
-}
+button:hover{background:#3f51b5;}
 
 /* Modal */
 .modal{
   display:none;
   position:fixed;
   z-index:99999;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
+  top:0;left:0;
+  width:100%;height:100%;
   background:rgba(0,0,0,0.85);
   justify-content:center;
   align-items:center;
@@ -80,38 +61,41 @@
   font-size:32px;
   cursor:pointer;
 }
-
 </style>
 </head>
 
 <body>
 
 <div class="imgcontainer">
+
 <h2 id="title">{{ .Title }}</h2>
 
-
-<div class="top-actions">
- <a href="{{ with .Params.link }}{{ . }}{{ else }}https://yojnaportal.com/search?q={{ .Title | urlize }}{{ end }}" target="_blank">
-  <button id="viewBtn">🔗 Link</button>
+<!-- TOP BUTTONS -->
+<div>
+<a href="{{ with .Params.link }}{{ . }}{{ else }}https://yojnaportal.com/search?q={{ .Title | urlize }}{{ end }}" target="_blank">
+  <button>🔗 Link</button>
 </a>
-<button id="downloadBtn" onclick="downloadImg()">⬇️ Download</button>
-<button id="shareBtn" onclick="shareImg()">🔗 Share</button>
-<button id="printBtn" onclick="printImg()">🖨️ Print</button>
+
+<button onclick="downloadImg(this)">⬇️ Download</button>
+<button onclick="shareImg(this)">🔗 Share</button>
+<button onclick="printImg(this)">🖨️ Print</button>
 </div>
 
+<!-- IMAGE -->
 <div class="preview">
-  <img id="previewImg" src="{{ .Params.imagePoster | relURL }}" onclick="openModal()">
+<img id="previewImg" src="{{ .Params.imagePoster | relURL }}" onclick="openModal()">
 </div>
 
+<!-- MODAL -->
 <div id="modal" class="modal">
-  <span class="close" onclick="closeModal()">×</span>
-  <img class="modal-content" id="modalImg">
+<span class="close" onclick="closeModal()">×</span>
+<img class="modal-content" id="modalImg">
 
-  <div class="actions">
-   <button id="downloadBtn" onclick="downloadImg()">⬇️ Download</button>
-<button id="shareBtn" onclick="shareImg()">🔗 Share</button>
-<button id="printBtn" onclick="printImg()">🖨️ Print</button>
-  </div>
+<div>
+<button onclick="downloadImg(this)">⬇️ Download</button>
+<button onclick="shareImg(this)">🔗 Share</button>
+<button onclick="printImg(this)">🖨️ Print</button>
+</div>
 </div>
 
 </div>
@@ -122,7 +106,7 @@ let preview = document.getElementById("previewImg");
 let modal = document.getElementById("modal");
 let modalImg = document.getElementById("modalImg");
 
-// ✅ Get Current Image Info
+// ✅ Get Image
 function getCurrentImage(){
   return {
     src: preview.src,
@@ -132,116 +116,115 @@ function getCurrentImage(){
 
 // ✅ Modal
 function openModal(){
-  if(!preview.src) return;
   modal.style.display = "flex";
   modalImg.src = preview.src;
 }
-
 function closeModal(){
   modal.style.display = "none";
 }
 
-// ESC close
+// Close on ESC
 document.addEventListener("keydown", e=>{
   if(e.key==="Escape") closeModal();
 });
 
-// outside click close
+// Close outside click
 modal.addEventListener("click", e=>{
   if(e.target===modal) closeModal();
 });
 
-// ✅ Download
-async function downloadImg(){
-    document.getElementById("downloadBtn").innerText = "Waiting...";
-  const currentImage = getCurrentImage();
+// ✅ DOWNLOAD
+async function downloadImg(btn){
+  btn.innerText = "Waiting...";
 
-  let res = await fetch(currentImage.src + "?t=" + Date.now());
-  let blob = await res.blob();
+  const img = getCurrentImage();
 
-  let url = URL.createObjectURL(blob);
+  try{
+    let res = await fetch(img.src + "?t=" + Date.now());
+    let blob = await res.blob();
 
-  let a = document.createElement("a");
-  a.href = url;
-  a.download = currentImage.title + ".gif";
-  a.click();
+    let url = URL.createObjectURL(blob);
 
-  URL.revokeObjectURL(url);
-}
+    let a = document.createElement("a");
+    a.href = url;
+    a.download = img.title + ".gif";
+    a.click();
 
-// ✅ Share
-async function shareImg(){
-     document.getElementById("shareBtn").innerText = "Sharing...";
-  const currentImage = getCurrentImage();
-
-  let res = await fetch(currentImage.src);
-  let blob = await res.blob();
-
-  let file = new File([blob], currentImage.title + ".gif", {
-    type: blob.type
-  });
-
-  if(navigator.canShare && navigator.canShare({files:[file]})){
-    await navigator.share({
-      title: currentImage.title,
-      files:[file]
-    });
-  }else{
-    alert("Sharing not supported");
+    URL.revokeObjectURL(url);
+  }catch(e){
+    alert("Download failed");
   }
+
+  btn.innerText = "⬇️ Download";
 }
 
-// ✅ Print
-function printImg(){
- document.getElementById("printBtn").innerText = "Preparing...";
-  const currentImage = getCurrentImage();
+// ✅ SHARE
+async function shareImg(btn){
+  btn.innerText = "Sharing...";
 
-  closeModal();
+  const img = getCurrentImage();
 
-  setTimeout(()=>{
+  try{
+    let res = await fetch(img.src);
+    let blob = await res.blob();
 
-    const printWindow = window.open('', '_blank');
+    let file = new File([blob], img.title + ".gif", {
+      type: blob.type
+    });
 
-    printWindow.document.write(`
-      <html>
-        <head>
-          <title>${currentImage.title}</title>
-          <style>
-            body{margin:0;text-align:center;}
-            img{max-width:100%;max-height:100vh;}
-          </style>
-        </head>
-        <body>
+    if(navigator.canShare && navigator.canShare({files:[file]})){
+      await navigator.share({
+        title: img.title,
+        files:[file]
+      });
+    }else{
+      // fallback
+      window.open(img.src, "_blank");
+    }
 
-          <img id="img" src="${currentImage.src}">
+  }catch(e){
+    console.error(e);
+    alert("Sharing failed");
+  }
 
-          <script>
-            const img = document.getElementById("img");
+  btn.innerText = "🔗 Share";
+}
 
-            img.onload = function(){
-              window.print();
+// ✅ PRINT
+function printImg(btn){
+  btn.innerText = "Preparing...";
 
-              window.onafterprint = function(){
-                window.close();
-              };
+  const img = getCurrentImage();
 
-              setTimeout(function(){
-                window.close();
-              },0);
-            };
-          <\/script>
+  const win = window.open("");
 
-        </body>
-      </html>
-    `);
+  win.document.write(`
+    <html>
+    <head>
+      <title>${img.title}</title>
+      <style>
+        body{text-align:center;margin:0;}
+        img{max-width:100%;max-height:100vh;}
+      </style>
+    </head>
+    <body>
+      <img src="${img.src}">
+      <script>
+        window.onload = function(){
+          window.print();
+          setTimeout(()=>window.close(),500);
+        }
+      <\/script>
+    </body>
+    </html>
+  `);
 
-    printWindow.document.close();
+  win.document.close();
 
-  },0);
+  btn.innerText = "🖨️ Print";
 }
 
 </script>
-
 
 </body>
 </html>

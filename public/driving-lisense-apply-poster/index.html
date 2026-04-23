@@ -245,7 +245,9 @@
 
 
 <div class="top-actions">
-  <button id="viewBtn" onclick="openModal()">👁 View</button>
+ <a href="https://www.yojnaportal.com/document/driving-licence-apply-parivahan/" target="_blank">
+  <button id="viewBtn">🔗 Link</button>
+</a>
 <button id="downloadBtn" onclick="downloadImg()">⬇️ Download</button>
 <button id="shareBtn" onclick="shareImg()">🔗 Share</button>
 <button id="printBtn" onclick="printImg()">🖨️ Print</button>
@@ -260,7 +262,7 @@
   <img class="modal-content" id="modalImg">
 
   <div class="actions">
-   button id="downloadBtn" onclick="downloadImg()">⬇️ Download</button>
+   <button id="downloadBtn" onclick="downloadImg()">⬇️ Download</button>
 <button id="shareBtn" onclick="shareImg()">🔗 Share</button>
 <button id="printBtn" onclick="printImg()">🖨️ Print</button>
   </div>
@@ -305,6 +307,7 @@ modal.addEventListener("click", e=>{
 
 
 async function downloadImg(){
+    document.getElementById("downloadBtn").innerText = "Waiting...";
   const currentImage = getCurrentImage();
 
   let res = await fetch(currentImage.src + "?t=" + Date.now());
@@ -321,29 +324,38 @@ async function downloadImg(){
 }
 
 
-async function shareImg(){
+async function shareImg(btn){
+  btn.innerText = "Sharing...";
+
   const currentImage = getCurrentImage();
 
-  let res = await fetch(currentImage.src);
-  let blob = await res.blob();
+  try {
+    let res = await fetch(currentImage.src);
+    let blob = await res.blob();
 
-  let file = new File([blob], currentImage.title + ".gif", {
-    type: blob.type
-  });
-
-  if(navigator.canShare && navigator.canShare({files:[file]})){
-    await navigator.share({
-      title: currentImage.title,
-      files:[file]
+    let file = new File([blob], currentImage.title + ".gif", {
+      type: blob.type
     });
-  }else{
-    alert("Sharing not supported");
+
+    if (navigator.canShare && navigator.canShare({ files: [file] })) {
+      await navigator.share({
+        title: currentImage.title,
+        files: [file]
+      });
+    } else {
+      window.open(currentImage.src, "_blank"); 
+    }
+
+  } catch (e) {
+    console.error(e);
+    alert("Sharing failed");
   }
+
+  btn.innerText = "🔗 Share";
 }
 
-
 function printImg(){
-
+ document.getElementById("printBtn").innerText = "Preparing...";
   const currentImage = getCurrentImage();
 
   closeModal();
@@ -377,7 +389,7 @@ function printImg(){
 
               setTimeout(function(){
                 window.close();
-              },1500);
+              },0);
             };
           <\/script>
 
@@ -391,53 +403,7 @@ function printImg(){
 }
 
 </script>
-<script>
-    function openModal() {
-  const btn = document.getElementById("viewBtn");
-  btn.innerText = "Opening...";
 
-  
-  document.getElementById("modal").style.display = "block";
-
-  setTimeout(() => {
-    btn.innerText = "👁 View";
-  }, 1500);
-}
-
-
-function downloadImg() {
-  const btn = document.getElementById("downloadBtn");
-  btn.innerText = "Waiting...";
-
-  
-  setTimeout(() => {
-    btn.innerText = "⬇️ Download";
-  }, 2000);
-}
-
-
-function shareImg() {
-  const btn = document.getElementById("shareBtn");
-  btn.innerText = "Sharing...";
-
-  
-  setTimeout(() => {
-    btn.innerText = "🔗 Share";
-  }, 2000);
-}
-
-
-function printImg() {
-  const btn = document.getElementById("printBtn");
-  btn.innerText = "Preparing...";
-
-  window.print();
-
-  setTimeout(() => {
-    btn.innerText = "🖨️ Print";
-  }, 1500);
-}
-</script>
 
 </body>
 </html>
