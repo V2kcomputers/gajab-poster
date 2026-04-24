@@ -261,59 +261,196 @@ document.addEventListener("keydown",(e)=>{
 // DOWNLOAD
 async function downloadImg(btn){
   btn.innerText="Waiting...";
+
   try{
-    const res = await fetch(currentImage.url);
+    const res = await fetch(currentImage.url, { mode: "cors" });
+
     const blob = await res.blob();
+
     const a = document.createElement("a");
     a.href = URL.createObjectURL(blob);
-    a.download = currentImage.title+".jpg";
+    a.download = currentImage.title + ".webp";
+    document.body.appendChild(a);
     a.click();
-  }catch{
-    alert("Download failed");
+    a.remove();
+
+  }catch(e){
+    // ❌ link open मत करो
+    alert("Download failed ❌ (CORS issue)");
   }
+
   btn.innerText="⬇️ Download";
 }
-
 // SHARE
 async function shareImg(btn){
   btn.innerText="Sharing...";
-  try{
-    const res = await fetch(currentImage.url);
-    const blob = await res.blob();
-    const file = new File([blob], currentImage.title+".jpg",{type:blob.type});
 
-    if(navigator.canShare && navigator.canShare({files:[file]})){
-      await navigator.share({title:currentImage.title, files:[file]});
-    }else{
-      alert("Sharing not supported");
-    }
-  }catch{
-    alert("Share failed");
+  try{
+    const res = await fetch(currentImage.url, { mode: "cors" });
+
+    const blob = await res.blob();
+
+    const file = new File([blob], currentImage.title + ".webp", {
+      type: blob.type
+    });
+
+    await navigator.share({
+      title: currentImage.title,
+      files: [file]
+    });
+
+  }catch(e){
+    alert("Sharing failed ❌ (Browser / CORS issue)");
   }
+
   btn.innerText="🔗 Share";
 }
 
 // PRINT CURRENT
 function printCurrent(){
-  const win = window.open("");
-  win.document.write(`<img src="${currentImage.url}" style="width:100%">`);
-  win.print();
-}
+  const iframe = document.createElement("iframe");
+  iframe.style.position = "fixed";
+  iframe.style.right = "0";
+  iframe.style.bottom = "0";
+  iframe.style.width = "0";
+  iframe.style.height = "0";
+  iframe.style.border = "0";
 
+  document.body.appendChild(iframe);
+
+  const doc = iframe.contentWindow.document;
+
+  doc.open();
+  doc.write(`
+    <html>
+    <head>
+      <title>${currentImage.title}</title>
+      <style>
+        body{margin:0;text-align:center;}
+        img{max-width:100%;}
+      </style>
+    </head>
+    <body>
+      <img src="${currentImage.url}" id="img">
+    </body>
+    </html>
+  `);
+  doc.close();
+
+  iframe.onload = function(){
+    iframe.contentWindow.focus();
+    iframe.contentWindow.print();
+
+    // ✅ auto remove iframe
+    setTimeout(()=>{
+      document.body.removeChild(iframe);
+    }, 1000);
+  };
+}
 // PRINT ALL
 function printAll(){
-  const win = window.open("");
-  images.forEach(img=>{
-    win.document.write(`
-      <div style="page-break-after:always;text-align:center">
-        <h3>${img.title}</h3>
-        <img src="${img.url}" style="width:100%">
-      </div>
-    `);
-  });
-  win.print();
-}
+  const iframe = document.createElement("iframe");
 
+  iframe.style.position = "fixed";
+  iframe.style.right = "0";
+  iframe.style.bottom = "0";
+  iframe.style.width = "0";
+  iframe.style.height = "0";
+  iframe.style.border = "0";
+
+  document.body.appendChild(iframe);
+
+  const doc = iframe.contentWindow.document;
+
+  let html = `
+    <html>
+    <head>
+      <title>Print All</title>
+      <style>
+        body{
+          margin:0;
+          font-family:sans-serif;
+        }
+
+        .page{
+          page-break-after: always;
+          text-align:center;
+          padding:10px;
+        }
+
+        .page:last-child{
+          page-break-after: auto;
+        }
+
+        img{
+          width:100%;
+          height:auto;
+        }
+
+        h3{
+          margin:10px 0;
+        }
+      </style>
+    </head>
+    <body>
+  `;
+
+  images.forEach(img=>{
+    html += `
+      <div class="page">
+        <h3>${img.title}</h3>
+        <img src="${img.url}">
+      </div>
+    `;
+  });
+
+  html += `</body></html>`;
+
+  doc.open();
+  doc.write(html);
+  doc.close();
+
+  // ✅ wait for all images load
+  iframe.onload = function(){
+    const imgs = iframe.contentWindow.document.images;
+    let loaded = 0;
+
+    if(imgs.length === 0){
+      triggerPrint();
+      return;
+    }
+
+    for(let i=0;i<imgs.length;i++){
+      if(imgs[i].complete){
+        loaded++;
+      }else{
+        imgs[i].onload = check;
+        imgs[i].onerror = check;
+      }
+    }
+
+    function check(){
+      loaded++;
+      if(loaded === imgs.length){
+        triggerPrint();
+      }
+    }
+
+    if(loaded === imgs.length){
+      triggerPrint();
+    }
+
+    function triggerPrint(){
+      iframe.contentWindow.focus();
+      iframe.contentWindow.print();
+
+      // ✅ remove iframe after print
+      setTimeout(()=>{
+        document.body.removeChild(iframe);
+      }, 1000);
+    }
+  };
+}
 </script>
 
 </body>
