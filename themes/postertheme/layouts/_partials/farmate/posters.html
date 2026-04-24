@@ -1,149 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>{{ .Title }}</title>
 
-<style>
 
-/* Layout */
-.container{
-  display:flex;
-  max-width:1000px;
-  margin:auto;
-  gap:20px;
-  padding:20px;
-}
+{{ partial "cssStyles/posters.html" . }}
 
-/* LEFT LIST */
-.image-list{
-  width:220px;
-  max-height:500px;
-  overflow-y:auto;
-  border-right:2px solid #ddd;
-}
 
-.image-item{
-  padding:10px;
-  cursor:pointer;
-  border-bottom:1px solid #eee;
-}
-
-.image-item:hover,
-.image-item.active{
-  background:#e8eaf6;
-}
-
-/* PREVIEW */
-.preview{
-  flex:1;
-  text-align:center;
-  position:relative;
-}
-
-.preview img{
-  max-width:90%;
-  border:6px solid #5c6bc0;
-  border-radius:10px;
-  cursor:pointer;
-}
-
-/* ARROWS */
-.nav-btn{
-  position:absolute;
-  top:50%;
-  transform:translateY(-50%);
-  font-size:28px;
-  background:rgba(0,0,0,0.5);
-  color:#fff;
-  padding:10px 14px;
-  border-radius:50%;
-  cursor:pointer;
-}
-
-.left{ left:10px; }
-.right{ right:10px; }
-
-/* Buttons */
-.actions button{
-  padding:10px 15px;
-  margin:5px;
-  border:none;
-  border-radius:8px;
-  background:#5c6bc0;
-  color:#fff;
-  cursor:pointer;
-}
-
-/* MODAL */
-.modal{
-  display:none;
-  position:fixed;
-  top:0;left:0;
-  width:100%;height:100%;
-  background:rgba(0,0,0,0.95);
-  justify-content:center;
-  align-items:center;
-}
-
-#modalImg{
-  max-width:90%;
-  max-height:80%;
-}
-
-.modal .actions{
-  position:absolute;
-  bottom:20px;
-}
-
-.modal .nav-btn{
-  position:absolute;
-  top:50%;
-  transform:translateY(-50%);
-  font-size:30px;
-  background:rgba(0,0,0,0.6);
-  padding:12px;
-}
-
-.modal .left{ left:20px; }
-.modal .right{ right:20px; }
-
-.close{
-  position:absolute;
-  top:20px;
-  right:30px;
-  color:#fff;
-  font-size:30px;
-  cursor:pointer;
-}
-
-/* MOBILE */
-@media(max-width:768px){
-  .container{flex-direction:column;}
-
-  .image-list{
-    width:100%;
-    display:flex;
-    overflow-x:auto;
-    border-right:none;
-    border-bottom:2px solid #ddd;
-  }
-
-  .image-item{
-    min-width:150px;
-    text-align:center;
-  }
-}
-
-</style>
-</head>
-
-<body>
+<script> const images = [
+  {{- range .Params.imagePosters }}
+  { title:"{{ .title }}", url:"{{ .url | relURL }}" },
+  {{- end }}
+];</script>
 
 <h2 style="text-align:center;">{{ .Title }}</h2>
 
-<div class="container">
+<div class="imgcontainer">
 
   <div class="image-list" id="imageList"></div>
 
@@ -156,10 +24,14 @@
     <div class="nav-btn right" onclick="nextImage()">❯</div>
 
     <div class="actions">
+        
       <button onclick="downloadImg(this)">⬇️ Download</button>
       <button onclick="shareImg(this)">🔗 Share</button>
-      <button onclick="printCurrent()">🖨️ Current</button>
-      <button onclick="printAll()">🖨️ All</button>
+      <button onclick="printCurrent()">🖨️ Current Print</button>
+      <button onclick="printAll()">🖨️ All Print</button>
+        <a href="{{ with .Params.link }}{{ . }}{{ else }}https://yojnaportal.com/search?q={{ .Title | urlize }}{{ end }}" target="_blank">
+  <button id="viewBtn">🔗 More Details</button>
+</a>
     </div>
 
   </div>
@@ -178,6 +50,9 @@
   <div class="nav-btn right" onclick="nextImage()">❯</div>
 
   <div class="actions">
+     <a href="{{ with .Params.link }}{{ . }}{{ else }}https://yojnaportal.com/search?q={{ .Title | urlize }}{{ end }}" target="_blank">
+  <button id="viewBtn">🔗 Link</button>
+</a>
     <button onclick="downloadImg(this)">⬇️ Download</button>
     <button onclick="shareImg(this)">🔗 Share</button>
     <button onclick="printCurrent()">🖨️ Current</button>
@@ -186,280 +61,4 @@
 
 </div>
 
-<script>
-
-// HUGO DATA
-const images = [
-  {{- range .Params.imagePosters }}
-  { title:"{{ .title }}", url:"{{ .url | relURL }}" },
-  {{- end }}
-];
-
-const list = document.getElementById("imageList");
-const preview = document.getElementById("previewImg");
-const modal = document.getElementById("modal");
-const modalImg = document.getElementById("modalImg");
-
-let currentIndex = 0;
-let currentImage = null;
-
-// SHOW IMAGE
-function showImage(index){
-  currentIndex = index;
-  const img = images[index];
-
-  preview.src = img.url;
-  preview.alt = img.title;
-  modalImg.src = img.url;
-
-  currentImage = img;
-
-  document.querySelectorAll(".image-item").forEach((el,i)=>{
-    el.classList.toggle("active", i===index);
-  });
-}
-
-// RENDER LIST
-images.forEach((img,i)=>{
-  const div = document.createElement("div");
-  div.className="image-item";
-  div.innerText = img.title;
-
-  div.onclick = ()=> showImage(i);
-
-  list.appendChild(div);
-
-  if(i===0) showImage(0);
-});
-
-// NEXT PREV
-function nextImage(){
-  showImage((currentIndex+1)%images.length);
-}
-function prevImage(){
-  showImage((currentIndex-1+images.length)%images.length);
-}
-
-// MODAL
-preview.onclick = ()=>{
-  modal.style.display="flex";
-};
-
-function closeModal(){
-  modal.style.display="none";
-}
-
-// KEYBOARD
-document.addEventListener("keydown",(e)=>{
-  if(modal.style.display==="flex"){
-    if(e.key==="ArrowRight") nextImage();
-    if(e.key==="ArrowLeft") prevImage();
-    if(e.key==="Escape") closeModal();
-  }
-});
-
-// DOWNLOAD
-async function downloadImg(btn){
-  btn.innerText="Waiting...";
-
-  try{
-    const res = await fetch(currentImage.url + "?t=" + Date.now());
-
-    if(!res.ok) throw new Error("Fetch failed");
-
-    const blob = await res.blob();
-
-    const url = URL.createObjectURL(blob);
-
-    const a = document.createElement("a");
-    a.href = url;
-    a.download = currentImage.title + ".gif";
-    a.click();
-
-    URL.revokeObjectURL(url);
-
-  }catch(e){
-    alert("Download failed ❌");
-  }
-
-  btn.innerText="⬇️ Download";
-}
-// SHARE
-async function shareImg(btn){
-  btn.innerText="Sharing...";
-
-  try{
-    const res = await fetch(currentImage.url + "?t=" + Date.now());
-
-    if(!res.ok) throw new Error("Fetch failed");
-
-    const blob = await res.blob();
-
-    const file = new File([blob], currentImage.title + ".gif", {
-      type: blob.type
-    });
-
-    if (navigator.canShare && navigator.canShare({ files: [file] })) {
-      await navigator.share({
-        title: currentImage.title,
-        files: [file]
-      });
-    } else {
-      alert("Device support नहीं करता");
-    }
-
-  }catch(e){
-    alert("Sharing failed ❌");
-  }
-
-  btn.innerText="🔗 Share";
-}
-// PRINT CURRENT
-function printCurrent(){
-  const iframe = document.createElement("iframe");
-  iframe.style.position = "fixed";
-  iframe.style.right = "0";
-  iframe.style.bottom = "0";
-  iframe.style.width = "0";
-  iframe.style.height = "0";
-  iframe.style.border = "0";
-
-  document.body.appendChild(iframe);
-
-  const doc = iframe.contentWindow.document;
-
-  doc.open();
-  doc.write(`
-    <html>
-    <head>
-      <title>${currentImage.title}</title>
-      <style>
-        body{margin:0;text-align:center;}
-        img{max-width:100%;}
-      </style>
-    </head>
-    <body>
-      <img src="${currentImage.url}" id="img">
-    </body>
-    </html>
-  `);
-  doc.close();
-
-  iframe.onload = function(){
-    iframe.contentWindow.focus();
-    iframe.contentWindow.print();
-
-    // ✅ auto remove iframe
-    setTimeout(()=>{
-      document.body.removeChild(iframe); 
-    }, 1000);
-  };
-}
-// PRINT ALL
-function printAll(){
-  const iframe = document.createElement("iframe");
-
-  iframe.style.position = "fixed";
-  iframe.style.right = "0";
-  iframe.style.bottom = "0";
-  iframe.style.width = "0";
-  iframe.style.height = "0";
-  iframe.style.border = "0";
-
-  document.body.appendChild(iframe);
-
-  const doc = iframe.contentWindow.document;
-
-  let html = `
-    <html>
-    <head>
-      <title>Print All</title>
-      <style>
-        body{
-          margin:0;
-          font-family:sans-serif;
-        }
-
-        .page{
-          page-break-after: always;
-          text-align:center;
-          padding:10px;
-        }
-
-        .page:last-child{
-          page-break-after: auto;
-        }
-
-        img{
-          width:100%;
-          height:auto;
-        }
-
-        h3{
-          margin:10px 0;
-        }
-      </style>
-    </head>
-    <body>
-  `;
-
-  images.forEach(img=>{
-    html += `
-      <div class="page">
-        <h3>${img.title}</h3>
-        <img src="${img.url}">
-      </div>
-    `;
-  });
-
-  html += `</body></html>`;
-
-  doc.open();
-  doc.write(html);
-  doc.close();
-
-  // ✅ wait for all images load
-  iframe.onload = function(){
-    const imgs = iframe.contentWindow.document.images;
-    let loaded = 0;
-
-    if(imgs.length === 0){
-      triggerPrint();
-      return;
-    }
-
-    for(let i=0;i<imgs.length;i++){
-      if(imgs[i].complete){
-        loaded++;
-      }else{
-        imgs[i].onload = check;
-        imgs[i].onerror = check;
-      }
-    }
-
-    function check(){
-      loaded++;
-      if(loaded === imgs.length){
-        triggerPrint();
-      }
-    }
-
-    if(loaded === imgs.length){
-      triggerPrint();
-    }
-
-    function triggerPrint(){
-      iframe.contentWindow.focus();
-      iframe.contentWindow.print();
-
-      // ✅ remove iframe after print
-      setTimeout(()=>{
-        document.body.removeChild(iframe);
-      }, 1000);
-    }
-  };
-}
-</script>
-
-</body>
-</html>
+{{ partial "jsFiles/posters.html" . }}
