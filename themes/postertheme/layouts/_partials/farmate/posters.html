@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{ .Title }}</title>
+
+<style>
+
+/* Layout */
+.container{
+  display:flex;
+  max-width:1000px;
+  margin:auto;
+  gap:20px;
+  padding:20px;
+}
+
+/* LEFT LIST */
+.image-list{
+  width:220px;
+  max-height:500px;
+  overflow-y:auto;
+  border-right:2px solid #ddd;
+}
+
+.image-item{
+  padding:10px;
+  cursor:pointer;
+  border-bottom:1px solid #eee;
+}
+
+.image-item:hover,
+.image-item.active{
+  background:#e8eaf6;
+}
+
+/* PREVIEW */
+.preview{
+  flex:1;
+  text-align:center;
+  position:relative;
+}
+
+.preview img{
+  max-width:90%;
+  border:6px solid #5c6bc0;
+  border-radius:10px;
+  cursor:pointer;
+}
+
+/* ARROWS */
+.nav-btn{
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  font-size:28px;
+  background:rgba(0,0,0,0.5);
+  color:#fff;
+  padding:10px 14px;
+  border-radius:50%;
+  cursor:pointer;
+}
+
+.left{ left:10px; }
+.right{ right:10px; }
+
+/* Buttons */
+.actions button{
+  padding:10px 15px;
+  margin:5px;
+  border:none;
+  border-radius:8px;
+  background:#5c6bc0;
+  color:#fff;
+  cursor:pointer;
+}
+
+/* MODAL */
+.modal{
+  display:none;
+  position:fixed;
+  top:0;left:0;
+  width:100%;height:100%;
+  background:rgba(0,0,0,0.95);
+  justify-content:center;
+  align-items:center;
+}
+
+#modalImg{
+  max-width:90%;
+  max-height:80%;
+}
+
+.modal .actions{
+  position:absolute;
+  bottom:20px;
+}
+
+.modal .nav-btn{
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  font-size:30px;
+  background:rgba(0,0,0,0.6);
+  padding:12px;
+}
+
+.modal .left{ left:20px; }
+.modal .right{ right:20px; }
+
+.close{
+  position:absolute;
+  top:20px;
+  right:30px;
+  color:#fff;
+  font-size:30px;
+  cursor:pointer;
+}
+
+/* MOBILE */
+@media(max-width:768px){
+  .container{flex-direction:column;}
+
+  .image-list{
+    width:100%;
+    display:flex;
+    overflow-x:auto;
+    border-right:none;
+    border-bottom:2px solid #ddd;
+  }
+
+  .image-item{
+    min-width:150px;
+    text-align:center;
+  }
+}
+
+</style>
+</head>
+
+<body>
+
+<h2 style="text-align:center;">{{ .Title }}</h2>
+
+<div class="container">
+
+  <div class="image-list" id="imageList"></div>
+
+  <div class="preview">
+
+    <div class="nav-btn left" onclick="prevImage()">❮</div>
+
+    <img id="previewImg">
+
+    <div class="nav-btn right" onclick="nextImage()">❯</div>
+
+    <div class="actions">
+      <button onclick="downloadImg(this)">⬇️ Download</button>
+      <button onclick="shareImg(this)">🔗 Share</button>
+      <button onclick="printCurrent()">🖨️ Current</button>
+      <button onclick="printAll()">🖨️ All</button>
+    </div>
+
+  </div>
+
+</div>
+
+<!-- MODAL -->
+<div id="modal" class="modal">
+
+  <span class="close" onclick="closeModal()">×</span>
+
+  <div class="nav-btn left" onclick="prevImage()">❮</div>
+
+  <img id="modalImg">
+
+  <div class="nav-btn right" onclick="nextImage()">❯</div>
+
+  <div class="actions">
+    <button onclick="downloadImg(this)">⬇️ Download</button>
+    <button onclick="shareImg(this)">🔗 Share</button>
+    <button onclick="printCurrent()">🖨️ Current</button>
+    <button onclick="printAll()">🖨️ All</button>
+  </div>
+
+</div>
+
+<script>
+
+// HUGO DATA
+const images = [
+  {{- range .Params.imagePosters }}
+  { title:"{{ .title }}", url:"{{ .url | relURL }}" },
+  {{- end }}
+];
+
+const list = document.getElementById("imageList");
+const preview = document.getElementById("previewImg");
+const modal = document.getElementById("modal");
+const modalImg = document.getElementById("modalImg");
+
+let currentIndex = 0;
+let currentImage = null;
+
+// SHOW IMAGE
+function showImage(index){
+  currentIndex = index;
+  const img = images[index];
+
+  preview.src = img.url;
+  preview.alt = img.title;
+  modalImg.src = img.url;
+
+  currentImage = img;
+
+  document.querySelectorAll(".image-item").forEach((el,i)=>{
+    el.classList.toggle("active", i===index);
+  });
+}
+
+// RENDER LIST
+images.forEach((img,i)=>{
+  const div = document.createElement("div");
+  div.className="image-item";
+  div.innerText = img.title;
+
+  div.onclick = ()=> showImage(i);
+
+  list.appendChild(div);
+
+  if(i===0) showImage(0);
+});
+
+// NEXT PREV
+function nextImage(){
+  showImage((currentIndex+1)%images.length);
+}
+function prevImage(){
+  showImage((currentIndex-1+images.length)%images.length);
+}
+
+// MODAL
+preview.onclick = ()=>{
+  modal.style.display="flex";
+};
+
+function closeModal(){
+  modal.style.display="none";
+}
+
+// KEYBOARD
+document.addEventListener("keydown",(e)=>{
+  if(modal.style.display==="flex"){
+    if(e.key==="ArrowRight") nextImage();
+    if(e.key==="ArrowLeft") prevImage();
+    if(e.key==="Escape") closeModal();
+  }
+});
+
+// DOWNLOAD
+async function downloadImg(btn){
+  btn.innerText="Waiting...";
+  try{
+    const res = await fetch(currentImage.url);
+    const blob = await res.blob();
+    const a = document.createElement("a");
+    a.href = URL.createObjectURL(blob);
+    a.download = currentImage.title+".jpg";
+    a.click();
+  }catch{
+    alert("Download failed");
+  }
+  btn.innerText="⬇️ Download";
+}
+
+// SHARE
+async function shareImg(btn){
+  btn.innerText="Sharing...";
+  try{
+    const res = await fetch(currentImage.url);
+    const blob = await res.blob();
+    const file = new File([blob], currentImage.title+".jpg",{type:blob.type});
+
+    if(navigator.canShare && navigator.canShare({files:[file]})){
+      await navigator.share({title:currentImage.title, files:[file]});
+    }else{
+      alert("Sharing not supported");
+    }
+  }catch{
+    alert("Share failed");
+  }
+  btn.innerText="🔗 Share";
+}
+
+// PRINT CURRENT
+function printCurrent(){
+  const win = window.open("");
+  win.document.write(`<img src="${currentImage.url}" style="width:100%">`);
+  win.print();
+}
+
+// PRINT ALL
+function printAll(){
+  const win = window.open("");
+  images.forEach(img=>{
+    win.document.write(`
+      <div style="page-break-after:always;text-align:center">
+        <h3>${img.title}</h3>
+        <img src="${img.url}" style="width:100%">
+      </div>
+    `);
+  });
+  win.print();
+}
+
+</script>
+
+</body>
+</html>

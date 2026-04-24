@@ -5,17 +5,17 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title> Samagra Id Related Works</title>
+<title> Abha Health Card</title>
 
 
 
-<link rel="canonical" href="https://www.gajabtools.com/samagra-id-related-works/">
+<link rel="canonical" href="https://www.gajabtools.com/abha-health-card/">
 
 
 
 <meta property="og:site_name" content="Gajab Tools">
-<meta property="og:url" content="https://www.gajabtools.com/samagra-id-related-works/">
-<meta property="og:title" content="Samagra Id Related Works">
+<meta property="og:url" content="https://www.gajabtools.com/abha-health-card/">
+<meta property="og:title" content="Abha Health Card">
 <meta property="og:description" content="">
 <meta property="og:type" content="article">
 <meta property="og:image" content="http://localhost:1313/images/default.jpg">
@@ -23,7 +23,7 @@
 
 
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Samagra Id Related Works">
+<meta name="twitter:title" content="Abha Health Card">
 <meta name="twitter:description" content="">
 <meta name="twitter:image" content="http://localhost:1313/images/default.jpg">
 <meta name="twitter:site" content="@gajabtools">
@@ -52,8 +52,8 @@
 
 
 
-<meta property="article:published_time" content="2026-04-23T20:15:15&#43;05:30">
-<meta property="article:modified_time" content="2026-04-23T20:22:11&#43;05:30">
+<meta property="article:published_time" content="2026-04-24T14:29:18&#43;05:30">
+<meta property="article:modified_time" content="2026-04-24T14:29:18&#43;05:30">
 
 
 
@@ -84,9 +84,9 @@
       "@type": "Article",
       "mainEntityOfPage": {
         "@type": "WebPage",
-        "@id": "http:\/\/localhost:1313\/samagra-id-related-works\/"
+        "@id": "http:\/\/localhost:1313\/abha-health-card\/"
       },
-      "headline": "Samagra Id Related Works",
+      "headline": "Abha Health Card",
       "description": "Get complete details about this tool, features, usage, and benefits.",
       "image": "http:\/\/localhost:1313\/",
       "author": {
@@ -102,8 +102,8 @@
           "url": "http:\/\/localhost:1313\/images\/logo.png"
         }
       },
-      "datePublished": "2026-04-23",
-      "dateModified": "2026-04-23",
+      "datePublished": "2026-04-24",
+      "dateModified": "2026-04-24",
       "inLanguage": "en",
       "applicationCategory": "UtilitiesApplication"
     }
@@ -157,38 +157,69 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Image Popup Tool</title>
+<title>Abha Health Card</title>
 
 <style>
 
  
-.imgcontainer{
-  text-align:center;
-  max-width:900px;
+.container{
+  display:flex;
+  max-width:1000px;
   margin:auto;
+  gap:20px;
   padding:20px;
 }
 
  
-.preview{
-  display:flex;
-  justify-content:center;
+.image-list{
+  width:220px;
+  max-height:500px;
+  overflow-y:auto;
+  border-right:2px solid #ddd;
 }
 
-.preview img{
-  max-width:60%;
-  border:6px solid #5c6bc0;
-  border-radius:10px;
+.image-item{
+  padding:10px;
   cursor:pointer;
-  transition:.3s;
+  border-bottom:1px solid #eee;
 }
 
-.preview img:hover{
-  transform:scale(1.03);
+.image-item:hover,
+.image-item.active{
+  background:#e8eaf6;
 }
 
  
-.top-actions button,
+.preview{
+  flex:1;
+  text-align:center;
+  position:relative;
+}
+
+.preview img{
+  max-width:90%;
+  border:6px solid #5c6bc0;
+  border-radius:10px;
+  cursor:pointer;
+}
+
+ 
+.nav-btn{
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  font-size:28px;
+  background:rgba(0,0,0,0.5);
+  color:#fff;
+  padding:10px 14px;
+  border-radius:50%;
+  cursor:pointer;
+}
+
+.left{ left:10px; }
+.right{ right:10px; }
+
+ 
 .actions button{
   padding:10px 15px;
   margin:5px;
@@ -199,261 +230,243 @@
   cursor:pointer;
 }
 
-.top-actions button:hover,
-.actions button:hover{
-  background:#3f51b5;
-}
-
  
 .modal{
   display:none;
   position:fixed;
-  z-index:99999;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
-  background:rgba(0,0,0,0.85);
+  top:0;left:0;
+  width:100%;height:100%;
+  background:rgba(0,0,0,0.95);
   justify-content:center;
   align-items:center;
-  flex-direction:column;
 }
 
-.modal-content{
-  max-width:95vw;
-  max-height:85vh;
-  border:8px solid #fff;
-  border-radius:10px;
+#modalImg{
+  max-width:90%;
+  max-height:80%;
 }
+
+.modal .actions{
+  position:absolute;
+  bottom:20px;
+}
+
+.modal .nav-btn{
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  font-size:30px;
+  background:rgba(0,0,0,0.6);
+  padding:12px;
+}
+
+.modal .left{ left:20px; }
+.modal .right{ right:20px; }
 
 .close{
   position:absolute;
   top:20px;
   right:30px;
   color:#fff;
-  font-size:32px;
+  font-size:30px;
   cursor:pointer;
 }
-.skeleton{
-  width:100%;
-  height:200px;
-  background:linear-gradient(
-    90deg,
-    #eee 25%,
-    #ddd 37%,
-    #eee 63%
-  );
-  background-size:400% 100%;
-  animation:skeleton-loading 1.4s infinite;
-  border-radius:10px;
+
+ 
+@media(max-width:768px){
+  .container{flex-direction:column;}
+
+  .image-list{
+    width:100%;
+    display:flex;
+    overflow-x:auto;
+    border-right:none;
+    border-bottom:2px solid #ddd;
+  }
+
+  .image-item{
+    min-width:150px;
+    text-align:center;
+  }
 }
 
-@keyframes skeleton-loading{
-  0%{background-position:100% 50%;}
-  100%{background-position:0 50%;}
-}
 </style>
 </head>
 
 <body>
 
-<div class="imgcontainer">
-<h2 id="title">Samagra Id Related Works</h2>
+<h2 style="text-align:center;">Abha Health Card</h2>
 
+<div class="container">
 
-<div class="top-actions">
- <a href="https://yojnaportal.com/search?q=samagra-id-related-works" target="_blank">
-  <button id="viewBtn">🔗 Link</button>
-</a>
-<button onclick="downloadImg(this)">⬇️ Download</button>
-<button onclick="shareImg(this)">🔗 Share</button>
-<button onclick="printImg(this)">🖨️ Print</button>
+  <div class="image-list" id="imageList"></div>
+
+  <div class="preview">
+
+    <div class="nav-btn left" onclick="prevImage()">❮</div>
+
+    <img id="previewImg">
+
+    <div class="nav-btn right" onclick="nextImage()">❯</div>
+
+    <div class="actions">
+      <button onclick="downloadImg(this)">⬇️ Download</button>
+      <button onclick="shareImg(this)">🔗 Share</button>
+      <button onclick="printCurrent()">🖨️ Current</button>
+      <button onclick="printAll()">🖨️ All</button>
+    </div>
+
+  </div>
+
 </div>
 
-<div class="preview">
-  <img id="previewImg" src="https://cdn.yojnaportal.com/Banner/25x32/mp/mp-samagra-id-works.webp" onclick="openModal()">
-</div>
 
 <div id="modal" class="modal">
+
   <span class="close" onclick="closeModal()">×</span>
-  <img class="modal-content" id="modalImg">
+
+  <div class="nav-btn left" onclick="prevImage()">❮</div>
+
+  <img id="modalImg">
+
+  <div class="nav-btn right" onclick="nextImage()">❯</div>
 
   <div class="actions">
-  <button onclick="downloadImg(this)">⬇️ Download</button>
-<button onclick="shareImg(this)">🔗 Share</button>
-<button onclick="printImg(this)">🖨️ Print</button>
+    <button onclick="downloadImg(this)">⬇️ Download</button>
+    <button onclick="shareImg(this)">🔗 Share</button>
+    <button onclick="printCurrent()">🖨️ Current</button>
+    <button onclick="printAll()">🖨️ All</button>
   </div>
-</div>
 
 </div>
 
 <script>
-let preview = document.getElementById("previewImg");
-let modal = document.getElementById("modal");
-let modalImg = document.getElementById("modalImg");
 
-function getCurrentImage(){
-  return {
-    src: preview.src,
-    title: document.getElementById("title").innerText || "poster"
-  };
+
+const images = [
+  { title:"Abha Health Cards", url:"https:\/\/cdn.yojnaportal.com\/Banner\/25x32\/scheme\/abha-card\/abha-health-card.webp" },
+  { title:"Abha Health Card Details", url:"https:\/\/cdn.yojnaportal.com\/Banner\/25x32\/scheme\/abha-card\/abha-heath-card-details.webp" },
+];
+
+const list = document.getElementById("imageList");
+const preview = document.getElementById("previewImg");
+const modal = document.getElementById("modal");
+const modalImg = document.getElementById("modalImg");
+
+let currentIndex = 0;
+let currentImage = null;
+
+
+function showImage(index){
+  currentIndex = index;
+  const img = images[index];
+
+  preview.src = img.url;
+  preview.alt = img.title;
+  modalImg.src = img.url;
+
+  currentImage = img;
+
+  document.querySelectorAll(".image-item").forEach((el,i)=>{
+    el.classList.toggle("active", i===index);
+  });
 }
 
 
-function openModal(){
-  modal.style.display = "flex";
-  modalImg.src = preview.src;
+images.forEach((img,i)=>{
+  const div = document.createElement("div");
+  div.className="image-item";
+  div.innerText = img.title;
+
+  div.onclick = ()=> showImage(i);
+
+  list.appendChild(div);
+
+  if(i===0) showImage(0);
+});
+
+
+function nextImage(){
+  showImage((currentIndex+1)%images.length);
+}
+function prevImage(){
+  showImage((currentIndex-1+images.length)%images.length);
 }
 
+
+preview.onclick = ()=>{
+  modal.style.display="flex";
+};
 
 function closeModal(){
-  modal.style.display = "none";
+  modal.style.display="none";
 }
+
+
+document.addEventListener("keydown",(e)=>{
+  if(modal.style.display==="flex"){
+    if(e.key==="ArrowRight") nextImage();
+    if(e.key==="ArrowLeft") prevImage();
+    if(e.key==="Escape") closeModal();
+  }
+});
 
 
 async function downloadImg(btn){
-  btn.innerText = "Waiting...";
-
-  const img = getCurrentImage();
-
+  btn.innerText="Waiting...";
   try{
-    let res = await fetch(img.src + "?t=" + Date.now());
-    let blob = await res.blob();
-
-    let url = URL.createObjectURL(blob);
-
-    let a = document.createElement("a");
-    a.href = url;
-    a.download = img.title + ".gif";
+    const res = await fetch(currentImage.url);
+    const blob = await res.blob();
+    const a = document.createElement("a");
+    a.href = URL.createObjectURL(blob);
+    a.download = currentImage.title+".jpg";
     a.click();
-
-    URL.revokeObjectURL(url);
-
-  }catch(e){
+  }catch{
     alert("Download failed");
   }
-
-  btn.innerText = "⬇️ Download";
+  btn.innerText="⬇️ Download";
 }
 
 
 async function shareImg(btn){
-  btn.innerText = "Sharing...";
-
-  const img = {
-    src: document.getElementById("previewImg").src,
-    title: document.getElementById("title").innerText || "image"
-  };
-
-  try {
-    const res = await fetch(img.src + "?t=" + Date.now());
-
-    if (!res.ok) throw new Error("Fetch failed");
-
+  btn.innerText="Sharing...";
+  try{
+    const res = await fetch(currentImage.url);
     const blob = await res.blob();
+    const file = new File([blob], currentImage.title+".jpg",{type:blob.type});
 
-    const file = new File([blob], img.title + ".gif", {
-      type: blob.type || "image/gif"
-    });
-
-    
-    if (navigator.canShare && navigator.canShare({ files: [file] })) {
-
-      await navigator.share({
-        title: img.title,
-        files: [file]
-      });
-
-    } else {
-      alert("❌ आपका device file share support नहीं करता");
+    if(navigator.canShare && navigator.canShare({files:[file]})){
+      await navigator.share({title:currentImage.title, files:[file]});
+    }else{
+      alert("Sharing not supported");
     }
-
-  } catch (err) {
-    console.error("Share Error:", err);
-    alert("❌ Sharing failed");
+  }catch{
+    alert("Share failed");
   }
-
-  btn.innerText = "🔗 Share";
+  btn.innerText="🔗 Share";
 }
 
 
-function printImg(btn){
-  btn.innerText = "Preparing...";
-
-  const img = getCurrentImage();
-
+function printCurrent(){
   const win = window.open("");
-
-  win.document.write(`
-    <html>
-    <body style="margin:0;text-align:center;">
-      <img src="${img.src}" style="max-width:100%;">
-      \x3Cscript>
-        window.onload=function(){
-          window.print();
-          setTimeout(()=>window.close(),500);
-        }
-      <\/script>
-    </body>
-    </html>
-  `);
-
-  win.document.close();
-
-  btn.innerText = "🖨️ Print";
+  win.document.write(`<img src="${currentImage.url}" style="width:100%">`);
+  win.print();
 }
-</script>
-<script>
-    function renderGallery(filteredImages) {
-  categoryContainer.innerHTML = '';
 
-  const categories = [...new Set(filteredImages.map(img => img.category))];
 
-  categories.forEach(cat => {
-    const catDiv = document.createElement('div');
-    catDiv.className = "category";
-
-    catDiv.innerHTML = `<h2>${cat}</h2><div class="gallery"></div>`;
-    const container = catDiv.querySelector('.gallery');
-
-    filteredImages
-      .filter(img => img.category === cat)
-      .forEach(img => {
-
-        const item = document.createElement('div');
-        item.className = "gallery-item";
-
-        
-        const skeleton = document.createElement("div");
-        skeleton.className = "skeleton";
-
-        const image = document.createElement("img");
-        image.loading = "lazy";
-        image.src = img.src;
-        image.style.display = "none";
-
-        image.onload = () => {
-          skeleton.remove();
-          image.style.display = "block";
-        };
-
-        item.appendChild(skeleton);
-        item.appendChild(image);
-
-        const title = document.createElement("div");
-        title.className = "image-title";
-        title.innerText = img.title;
-
-        item.appendChild(title);
-
-        item.onclick = () => openModal(img);
-
-        container.appendChild(item);
-      });
-
-    categoryContainer.appendChild(catDiv);
+function printAll(){
+  const win = window.open("");
+  images.forEach(img=>{
+    win.document.write(`
+      <div style="page-break-after:always;text-align:center">
+        <h3>${img.title}</h3>
+        <img src="${img.url}" style="width:100%">
+      </div>
+    `);
   });
+  win.print();
 }
+
 </script>
 
 </body>
@@ -502,7 +515,7 @@ function printImg(btn){
   </div>
 
   <div class="footer-bottom">
-    © 2026  GajabTools.com | All Rights Reserved | Page Update: <strong>23-04-2026 20:15:15</strong>
+    © 2026  GajabTools.com | All Rights Reserved | Page Update: <strong>24-04-2026 14:29:18</strong>
   </div>
     
     
