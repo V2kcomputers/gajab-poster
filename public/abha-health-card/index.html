@@ -426,7 +426,7 @@ async function downloadImg(btn){
 
     const a = document.createElement("a");
     a.href = url;
-    a.download = currentImage.title + ".webp";
+    a.download = currentImage.title + ".gif";
     a.click();
 
     URL.revokeObjectURL(url);
@@ -448,7 +448,7 @@ async function shareImg(btn){
 
     const blob = await res.blob();
 
-    const file = new File([blob], currentImage.title + ".webp", {
+    const file = new File([blob], currentImage.title + ".gif", {
       type: blob.type
     });
 
