@@ -131,4 +131,12 @@
     min-width:150px;
     text-align:center;
   }
+
+  .preview img{
+    max-width:100%;
+  }
+
+ .nav-btn{
+    display:none;
+  }
 }

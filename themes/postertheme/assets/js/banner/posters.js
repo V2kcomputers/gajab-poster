@@ -263,3 +263,39 @@ function printAll(){
     }
   };
 }
+let startX = 0;
+let endX = 0;
+// ✅ Mobile Screen Scroll
+preview.addEventListener("touchstart", (e)=>{
+  startX = e.touches[0].clientX;
+});
+
+preview.addEventListener("touchend", (e)=>{
+  endX = e.changedTouches[0].clientX;
+
+  if(startX - endX > 50){
+    nextImage(); // swipe left
+  }
+  else if(endX - startX > 50){
+    prevImage(); // swipe right
+  }
+});
+
+// 👉 MODAL SWIPE
+let modalStartX = 0;
+let modalEndX = 0;
+
+modal.addEventListener("touchstart", (e)=>{
+  modalStartX = e.touches[0].clientX;
+});
+
+modal.addEventListener("touchend", (e)=>{
+  modalEndX = e.changedTouches[0].clientX;
+
+  if(modalStartX - modalEndX > 50){
+    nextImage(); // swipe left
+  }
+  else if(modalEndX - modalStartX > 50){
+    prevImage(); // swipe right
+  }
+});
