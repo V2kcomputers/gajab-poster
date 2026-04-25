@@ -2,11 +2,14 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://localhost:1313/abha-health-card/</loc>
-    <lastmod>2026-04-24T15:15:55+05:30</lastmod>
+    <loc>http://localhost:1313/pan-card-apply/</loc>
+    <lastmod>2026-04-25T11:05:31+05:30</lastmod>
   </url><url>
     <loc>http://localhost:1313/poster/</loc>
-    <lastmod>2026-04-24T15:15:55+05:30</lastmod>
+    <lastmod>2026-04-25T11:05:31+05:30</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/abha-health-card/</loc>
+    <lastmod>2026-04-25T10:33:12+05:30</lastmod>
   </url><url>
     <loc>http://localhost:1313/mp/</loc>
     <lastmod>2026-04-23T20:22:11+05:30</lastmod>

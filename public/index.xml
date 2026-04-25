@@ -6,8 +6,15 @@
     <description>Recent content in Home on My New Hugo Site</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 24 Apr 2026 15:15:55 +0530</lastBuildDate>
+    <lastBuildDate>Sat, 25 Apr 2026 11:05:31 +0530</lastBuildDate>
     <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Pan Card Apply</title>
+      <link>http://localhost:1313/pan-card-apply/</link>
+      <pubDate>Sat, 25 Apr 2026 11:05:31 +0530</pubDate>
+      <guid>http://localhost:1313/pan-card-apply/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Abha Health Card</title>
       <link>http://localhost:1313/abha-health-card/</link>

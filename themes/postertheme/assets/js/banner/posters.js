@@ -299,3 +299,74 @@ modal.addEventListener("touchend", (e)=>{
     prevImage(); // swipe right
   }
 });
+// =================== post ya farmat copy====================== //
+
+function shareWhatsApp(id, btn) {
+  const el = document.getElementById(id);
+  if (!el) return;
+
+  const text = el.innerText.trim();
+  if (!text) {
+    alert("No content to share!");
+    return;
+  }
+
+  // Button loading state
+  if (btn) btn.innerText = "Sharing...";
+
+  const finalText = text + "\n\n👉 https://yojnaportal.com";
+  const url = `https://wa.me/?text=${encodeURIComponent(finalText)}`;
+
+  window.open(url, "_blank");
+
+  setTimeout(() => {
+    if (btn) btn.innerText = "🟢 WhatsApp";
+  }, 2000);
+}
+
+function copyText(id, btn) {
+  const el = document.getElementById(id);
+  if (!el) return;
+
+  const text = el.innerText.trim();
+  if (!text) {
+    alert("No content to copy!");
+    return;
+  }
+
+  // Modern Clipboard API
+  if (navigator.clipboard) {
+    navigator.clipboard.writeText(text).then(() => {
+      showCopied(btn);
+    }).catch(() => {
+      fallbackCopy(text, btn);
+    });
+  } else {
+    fallbackCopy(text, btn);
+  }
+}
+
+// Fallback method (older browsers)
+function fallbackCopy(text, btn) {
+  const textarea = document.createElement("textarea");
+  textarea.value = text;
+  document.body.appendChild(textarea);
+  textarea.select();
+  document.execCommand("copy");
+  document.body.removeChild(textarea);
+
+  showCopied(btn);
+}
+
+// Button text change UX
+function showCopied(btn) {
+  if (!btn) return;
+
+  const originalText = btn.innerText;
+  btn.innerText = "Copied ✅";
+
+  setTimeout(() => {
+    btn.innerText = originalText;
+  }, 2000);
+}
+

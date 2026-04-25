@@ -85,6 +85,8 @@
 }
 
 #modalImg{
+  border: 6px solid #ffd54b;
+ border-radius: 12px;
   max-width:90%;
   max-height:80%;
 }
@@ -139,4 +141,137 @@
  .nav-btn{
     display:none;
   }
+}
+/*post farmate*/
+.poster-container {
+  max-width: 1000px;
+  margin: auto;
+  padding: 15px;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.poster-header {
+  text-align: center;
+  background: linear-gradient(90deg, var(--danger-bg), var(--card));
+  color: var(--text);
+  padding: 20px;
+  border-radius: 12px;
+}
+
+.poster-header h1 {
+  font-size: 22px;
+  margin-bottom: 5px;
+}
+
+.subheading {
+  font-size: 14px;
+  opacity: 0.9;
+}
+
+.tagline {
+  text-align: center;
+  background: var(--highlight);
+  padding: 10px;
+  margin: 15px 0;
+  border-radius: 8px;
+  font-weight: bold;
+}
+
+.card {
+  background: var(--card);
+  padding: 15px;
+  margin-bottom: 15px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.card h2 {
+  font-size: 16px;
+  margin-bottom: 10px;
+  color: #3f51b5;
+}
+
+.card ul {
+  padding-left: 18px;
+}
+
+.card li {
+  margin-bottom: 6px;
+}
+
+
+.poster-footer {
+  text-align: center;
+  font-size: 14px;
+  color: #555;
+}
+
+.prompt-section {
+  margin-top: 20px;
+}
+
+.prompt-card {
+     position: relative;
+  background: var(--promt-card);
+  color: var(--text);
+  border-radius: 10px;
+  margin-bottom: 15px;
+  overflow: hidden;
+}
+.prompt-card::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 40px;
+  background: linear-gradient(transparent, var(--card));
+  pointer-events: none;
+}
+.prompt-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--promt-head);
+  padding: 10px 15px;
+}
+
+.prompt-header h3 {
+  font-size: 14px;
+}
+
+.prompt-header button {
+  background: #4caf50;
+  border: none;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.prompt-header button:hover {
+  background: #43a047;
+}
+
+.prompt-card pre {
+  padding: 15px;
+  white-space: pre-wrap;
+  font-size: 13px;
+  line-height: 1.5;
+  max-height: 300px;     /* 🔥 Height limit */
+  overflow-y: auto;      /* 🔥 Vertical scroll */
+  overflow-x: hidden;
+}
+.prompt-card pre::-webkit-scrollbar {
+  width: 6px;
+}
+
+.prompt-card pre::-webkit-scrollbar-thumb {
+  background:  #555;
+  
+  border-radius: 4px;
+}
+
+.prompt-card pre::-webkit-scrollbar-thumb:hover {
+  background: #777;
 }

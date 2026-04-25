@@ -123,7 +123,7 @@
 
 
   
-    <link rel="stylesheet" href="/css/main/mainbase.min.619225176916d006e97ab896f42d838e3ccea8bda8f26e08b9b4039d7f3257dc.css" integrity="sha256-YZIlF2kW0AbperiW9C2DjjzOqL2o8m4IubQDnX8yV9w=">
+    <link rel="stylesheet" href="/css/main/mainbase.min.d3e28d0a430e942487e569e8ba9e8279727dcc57f74a9ad5ec5dbec1b0762b6f.css" integrity="sha256-0&#43;KNCkMOlCSH5Wnoup6CeXJ9zFf3SprV7F2&#43;wbB2K28=">
   
 
 
@@ -152,133 +152,41 @@
 
       </header>
   <main>
-    <!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Image Popup Tool</title>
+    
 
-<style>
+  
+    <link rel="stylesheet" href="/css/Banner/poster.min.3b05033342598c140b75bc74f21b111de81c3fb909002ad724e9c19d1d1a9315.css" integrity="sha256-OwUDM0JZjBQLdbx08hsRHegcP7kJACrXJOnBnR0akxU=">
+  
 
- 
-.imgcontainer{
-  text-align:center;
-  max-width:900px;
-  margin:auto;
-  padding:20px;
-}
-
- 
-.preview{
-  display:flex;
-  justify-content:center;
-}
-
-.preview img{
-  max-width:60%;
-  border:6px solid #5c6bc0;
-  border-radius:10px;
-  cursor:pointer;
-  transition:.3s;
-}
-
-.preview img:hover{
-  transform:scale(1.03);
-}
-
- 
-.top-actions button,
-.actions button{
-  padding:10px 15px;
-  margin:5px;
-  border:none;
-  border-radius:8px;
-  background:#5c6bc0;
-  color:#fff;
-  cursor:pointer;
-}
-
-.top-actions button:hover,
-.actions button:hover{
-  background:#3f51b5;
-}
-
- 
-.modal{
-  display:none;
-  position:fixed;
-  z-index:99999;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
-  background:rgba(0,0,0,0.85);
-  justify-content:center;
-  align-items:center;
-  flex-direction:column;
-}
-
-.modal-content{
-  max-width:95vw;
-  max-height:85vh;
-  border:8px solid #fff;
-  border-radius:10px;
-}
-
-.close{
-  position:absolute;
-  top:20px;
-  right:30px;
-  color:#fff;
-  font-size:32px;
-  cursor:pointer;
-}
-.skeleton{
-  width:100%;
-  height:200px;
-  background:linear-gradient(
-    90deg,
-    #eee 25%,
-    #ddd 37%,
-    #eee 63%
-  );
-  background-size:400% 100%;
-  animation:skeleton-loading 1.4s infinite;
-  border-radius:10px;
-}
-
-@keyframes skeleton-loading{
-  0%{background-position:100% 50%;}
-  100%{background-position:0 50%;}
-}
-</style>
-</head>
-
-<body>
 
 <div class="imgcontainer">
+     
+  <div class="poster-header">
+    <h1>Pradhan Mantri Gramin Toilet Scheme 2026</h1>
+    <p class="subheading">Phase-2 Online Applications for Families Missed in BLS Survey</p>
+  </div>
 <h2 id="title">Sbm Toilet Scheme</h2>
-
-
-<div class="top-actions">
- <a href="https://yojnaportal.com/search?q=sbm-toilet-scheme" target="_blank">
-  <button id="viewBtn">🔗 Link</button>
-</a>
-<button onclick="downloadImg(this)">⬇️ Download</button>
-<button onclick="shareImg(this)">🔗 Share</button>
-<button onclick="printImg(this)">🖨️ Print</button>
-</div>
 
 <div class="preview">
   <img id="previewImg" src="https://cdn.yojnaportal.com/Banner/25x32/sbm-scheme-poster.webp" onclick="openModal()">
 </div>
+<div class="top-actions">
+ <a href="https://yojnaportal.com/search?q=sbm-toilet-scheme" target="_blank">
+  <button id="viewBtn">🔗 Link</button>
+</a>
 
+<button onclick="downloadImg(this)">⬇️ Download</button>
+<button onclick="shareImg(this)">🔗 Share</button>
+<button onclick="printImg(this)">🖨️ Print</button>
+</div>
 <div id="modal" class="modal">
   <span class="close" onclick="closeModal()">×</span>
   <img class="modal-content" id="modalImg">
 
   <div class="actions">
+    <a href="https://yojnaportal.com/search?q=sbm-toilet-scheme" target="_blank">
+  <button id="viewBtn">🔗 Link</button>
+</a>
   <button onclick="downloadImg(this)">⬇️ Download</button>
 <button onclick="shareImg(this)">🔗 Share</button>
 <button onclick="printImg(this)">🖨️ Print</button>
@@ -286,178 +194,177 @@
 </div>
 
 </div>
+<div class="poster-container">
+ 
 
-<script>
-let preview = document.getElementById("previewImg");
-let modal = document.getElementById("modal");
-let modalImg = document.getElementById("modalImg");
+<div class="sharing-section">
 
-function getCurrentImage(){
-  return {
-    src: preview.src,
-    title: document.getElementById("title").innerText || "poster"
-  };
-}
+  
+  
+  <div class="prompt-card">
+    <div class="prompt-header">
+      <h3>📢 Short Sharing (Hindi)</h3>
+      <div class="btn-group">
+        <button onclick="copyText('short-hi', this)">📋 Copy</button>
+        <button onclick="shareWhatsApp('short-hi')">📤 Share</button>
+      </div>
+    </div>
+
+    <pre id="short-hi">
+🚨 शौचालय योजना 2026 शुरू
+
+💰 ₹12,000 तक सहायता
+📢 छूटे परिवार अभी आवेदन करें
+
+👉www.yojnaportal.comhttp://www.yojnaportal.com
+
+    </pre>
+  </div>
+  
+
+  
+  
+  <div class="prompt-card">
+    <div class="prompt-header">
+      <h3>📢 Full Sharing (Hindi)</h3>
+      <div class="btn-group">
+        <button onclick="copyText('full-hi', this)">📋 Copy</button>
+        <button onclick="shareWhatsApp('full-hi')">📤 Share</button>
+      </div>
+    </div>
+
+    <pre id="full-hi">
+🚨 प्रधानमंत्री ग्रामीण शौचालय योजना 2026
+
+💰 ₹12,000 तक की सहायता सीधे बैंक खाते में
+📢 BLS सर्वे में छूटे परिवारों के लिए सुनहरा मौका
+
+📄 सुविधाएं:
+✔ ऑनलाइन आवेदन शुरू
+✔ पंचायत द्वारा सत्यापन
+✔ निर्माण के बाद राशि DBT से ट्रांसफर
+
+👉 अभी आवेदन करें: www.yojnaportal.com
+
+#शौचालय_योजना #SwachhBharat #GraminYojana
+
+    </pre>
+  </div>
+  
+
+</div>
+
+  
+  <div class="tagline">
+    Get Financial Assistance up to ₹12,000 Directly in Your Bank Account (DBT)
+  </div>
+  
+  <div class="card">
+    <h2>✨ Key Highlights</h2>
+    <ul>
+      
+      <li>Online Application Started</li>
+      
+      <li>Under Swachh Bharat Mission</li>
+      
+      <li>For Rural Households</li>
+      
+      <li>Direct Benefit Transfer to Bank Account</li>
+      
+    </ul>
+  </div>
+
+  
+  <div class="card">
+    <h2>📌 Important Details</h2>
+    <ul>
+      
+      <li>Verification by Panchayat/Officials after application</li>
+      
+      <li>Toilet construction starts after approval</li>
+      
+      <li>Amount credited after completion of construction</li>
+      
+    </ul>
+  </div>
 
 
-function openModal(){
-  modal.style.display = "flex";
-  modalImg.src = preview.src;
-}
 
 
-function closeModal(){
-  modal.style.display = "none";
-}
-
-
-async function downloadImg(btn){
-  btn.innerText = "Waiting...";
-
-  const img = getCurrentImage();
-
-  try{
-    let res = await fetch(img.src + "?t=" + Date.now());
-    let blob = await res.blob();
-
-    let url = URL.createObjectURL(blob);
-
-    let a = document.createElement("a");
-    a.href = url;
-    a.download = img.title + ".gif";
-    a.click();
-
-    URL.revokeObjectURL(url);
-
-  }catch(e){
-    alert("Download failed");
-  }
-
-  btn.innerText = "⬇️ Download";
-}
-
-
-async function shareImg(btn){
-  btn.innerText = "Sharing...";
-
-  const img = {
-    src: document.getElementById("previewImg").src,
-    title: document.getElementById("title").innerText || "image"
-  };
-
-  try {
-    const res = await fetch(img.src + "?t=" + Date.now());
-
-    if (!res.ok) throw new Error("Fetch failed");
-
-    const blob = await res.blob();
-
-    const file = new File([blob], img.title + ".gif", {
-      type: blob.type || "image/gif"
-    });
-
+  
+  <div class="card">
+    <h2>📖 About Scheme</h2>
     
-    if (navigator.canShare && navigator.canShare({ files: [file] })) {
+    <p>This poster provides information about the Pradhan Mantri Gramin Toilet Scheme Phase-2.</p>
+    
+    <p>It highlights benefits, eligibility, and the online application process.</p>
+    
+    <p>The scheme aims to support rural families in building toilets with government assistance.</p>
+    
+  </div>
 
-      await navigator.share({
-        title: img.title,
-        files: [file]
-      });
+  
+<div class="prompt-section">
 
-    } else {
-      alert("❌ आपका device file share support नहीं करता");
-    }
+  
+  
+  <div class="prompt-card">
+    <div class="prompt-header">
+      <h3>🧠 Relative Promt</h3>
+     <button onclick="copyText('prompt-en', this)">📋 Copy</button>
+    </div>
 
-  } catch (err) {
-    console.error("Share Error:", err);
-    alert("❌ Sharing failed");
-  }
+    <pre id="prompt-en">
+Create an EXACT poster similar to the given image.
 
-  btn.innerText = "🔗 Share";
-}
+POSTER SIZE: 1280x800
+
+TOP:
+
+* Large bold title using Headline
+* Subheading below it
+
+CENTER:
+
+* Left box: ImportantDetails (clean white box)
+* Right box: KeyHighlights (clean white box)
+* Add a central rural toilet illustration/photo
+
+BOTTOM:
+
+* Add big CTA button: &#34;Apply Online&#34;
+* Add website link: [www.yojnaportal.com](http://www.yojnaportal.com) and branding
+
+FOOTER:
+
+* Add small Footer_Info text
+
+STYLE:
+Orange to white gradient background, modern UI, bold Hindi &#43; English typography, high contrast, clean layout, professional government poster style
+
+IMPORTANT:
+
+* Maintain same visual hierarchy as original
+* Balanced spacing
+* No extra elements
+  
+    </pre>
+  </div>
+  
+</div>
+
+  
+  <div class="poster-footer">
+    <p>Main objective of Swachh Bharat Mission is to ensure toilets in every household and make villages Open Defecation Free (ODF)</p>
+    <strong></strong>
+  </div>
 
 
-function printImg(btn){
-  btn.innerText = "Preparing...";
+</div>
 
-  const img = getCurrentImage();
 
-  const win = window.open("");
 
-  win.document.write(`
-    <html>
-    <body style="margin:0;text-align:center;">
-      <img src="${img.src}" style="max-width:100%;">
-      \x3Cscript>
-        window.onload=function(){
-          window.print();
-          setTimeout(()=>window.close(),500);
-        }
-      <\/script>
-    </body>
-    </html>
-  `);
-
-  win.document.close();
-
-  btn.innerText = "🖨️ Print";
-}
-</script>
-<script>
-    function renderGallery(filteredImages) {
-  categoryContainer.innerHTML = '';
-
-  const categories = [...new Set(filteredImages.map(img => img.category))];
-
-  categories.forEach(cat => {
-    const catDiv = document.createElement('div');
-    catDiv.className = "category";
-
-    catDiv.innerHTML = `<h2>${cat}</h2><div class="gallery"></div>`;
-    const container = catDiv.querySelector('.gallery');
-
-    filteredImages
-      .filter(img => img.category === cat)
-      .forEach(img => {
-
-        const item = document.createElement('div');
-        item.className = "gallery-item";
-
-        
-        const skeleton = document.createElement("div");
-        skeleton.className = "skeleton";
-
-        const image = document.createElement("img");
-        image.loading = "lazy";
-        image.src = img.src;
-        image.style.display = "none";
-
-        image.onload = () => {
-          skeleton.remove();
-          image.style.display = "block";
-        };
-
-        item.appendChild(skeleton);
-        item.appendChild(image);
-
-        const title = document.createElement("div");
-        title.className = "image-title";
-        title.innerText = img.title;
-
-        item.appendChild(title);
-
-        item.onclick = () => openModal(img);
-
-        container.appendChild(item);
-      });
-
-    categoryContainer.appendChild(catDiv);
-  });
-}
-</script>
-
-</body>
-</html>
+<script src="http://localhost:1313/js/banner/poster.min.0d924e62efe59b3fa2cb5d656557cb9b260bb669083f0676e1122976e0eceed4.js" integrity="sha256-DZJOYu/lmz&#43;iy11lZVfLmyYLtmkIPwZ24RIpduDs7tQ=" defer></script>
 
   </main>
   <footer>

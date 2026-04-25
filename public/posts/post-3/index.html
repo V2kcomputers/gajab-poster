@@ -155,240 +155,274 @@
 
       </header>
   <main>
-    <head>
-    <meta name="robots" content="index, follow">
-    <link rel="shortcut icon" href="/favicon.ico">
-  </head>
+    <style>.poster-container {
+  max-width: 800px;
+  margin: auto;
+  padding: 15px;
+  font-family: 'Segoe UI', sans-serif;
+}
 
-    <div class="single-post-header container">
-    <div class="single-post-wrapper">
-      <div class="single-post-content">
-    <h1 class="post-title" >Post 3</h1>
-   
-     <p>Occaecat aliqua consequat laborum ut ex aute aliqua culpa quis irure esse magna dolore quis. Proident fugiat labore eu laboris officia Lorem enim. Ipsum occaecat cillum ut tempor id sint aliqua incididunt nisi incididunt reprehenderit. Voluptate ad minim sint est aute aliquip esse occaecat tempor officia qui sunt. Aute ex ipsum id ut in est velit est laborum incididunt. Aliqua qui id do esse sunt eiusmod id deserunt eu nostrud aute sit ipsum. Deserunt esse cillum Lorem non magna adipisicing mollit amet consequat.</p>
-<p><img src="bryce-canyon.jpg" alt="Bryce Canyon National Park"></p>
-<p>Sit excepteur do velit veniam mollit in nostrud laboris incididunt ea. Amet eu cillum ut reprehenderit culpa aliquip labore laborum amet sit sit duis. Laborum id proident nostrud dolore laborum reprehenderit quis mollit nulla amet veniam officia id id. Aliquip in deserunt qui magna duis qui pariatur officia sunt deserunt.</p>
+.poster-header {
+  text-align: center;
+  background: linear-gradient(135deg, #5c6bc0, #3f51b5);
+  color: var(--text);
+  padding: 20px;
+  border-radius: 12px;
+}
 
+.poster-header h1 {
+  font-size: 22px;
+  margin-bottom: 5px;
+}
+
+.subheading {
+  font-size: 14px;
+  opacity: 0.9;
+}
+
+.tagline {
+  text-align: center;
+  background: var(--highlight);
+  padding: 10px;
+  margin: 15px 0;
+  border-radius: 8px;
+  font-weight: bold;
+}
+
+.card {
+  background: var(--card);
+  padding: 15px;
+  margin-bottom: 15px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.card h2 {
+  font-size: 16px;
+  margin-bottom: 10px;
+  color: #3f51b5;
+}
+
+.card ul {
+  padding-left: 18px;
+}
+
+.card li {
+  margin-bottom: 6px;
+}
+
+
+.poster-footer {
+  text-align: center;
+  font-size: 14px;
+  color: #555;
+}
+
+.prompt-section {
+  margin-top: 20px;
+}
+
+.prompt-card {
+     position: relative;
+  background: #1e1e1e;
+  color: #eee;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  overflow: hidden;
+}
+.prompt-card::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 40px;
+  background: linear-gradient(transparent, #1e1e1e);
+  pointer-events: none;
+}
+.prompt-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #2c2c2c;
+  padding: 10px 15px;
+}
+
+.prompt-header h3 {
+  font-size: 14px;
+}
+
+.prompt-header button {
+  background: #4caf50;
+  border: none;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.prompt-header button:hover {
+  background: #43a047;
+}
+
+.prompt-card pre {
+  padding: 15px;
+  white-space: pre-wrap;
+  font-size: 13px;
+  line-height: 1.5;
+  max-height: 300px;      
+  overflow-y: auto;       
+  overflow-x: hidden;
+}
+.prompt-card pre::-webkit-scrollbar {
+  width: 6px;
+}
+
+.prompt-card pre::-webkit-scrollbar-thumb {
+  background: #555;
+  border-radius: 4px;
+}
+
+.prompt-card pre::-webkit-scrollbar-thumb:hover {
+  background: #777;
+}
+
+</style>
+
+<div class="poster-container">
+
+<div class="sharing-section">
+
+  
+  
+
+  
+  
+
+</div>
+  
+  <div class="poster-header">
+    <h1></h1>
+    <p class="subheading"></p>
+  </div>
+
+  
+  <div class="tagline">
     
-      
-  <div>
-    <div>Tags:</div>
+  </div>
+
+  
+  <div class="card">
+    <h2>✨ Key Highlights</h2>
     <ul>
-        <li><a href="/tags/red/">Red</a></li>
-        <li><a href="/tags/green/">Green</a></li>
-        <li><a href="/tags/blue/">Blue</a></li>
+      
     </ul>
   </div>
 
- </div>
+  
+  <div class="card">
+    <h2>📌 Important Details</h2>
+    <ul>
+      
+    </ul>
   </div>
-  <div class="link-list">
-  <h3 style="margin-left: 10px;">You May Also Like</h3>
+
+
+
 
   
-  
-
-  
-  
-
-  
-  
-  
-
-  
-  
-  
-
-  
-
-  
-  
+  <div class="card">
+    <h2>📖 About Scheme</h2>
     
-  
-    
-
-      
-      
-
-      
-        
-      
-
-      
-        <a href="/posts/post-1/">
-          <div class="left">
-            <div class="link-text">
-              Post 1
-            </div>
-
-            
-
-          </div>
-          <span>›</span>
-        </a>
-
-        
-      
-
-    
-  
-    
-
-      
-      
-
-      
-        
-      
-
-      
-        <a href="/posts/post-2/">
-          <div class="left">
-            <div class="link-text">
-              Post 2
-            </div>
-
-            
-
-          </div>
-          <span>›</span>
-        </a>
-
-        
-      
-
-    
-  
+  </div>
 
   
+<div class="prompt-section">
+
   
-    
-      
-
-        
-        
-
-        
-          
-        
-
-        
-          <a href="/samagra-id-related-works/">
-            <div class="left">
-              <div class="link-text">
-                Samagra Id Related Works
-              </div>
-
-              
-
-            </div>
-            <span>›</span>
-          </a>
-
-          
-        
-
-      
-    
-      
-
-        
-        
-
-        
-          
-        
-
-        
-          <a href="/pmsym-mandhan-yojana/">
-            <div class="left">
-              <div class="link-text">
-                Pmsym Mandhan Yojana
-              </div>
-
-              
-
-            </div>
-            <span>›</span>
-          </a>
-
-          
-        
-
-      
-    
-      
-
-        
-        
-
-        
-          
-        
-
-        
-          <a href="/shadi-card-printing-service/">
-            <div class="left">
-              <div class="link-text">
-                Shadi Card Printing Service
-              </div>
-
-              
-
-            </div>
-            <span>›</span>
-          </a>
-
-          
-        
-
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-  
-
-</div>
-   
-
-<a href="#" class="image-link">
-  <img src=""
-       loading="lazy"
-       sizes="(max-width: 600px) 100vw, 800px"
-       alt="Post 3 | www.gajabtools.com"
-       class="responsive-image">
-</a>
-<br><hr>
-
-
-<div class="post-navigation">
-
-    <a href="/posts/post-2/" class="nav-card prev">
-      
-      <span class="label">⬅ Previous</span>
-      <span class="title">Post 2</span>
-    </a>
-  
-
   
 </div>
- 
+
+  
+  <div class="poster-footer">
+    <p></p>
+    <strong></strong>
   </div>
- 
 
 
+</div>
+
+<script>
+function shareWhatsApp(id, btn) {
+  const el = document.getElementById(id);
+  if (!el) return;
+
+  const text = el.innerText.trim();
+  if (!text) {
+    alert("No content to share!");
+    return;
+  }
+
+  
+  if (btn) btn.innerText = "Sharing...";
+
+  const finalText = text + "\n\n👉 https://yojnaportal.com";
+  const url = `https://wa.me/?text=${encodeURIComponent(finalText)}`;
+
+  window.open(url, "_blank");
+
+  setTimeout(() => {
+    if (btn) btn.innerText = "🟢 WhatsApp";
+  }, 2000);
+}
+</script>
+<script>
+function copyText(id, btn) {
+  const el = document.getElementById(id);
+  if (!el) return;
+
+  const text = el.innerText.trim();
+  if (!text) {
+    alert("No content to copy!");
+    return;
+  }
+
+  
+  if (navigator.clipboard) {
+    navigator.clipboard.writeText(text).then(() => {
+      showCopied(btn);
+    }).catch(() => {
+      fallbackCopy(text, btn);
+    });
+  } else {
+    fallbackCopy(text, btn);
+  }
+}
+
+
+function fallbackCopy(text, btn) {
+  const textarea = document.createElement("textarea");
+  textarea.value = text;
+  document.body.appendChild(textarea);
+  textarea.select();
+  document.execCommand("copy");
+  document.body.removeChild(textarea);
+
+  showCopied(btn);
+}
+
+
+function showCopied(btn) {
+  if (!btn) return;
+
+  const originalText = btn.innerText;
+  btn.innerText = "Copied ✅";
+
+  setTimeout(() => {
+    btn.innerText = originalText;
+  }, 2000);
+}
+</script>
 
   </main>
   <footer>

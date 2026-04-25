@@ -1,6 +1,11 @@
 {{ partial "cssStyles/poster.html" . }}
 
 <div class="imgcontainer">
+     <!-- Header -->
+  <div class="poster-header">
+    <h1>{{ .Params.Headline }}</h1>
+    <p class="subheading">{{ .Params.Subheading }}</p>
+  </div>
 <h2 id="title">{{ .Title }}</h2>
 
 <div class="preview">
@@ -30,4 +35,108 @@
 </div>
 
 </div>
+<div class="poster-container">
+ 
+<!-- Sharing Section -->
+<div class="sharing-section">
+
+  <!-- Short Hindi Sharing -->
+  {{ if .Params.Short_Hindi_Sharing }}
+  <div class="prompt-card">
+    <div class="prompt-header">
+      <h3>📢 Short Sharing (Hindi)</h3>
+      <div class="btn-group">
+        <button onclick="copyText('short-hi', this)">📋 Copy</button>
+        <button onclick="shareWhatsApp('short-hi')">📤 Share</button>
+      </div>
+    </div>
+
+    <pre id="short-hi">
+{{ range .Params.Short_Hindi_Sharing }}{{ . }}{{ end }}
+    </pre>
+  </div>
+  {{ end }}
+
+  <!-- Full Hindi Sharing -->
+  {{ if .Params.Hindi_Sharing }}
+  <div class="prompt-card">
+    <div class="prompt-header">
+      <h3>📢 Full Sharing (Hindi)</h3>
+      <div class="btn-group">
+        <button onclick="copyText('full-hi', this)">📋 Copy</button>
+        <button onclick="shareWhatsApp('full-hi')">📤 Share</button>
+      </div>
+    </div>
+
+    <pre id="full-hi">
+{{ range .Params.Hindi_Sharing }}{{ . }}{{ end }}
+    </pre>
+  </div>
+  {{ end }}
+
+</div>
+
+  <!-- Tagline -->
+  <div class="tagline">
+    {{ .Params.PosterTagline }}
+  </div>
+  <!-- Highlights -->
+  <div class="card">
+    <h2>✨ Key Highlights</h2>
+    <ul>
+      {{ range .Params.KeyHighlights }}
+      <li>{{ . }}</li>
+      {{ end }}
+    </ul>
+  </div>
+
+  <!-- Important Details -->
+  <div class="card">
+    <h2>📌 Important Details</h2>
+    <ul>
+      {{ range .Params.ImportantDetails }}
+      <li>{{ . }}</li>
+      {{ end }}
+    </ul>
+  </div>
+
+
+
+
+  <!-- About -->
+  <div class="card">
+    <h2>📖 About Scheme</h2>
+    {{ range .Params.aboutPost }}
+    <p>{{ . }}</p>
+    {{ end }}
+  </div>
+
+  <!-- Prompt Section -->
+<div class="prompt-section">
+
+  <!-- English Prompt -->
+  {{ if .Params.promt_en }}
+  <div class="prompt-card">
+    <div class="prompt-header">
+      <h3>🧠 Relative Promt</h3>
+     <button onclick="copyText('prompt-en', this)">📋 Copy</button>
+    </div>
+
+    <pre id="prompt-en">
+{{ range .Params.promt_en }}{{ . }}{{ end }}
+    </pre>
+  </div>
+  {{ end }}
+</div>
+
+  <!-- Footer -->
+  <div class="poster-footer">
+    <p>{{ .Params.Footer_Info }}</p>
+    <strong>{{ .Params.Call_To_Action }}</strong>
+  </div>
+
+
+</div>
+
+
 {{ partial "jsFiles/poster.html" . }}
