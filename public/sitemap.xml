@@ -2,47 +2,56 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://localhost:1313/pan-card-apply/</loc>
-    <lastmod>2026-04-25T17:23:10+05:30</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/poster/</loc>
-    <lastmod>2026-04-25T17:23:10+05:30</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/abha-health-card/</loc>
-    <lastmod>2026-04-25T17:23:10+05:30</lastmod>
+    <loc>http://localhost:1313/mp-income-and-domicile/</loc>
+    <lastmod>2026-04-26T16:11:37+05:30</lastmod>
   </url><url>
     <loc>http://localhost:1313/mp/</loc>
-    <lastmod>2026-04-23T20:22:11+05:30</lastmod>
+    <lastmod>2026-04-26T16:11:37+05:30</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/mp-domicile-certificate/</loc>
+    <lastmod>2026-04-26T16:02:26+05:30</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/mp-income-certificate/</loc>
+    <lastmod>2026-04-26T15:49:03+05:30</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/pan-card-apply/</loc>
+    <lastmod>2026-04-25T20:08:58+05:30</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/poster/</loc>
+    <lastmod>2026-04-25T20:08:58+05:30</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/abha-health-card/</loc>
+    <lastmod>2026-04-25T20:08:58+05:30</lastmod>
   </url><url>
     <loc>http://localhost:1313/samagra-id-related-works/</loc>
-    <lastmod>2026-04-23T20:22:11+05:30</lastmod>
+    <lastmod>2026-04-25T20:08:58+05:30</lastmod>
   </url><url>
     <loc>http://localhost:1313/pmsym-mandhan-yojana/</loc>
-    <lastmod>2026-04-23T20:22:11+05:30</lastmod>
+    <lastmod>2026-04-25T20:08:58+05:30</lastmod>
   </url><url>
     <loc>http://localhost:1313/airtel-payments-bank-account-opening/</loc>
-    <lastmod>2026-04-23T19:29:39+05:30</lastmod>
+    <lastmod>2026-04-25T20:08:58+05:30</lastmod>
   </url><url>
     <loc>http://localhost:1313/shadi-card-printing-service/</loc>
-    <lastmod>2026-04-23T19:29:39+05:30</lastmod>
+    <lastmod>2026-04-25T20:08:58+05:30</lastmod>
   </url><url>
     <loc>http://localhost:1313/bank-statement-print-service/</loc>
-    <lastmod>2026-04-23T19:03:34+05:30</lastmod>
+    <lastmod>2026-04-25T20:08:58+05:30</lastmod>
   </url><url>
     <loc>http://localhost:1313/driving-lisense-apply-poster/</loc>
-    <lastmod>2026-04-23T15:42:41+05:30</lastmod>
+    <lastmod>2026-04-25T20:08:58+05:30</lastmod>
   </url><url>
     <loc>http://localhost:1313/ayushman-card-poster/</loc>
-    <lastmod>2026-04-23T15:42:41+05:30</lastmod>
+    <lastmod>2026-04-25T20:08:58+05:30</lastmod>
   </url><url>
     <loc>http://localhost:1313/daily-fast-shop-enteries/</loc>
-    <lastmod>2026-04-23T12:58:19+05:30</lastmod>
+    <lastmod>2026-04-25T20:08:58+05:30</lastmod>
   </url><url>
     <loc>http://localhost:1313/forms/</loc>
-    <lastmod>2026-04-23T12:58:19+05:30</lastmod>
+    <lastmod>2026-04-25T20:08:58+05:30</lastmod>
   </url><url>
     <loc>http://localhost:1313/sbm-toilet-scheme/</loc>
-    <lastmod>2026-04-25T17:23:10+05:30</lastmod>
+    <lastmod>2026-04-25T20:08:58+05:30</lastmod>
   </url><url>
     <loc>http://localhost:1313/all-tools/</loc>
     <lastmod>2026-04-22T18:41:34+05:30</lastmod>
