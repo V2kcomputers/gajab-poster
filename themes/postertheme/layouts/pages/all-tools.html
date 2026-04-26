@@ -6,120 +6,146 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title> All Tools Update </title>
+
 
 <style>
-.card-list {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 15px;
-    margin:20px auto;
-    max-width: 1200px;
+/* Container Grid */
+.banner-list {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  padding: 20px;
+  max-width: 1000px;
+  margin:auto;
 }
+
 /* Card */
-.card {
-    display: flex;
-    background: var(--card);
-    border-radius: 10px;
-    padding: 10px;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-    height: 100%;   /* important */
+.banner-card {
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transition: 0.3s ease;
 }
+
+/* Hover effect */
+.banner-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+/* Image wrapper */
+.banner-img {
+  position: relative;
+  width: 100%;
+  max-height: 600px;
+  overflow: hidden;
+}
+
 /* Image */
-.card img {
-    width: 80px;
-    height: 80px;
-    border-radius: 8px;
-    object-fit: cover;
-    margin-right: 12px;
+.banner-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
 }
 
-/* Content */
-.card-content {
-    flex: 1;
+/* Zoom on hover */
+.banner-card:hover img {
+  transform: scale(1.1);
 }
-.card-content a:link {
-  color: var(--primary);
-  text-decoration:none; }
-  .card-content a:visited {
-    color: var(--text);
-  } 
-  .card-content a:hover {
-    color: green;
-  }
+
+/* Overlay */
+.banner-overlay {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 15px;
+  background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+}
+
 /* Title */
-.card-title {
-    font-size: 16px;
-    font-weight: bold;
-    margin-bottom: 5px;
-}
-
-/* Description (2 line limit) */
-.card-desc {
-    font-size: 14px;
-    color: #555;
-
-    display: -webkit-box;
-    -webkit-line-clamp: 2;   /* 2 lines */
-    -webkit-box-orient: vertical;
-    overflow: hidden;
+.banner-overlay h3 {
+  color: #fff;
+  font-size: 12px;
+  margin: 0;
+  line-height: 1.3;
 }
 .pagination {
-  display: flex;
-  gap: 8px;
-  justify-content: center;
-  margin-top: 20px;
-  flex-wrap: wrap;
+  text-align: center;
+  margin: 30px 0;
 }
 
 .pagination a,
 .pagination span {
-  padding: 6px 12px;
-  border: 1px solid #ddd;
-  text-decoration: none;
-  color: var(--text);
+  display: inline-block;
+  margin: 5px;
+  padding: 8px 14px;
   border-radius: 6px;
+  text-decoration: none;
+  font-size: 14px;
+  background: #eee;
+  color: #333;
+  transition: 0.3s;
 }
 
 .pagination a:hover {
-  background: var(--card);
+  background: #5c6bc0;
+  color: #fff;
 }
 
 .pagination .active {
-  background: var(--primary);
-  color: var(--text);
-  border-color: var(--primary);
+  background: #5c6bc0;
+  color: #fff;
+  font-weight: bold;
+}
+
+/* Tablet */
+@media (max-width: 900px) {
+  .banner-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .banner-list {
+    grid-template-columns: 1fr;
+  }
+
+  .banner-img {
+    height: 500px;
+  }
 }
 </style>
 
 </head>
 
+<div class="banner-list">
 
-<div class="card-list">
-
-{{ $paginator := .Paginate (where .Site.RegularPages "Draft" false) 12 }}
+{{ $paginator := .Paginate (where .Site.RegularPages "Draft" false) 8 }}
 
 {{ range $paginator.Pages }}
 
-  <div class="card">
-    <img src="{{ with .Params.imagebanner }}{{ . | relURL }}{{ else }}/images/default.jpg{{ end }}" alt="{{ .Title }}">
+  <div class="banner-card">
+    <a href="{{ .RelPermalink }}">
+      
+      <div class="banner-img">
+        <img src="{{ with .Params.imagePoster }}{{ . | relURL }}{{ else }}/images/default.jpg{{ end }}" alt="{{ .Title }}">
+        
+        <!-- Overlay -->
+        <div class="banner-overlay">
+          <h3>{{ .Title }}</h3>
+        </div>
 
-    <div class="card-content">
-      <div class="card-title">
-        <a href="{{ .RelPermalink }}">{{ .Title }}</a>
       </div>
 
-      <div class="card-desc">
-        {{ .Params.description | default .Summary }}
-      </div>
-    </div>
+    </a>
   </div>
 
 {{ end }}
+
 </div>
-
-
-<!-- Pagination Buttons -->
 <!-- Pagination Buttons -->
 <div class="pagination">
 
