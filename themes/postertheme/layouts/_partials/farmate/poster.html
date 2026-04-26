@@ -6,8 +6,6 @@
     <h1>{{ .Params.Headline }}</h1>
     <p class="subheading">{{ .Params.Subheading }}</p>
   </div>
-<h2 id="title">{{ .Title }}</h2>
-
 <div class="preview">
   <img id="previewImg" src="{{ .Params.imagePoster | relURL }}" onclick="openModal()">
 </div>
@@ -33,8 +31,9 @@
 <button onclick="printImg(this)">🖨️ Print</button>
   </div>
 </div>
-
+{{ partial "main-parts/you-may-like.html" . }}
 </div>
+
 <div class="poster-container">
  
 <!-- Sharing Section -->

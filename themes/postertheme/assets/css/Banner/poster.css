@@ -4,6 +4,7 @@
   max-width:900px;
   margin:auto;
   padding:20px;
+  background: var(--card);
 }
 
 /* Preview */
@@ -96,10 +97,11 @@ border-image: linear-gradient(135deg,  #ffd700, #fff8dc, #d4af37) 1;
 
 /*post farmate*/
 .poster-container {
-  max-width: 800px;
+ max-width:900px;
   margin: auto;
   padding: 15px;
   font-family: 'Segoe UI', sans-serif;
+  background: var(--card);
 }
 
 .poster-header {
