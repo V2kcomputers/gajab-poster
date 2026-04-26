@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Home | Gajab Tools </title>
+<title>My New Hugo Site | Gajab Tools </title>
 
 
 
@@ -16,25 +16,22 @@
 
 <meta property="og:site_name" content="Gajab Tools">
 <meta property="og:url" content="https://www.gajabtools.com/">
-<meta property="og:title" content="Home">
-<meta property="og:description" content="Laborum voluptate pariatur ex culpa magna nostrud est incididunt fugiat pariatur do dolor ipsum enim. Consequat tempor do dolor eu. Non id id anim anim excepteur excepteur pariatur nostrud qui irure ullamco.
-">
+<meta property="og:title" content="My New Hugo Site">
+<meta property="og:description" content="">
 <meta property="og:type" content="article">
 <meta property="og:image" content="http://localhost:1313/images/default.jpg">
 
 
 
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Home">
-<meta name="twitter:description" content="Laborum voluptate pariatur ex culpa magna nostrud est incididunt fugiat pariatur do dolor ipsum enim. Consequat tempor do dolor eu. Non id id anim anim excepteur excepteur pariatur nostrud qui irure ullamco.
-">
+<meta name="twitter:title" content="My New Hugo Site">
+<meta name="twitter:description" content="">
 <meta name="twitter:image" content="http://localhost:1313/images/default.jpg">
 <meta name="twitter:site" content="@gajabtools">
 
 
 
-<meta name="description" content="Laborum voluptate pariatur ex culpa magna nostrud est incididunt fugiat pariatur do dolor ipsum enim. Consequat tempor do dolor eu. Non id id anim anim excepteur excepteur pariatur nostrud qui irure ullamco.
-">
+<meta name="description" content="">
 <meta name="keywords" content="online tools, free tools, gajab tools">
 <meta name="author" content="Gajab Tools">
 
@@ -56,8 +53,8 @@
 
 
 
-<meta property="article:published_time" content="2023-01-01T08:00:00-07:00">
-<meta property="article:modified_time" content="2026-04-22T18:41:34&#43;05:30">
+<meta property="article:published_time" content="2026-04-26T16:11:37&#43;05:30">
+<meta property="article:modified_time" content="2026-04-26T16:27:09&#43;05:30">
 
 
 
@@ -90,7 +87,7 @@
         "@type": "WebPage",
         "@id": "http:\/\/localhost:1313\/"
       },
-      "headline": "Home",
+      "headline": "My New Hugo Site",
       "description": "Get complete details about this tool, features, usage, and benefits.",
       "image": "http:\/\/localhost:1313\/",
       "author": {
@@ -106,8 +103,8 @@
           "url": "http:\/\/localhost:1313\/images\/logo.png"
         }
       },
-      "datePublished": "2023-01-01",
-      "dateModified": "2026-04-22",
+      "datePublished": "2026-04-26",
+      "dateModified": "2026-04-26",
       "inLanguage": "en",
       "applicationCategory": "UtilitiesApplication"
     }
@@ -157,11 +154,227 @@
       </header>
   <main>
     
+<style>
+    :root {
+  --primary-color: #5c6bc0;
+  --hover-color: #3f51b5;
+  --text-color: #333;
+  --light-bg: #f5f5f5;
+}
+
+ 
+.search-container {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  border-radius: 8px;
+  background-color: white;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.search-form {
+  display: flex;
+  position: relative;
+}
+
+.search-input {
+  flex: 1;
+  padding: 14px 20px;
+  border: 2px solid #e0e0e0;
+  border-radius: 50px;
+  font-size: 16px;
+  color: var(--text-color);
+  background-color: white;
+  transition: 0.3s;
+}
+
+.search-input:focus {
+  border-color: var(--primary-color);
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(92, 107, 192, 0.2);
+}
+
+.search-button {
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 50px;
+  padding: 10px 24px;
+  cursor: pointer;
+}
+
+ 
+.category {
+  margin-bottom: 30px;
+}
+
+.category h2 {
+  margin: 10px 0;
+  padding-left: 10px;
+  color: #444;
+}
+
+ 
+.gallery {
+  display: flex;
+  overflow-x: auto;
+  padding: 10px;
+  gap: 15px;
+}
+
+ 
+.gallery::-webkit-scrollbar {
+  height: 6px;
+}
+.gallery::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 4px;
+}
+
+ 
+.gallery-item {
+  position: relative;
+  min-width: 180px;
+  border-radius: 10px;
+  overflow: hidden;
+  background-color: white;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  flex-shrink: 0;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.2s ease;
+}
+
+ 
+.gallery-item:hover {
+  transform: translateY(-5px);
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+ 
+.gallery-item .icon {
+  position: absolute;
+  bottom: 50px;
+  right: 10px;
+  background: rgba(255,255,255,0.9);
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+ 
+.image-title {
+  padding: 10px;
+  text-align: center;
+  font-size: 14px;
+  color: #333;
+}
+
+ 
+.badge-new {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  background: red;
+  color: #fff;
+  font-size: 10px;
+  padding: 3px 6px;
+  border-radius: 4px;
+}
+
+.badge-update {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: orange;
+  color: #fff;
+  font-size: 10px;
+  padding: 3px 6px;
+  border-radius: 4px;
+}
+
+ 
+.view-more-wrap {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.view-more-btn {
+  display: inline-block;
+  padding: 8px 18px;
+  background: var(--primary-color);
+  color: #fff;
+  border-radius: 20px;
+  text-decoration: none;
+  font-size: 14px;
+  transition: 0.3s;
+}
+
+.view-more-btn:hover {
+  background: var(--hover-color);
+}
+
+ 
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.9);
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  z-index: 999;
+}
+
+.modal img {
+  max-width: 90%;
+  max-height: 80vh;
+}
+
+.close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 30px;
+  color: white;
+  cursor: pointer;
+}
+.badge-new {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  background: red;
+  color: #fff;
+  font-size: 10px;
+  padding: 3px 6px;
+  border-radius: 4px;
+}
+
+ 
+@media (max-width: 600px) {
+  .gallery-item {
+    min-width: 150px;
+  }
+}
+</style>
 
 
-  
-    <link rel="stylesheet" href="/css/Banner/posterhome.min.9b8a09b45e9f358704b6c09957a0538233019143446d98c395ecfcc4a1cdba09.css" integrity="sha256-m4oJtF6fNYcEtsCZV6BTgjMBkUNEbZjDlez8xKHNugk=">
-  
 
 
 
@@ -627,7 +840,7 @@
   </div>
 
   <div class="footer-bottom">
-    © 2026  GajabTools.com | All Rights Reserved | Page Update: <strong>01-01-2023 08:00:00</strong>
+    © 2026  GajabTools.com | All Rights Reserved | Page Update: <strong>26-04-2026 16:11:37</strong>
   </div>
     
     
