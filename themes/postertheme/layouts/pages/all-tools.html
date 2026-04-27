@@ -1,11 +1,7 @@
 
 {{ define "main" }}
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 
 
 <style>
@@ -110,11 +106,27 @@
 /* Mobile */
 @media (max-width: 600px) {
   .banner-list {
-    grid-template-columns: 1fr;
+    display: flex;              /* grid हटाकर flex */
+    overflow-x: auto;           /* horizontal scroll */
+    gap: 15px;
+    padding: 15px;
+    max-height: none;           /* height restriction हटाओ */
+    scroll-snap-type: x mandatory;
+  }
+
+  .banner-card {
+    min-width: 80%;             /* हर card slider जैसा दिखे */
+    flex: 0 0 auto;
+    scroll-snap-align: start;
   }
 
   .banner-img {
-    height: 500px;
+    height: 400px;
+  }
+
+  /* scrollbar hide (optional) */
+  .banner-list::-webkit-scrollbar {
+    display: none;
   }
 }
 </style>
@@ -123,7 +135,8 @@
 
 <div class="banner-list">
 
-{{ $paginator := .Paginate (where .Site.RegularPages "Draft" false) 8 }}
+{{ $pages := where .Site.RegularPages "Draft" false }}
+{{ $paginator := .Paginate $pages 8 }}
 
 {{ range $paginator.Pages }}
 
@@ -144,7 +157,39 @@
   </div>
 
 {{ end }}
+<script id="k8d7s1">
+let loading = false;
 
+window.addEventListener("scroll", async () => {
+  if (loading) return;
+
+  if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 100) {
+
+    const nextBtn = document.querySelector(".pagination a:last-child");
+
+    if (!nextBtn) return;
+
+    loading = true;
+
+    const res = await fetch(nextBtn.href);
+    const html = await res.text();
+
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(html, "text/html");
+
+    const newItems = doc.querySelectorAll(".banner-card");
+    const container = document.querySelector(".banner-list");
+
+    newItems.forEach(el => container.appendChild(el));
+
+    // update pagination
+    const newPagination = doc.querySelector(".pagination");
+    document.querySelector(".pagination").innerHTML = newPagination.innerHTML;
+
+    loading = false;
+  }
+});
+</script>
 </div>
 <!-- Pagination Buttons -->
 <div class="pagination">

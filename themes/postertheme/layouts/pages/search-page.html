@@ -3,22 +3,19 @@
 <div class="search-container">
 
   <!-- 🔍 Search Box -->
-  <form id="searchForm" class="search-box">
-    
+  <form method="post" id="searchForm" class="search-box" action=""  name="search-form">
+    <input type="hidden" name="TimeStamp" class="Advance" id="timestamp-field">
+    <input type="hidden" name="use-in" class="advnce" value="poster.yojnaportal.com">
     <input 
       type="text" 
+      name="Search" 
       id="searchInput" 
-      placeholder="Search services, Poster, certificates..."
+      placeholder="Search services, poster etc..."
       autocomplete="off"
     >
        <span id="clearBtn">✖</span>
    <!-- Search Button -->
     <button type="submit" class="search-btn">🔍Search</button>
-    <!-- Clear -->
- 
-
- 
-
   </form>
 <!-- 📊 Results -->
 <div id="results"></div>
