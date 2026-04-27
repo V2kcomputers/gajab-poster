@@ -1,12 +1,28 @@
 {{- $index := slice -}}
-{{- range where .Site.RegularPages "Kind" "page" -}}
+{{- range .Site.RegularPages -}}
+
+{{- $about := delimit (.Params.aboutPost | default (slice)) " " -}}
+{{- $highlights := delimit (.Params.KeyHighlights | default (slice)) " " -}}
+{{- $important := delimit (.Params.ImportantDetails | default (slice)) " " -}}
+{{- $tags := delimit (.Params.tags | default (slice)) " " -}}
+{{- $cats := delimit (.Params.categories | default (slice)) " " -}}
+
+{{- $hindiShort := delimit (.Params.Short_Hindi_Sharing | default (slice)) " " -}}
+{{- $hindiFull := delimit (.Params.Hindi_Sharing | default (slice)) " " -}}
 
 {{- $content := delimit (slice
   .Title
-  (.Content | plainify | htmlUnescape)
-  (.Params.description | default "")
-  (.Params.tags | delimit " ")
-  (.Params.categories | delimit " ")
+  (.Params.Headline | default "")
+  (.Params.Subheading | default "")
+  (.Params.Description | default "")
+  (.Params.Footer_Info | default "")
+  $about
+  $highlights
+  $important
+  $tags
+  $cats
+  $hindiShort
+  $hindiFull
 ) " " -}}
 
 {{- $index = $index | append (dict 
