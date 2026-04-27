@@ -16,6 +16,7 @@
   (.Params.Subheading | default "")
   (.Params.Description | default "")
   (.Params.Footer_Info | default "")
+   (.Params.promt_en | default "")
   $about
   $highlights
   $important

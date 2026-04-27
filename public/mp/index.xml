@@ -6,8 +6,15 @@
     <description>Recent content in Mps on My New Hugo Site</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 27 Apr 2026 18:31:03 +0530</lastBuildDate>
+    <lastBuildDate>Mon, 27 Apr 2026 18:53:09 +0530</lastBuildDate>
     <atom:link href="http://localhost:1313/mp/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>MP Social Security Pension Scheme</title>
+      <link>http://localhost:1313/mp-social-security-pension-scheme/</link>
+      <pubDate>Mon, 27 Apr 2026 18:53:09 +0530</pubDate>
+      <guid>http://localhost:1313/mp-social-security-pension-scheme/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Mp E Token Generation</title>
       <link>http://localhost:1313/mp-e-token-generation/</link>
