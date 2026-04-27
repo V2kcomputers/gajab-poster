@@ -5,17 +5,17 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>All Tools | Gajab Tools </title>
+<title>Poster Updates | Gajab Tools </title>
 
 
 
-<link rel="canonical" href="https://www.gajabtools.com/all-tools/">
+<link rel="canonical" href="https://www.gajabtools.com/baner-update/">
 
 
 
 <meta property="og:site_name" content="Gajab Tools">
-<meta property="og:url" content="https://www.gajabtools.com/all-tools/">
-<meta property="og:title" content="All Tools">
+<meta property="og:url" content="https://www.gajabtools.com/baner-update/">
+<meta property="og:title" content="Poster Updates">
 <meta property="og:description" content="">
 <meta property="og:type" content="article">
 <meta property="og:image" content="http://localhost:1313/images/default.jpg">
@@ -23,7 +23,7 @@
 
 
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="All Tools">
+<meta name="twitter:title" content="Poster Updates">
 <meta name="twitter:description" content="">
 <meta name="twitter:image" content="http://localhost:1313/images/default.jpg">
 <meta name="twitter:site" content="@gajabtools">
@@ -84,9 +84,9 @@
       "@type": "Article",
       "mainEntityOfPage": {
         "@type": "WebPage",
-        "@id": "http:\/\/localhost:1313\/all-tools\/"
+        "@id": "http:\/\/localhost:1313\/baner-update\/"
       },
-      "headline": "All Tools",
+      "headline": "Poster Updates",
       "description": "Get complete details about this tool, features, usage, and benefits.",
       "image": "http:\/\/localhost:1313\/",
       "author": {
@@ -308,58 +308,7 @@
   </div>
 
 
-<script id="infinite-scroll-pro">
-let loading = false;
 
-async function loadNextPage() {
-  if (loading) return;
-
-  const nextBtn = document.querySelector(".pagination a:last-child");
-  if (!nextBtn) return;
-
-  loading = true;
-
-  const res = await fetch(nextBtn.href);
-  const html = await res.text();
-
-  const parser = new DOMParser();
-  const doc = parser.parseFromString(html, "text/html");
-
-  const newItems = doc.querySelectorAll(".banner-card");
-  const container = document.querySelector(".banner-list");
-
-  newItems.forEach(el => container.appendChild(el));
-
-  
-  const newPagination = doc.querySelector(".pagination");
-  document.querySelector(".pagination").innerHTML = newPagination.innerHTML;
-
-  loading = false;
-}
-
-
-window.addEventListener("scroll", () => {
-  if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 100) {
-    loadNextPage();
-  }
-});
-
-
-const bannerList = document.querySelector(".banner-list");
-
-if (bannerList) {
-  bannerList.addEventListener("scroll", () => {
-    const scrollLeft = bannerList.scrollLeft;
-    const visibleWidth = bannerList.clientWidth;
-    const fullWidth = bannerList.scrollWidth;
-
-    
-    if (scrollLeft + visibleWidth >= fullWidth - 50) {
-      loadNextPage();
-    }
-  });
-}
-</script>
 </div>
 
 <div class="pagination">
@@ -375,13 +324,13 @@ if (bannerList) {
     
   
     
-      <a href="/all-tools/page/2/">2</a>
+      <a href="/baner-update/page/2/">2</a>
     
   
 
   
   
-    <a href="/all-tools/page/2/">Next ➡</a>
+    <a href="/baner-update/page/2/">Next ➡</a>
   
 
 </div>
@@ -432,6 +381,9 @@ if (bannerList) {
     © 2026  GajabTools.com | All Rights Reserved | Page Update: <strong>18-01-2026 09:00:00</strong>
   </div>
     
+    
+      
+      <script src="http://localhost:1313/js/Banner/allposters.min.793f258a8d133aff2536062770e764e552a701489cf500c5a5c20925b69ab029.js" integrity="sha256-eT8lio0TOv8lNgYncOdk5VKnAUic9QDFpcIJJbaasCk=" defer></script>
     
   
   
