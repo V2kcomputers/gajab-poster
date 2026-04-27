@@ -1,13 +1,31 @@
 
 {{ define "main" }}
-<div class="search-container" id="searchContainer">
-  <div class="search-box">
-    <input type="text" id="searchInput" placeholder="🔍 Search any Tools..." autocomplete="on">
-    <span id="clearBtn">&times;</span>
-  </div>
+<div class="search-container">
 
-  <div id="results"></div>
+  <!-- 🔍 Search Box -->
+  <form id="searchForm" class="search-box">
+    
+    <input 
+      type="text" 
+      id="searchInput" 
+      placeholder="Search services, jobs, certificates..."
+      autocomplete="off"
+    >
+   <!-- Search Button -->
+    <button type="submit" class="search-btn">🔍</button>
+    <!-- Clear -->
+    <span id="clearBtn">✖</span>
+
+ 
+
+  </form>
+<!-- 📊 Results -->
+<div id="results"></div>
+  <!-- 🕘 Recent Searches -->
   <div id="recentSearches" class="recent-box"></div>
+
 </div>
+
+
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.6.2"></script>
 {{ end}}

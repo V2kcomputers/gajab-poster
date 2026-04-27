@@ -1,11 +1,20 @@
 {{- $index := slice -}}
-{{- range .Site.RegularPages -}}
-  {{- $index = $index | append (dict 
-    "title" .Title 
-    "content" (.Summary | plainify)
-    "link" .RelPermalink 
-    "date" (.Date.Format "02 Jan 2006")
-    "image" (or .Params.imageBanner "/default.png")
-  ) -}}
+{{- range where .Site.RegularPages "Kind" "page" -}}
+
+{{- $content := delimit (slice
+  .Title
+  (.Content | plainify | htmlUnescape)
+  (.Params.description | default "")
+  (.Params.tags | delimit " ")
+  (.Params.categories | delimit " ")
+) " " -}}
+
+{{- $index = $index | append (dict 
+  "title" .Title 
+  "content" $content
+  "link" .RelPermalink 
+  "imagePoster" (or .Params.imagePoster "/default.png")
+) -}}
+
 {{- end -}}
 {{ $index | jsonify }}
