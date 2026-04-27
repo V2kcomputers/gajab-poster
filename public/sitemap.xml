@@ -3,19 +3,19 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>http://localhost:1313/</loc>
-    <lastmod>2026-04-27T18:06:37+05:30</lastmod>
+    <lastmod>2026-04-27T18:31:03+05:30</lastmod>
   </url><url>
     <loc>http://localhost:1313/npci-dbt-update-service/</loc>
-    <lastmod>2026-04-27T18:06:37+05:30</lastmod>
+    <lastmod>2026-04-27T18:31:03+05:30</lastmod>
   </url><url>
     <loc>http://localhost:1313/poster/</loc>
-    <lastmod>2026-04-27T18:06:37+05:30</lastmod>
+    <lastmod>2026-04-27T18:31:03+05:30</lastmod>
   </url><url>
     <loc>http://localhost:1313/mp-e-token-generation/</loc>
-    <lastmod>2026-04-27T17:20:24+05:30</lastmod>
+    <lastmod>2026-04-27T18:31:03+05:30</lastmod>
   </url><url>
     <loc>http://localhost:1313/mp/</loc>
-    <lastmod>2026-04-27T17:20:24+05:30</lastmod>
+    <lastmod>2026-04-27T18:31:03+05:30</lastmod>
   </url><url>
     <loc>http://localhost:1313/mp-income-and-domicile/</loc>
     <lastmod>2026-04-26T16:27:09+05:30</lastmod>
@@ -45,7 +45,7 @@
     <lastmod>2026-04-25T20:08:58+05:30</lastmod>
   </url><url>
     <loc>http://localhost:1313/bank-statement-print-service/</loc>
-    <lastmod>2026-04-23T18:47:12+05:30</lastmod>
+    <lastmod>2026-04-27T18:31:03+05:30</lastmod>
   </url><url>
     <loc>http://localhost:1313/driving-lisense-apply-poster/</loc>
     <lastmod>2026-04-25T20:08:58+05:30</lastmod>
@@ -63,19 +63,19 @@
     <lastmod>2026-04-25T20:08:58+05:30</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/list/</loc>
-    <lastmod>2026-04-27T16:14:03+05:30</lastmod>
+    <lastmod>2026-04-27T18:31:03+05:30</lastmod>
   </url><url>
     <loc>http://localhost:1313/page/</loc>
-    <lastmod>2026-04-27T16:14:03+05:30</lastmod>
+    <lastmod>2026-04-27T18:31:03+05:30</lastmod>
   </url><url>
     <loc>http://localhost:1313/baner-update/</loc>
-    <lastmod>2026-04-27T16:14:03+05:30</lastmod>
+    <lastmod>2026-04-27T18:31:03+05:30</lastmod>
   </url><url>
     <loc>http://localhost:1313/search/</loc>
     <lastmod>2026-04-22T18:41:34+05:30</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/</loc>
-    <lastmod>2026-04-27T16:14:03+05:30</lastmod>
+    <lastmod>2026-04-27T18:31:03+05:30</lastmod>
   </url><url>
     <loc>http://localhost:1313/categories/</loc>
   </url>
