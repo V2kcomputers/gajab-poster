@@ -1,14 +1,14 @@
 {{/* ================= SEO META PARTIAL ================= */}}
-<title>{{ with .Params.seo_title }} {{ . | title }}{{ else }}{{ .Title }} | Gajab Tools {{ end }}</title>
+<title>{{ with .Params.seo_title }} {{ . | title }}{{ else }}{{ .Title }} | Poster  {{ end }}</title>
 
 <!-- ✅ Canonical URL -->
 
-<link rel="canonical" href="https://www.gajabtools.com{{ .RelPermalink }}">
+<link rel="canonical" href="https://poster.yojnaportal.com{{ .RelPermalink }}">
 
 <!-- ================= OPEN GRAPH (Facebook / WhatsApp) ================= -->
 
-<meta property="og:site_name" content="Gajab Tools">
-<meta property="og:url" content="https://www.gajabtools.com{{ .RelPermalink }}">
+<meta property="og:site_name" content="Yojna Portal Poster">
+<meta property="og:url" content="https://poster.yojnaportal.com{{ .RelPermalink }}">
 <meta property="og:title" content="{{ with .Params.seo_title }}{{ . }}{{ else }}{{ .Title }}{{ end }}">
 <meta property="og:description" content="{{ with .Params.description }}{{ . }}{{ else }}{{ .Summary | plainify | htmlEscape }}{{ end }}">
 <meta property="og:type" content="article">
@@ -20,17 +20,17 @@
 <meta name="twitter:title" content="{{ with .Params.seo_title }}{{ . }}{{ else }}{{ .Title }}{{ end }}">
 <meta name="twitter:description" content="{{ with .Params.description }}{{ . }}{{ else }}{{ .Summary | plainify | htmlEscape }}{{ end }}">
 <meta name="twitter:image" content="{{ with .Params.imageBanner }}{{ . | absURL }}{{ else }}{{ "images/default.jpg" | absURL }}{{ end }}">
-<meta name="twitter:site" content="@gajabtools">
+<meta name="twitter:site" content="@yojnaportal">
 
 <!-- ================= BASIC SEO ================= -->
 
 <meta name="description" content="{{ with .Params.description }}{{ . }}{{ else }}{{ .Summary | plainify | htmlEscape }}{{ end }}">
-<meta name="keywords" content="{{ if .Params.tags }}{{ delimit .Params.tags ", " }}{{ else }}online tools, free tools, gajab tools{{ end }}">
-<meta name="author" content="Gajab Tools">
+<meta name="keywords" content="{{ if .Params.tags }}{{ delimit .Params.tags ", " }}{{ else }}online Poster, free Banner, gajab Poster{{ end }}">
+<meta name="author" content="Yojna Portal">
 
 <!-- ================= EXTRA META ================= -->
 
-<meta name="application-name" content="Gajab Tools">
+<meta name="application-name" content="Yojna Portal">
 <meta name="theme-color" content="#0084ff">
 <meta name="robots" content="index, follow">
 <meta name="distribution" content="global">
