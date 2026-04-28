@@ -38,14 +38,11 @@
   <!-- Extra Useful -->
   <option value="Hinglish">Hinglish</option>
 </select>
-      <button onclick="copyText('prompt-box', this)">📋 Copy Promt</button>
+      <button onclick="copyText('prompt-box', this)">📋 Copy Prompt</button>
     </div>
 
     <!-- Prompt -->
-    <pre id="prompt-box"
-      data-base="{{ delimit .Params.promt_en " " }}">
-      {{ delimit .Params.promt_en " " }}
-    </pre>
+ <pre id="prompt-box" data-base="{{ delimit .Params.promt_en " " }}">{{ delimit .Params.promt_en " " }}</pre>
 
   </div>
   {{ end }}

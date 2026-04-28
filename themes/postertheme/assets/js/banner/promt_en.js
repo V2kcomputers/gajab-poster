@@ -11,16 +11,21 @@ function updatePrompt() {
     return;
   }
 
-  // Dynamic line
-  const extraLine = `\n\nLanguage: 👉 Ensure that all banner text (title, labels, buttons) is written in ${lang}.`;
+  // Strong language rule (dynamic)
+  const extraLine = `👉 STRICT LANGUAGE RULE:
+The entire banner must be created ONLY in ${lang} language.
+All text (title, headings, labels, buttons, descriptions) must be strictly in ${lang}.
+Do NOT use any other language except ${lang}.
+If any other language text appears, replace it with proper ${lang} translation.
 
-  box.textContent = base + extraLine;
+`;
+
+  // सबसे important → ऊपर add करना
+  box.textContent = extraLine + base;
 }
 
-// Page load पर base prompt दिखे
-document.addEventListener("DOMContentLoaded", function () {
-  updatePrompt();
-});
+// Page load पर base दिखे
+document.addEventListener("DOMContentLoaded", updatePrompt);
 
 // Copy function
 function copyText(id, btn) {
@@ -28,5 +33,5 @@ function copyText(id, btn) {
   navigator.clipboard.writeText(text);
 
   btn.innerText = "✅ Copied!";
-  setTimeout(() => btn.innerText = "📋 Copy", 2000);
+  setTimeout(() => btn.innerText = "📋 Copy Prompt", 2000);
 }

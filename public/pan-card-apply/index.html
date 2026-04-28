@@ -155,7 +155,7 @@
     
 
   
-    <link rel="stylesheet" href="/css/Banner/poster.min.788615b805a85938ac53d013c35beb1b7e8f6d99e16b6bdb845038ae8ec04dda.css" integrity="sha256-eIYVuAWoWTisU9ATw1vrG36PbZnha2vbhFA4ro7ATdo=">
+    <link rel="stylesheet" href="/css/Banner/poster.min.a84726ee78899843aa957c64554eec2f812f2f2f70540b40578bd547067498b3.css" integrity="sha256-qEcm7niJmEOqlXxkVU7sL4EvLy9wVAtAV4vVRwZ0mLM=">
   
 
 
@@ -227,10 +227,24 @@
 
   <div class="gallery">
     
-      <a href="/pmsym-mandhan-yojana/" class="gallery-item">
+      <a href="/ayushman-card-poster/" class="gallery-item">
 
         
-          <img src="https://cdn.yojnaportal.com/Banner/25x32/scheme/pmsym-mandhan-yojana.webp" alt="Pan Card Apply">
+          <img src="https://ia600709.us.archive.org/26/items/aayusman-card_202505/Aayusman%20Card.gif" alt="Pan Card Apply">
+        
+
+        
+
+        
+
+     
+
+      </a>
+    
+      <a href="/shadi-card-printing-service/" class="gallery-item">
+
+        
+          <img src="https://cdn.yojnaportal.com/Banner/25x32/marrige-card.webp" alt="Pan Card Apply">
         
 
         
@@ -269,24 +283,10 @@
 
       </a>
     
-      <a href="/driving-lisense-apply-poster/" class="gallery-item">
+      <a href="/mp-income-certificate/" class="gallery-item">
 
         
-          <img src="https://ia800103.us.archive.org/20/items/driving-licence_202505/Driving%20Licence.gif" alt="Pan Card Apply">
-        
-
-        
-
-        
-
-     
-
-      </a>
-    
-      <a href="/mp-social-security-pension-scheme/" class="gallery-item">
-
-        
-          <img src="https://cdn.yojnaportal.com/Banner/25x32/mp/mp-pansion-baner.webp" alt="Pan Card Apply">
+          <img src="https://cdn.yojnaportal.com/Banner/mp/income-certificates.webp" alt="Pan Card Apply">
         
 
         
@@ -383,8 +383,9 @@
     Fast &amp; आसान PAN Card Services at One Place
   </div>
   
+
   <div class="card">
-    <h2>✨ Key Highlights</h2>
+    <h2>✨Pan Card Apply Key Highlights</h2>
     <ul>
       
       <li>Apply for new PAN card online</li>
@@ -400,7 +401,7 @@
 
   
   <div class="card">
-    <h2>📌 Important Details</h2>
+    <h2>📌 Important Details of Pan Card Apply</h2>
     <ul>
       
       <li>Aadhaar Card is required</li>
@@ -419,7 +420,7 @@
 
   
   <div class="card">
-    <h2>📖 About Scheme</h2>
+    <h2>📖 About Pan Card Apply Poster</h2>
     
     <p>This poster provides information about applying for a new PAN card and updating existing PAN details.</p>
     
@@ -427,19 +428,54 @@
     
   </div>
 
+
+  
+
   
 <div class="prompt-section">
 
   
-  
   <div class="prompt-card">
+
     <div class="prompt-header">
-      <h3>🧠 Relative Promt</h3>
-     <button onclick="copyText('prompt-en', this)">📋 Copy</button>
+      <h3>🧠 Pan Card Apply / Banner Generation Prompt</h3>
+
+      
+   <select id="lang-select" onchange="updatePrompt()">
+  <option value="">Select Language</option>
+
+  
+  <option value="Hindi">⭐ Hindi (हिन्दी)</option>
+  <option value="English">⭐ English</option>
+   <option value="Marathi">Marathi (मराठी)</option>
+  <option value="Bengali">Bengali (বাংলা)</option>
+  <option value="Telugu">Telugu (తెలుగు)</option>
+  <option value="Tamil">Tamil (தமிழ்)</option>
+  <option value="Urdu">Urdu (اردو)</option>
+  <option value="Gujarati">Gujarati (ગુજરાતી)</option>
+  <option value="Kannada">Kannada (ಕನ್ನಡ)</option>
+  <option value="Odia">Odia (ଓଡ଼ିଆ)</option>
+  <option value="Malayalam">Malayalam (മലയാളം)</option>
+  <option value="Punjabi">Punjabi (ਪੰਜਾਬੀ)</option>
+  <option value="Assamese">Assamese (অসমীয়া)</option>
+  <option value="Maithili">Maithili (मैथिली)</option>
+  <option value="Sanskrit">Sanskrit (संस्कृत)</option>
+  <option value="Konkani">Konkani (कोंकणी)</option>
+  <option value="Manipuri">Manipuri (ꯃꯤꯇꯩꯂꯣꯟ)</option>
+  <option value="Nepali">Nepali (नेपाली)</option>
+  <option value="Bodo">Bodo (बड़ो)</option>
+  <option value="Dogri">Dogri (डोगरी)</option>
+  <option value="Santhali">Santhali (ᱥᱟᱱᱛᱟᱲᱤ)</option>
+  <option value="Kashmiri">Kashmiri (کٲشُر)</option>
+
+  
+  <option value="Hinglish">Hinglish</option>
+</select>
+      <button onclick="copyText('prompt-box', this)">📋 Copy Prompt</button>
     </div>
 
-    <pre id="prompt-en">
-Create a vertical government-style promotional banner (approx. 1000x1280 px) with a clean, modern, and semi-corporate Indian service design.
+    
+ <pre id="prompt-box" data-base="Create a vertical government-style promotional banner (approx. 1000x1280 px) with a clean, modern, and semi-corporate Indian service design.
 
 BACKGROUND:
 Use a light grey to off-white gradient background with subtle abstract shapes. Add soft blue curved shapes and diagonal design accents in the top-right and bottom-left corners. Include small circular and dotted decorative elements in blue and orange scattered lightly across the background.
@@ -501,24 +537,90 @@ Mix of bold Hindi display fonts and clean sans-serif English fonts.
 Use large headings, medium subheadings, and clear readable body text.
 
 Ensure all text remains exactly as written in Hindi and English, preserving placement and hierarchy.
+">Create a vertical government-style promotional banner (approx. 1000x1280 px) with a clean, modern, and semi-corporate Indian service design.
 
-    </pre>
+BACKGROUND:
+Use a light grey to off-white gradient background with subtle abstract shapes. Add soft blue curved shapes and diagonal design accents in the top-right and bottom-left corners. Include small circular and dotted decorative elements in blue and orange scattered lightly across the background.
+
+TOP SECTION:
+At the top-left, place the English text &#34;New Pancard&#34; in a stylish italic or script-like font in purple color.
+Below it, add a large bold Hindi title &#34;पैन कार्ड&#34; in dark blue with a thick white outline and slight drop shadow for depth.
+Under this, include the text &#34;Apply &amp; Update&#34; in bold orange gradient font with a slight 3D or shadow effect.
+Near this heading area, place a small laptop icon (blue-themed) to the left side.
+
+TOP-RIGHT HUMAN ELEMENT:
+On the right side, place a smiling Indian man (young adult, wearing a white kurta) holding a PAN card toward the camera. The image should be well-lit, cutout style with soft shadow, placed overlapping the background but not blocking text.
+
+CENTER STRIP:
+Add a wide horizontal banner strip in the center with a gradient from deep purple to magenta.
+Inside this strip, write bold white Hindi text:
+&#34;आवेदन, सुधार और प्रिंट&#34;
+The text should be centered and large, with strong contrast.
+
+LEFT CONTENT SECTION:
+Below the strip on the left side, create a bullet list with a heading in red:
+&#34;आवश्यक दस्तावेज:&#34;
+Under it, list items with red bullet points and black Hindi text:
+
+आधार कार्ड
+मोबाइल नंबर
+जन्म प्रमाण/वोटर कार्ड/10वीं
+ईमेल-आईडी
+फोटो एवं हस्ताक्षर
+
+RIGHT CONTENT SECTION:
+On the right side of this list, place a realistic PAN card graphic (Indian PAN card design), slightly tilted or flat, with visible QR code and government emblem.
+
+CENTER FOOTER TEXT:
+Below the PAN card, add the website text in bold black:
+&#34;www.yojnaportal.com
+&#34;
+
+BOTTOM SECTION:
+At the bottom, create a rounded rectangular banner with a purple-to-pink gradient.
+Inside, write Hindi text in white:
+&#34;नया पैनकार्ड बनवाने के लिए आधार के साथ जन्म प्रमाण पत्र, वोटर कार्ड, निवास प्रमाण, 10वीं अंकसूची या ड्राइविंग लाइसेंस इनमें से कोई एक दस्तावेज आवश्यक है।&#34;
+
+BOTTOM-LEFT ILLUSTRATION:
+Include a small flat illustration of a person sitting and working on a laptop (cartoon style), placed in the bottom-left corner.
+
+DESIGN STYLE:
+Use modern सरकारी service poster style with bold typography, clean spacing, and layered card-like layout.
+Ensure proper alignment: left content &#43; right image balance.
+Use shadows and highlights subtly for depth.
+
+COLOR PALETTE:
+Primary colors: Blue (#1f4fa3), Purple (#6a1b9a), Magenta (#d81b60), Orange (#ff7a00)
+Text colors: White, Black, Red accents
+Background: Light grey/white gradient
+
+TYPOGRAPHY:
+Mix of bold Hindi display fonts and clean sans-serif English fonts.
+Use large headings, medium subheadings, and clear readable body text.
+
+Ensure all text remains exactly as written in Hindi and English, preserving placement and hierarchy.
+</pre>
+
   </div>
   
+
 </div>
+
 
   
-  <div class="poster-footer">
-    <p>Official Service Information | www.yojnaportal.com</p>
-    <strong></strong>
-  </div>
-
-
-</div>
+  <div class="poster-footer"><p>Official Service Information | www.yojnaportal.com</p><strong></strong></div></div>
 
 
 
-<script src="http://localhost:1313/js/banner/poster.min.0d924e62efe59b3fa2cb5d656557cb9b260bb669083f0676e1122976e0eceed4.js" integrity="sha256-DZJOYu/lmz&#43;iy11lZVfLmyYLtmkIPwZ24RIpduDs7tQ=" defer></script>
+
+  
+    <script src="http://localhost:1313/js/banner/poster.min.0d924e62efe59b3fa2cb5d656557cb9b260bb669083f0676e1122976e0eceed4.js" integrity="sha256-DZJOYu/lmz&#43;iy11lZVfLmyYLtmkIPwZ24RIpduDs7tQ=" defer></script>
+  
+
+  
+    <script src="http://localhost:1313/js/banner/promt_en.min.5c45c8cdfa830343e86cd0185964e24dc815a3cf29d12f7246ab4ef4bfdf1ec0.js" integrity="sha256-XEXIzfqDA0PobNAYWWTiTcgVo88p0S9yRqtO9L/fHsA=" defer></script>
+  
+
 
   </main>
   <footer>
