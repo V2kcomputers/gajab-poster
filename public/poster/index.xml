@@ -6,8 +6,29 @@
     <description>Recent content in Posters on Yojna Portal Posters</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 27 Apr 2026 18:31:03 +0530</lastBuildDate>
+    <lastBuildDate>Tue, 28 Apr 2026 17:29:58 +0530</lastBuildDate>
     <atom:link href="http://localhost:1313/poster/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Food Safety License</title>
+      <link>http://localhost:1313/food-safety-license/</link>
+      <pubDate>Tue, 28 Apr 2026 17:29:58 +0530</pubDate>
+      <guid>http://localhost:1313/food-safety-license/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Udyam Adhar Registration</title>
+      <link>http://localhost:1313/udyam-adhar-registration/</link>
+      <pubDate>Tue, 28 Apr 2026 16:36:15 +0530</pubDate>
+      <guid>http://localhost:1313/udyam-adhar-registration/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Gumasta License Registration Poster</title>
+      <link>http://localhost:1313/gumasta-license-registration-poster/</link>
+      <pubDate>Tue, 28 Apr 2026 16:14:20 +0530</pubDate>
+      <guid>http://localhost:1313/gumasta-license-registration-poster/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Npci Dbt Update Service</title>
       <link>http://localhost:1313/npci-dbt-update-service/</link>

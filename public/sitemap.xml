@@ -2,22 +2,31 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>http://localhost:1313/food-safety-license/</loc>
+    <lastmod>2026-04-28T17:29:58+05:30</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/poster/</loc>
+    <lastmod>2026-04-28T17:29:58+05:30</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/</loc>
+    <lastmod>2026-04-28T17:29:58+05:30</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/udyam-adhar-registration/</loc>
+    <lastmod>2026-04-28T16:36:15+05:30</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/gumasta-license-registration-poster/</loc>
+    <lastmod>2026-04-28T16:14:20+05:30</lastmod>
+  </url><url>
     <loc>http://localhost:1313/mp-college-admission/</loc>
     <lastmod>2026-04-28T11:56:27+05:30</lastmod>
   </url><url>
     <loc>http://localhost:1313/mp/</loc>
     <lastmod>2026-04-28T11:56:27+05:30</lastmod>
   </url><url>
-    <loc>http://localhost:1313/</loc>
-    <lastmod>2026-04-28T11:56:27+05:30</lastmod>
-  </url><url>
     <loc>http://localhost:1313/mp-social-security-pension-scheme/</loc>
     <lastmod>2026-04-27T19:05:03+05:30</lastmod>
   </url><url>
     <loc>http://localhost:1313/npci-dbt-update-service/</loc>
-    <lastmod>2026-04-27T18:31:03+05:30</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/poster/</loc>
     <lastmod>2026-04-27T18:31:03+05:30</lastmod>
   </url><url>
     <loc>http://localhost:1313/mp-e-token-generation/</loc>
