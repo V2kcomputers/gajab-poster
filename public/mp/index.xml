@@ -1,13 +1,20 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Mps on My New Hugo Site</title>
+    <title>Mps on Yojna Portal Posters</title>
     <link>http://localhost:1313/mp/</link>
-    <description>Recent content in Mps on My New Hugo Site</description>
+    <description>Recent content in Mps on Yojna Portal Posters</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 27 Apr 2026 19:05:03 +0530</lastBuildDate>
+    <lastBuildDate>Tue, 28 Apr 2026 11:44:25 +0530</lastBuildDate>
     <atom:link href="http://localhost:1313/mp/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Mp College Admission</title>
+      <link>http://localhost:1313/mp-college-admission/</link>
+      <pubDate>Tue, 28 Apr 2026 11:44:25 +0530</pubDate>
+      <guid>http://localhost:1313/mp-college-admission/</guid>
+      <description></description>
+    </item>
     <item>
       <title>MP Social Security Pension Scheme</title>
       <link>http://localhost:1313/mp-social-security-pension-scheme/</link>
