@@ -1,2 +1,7 @@
-{{ $main := resources.Get "js/banner/posters.js" | minify | fingerprint }}
-<script src="{{ $main.Permalink }}" integrity="{{ $main.Data.Integrity }}" defer></script>
+{{ $scripts := slice "js/banner/posters.js" "js/banner/promt_en.js" }}
+
+{{ range $scripts }}
+  {{ with resources.Get . | minify | fingerprint }}
+    <script src="{{ .Permalink }}" integrity="{{ .Data.Integrity }}" defer></script>
+  {{ end }}
+{{ end }}

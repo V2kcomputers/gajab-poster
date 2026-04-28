@@ -114,7 +114,7 @@
 
   <!-- Highlights -->
   <div class="card">
-    <h2>✨ Key Highlights</h2>
+    <h2>✨{{.Title}} Key Highlights</h2>
     <ul>
       {{ range .Params.KeyHighlights }}
       <li>{{ . }}</li>
@@ -124,7 +124,7 @@
 
   <!-- Important Details -->
   <div class="card">
-    <h2>📌 Important Details</h2>
+    <h2>📌 Important Details of {{.Title}}</h2>
     <ul>
       {{ range .Params.ImportantDetails }}
       <li>{{ . }}</li>
@@ -137,38 +137,20 @@
 
   <!-- About -->
   <div class="card">
-    <h2>📖 About Scheme</h2>
+    <h2>📖 About {{.Title}} Poster</h2>
     {{ range .Params.aboutPost }}
     <p>{{ . }}</p>
     {{ end }}
   </div>
 
-  <!-- Prompt Section -->
-<div class="prompt-section">
-
-  <!-- English Prompt -->
-  {{ if .Params.promt_en }}
-  <div class="prompt-card">
-    <div class="prompt-header">
-      <h3>🧠 Relative Promt</h3>
-     <button onclick="copyText('prompt-en', this)">📋 Copy</button>
-    </div>
-
-    <pre id="prompt-en">
-{{ range .Params.promt_en }}{{ . }}{{ end }}
-    </pre>
-  </div>
-  {{ end }}
-</div>
-
+  {{ partial "main-parts/promt_en.html" . }}
   <!-- Footer -->
   <div class="poster-footer">
     <p>{{ .Params.Footer_Info }}</p>
     <strong>{{ .Params.Call_To_Action }}</strong>
   </div>
 
-
+<!-- ============================ Finished============================================== -->
 </div>
-
 
 {{ partial "jsFiles/posters.html" . }}

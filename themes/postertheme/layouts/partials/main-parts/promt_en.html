@@ -1,0 +1,53 @@
+<!-- Prompt Section -->
+<div class="prompt-section">
+
+  {{ if .Params.promt_en }}
+  <div class="prompt-card">
+
+    <div class="prompt-header">
+      <h3>🧠 {{.Title}} / Banner Generation Prompt</h3>
+
+      <!-- Language Select -->
+   <select id="lang-select" onchange="updatePrompt()">
+  <option value="">Select Language</option>
+
+  <!-- Major Indian Languages -->
+  <option value="Hindi">⭐ Hindi (हिन्दी)</option>
+  <option value="English">⭐ English</option>
+   <option value="Marathi">Marathi (मराठी)</option>
+  <option value="Bengali">Bengali (বাংলা)</option>
+  <option value="Telugu">Telugu (తెలుగు)</option>
+  <option value="Tamil">Tamil (தமிழ்)</option>
+  <option value="Urdu">Urdu (اردو)</option>
+  <option value="Gujarati">Gujarati (ગુજરાતી)</option>
+  <option value="Kannada">Kannada (ಕನ್ನಡ)</option>
+  <option value="Odia">Odia (ଓଡ଼ିଆ)</option>
+  <option value="Malayalam">Malayalam (മലയാളം)</option>
+  <option value="Punjabi">Punjabi (ਪੰਜਾਬੀ)</option>
+  <option value="Assamese">Assamese (অসমীয়া)</option>
+  <option value="Maithili">Maithili (मैथिली)</option>
+  <option value="Sanskrit">Sanskrit (संस्कृत)</option>
+  <option value="Konkani">Konkani (कोंकणी)</option>
+  <option value="Manipuri">Manipuri (ꯃꯤꯇꯩꯂꯣꯟ)</option>
+  <option value="Nepali">Nepali (नेपाली)</option>
+  <option value="Bodo">Bodo (बड़ो)</option>
+  <option value="Dogri">Dogri (डोगरी)</option>
+  <option value="Santhali">Santhali (ᱥᱟᱱᱛᱟᱲᱤ)</option>
+  <option value="Kashmiri">Kashmiri (کٲشُر)</option>
+
+  <!-- Extra Useful -->
+  <option value="Hinglish">Hinglish</option>
+</select>
+      <button onclick="copyText('prompt-box', this)">📋 Copy Promt</button>
+    </div>
+
+    <!-- Prompt -->
+    <pre id="prompt-box"
+      data-base="{{ delimit .Params.promt_en " " }}">
+      {{ delimit .Params.promt_en " " }}
+    </pre>
+
+  </div>
+  {{ end }}
+
+</div>

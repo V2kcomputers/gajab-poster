@@ -1,0 +1,3 @@
+function updatePrompt(){const s=document.getElementById("lang-select"),t=s.value,e=document.getElementById("prompt-box"),n=e.getAttribute("data-base");if(!t){e.textContent=n;return}const o=`
+
+Language: 👉 Ensure that all banner text (title, labels, buttons) is written in ${t}.`;e.textContent=n+o}document.addEventListener("DOMContentLoaded",function(){updatePrompt()});function copyText(e,t){const n=document.getElementById(e).innerText;navigator.clipboard.writeText(n),t.innerText="✅ Copied!",setTimeout(()=>t.innerText="📋 Copy",2e3)}

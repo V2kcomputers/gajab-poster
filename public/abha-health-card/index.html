@@ -157,7 +157,7 @@
 
 
   
-    <link rel="stylesheet" href="/css/Banner/posters.min.6b988e5a6cce7ef3988cd0bc0ceacd07fe5da9b14960a3ec0d2c1ff1eb0e1fb8.css" integrity="sha256-a5iOWmzOfvOYjNC8DOrNB/5dqbFJYKPsDSwf8esOH7g=">
+    <link rel="stylesheet" href="/css/Banner/posters.min.a17317afd644d3fafeabe47edd0ff889789d438c4cc1fd7769293ba9199f2264.css" integrity="sha256-oXMXr9ZE0/r&#43;q&#43;R&#43;3Q/4iXidQ4xMwf13aSk7qRmfImQ=">
   
 
 
@@ -165,7 +165,6 @@
 <script> const images = [
   { title:"Abha Health Cards", url:"https:\/\/cdn.yojnaportal.com\/Banner\/25x32\/scheme\/abha-card\/abha-health-card.webp" },
   { title:"Abha Health Card Details", url:"https:\/\/cdn.yojnaportal.com\/Banner\/25x32\/scheme\/abha-card\/abha-heath-card-details.webp" },
-  { title:"", url:"\/" },
 ];</script>
 <div class="poster-container">
 <div class="poster-header">
@@ -260,10 +259,24 @@
 
   <div class="gallery">
     
-      <a href="/gumasta-license-registration-poster/" class="gallery-item">
+      <a href="/npci-dbt-update-service/" class="gallery-item">
 
         
-          <img src="https://cdn.yojnaportal.com/Banner/25x32/bussiness/gumasta-license.webp" alt="Abha Health Card">
+          <img src="https://cdn.yojnaportal.com/Banner/25x32/banking/dbt-npci-link.webp" alt="Abha Health Card">
+        
+
+        
+
+        
+
+     
+
+      </a>
+    
+      <a href="/pmsym-mandhan-yojana/" class="gallery-item">
+
+        
+          <img src="https://cdn.yojnaportal.com/Banner/25x32/scheme/pmsym-mandhan-yojana.webp" alt="Abha Health Card">
         
 
         
@@ -288,24 +301,10 @@
 
       </a>
     
-      <a href="/udyam-adhar-registration/" class="gallery-item">
+      <a href="/airtel-payments-bank-account-opening/" class="gallery-item">
 
         
-          <img src="https://cdn.yojnaportal.com/Banner/25x32/bussiness/udhyam-aadhar-registration.webp" alt="Abha Health Card">
-        
-
-        
-
-        
-
-     
-
-      </a>
-    
-      <a href="/ayushman-card-poster/" class="gallery-item">
-
-        
-          <img src="https://ia600709.us.archive.org/26/items/aayusman-card_202505/Aayusman%20Card.gif" alt="Abha Health Card">
+          <img src="https://cdn.yojnaportal.com/Banner/25x32/banking/airtel-bank-account.webp" alt="Abha Health Card">
         
 
         
@@ -330,10 +329,10 @@
 
       </a>
     
-      <a href="/mp-income-certificate/" class="gallery-item">
+      <a href="/mp-domicile-certificate/" class="gallery-item">
 
         
-          <img src="https://cdn.yojnaportal.com/Banner/mp/income-certificates.webp" alt="Abha Health Card">
+          <img src="https://cdn.yojnaportal.com/Banner/mp/domicile-certificates.webp" alt="Abha Health Card">
         
 
         
@@ -400,7 +399,7 @@
 
   
   <div class="card">
-    <h2>✨ Key Highlights</h2>
+    <h2>✨Abha Health Card Key Highlights</h2>
     <ul>
       
       <li>Easy treatment process in hospitals</li>
@@ -416,7 +415,7 @@
 
   
   <div class="card">
-    <h2>📌 Important Details</h2>
+    <h2>📌 Important Details of Abha Health Card</h2>
     <ul>
       
       <li>Aadhaar Card is required for registration</li>
@@ -435,7 +434,7 @@
 
   
   <div class="card">
-    <h2>📖 About Scheme</h2>
+    <h2>📖 About Abha Health Card Poster</h2>
     
     <p>ABHA Health Card is a digital health identity provided under Ayushman Bharat Digital Mission.</p>
     
@@ -447,15 +446,115 @@
 <div class="prompt-section">
 
   
-  
   <div class="prompt-card">
+
     <div class="prompt-header">
-      <h3>🧠 Relative Promt</h3>
-     <button onclick="copyText('prompt-en', this)">📋 Copy</button>
+      <h3>🧠 Abha Health Card / Banner Generation Prompt</h3>
+
+      
+   <select id="lang-select" onchange="updatePrompt()">
+  <option value="">Select Language</option>
+
+  
+  <option value="Hindi">⭐ Hindi (हिन्दी)</option>
+  <option value="English">⭐ English</option>
+   <option value="Marathi">Marathi (मराठी)</option>
+  <option value="Bengali">Bengali (বাংলা)</option>
+  <option value="Telugu">Telugu (తెలుగు)</option>
+  <option value="Tamil">Tamil (தமிழ்)</option>
+  <option value="Urdu">Urdu (اردو)</option>
+  <option value="Gujarati">Gujarati (ગુજરાતી)</option>
+  <option value="Kannada">Kannada (ಕನ್ನಡ)</option>
+  <option value="Odia">Odia (ଓଡ଼ିଆ)</option>
+  <option value="Malayalam">Malayalam (മലയാളം)</option>
+  <option value="Punjabi">Punjabi (ਪੰਜਾਬੀ)</option>
+  <option value="Assamese">Assamese (অসমীয়া)</option>
+  <option value="Maithili">Maithili (मैथिली)</option>
+  <option value="Sanskrit">Sanskrit (संस्कृत)</option>
+  <option value="Konkani">Konkani (कोंकणी)</option>
+  <option value="Manipuri">Manipuri (ꯃꯤꯇꯩꯂꯣꯟ)</option>
+  <option value="Nepali">Nepali (नेपाली)</option>
+  <option value="Bodo">Bodo (बड़ो)</option>
+  <option value="Dogri">Dogri (डोगरी)</option>
+  <option value="Santhali">Santhali (ᱥᱟᱱᱛᱟᱲᱤ)</option>
+  <option value="Kashmiri">Kashmiri (کٲشُر)</option>
+
+  
+  <option value="Hinglish">Hinglish</option>
+</select>
+      <button onclick="copyText('prompt-box', this)">📋 Copy Promt</button>
     </div>
 
-    <pre id="prompt-en">
-&#34;A highly detailed government-style informational poster design in landscape format (approx. 1000x1280).
+    
+    <pre id="prompt-box"
+      data-base="&#34;A highly detailed government-style informational poster design in landscape format (approx. 1000x1280).
+
+BACKGROUND:
+Use a soft light blue to white gradient background with a clean, minimal सरकारी (government) theme. Add subtle abstract circular shapes in very low opacity behind the content for depth.
+
+TOP SECTION:
+At the very top, place a bold, large uppercase English title in deep blue color: &#39;ABHA CARD&#39;. The font should be thick, sans-serif, modern, and highly prominent.
+Below it, centered, place a small logo text &#39;YOJNA PORTAL&#39; with a small icon, in orange and red tones.
+Under that, place a very large Hindi title &#39;आभा हेल्थ कार्ड&#39; in bold 3D-style typography with a green gradient fill and black shadow for depth. The text should look slightly embossed with a soft drop shadow.
+
+Below the Hindi title, add a blue horizontal bar or highlight strip with white Hindi text: &#39;सरकार की डिजिटल हेल्थ पहचान&#39; in bold clean font.
+
+MIDDLE SECTION (FEATURES WITH ICONS):
+Create three horizontally aligned sections:
+
+LEFT:
+A soft rounded background circle with a cartoon illustration of a doctor checking a patient.
+Below it, Hindi text: &#39;अस्पताल में इलाज आसान&#39;.
+
+CENTER:
+A soft rounded background circle with medical items like medicine bottles, pills, and blister packs.
+Below it, Hindi text: &#39;सभी मेडिकल रिकॉर्ड एक जगह&#39;.
+
+RIGHT:
+A soft rounded background circle with a cute alarm clock illustration.
+Below it, Hindi text: &#39;1 मिनट से भी कम समय में तैयार&#39;.
+
+Ensure all three icons are colorful, friendly, slightly cartoonish, and evenly spaced.
+
+LOWER SECTION (DOCUMENTS &#43; CARD):
+
+LEFT SIDE:
+Add a bold red Hindi heading: &#39;आवश्यक दस्तावेज-&#39;
+Below it, a vertical bullet list in black bold Hindi text:
+• आधार कार्ड
+• या ड्राइविंग लाइसेंस
+• मोबाइल नंबर
+
+Below this, place the website text in bold black: &#39;[www.yojnaportal.com](http://www.yojnaportal.com)&#39;.
+
+RIGHT SIDE:
+Place two ABHA card mockups stacked vertically.
+Top card: includes a profile photo, name, ABHA number, QR code, and official layout styling.
+Bottom card: contains instruction text, helpline number, and informational content in a card format.
+Use realistic card UI with blue header and white body.
+
+BOTTOM SECTION (CALL TO ACTION):
+Add a full-width red banner at the bottom.
+Inside it, place bold white and yellow Hindi text: &#39;आज ही बनवाएं आभा हेल्थ कार्ड&#39; with a glowing or highlighted effect.
+Add a small location pin icon on the left side of this banner.
+
+STYLE &amp; TYPOGRAPHY:
+Use clean, modern sans-serif fonts mixed with bold Hindi fonts.
+Maintain strong hierarchy: large headings, medium subheadings, and smaller descriptive text.
+Use drop shadows subtly for depth.
+
+COLOR PALETTE:
+Blue (#1E5AA8), light blue, white, green gradient for title, red for CTA, black for text.
+
+LAYOUT:
+Symmetrical, clean grid-based layout. Balanced spacing between sections. Clear separation between header, features, and footer.
+
+LIGHTING &amp; EFFECTS:
+Soft shadows under text and icons. Slight glow on CTA text. Maintain a polished digital government poster look.
+
+Ensure the final composition looks like an official Indian government awareness poster with clean UI, strong readability, and professional alignment.&#34;
+">
+      &#34;A highly detailed government-style informational poster design in landscape format (approx. 1000x1280).
 
 BACKGROUND:
 Use a soft light blue to white gradient background with a clean, minimal सरकारी (government) theme. Add subtle abstract circular shapes in very low opacity behind the content for depth.
@@ -523,8 +622,10 @@ Soft shadows under text and icons. Slight glow on CTA text. Maintain a polished 
 Ensure the final composition looks like an official Indian government awareness poster with clean UI, strong readability, and professional alignment.&#34;
 
     </pre>
+
   </div>
   
+
 </div>
 
   
@@ -538,7 +639,15 @@ Ensure the final composition looks like an official Indian government awareness 
 
 
 
-<script src="http://localhost:1313/js/banner/posters.min.f15bf4c06466b359e3e149bc93e8b3af0dda6426c3f76511e71f6a8a74748e26.js" integrity="sha256-8Vv0wGRms1nj4Um8k&#43;izrw3aZCbD92UR5x9qinR0jiY=" defer></script>
+
+  
+    <script src="http://localhost:1313/js/banner/posters.min.f15bf4c06466b359e3e149bc93e8b3af0dda6426c3f76511e71f6a8a74748e26.js" integrity="sha256-8Vv0wGRms1nj4Um8k&#43;izrw3aZCbD92UR5x9qinR0jiY=" defer></script>
+  
+
+  
+    <script src="http://localhost:1313/js/banner/promt_en.min.ec2f656cf0a02797d5259102330b24e853f5ef01d15e1ef2f5f1c4ec2b57075e.js" integrity="sha256-7C9lbPCgJ5fVJZECMwsk6FP17wHRXh7y9fHE7CtXB14=" defer></script>
+  
+
 
   </main>
   <footer>

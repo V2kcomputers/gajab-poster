@@ -160,76 +160,114 @@ border-image: linear-gradient(135deg,  #ffd700, #fff8dc, #d4af37) 1;
   color: #555;
 }
 
+/*=================================Promt Card============================================*/
 .prompt-section {
-  margin-top: 20px;
+  margin: 20px 0;
 }
 
+/* Card Design */
 .prompt-card {
-     position: relative;
-  background: var(--promt-card);
-  color: var(--text);
-  border-radius: 10px;
-  margin-bottom: 15px;
-  overflow: hidden;
+  background: var(--card);
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+  padding: 15px;
+  border: 1px solid #eee;
+
+ 
 }
-.prompt-card::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 40px;
-  background: linear-gradient(transparent, var(--card));
-  pointer-events: none;
-}
+
+/* Header */
 .prompt-header {
   display: flex;
-  justify-content: space-between;
+  flex-wrap: wrap;
   align-items: center;
-  background: var(--promt-head);
-  padding: 10px 15px;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  background: var(--success-bg);
+  padding: 10px;
+  border-radius: 10px;
 }
 
 .prompt-header h3 {
-  font-size: 14px;
+  font-size: 16px;
+  margin: 0;
+  color: var(--text);
 }
 
-.prompt-header button {
-  background: #4caf50;
-  border: none;
-  color: white;
-  padding: 6px 12px;
-  border-radius: 6px;
+/* Language Dropdown */
+#lang-select {
+  padding: 6px 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 13px;
   cursor: pointer;
+  background: #f9f9f9;
+  transition: 0.3s;
+}
+
+#lang-select:hover {
+  border-color: #5c6bc0;
+}
+
+#lang-select:focus {
+  outline: none;
+  border-color: #5c6bc0;
+  box-shadow: 0 0 0 2px rgba(92,107,192,0.2);
+}
+
+/* Copy Button */
+.prompt-header button {
+  padding: 6px 12px;
+  border: none;
+  background: #5c6bc0;
+  color: #fff;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 13px;
+  transition: 0.3s;
 }
 
 .prompt-header button:hover {
-  background: #43a047;
+  background: #3f51b5;
 }
 
-.prompt-card pre {
-  padding: 15px;
-  white-space: pre-wrap;
+/* Prompt Box */
+#prompt-box {
+  background: #0f172a;
+  color: #e2e8f0;
+  padding: 12px;
+  border-radius: 10px;
   font-size: 13px;
-  line-height: 1.5;
-  max-height: 300px;     /* 🔥 Height limit */
-  overflow-y: auto;      /* 🔥 Vertical scroll */
-  overflow-x: hidden;
-}
-.prompt-card pre::-webkit-scrollbar {
-  width: 6px;
-}
-
-.prompt-card pre::-webkit-scrollbar-thumb {
-  background:  #555;
+  line-height: 1.6;
+  overflow-x: auto;
+  white-space: pre-wrap;
+  border: 1px solid #1e293b;
+  max-height: 400px;
   
-  border-radius: 4px;
+
 }
 
-.prompt-card pre::-webkit-scrollbar-thumb:hover {
-  background: #777;
+/* Scrollbar (optional) */
+#prompt-box::-webkit-scrollbar {
+  height: 6px;
+}
+#prompt-box::-webkit-scrollbar-thumb {
+  background: #555;
+  border-radius: 10px;
 }
 
+/* Responsive */
+@media (max-width: 600px) {
+  .prompt-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  #lang-select,
+  .prompt-header button {
+    width: 100%;
+  }
+}
 /*=================================Related Banner============================================*/
 
 /* Category */
