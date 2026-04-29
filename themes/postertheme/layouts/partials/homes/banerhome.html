@@ -1,13 +1,13 @@
-{{ $types := slice "Documents" "Cybercafe" "Schemes" "Admission" "Banking"  "forms"  "Printing" }}
+{{ $types := slice "Documents" "Cybercafe" "Schemes" "Admission" "Banking"  "Printing" "forms"}}
 
 {{ $titles := dict 
   "Banking" "🏦 Banking Related Posters"
   "Schemes" "📄 Schemes & Jobs"
   "forms" "📄 Entry & Forms"
-  "Cybercafe" "📑 Cybercafe of CSC"
+  "Cybercafe" "📑 Cybercafe & CSC"
   "Documents" "🪪 Documents & Certificates"
-  "Printing" "🖨️Printing & Degning"
   "Admission" "Admission & Education"
+  "Printing" "🖨️Printing & Design"
 }}
 
 <!-- Step 1: Build category data -->
@@ -68,7 +68,7 @@
           {{ end }}
 
           <div class="icon">{{ .Params.icon }}</div> 
-          <div class="image-title">{{ .Params.PosterName }}</div>
+          <div class="image-title">{{ .Title }}</div>
 
         </a>
 
