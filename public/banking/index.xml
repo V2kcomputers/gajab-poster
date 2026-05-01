@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Bankings on Yojna Portal Posters</title>
+    <link>http://localhost:1313/banking/</link>
+    <description>Recent content in Bankings on Yojna Portal Posters</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 01 May 2026 17:26:18 +0530</lastBuildDate>
+    <atom:link href="http://localhost:1313/banking/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Fino Bank Account Opening</title>
+      <link>http://localhost:1313/fino-bank-account-opening/</link>
+      <pubDate>Fri, 01 May 2026 17:26:18 +0530</pubDate>
+      <guid>http://localhost:1313/fino-bank-account-opening/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>UP Jan Seva Kendra</title>
+      <link>http://localhost:1313/up-jan-seva-kendra/</link>
+      <pubDate>Fri, 01 May 2026 13:05:04 +0530</pubDate>
+      <guid>http://localhost:1313/up-jan-seva-kendra/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Npci Dbt Update Service</title>
+      <link>http://localhost:1313/npci-dbt-update-service/</link>
+      <pubDate>Mon, 27 Apr 2026 18:06:37 +0530</pubDate>
+      <guid>http://localhost:1313/npci-dbt-update-service/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Airtel Bank Account Opening</title>
+      <link>http://localhost:1313/airtel-payments-bank-account-opening/</link>
+      <pubDate>Thu, 23 Apr 2026 19:24:10 +0530</pubDate>
+      <guid>http://localhost:1313/airtel-payments-bank-account-opening/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Bank Statement Print Service</title>
+      <link>http://localhost:1313/bank-statement-print-service/</link>
+      <pubDate>Thu, 23 Apr 2026 18:47:12 +0530</pubDate>
+      <guid>http://localhost:1313/bank-statement-print-service/</guid>
+      <description></description>
+    </item>
+  </channel>
+</rss>

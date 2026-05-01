@@ -2,20 +2,26 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>http://localhost:1313/mp-wheat-slot-booking/</loc>
+    <lastmod>2026-05-01T20:10:18+05:30</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/mp/</loc>
+    <lastmod>2026-05-01T20:10:18+05:30</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/</loc>
+    <lastmod>2026-05-01T20:10:18+05:30</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/banking/</loc>
+    <lastmod>2026-05-01T17:26:18+05:30</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/fino-bank-account-opening/</loc>
+    <lastmod>2026-05-01T17:26:18+05:30</lastmod>
+  </url><url>
     <loc>http://localhost:1313/up-jan-seva-kendra/</loc>
     <lastmod>2026-05-01T13:05:04+05:30</lastmod>
   </url><url>
-    <loc>http://localhost:1313/up/</loc>
-    <lastmod>2026-05-01T13:05:04+05:30</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/</loc>
-    <lastmod>2026-05-01T13:05:04+05:30</lastmod>
-  </url><url>
     <loc>http://localhost:1313/mp-all-digital-services/</loc>
-    <lastmod>2026-05-01T12:38:40+05:30</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/mp/</loc>
-    <lastmod>2026-05-01T12:38:40+05:30</lastmod>
+    <lastmod>2026-05-01T13:14:19+05:30</lastmod>
   </url><url>
     <loc>http://localhost:1313/mp-caste-certificate/</loc>
     <lastmod>2026-05-01T11:57:41+05:30</lastmod>
@@ -60,7 +66,7 @@
     <lastmod>2026-04-27T19:05:03+05:30</lastmod>
   </url><url>
     <loc>http://localhost:1313/npci-dbt-update-service/</loc>
-    <lastmod>2026-04-27T18:31:03+05:30</lastmod>
+    <lastmod>2026-04-27T18:06:37+05:30</lastmod>
   </url><url>
     <loc>http://localhost:1313/mp-e-token-generation/</loc>
     <lastmod>2026-04-27T18:31:03+05:30</lastmod>
@@ -87,13 +93,13 @@
     <lastmod>2026-04-25T20:08:58+05:30</lastmod>
   </url><url>
     <loc>http://localhost:1313/airtel-payments-bank-account-opening/</loc>
-    <lastmod>2026-04-25T20:08:58+05:30</lastmod>
+    <lastmod>2026-04-23T19:24:10+05:30</lastmod>
   </url><url>
     <loc>http://localhost:1313/shadi-card-printing-service/</loc>
     <lastmod>2026-04-25T20:08:58+05:30</lastmod>
   </url><url>
     <loc>http://localhost:1313/bank-statement-print-service/</loc>
-    <lastmod>2026-04-27T18:31:03+05:30</lastmod>
+    <lastmod>2026-04-23T18:47:12+05:30</lastmod>
   </url><url>
     <loc>http://localhost:1313/driving-lisense-apply-poster/</loc>
     <lastmod>2026-04-25T20:08:58+05:30</lastmod>

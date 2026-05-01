@@ -30,13 +30,6 @@
       <description></description>
     </item>
     <item>
-      <title>Npci Dbt Update Service</title>
-      <link>http://localhost:1313/npci-dbt-update-service/</link>
-      <pubDate>Mon, 27 Apr 2026 18:06:37 +0530</pubDate>
-      <guid>http://localhost:1313/npci-dbt-update-service/</guid>
-      <description></description>
-    </item>
-    <item>
       <title>Pan Card Apply</title>
       <link>http://localhost:1313/pan-card-apply/</link>
       <pubDate>Sat, 25 Apr 2026 11:05:31 +0530</pubDate>
@@ -58,24 +51,10 @@
       <description></description>
     </item>
     <item>
-      <title>Airtel Payments Bank Account Opening</title>
-      <link>http://localhost:1313/airtel-payments-bank-account-opening/</link>
-      <pubDate>Thu, 23 Apr 2026 19:24:10 +0530</pubDate>
-      <guid>http://localhost:1313/airtel-payments-bank-account-opening/</guid>
-      <description></description>
-    </item>
-    <item>
       <title>Shadi Card Printing Service</title>
       <link>http://localhost:1313/shadi-card-printing-service/</link>
       <pubDate>Thu, 23 Apr 2026 18:59:17 +0530</pubDate>
       <guid>http://localhost:1313/shadi-card-printing-service/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Bank Statement Print Service</title>
-      <link>http://localhost:1313/bank-statement-print-service/</link>
-      <pubDate>Thu, 23 Apr 2026 18:47:12 +0530</pubDate>
-      <guid>http://localhost:1313/bank-statement-print-service/</guid>
       <description></description>
     </item>
     <item>
