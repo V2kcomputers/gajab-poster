@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Ups on Yojna Portal Posters</title>
+    <link>http://localhost:1313/up/</link>
+    <description>Recent content in Ups on Yojna Portal Posters</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 01 May 2026 13:05:04 +0530</lastBuildDate>
+    <atom:link href="http://localhost:1313/up/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Up Jan Seva Kendra</title>
+      <link>http://localhost:1313/up-jan-seva-kendra/</link>
+      <pubDate>Fri, 01 May 2026 13:05:04 +0530</pubDate>
+      <guid>http://localhost:1313/up-jan-seva-kendra/</guid>
+      <description></description>
+    </item>
+  </channel>
+</rss>
