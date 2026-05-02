@@ -4,7 +4,11 @@ let data = [];
 const input = document.getElementById("searchInput");
 const resultsDiv = document.getElementById("results");
 const clearBtn = document.getElementById("clearBtn");
-const form = document.getElementById("searchForm"); // form add करो
+const form = document.getElementById("searchForm");
+const recentBox = document.getElementById("recentSearches");
+
+// 🔥 Latest keywords
+const latestKeywords = ["latest", "new", "new update", "latest poster", "latest banner"];
 
 // URL query
 const params = new URLSearchParams(window.location.search);
@@ -13,15 +17,49 @@ const queryParam = params.get("q") || "";
 // set input
 input.value = queryParam;
 
-// highlight
+// 🔥 Highlight function
 function highlight(text, query) {
+  if (!query) return text;
   let regex = new RegExp(`(${query})`, "gi");
   return text.replace(regex, `<mark>$1</mark>`);
 }
 
-// smooth update
+// 🔥 Update UI
 function updateResults(html) {
   resultsDiv.innerHTML = html;
+}
+
+// 🔥 Render Results
+function renderResults(results, query) {
+if (!results || results.length === 0) {
+  const encodedQuery = encodeURIComponent(query);
+
+  updateResults(`
+    <div class="no-result">
+      <a href="https://www.yojnaportal.com/search/?q=${encodedQuery}" class="no-result-link" target="_blank" style="text-decoration:none;">
+        🔍 Search on Yojna Portal "<strong>${query}</strong>"
+      </a>
+    </div>
+  `);
+  return;
+}
+
+  let output = `<div class="search-banner-list">`;
+
+  output += results.map(item => `
+    <a href="${item.link}" class="search-banner-card" onclick='saveRecentItem(${JSON.stringify(item)})'>
+      <div class="search-banner-img">
+        <img src="${item.imagePoster || '/default.png'}">
+        <div class="search-banner-overlay">
+          <h3>${highlight(item.title, query)}</h3>
+        </div>
+      </div>
+    </a>
+  `).join("");
+
+  output += `</div>`;
+
+  updateResults(output);
 }
 
 // 🔥 MAIN SEARCH FUNCTION
@@ -31,66 +69,58 @@ function runSearch(query) {
     return;
   }
 
-  let results = fuse.search(query).slice(0, 16);
+  const lowerQuery = query.toLowerCase().trim();
 
-  if (results.length === 0) {
-    updateResults(`<div class="no-result">No results found</div>`);
+  // 🔥 Latest search trigger (partial match भी)
+  if (latestKeywords.some(k => lowerQuery.includes(k))) {
+
+    let sorted = [...data].sort((a, b) => new Date(b.date) - new Date(a.date));
+
+    let results = sorted.slice(0, 16);
+
+    renderResults(results, query);
     return;
   }
 
-  let output = `<div class="search-banner-list">`;
+  // 🔥 Normal Fuse search
+  let fuseResults = fuse.search(query).slice(0, 16);
+  let results = fuseResults.map(r => r.item);
 
-  output += results.map(r => {
-    let item = r.item;
-
-   return `
-  <a href="${item.link}" class="search-banner-card" onclick='saveRecentItem(${JSON.stringify(item)})'>
-
-    <div class="search-banner-img">
-      <img src="${item.imagePoster || '/default.png'}">
-      
-      <div class="search-banner-overlay">
-        <h3>${highlight(item.title, query)}</h3>
-      </div>
-    </div>
-
-  </a>
-`;
-  }).join("");
-
-  output += `</div>`;
-
-  updateResults(output);
+  renderResults(results, query);
 }
 
 // 🔥 INIT
 async function initSearch() {
-  const res = await fetch("/index.json");
-  data = await res.json();
+  try {
+    const res = await fetch("/index.json");
+    data = await res.json();
 
-  fuse = new Fuse(data, {
-    keys: ["title", "content"],
-    threshold: 0.35,
-    ignoreLocation: true
-  });
+    fuse = new Fuse(data, {
+      keys: ["title", "content"],
+      threshold: 0.35,
+      ignoreLocation: true
+    });
 
-  // Page load पर search
-  if (queryParam) {
-    runSearch(queryParam);
+    // Page load पर search
+    if (queryParam) {
+      runSearch(queryParam);
+      clearBtn.style.display = "block";
+    }
+
+  } catch (err) {
+    console.error("Search init error:", err);
   }
 }
 
 initSearch();
 
-// 🔥 FORM SUBMIT (Button + Enter)
+// 🔥 FORM SUBMIT
 form.addEventListener("submit", function(e) {
   e.preventDefault();
 
   const query = input.value.trim();
-
   if (!query) return;
 
-  // URL update
   const newURL = `/search/?q=${encodeURIComponent(query)}`;
   history.pushState(null, "", newURL);
 
@@ -117,24 +147,19 @@ document.addEventListener("keydown", function(e) {
   }
 });
 
-
-// LOAD on Searches
-const recentBox = document.getElementById("recentSearches");
-
-// SAVE clicked item
+// 🔥 SAVE clicked item
 function saveRecentItem(item) {
   let items = JSON.parse(localStorage.getItem("recentItems") || "[]");
 
-  // duplicate remove
   items = items.filter(i => i.link !== item.link);
 
   items.unshift(item);
-  items = items.slice(0, 6); // max 6
+  items = items.slice(0, 6);
 
   localStorage.setItem("recentItems", JSON.stringify(items));
 }
 
-// SHOW recent banners
+// 🔥 LOAD recent
 function loadRecentItems() {
   let items = JSON.parse(localStorage.getItem("recentItems") || "[]");
 
@@ -145,32 +170,29 @@ function loadRecentItems() {
 
   let html = `<div class="search-banner-list">`;
 
-html += items.map(item => `
-  <div class="search-banner-card-wrap">
+  html += items.map(item => `
+    <div class="search-banner-card-wrap">
 
-    <!-- ❌ Remove Button -->
-    <span class="remove-btn" onclick="removeRecentItem('${item.link}')">✖</span>
+      <span class="remove-btn" onclick="removeRecentItem('${item.link}')">✖</span>
 
-    <a href="${item.link}" class="search-banner-card">
-      <div class="search-banner-img">
-        <img src="${item.imagePoster || '/default.png'}">
-        <div class="search-banner-overlay">
-          <h3>${item.title}</h3>
+      <a href="${item.link}" class="search-banner-card">
+        <div class="search-banner-img">
+          <img src="${item.imagePoster || '/default.png'}">
+          <div class="search-banner-overlay">
+            <h3>${item.title}</h3>
+          </div>
         </div>
-      </div>
-    </a>
+      </a>
 
-  </div>
-`).join("");
+    </div>
+  `).join("");
 
   html += `</div>`;
 
   recentBox.innerHTML = html;
 }
 
-// LOAD on page
-loadRecentItems();
-
+// 🔥 Remove item
 function removeRecentItem(link) {
   let items = JSON.parse(localStorage.getItem("recentItems") || "[]");
 
@@ -178,9 +200,11 @@ function removeRecentItem(link) {
 
   localStorage.setItem("recentItems", JSON.stringify(items));
 
-  loadRecentItems(); // refresh UI
+  loadRecentItems();
 }
 
+// 🔥 Load on page
+loadRecentItems();
 
 
 
