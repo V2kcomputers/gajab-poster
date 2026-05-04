@@ -2,20 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://localhost:1313/mp/</loc>
-    <lastmod>2026-05-04T12:52:08+05:30</lastmod>
+    <loc>http://localhost:1313/document/</loc>
+    <lastmod>2026-05-04T19:30:19+05:30</lastmod>
   </url><url>
-    <loc>http://localhost:1313/mpsos-rjny-alc-2026/</loc>
-    <lastmod>2026-05-04T12:52:08+05:30</lastmod>
+    <loc>http://localhost:1313/driving-license-apply/</loc>
+    <lastmod>2026-05-04T19:30:19+05:30</lastmod>
   </url><url>
     <loc>http://localhost:1313/</loc>
-    <lastmod>2026-05-04T12:52:08+05:30</lastmod>
+    <lastmod>2026-05-04T19:30:19+05:30</lastmod>
   </url><url>
-    <loc>http://localhost:1313/document/</loc>
-    <lastmod>2026-05-03T19:10:41+05:30</lastmod>
+    <loc>http://localhost:1313/mp/</loc>
+    <lastmod>2026-05-04T12:59:17+05:30</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/mpsos-rjny-alc-2026/</loc>
+    <lastmod>2026-05-04T12:59:17+05:30</lastmod>
   </url><url>
     <loc>http://localhost:1313/e-shram-card-scheme/</loc>
-    <lastmod>2026-05-03T19:10:41+05:30</lastmod>
+    <lastmod>2026-05-04T12:59:17+05:30</lastmod>
   </url><url>
     <loc>http://localhost:1313/pm-svanidhi-yojana/</loc>
     <lastmod>2026-05-03T12:56:37+05:30</lastmod>
@@ -120,7 +123,7 @@
     <lastmod>2026-05-01T20:13:33+05:30</lastmod>
   </url><url>
     <loc>http://localhost:1313/driving-lisense-apply-poster/</loc>
-    <lastmod>2026-04-25T20:08:58+05:30</lastmod>
+    <lastmod>2026-04-23T15:30:54+05:30</lastmod>
   </url><url>
     <loc>http://localhost:1313/ayushman-card-poster/</loc>
     <lastmod>2026-04-25T20:08:58+05:30</lastmod>
