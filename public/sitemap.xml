@@ -2,20 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://localhost:1313/document/</loc>
-    <lastmod>2026-05-04T19:30:19+05:30</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/driving-license-apply/</loc>
-    <lastmod>2026-05-04T19:30:19+05:30</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/</loc>
-    <lastmod>2026-05-04T19:30:19+05:30</lastmod>
+    <loc>http://localhost:1313/mp-dte-polytechnic/</loc>
+    <lastmod>2026-05-05T09:46:01+05:30</lastmod>
   </url><url>
     <loc>http://localhost:1313/mp/</loc>
-    <lastmod>2026-05-04T12:59:17+05:30</lastmod>
+    <lastmod>2026-05-05T09:46:01+05:30</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/</loc>
+    <lastmod>2026-05-05T09:46:01+05:30</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/document/</loc>
+    <lastmod>2026-05-04T19:58:33+05:30</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/driving-license-apply/</loc>
+    <lastmod>2026-05-04T19:58:33+05:30</lastmod>
   </url><url>
     <loc>http://localhost:1313/mpsos-rjny-alc-2026/</loc>
-    <lastmod>2026-05-04T12:59:17+05:30</lastmod>
+    <lastmod>2026-05-04T19:58:33+05:30</lastmod>
   </url><url>
     <loc>http://localhost:1313/e-shram-card-scheme/</loc>
     <lastmod>2026-05-04T12:59:17+05:30</lastmod>
@@ -72,13 +75,13 @@
     <lastmod>2026-04-28T17:34:21+05:30</lastmod>
   </url><url>
     <loc>http://localhost:1313/poster/</loc>
-    <lastmod>2026-04-28T18:47:09+05:30</lastmod>
+    <lastmod>2026-05-04T19:58:33+05:30</lastmod>
   </url><url>
     <loc>http://localhost:1313/udyam-adhar-registration/</loc>
     <lastmod>2026-04-28T17:34:21+05:30</lastmod>
   </url><url>
     <loc>http://localhost:1313/gumasta-license-registration-poster/</loc>
-    <lastmod>2026-04-28T17:34:21+05:30</lastmod>
+    <lastmod>2026-05-04T19:58:33+05:30</lastmod>
   </url><url>
     <loc>http://localhost:1313/mp-college-admission/</loc>
     <lastmod>2026-04-28T11:56:27+05:30</lastmod>
@@ -123,7 +126,7 @@
     <lastmod>2026-05-01T20:13:33+05:30</lastmod>
   </url><url>
     <loc>http://localhost:1313/driving-lisense-apply-poster/</loc>
-    <lastmod>2026-04-23T15:30:54+05:30</lastmod>
+    <lastmod>2026-05-04T19:58:33+05:30</lastmod>
   </url><url>
     <loc>http://localhost:1313/ayushman-card-poster/</loc>
     <lastmod>2026-04-25T20:08:58+05:30</lastmod>
