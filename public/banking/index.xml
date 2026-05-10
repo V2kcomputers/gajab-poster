@@ -6,8 +6,22 @@
     <description>Recent content in Bankings on Yojna Portal Posters</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 01 May 2026 20:13:33 +0530</lastBuildDate>
+    <lastBuildDate>Sun, 10 May 2026 17:55:40 +0530</lastBuildDate>
     <atom:link href="http://localhost:1313/banking/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>SBI CSP Banking Poster</title>
+      <link>http://localhost:1313/sbi-csp-banking-poster/</link>
+      <pubDate>Sun, 10 May 2026 17:55:40 +0530</pubDate>
+      <guid>http://localhost:1313/sbi-csp-banking-poster/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>PNB Account Opening Poster</title>
+      <link>http://localhost:1313/pnb-account-opening-poster/</link>
+      <pubDate>Sun, 10 May 2026 16:36:04 +0530</pubDate>
+      <guid>http://localhost:1313/pnb-account-opening-poster/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Fino Bank Account Opening</title>
       <link>http://localhost:1313/fino-bank-account-opening/</link>
