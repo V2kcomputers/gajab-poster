@@ -1,0 +1,15 @@
+{{ with .Params.Disclaimer }}
+<div class="scheme-disclaimer">
+  {{ range . }}
+  <div class="disclaimer-box">
+    <strong> ⚠️ Disclaimer:</strong> {{ . | markdownify }}
+  </div>
+  {{ end }}
+</div>
+{{ else }}
+<div class="scheme-disclaimer">
+  <div class="disclaimer-box">
+   <strong> ⚠️ Disclaimer:</strong> {{ site.Params.SiteDisclaimer | markdownify }}
+  </div>
+</div>
+{{ end }}
