@@ -154,45 +154,77 @@
   <main>
     
 
+
+
   
-    <link rel="stylesheet" href="/css/Banner/poster.min.108e23d9c5e89729c2eec0107360c8c7343230e36a639236fddb9c95781cad05.css" integrity="sha256-EI4j2cXolynC7sAQc2DIxzQyMONqY5I2/duclXgcrQU=">
+    <link rel="stylesheet" href="/css/Banner/posters.min.2a185c15dc751650f6685d2ea648064c1c617f74ecde2d51ff2b59ccda9acc1b.css" integrity="sha256-KhhcFdx1FlD2aF0upkgGTBxhf3Ts3i1R/ytZzNqazBs=">
   
 
 
-<div class="imgcontainer">
-     
-  <div class="poster-header">
+
+<script> const images = [
+  { title:"IPPB India Post Payments Bank", url:"https:\/\/cdn.yojnaportal.com\/Banner\/25x32\/banking\/IPPB-India-Post-Payments-Bank.webp" },
+  { title:"IPPB CSP Poster", url:"https:\/\/cdn.yojnaportal.com\/Banner\/25x32\/banking\/IPPB-India-Post-Payments-Bank-CSP.webp" },
+];</script>
+<div class="poster-container">
+<div class="poster-header">
     <h1>India Post Payments Bank Account Main Services</h1>
     <p class="subheading">IPPB Banking Services Including Savings, Minor and Current Accounts</p>
   </div>
+<div class="imgcontainer">
 
+  <div class="image-list" id="imageList"></div>
 
-<div class="preview">
-  <img id="previewImg" src="https://cdn.yojnaportal.com/Banner/25x32/banking/IPPB-India-Post-Payments-Bank.webp" onclick="openModal()">
-</div>
-<div class="top-actions">
- <a href="https://yojnaportal.com/search?q=ippb-india-post-payments-bank" target="_blank">
-  <button id="viewBtn">🔗 Link</button>
+  <div class="preview">
+
+    <div class="nav-btn left" onclick="prevImage()">❮</div>
+
+    <img id="previewImg">
+
+    <div class="nav-btn right" onclick="nextImage()">❯</div>
+
+    <div class="actions">
+        
+      <button onclick="downloadImg(this)">⬇️ Download</button>
+      <button onclick="shareImg(this)">🔗 Share</button>
+      <button onclick="printCurrent()">🖨️ Current Print</button>
+      <button onclick="printAll()">🖨️ All Print</button>
+        <a href="https://yojnaportal.com/search?q=ippb-india-post-payments-bank" target="_blank">
+  <button id="viewBtn">🔗 More Details</button>
 </a>
+    </div>
 
-<button onclick="downloadImg(this)">⬇️ Download</button>
-<button onclick="shareImg(this)">🔗 Share</button>
-<button onclick="printImg(this)">🖨️ Print</button>
+  </div>
+
 </div>
+
+
 <div id="modal" class="modal">
+
   <span class="close" onclick="closeModal()">×</span>
-  <img class="modal-content" id="modalImg">
+
+  <div class="nav-btn left" onclick="prevImage()">❮</div>
+
+  <img id="modalImg">
+
+  <div class="nav-btn right" onclick="nextImage()">❯</div>
 
   <div class="actions">
-    <a href="https://yojnaportal.com/search?q=ippb-india-post-payments-bank" target="_blank">
+     <a href="https://yojnaportal.com/search?q=ippb-india-post-payments-bank" target="_blank">
   <button id="viewBtn">🔗 Link</button>
 </a>
-  <button onclick="downloadImg(this)">⬇️ Download</button>
-<button onclick="shareImg(this)">🔗 Share</button>
-<button onclick="printImg(this)">🖨️ Print</button>
+    <button onclick="downloadImg(this)">⬇️ Download</button>
+    <button onclick="shareImg(this)">🔗 Share</button>
+    <button onclick="printCurrent()">🖨️ Current</button>
+    <button onclick="printAll()">🖨️ All</button>
   </div>
+
 </div>
 
+
+    
+  
+   
 
 
 
@@ -227,10 +259,38 @@
 
   <div class="gallery">
     
-      <a href="/ippb-india-post-payments-bank/" class="gallery-item">
+      <a href="/cgb-cg-gramin-bank-poster/" class="gallery-item">
 
         
-          <img src="https://cdn.yojnaportal.com/Banner/25x32/banking/IPPB-India-Post-Payments-Bank.webp" alt="IPPB India Post Payments Bank">
+          <img src="https://cdn.yojnaportal.com/Banner/25x32/banking/CGB-Chhattisgarh-gramin-bank.webp" alt="IPPB India Post Payments Bank">
+        
+
+        
+
+        
+
+     
+
+      </a>
+    
+      <a href="/sbi-csp-banking-poster/" class="gallery-item">
+
+        
+          <img src="https://cdn.yojnaportal.com/Banner/25x32/banking/SBI-Kiosk-Banking-ac-open.webp" alt="IPPB India Post Payments Bank">
+        
+
+        
+
+        
+
+     
+
+      </a>
+    
+      <a href="/bob-bank-of-baroda-csp/" class="gallery-item">
+
+        
+          <img src="https://cdn.yojnaportal.com/Banner/25x32/banking/Bank-of-Baroda-BOB-CSP.webp" alt="IPPB India Post Payments Bank">
         
 
         
@@ -255,24 +315,10 @@
 
       </a>
     
-      <a href="/apb-airtel-payments-bank-csp-poster/" class="gallery-item">
+      <a href="/mp-ladli-behna-yojna-36th/" class="gallery-item">
 
         
-          <img src="https://cdn.yojnaportal.com/Banner/25x32/banking/ABP-CSP-Services.webp" alt="IPPB India Post Payments Bank">
-        
-
-        
-
-        
-
-     
-
-      </a>
-    
-      <a href="/up-jan-seva-kendra/" class="gallery-item">
-
-        
-          <img src="https://cdn.yojnaportal.com/Banner/up/up-related-works.webp" alt="IPPB India Post Payments Bank">
+          <img src="https://cdn.yojnaportal.com/Banner/mp/2026/CMLBY-MP-Ladli-Behana-Yojna-36th.webp" alt="IPPB India Post Payments Bank">
         
 
         
@@ -283,24 +329,10 @@
 
       </a>
     
-      <a href="/food-safety-license/" class="gallery-item">
+      <a href="/shadi-card-printing-service/" class="gallery-item">
 
         
-          <img src="https://cdn.yojnaportal.com/Banner/25x32/bussiness/food-safety-license.webp" alt="IPPB India Post Payments Bank">
-        
-
-        
-
-        
-
-     
-
-      </a>
-    
-      <a href="/ayushman-card-poster/" class="gallery-item">
-
-        
-          <img src="https://ia600709.us.archive.org/26/items/aayusman-card_202505/Aayusman%20Card.gif" alt="IPPB India Post Payments Bank">
+          <img src="https://cdn.yojnaportal.com/Banner/25x32/marrige-card.webp" alt="IPPB India Post Payments Bank">
         
 
         
@@ -315,10 +347,9 @@
 
 </div>
 
-</div>
-<div class="poster-container">
-  
-<h2 id="title">IPPB India Post Payments Bank Related Poster Details</h2> 
+
+
+    <h2 id="title">IPPB India Post Payments Bank Related Poster Details</h2> 
 
 <div class="scheme-disclaimer">
   
@@ -331,6 +362,12 @@
 </div>
 
 
+  
+  <div class="tagline">
+
+    Open Your IPPB Account and Access Instant Banking Services
+
+  </div>
 
 <div class="sharing-section">
 
@@ -341,7 +378,7 @@
       <h3>📢 Short Sharing (Hindi)</h3>
       <div class="btn-group">
         <button onclick="copyText('short-hi', this)">📋 Copy</button>
-        <button onclick="shareWhatsApp('short-hi')">📤 Share</button>
+        <button onclick="shareWhatsApp('short-hi')">🟢 Share</button>
       </div>
     </div>
 
@@ -362,7 +399,7 @@
       <h3>📢 Full Sharing (Hindi)</h3>
       <div class="btn-group">
         <button onclick="copyText('full-hi', this)">📋 Copy</button>
-        <button onclick="shareWhatsApp('full-hi')">📤 Share</button>
+        <button onclick="shareWhatsApp('full-hi')">🟢 Share</button>
       </div>
     </div>
 
@@ -393,12 +430,8 @@
 
 </div>
 
-  
-  <div class="tagline">
-    Open Your IPPB Account and Access Instant Banking Services
-  </div>
-  
 
+  
   <div class="card">
     <h2>✨IPPB India Post Payments Bank Key Highlights</h2>
     <ul>
@@ -442,9 +475,6 @@
     <p>The poster highlights important IPPB account services including savings accounts, child accounts, DBT activation and secure banking.</p>
     
   </div>
-
-
-  
 
   
 <div class="prompt-section">
@@ -761,15 +791,20 @@ DESIGN STYLE:
 
 </div>
 
+  
+  <div class="poster-footer">
+    <p>This poster is shared only for informational purposes. Contact the concerned department or official bank branch for complete information.</p>
+    <strong></strong>
+  </div>
+
+
+</div>
+
+
+
 
   
-  <div class="poster-footer"><p>This poster is shared only for informational purposes. Contact the concerned department or official bank branch for complete information.</p><strong></strong></div></div>
-
-
-
-
-  
-    <script src="http://localhost:1313/js/banner/poster.min.0d924e62efe59b3fa2cb5d656557cb9b260bb669083f0676e1122976e0eceed4.js" integrity="sha256-DZJOYu/lmz&#43;iy11lZVfLmyYLtmkIPwZ24RIpduDs7tQ=" defer></script>
+    <script src="http://localhost:1313/js/banner/posters.min.f15bf4c06466b359e3e149bc93e8b3af0dda6426c3f76511e71f6a8a74748e26.js" integrity="sha256-8Vv0wGRms1nj4Um8k&#43;izrw3aZCbD92UR5x9qinR0jiY=" defer></script>
   
 
   
