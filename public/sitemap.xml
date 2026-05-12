@@ -3,16 +3,19 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>http://localhost:1313/banking/</loc>
-    <lastmod>2026-05-12T10:11:37+05:30</lastmod>
+    <lastmod>2026-05-12T12:17:30+05:30</lastmod>
   </url><url>
-    <loc>http://localhost:1313/bob-bank-of-baroda-csp/</loc>
-    <lastmod>2026-05-12T10:11:37+05:30</lastmod>
+    <loc>http://localhost:1313/iob-indian-overseas-bank-csp/</loc>
+    <lastmod>2026-05-12T12:17:30+05:30</lastmod>
   </url><url>
     <loc>http://localhost:1313/</loc>
-    <lastmod>2026-05-12T10:11:37+05:30</lastmod>
+    <lastmod>2026-05-12T12:17:30+05:30</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/bob-bank-of-baroda-csp/</loc>
+    <lastmod>2026-05-12T10:58:40+05:30</lastmod>
   </url><url>
     <loc>http://localhost:1313/bom-bank-of-maharastra-csp/</loc>
-    <lastmod>2026-05-11T19:48:56+05:30</lastmod>
+    <lastmod>2026-05-12T10:58:40+05:30</lastmod>
   </url><url>
     <loc>http://localhost:1313/boi-bank-of-india-csp-poster/</loc>
     <lastmod>2026-05-11T18:36:29+05:30</lastmod>
@@ -21,7 +24,7 @@
     <lastmod>2026-05-11T17:42:23+05:30</lastmod>
   </url><url>
     <loc>http://localhost:1313/ippb-india-post-payments-bank/</loc>
-    <lastmod>2026-05-11T16:14:16+05:30</lastmod>
+    <lastmod>2026-05-12T10:58:40+05:30</lastmod>
   </url><url>
     <loc>http://localhost:1313/rgb-rajasthan-gramin-bank-poster/</loc>
     <lastmod>2026-05-11T13:28:58+05:30</lastmod>

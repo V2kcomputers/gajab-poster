@@ -1,4 +1,4 @@
-{{ $types := slice "Documents" "Cybercafe" "Schemes" "Admission" "Jobs" "Exams" "Banking"  "Printing" "Multi" "forms"}}
+{{ $types := slice "Documents" "Cybercafe" "Schemes" "Admission" "Jobs" "Exams" "Banking" "Printing" "Multi" "forms"}}
 
 {{ $titles := dict 
   "Banking" "🏦 Banking Related Posters"
@@ -13,80 +13,106 @@
   "Jobs" "🧑‍💻 Jobs & Recruitment Update"
 }}
 
-<!-- Step 1: Build category data -->
-{{ $catData := slice }}
+<!-- सभी पोस्ट को latest अनुसार sort -->
+{{ $allLatestPosts := sort .Site.RegularPages ".Lastmod" "desc" }}
 
+<!-- सिर्फ latest 20 -->
+{{ $latest20 := first 20 $allLatestPosts }}
+
+<!-- Latest Section -->
+<div class="category">
+
+  <h2>🔥 Latest Posters</h2>
+
+  <div class="gallery">
+
+    {{ range $latest20 }}
+
+      <a href="{{ .RelPermalink }}" class="gallery-item">
+
+        <img src="{{ .Params.imagePoster }}"
+             alt="{{ .Params.PosterName }}"
+             loading="lazy">
+
+        <!-- NEW Badge -->
+        {{ if and 
+            (eq .Date.Year now.Year) 
+            (eq .Date.Month now.Month) 
+            (eq .Date.Day now.Day) 
+        }}
+          <span class="badge-new">NEW</span>
+        {{ end }}
+
+        <div class="icon">{{ .Params.icon }}</div>
+        <div class="image-title">{{ .Title }}</div>
+
+      </a>
+
+    {{ end }}
+
+  </div>
+
+</div>
+
+
+<!-- बाकी category wise -->
 {{ range $types }}
+
   {{ $pages := where $.Site.RegularPages "Params.banertype" . }}
   {{ $sorted := sort $pages ".Lastmod" "desc" }}
 
   {{ if gt (len $sorted) 0 }}
-    {{ $latest := index $sorted 0 }}
 
-    {{ $catData = $catData | append (dict 
-      "type" . 
-      "posts" $sorted 
-      "latest" $latest.Lastmod
-    ) }}
-  {{ end }}
-{{ end }}
-<!-- Step 2: Sort categories by latest update -->
-{{ $catData = sort $catData "latest" "desc" }}
+    {{ $posts := first 20 $sorted }}
 
-<!-- Step 3: Render -->
-{{ range $catData }}
+    <div class="category">
 
-  {{ $type := .type }}
-  {{ $allPosts := .posts }}
-  {{ $posts := first 10 $allPosts }}
+      <h2>
+        {{ with index $titles . }}
+          {{ . }}
+        {{ else }}
+          {{ . }} Posters
+        {{ end }}
+      </h2>
 
-  <div class="category">
+      <div class="gallery">
 
-    <!-- Title -->
-    <h2>
-      {{ with index $titles $type }}
-        {{ . }}
-      {{ else }}
-        {{ $type }} Posters
+        {{ range $posts }}
+
+          <a href="{{ .RelPermalink }}" class="gallery-item">
+
+            <img src="{{ .Params.imagePoster }}"
+                 alt="{{ .Params.PosterName }}"
+                 loading="lazy">
+
+            <!-- NEW Badge -->
+            {{ if and 
+                (eq .Date.Year now.Year) 
+                (eq .Date.Month now.Month) 
+                (eq .Date.Day now.Day) 
+            }}
+              <span class="badge-new">NEW</span>
+            {{ end }}
+
+            <div class="icon">{{ .Params.icon }}</div>
+            <div class="image-title">{{ .Title }}</div>
+
+          </a>
+
+        {{ end }}
+
+      </div>
+
+      {{ if gt (len $sorted) 20 }}
+        <div class="view-more-wrap">
+          <a href="/banertype/{{ lower . }}/" class="view-more-btn">
+            View More →
+          </a>
+        </div>
       {{ end }}
-    </h2>
 
-    <!-- Gallery -->
-    <div class="gallery">
-      {{ range $posts }}
-
-        <a href="{{ .RelPermalink }}" class="gallery-item">
-
-          <img src="{{ .Params.imagePoster }}" 
-               alt="{{ .Params.PosterName }}" 
-               loading="lazy">
-
-          <!-- NEW Badge -->
-          {{ if and 
-              (eq .Date.Year now.Year) 
-              (eq .Date.Month now.Month) 
-              (eq .Date.Day now.Day) 
-          }}
-            <span class="badge-new">NEW</span>
-          {{ end }}
-
-          <div class="icon">{{ .Params.icon }}</div> 
-          <div class="image-title">{{ .Title }}</div>
-
-        </a>
-
-      {{ end }}
     </div>
 
-    <!-- View More -->
-    {{ if gt (len $allPosts) 25 }}
-      <div class="view-more-wrap">
-        <a href="/banertype/{{ lower $type }}/" class="view-more-btn">
-          View More →
-        </a>
-      </div>
-    {{ end }}
-
-  </div>
+  {{ end }}
 
 {{ end }}
