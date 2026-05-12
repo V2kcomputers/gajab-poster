@@ -1,3 +1,111 @@
+<style>
+
+.gallery-wrapper{
+  position: relative;
+}
+
+.scroll-btn{
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 42px;
+  height: 42px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(0,0,0,0.7);
+  color: #fff;
+  font-size: 20px;
+  cursor: pointer;
+  z-index: 5;
+}
+
+.scroll-left{
+  left: -10px;
+}
+
+.scroll-right{
+  right: -10px;
+}
+
+.scroll-btn.hide{
+  display: none;
+}
+
+@media(max-width:768px){
+
+  .scroll-btn{
+    width: 34px;
+    height: 34px;
+    font-size: 16px;
+  }
+
+  .scroll-left{
+    left: 5px;
+  }
+
+  .scroll-right{
+    right: 5px;
+  }
+
+}
+/* Image Loading Effect */
+.gallery-item{
+  position: relative;
+  overflow: hidden;
+}
+
+.gallery-item img{
+  opacity: 0;
+  transform: scale(1.03);
+  transition:
+    opacity 0.8s ease,
+    transform 1s ease;
+}
+
+/* loaded image */
+.gallery-item img.loaded{
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* skeleton loading */
+.gallery-item::before{
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    #f0f0f0 25%,
+    #e2e2e2 50%,
+    #f0f0f0 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.4s infinite;
+  z-index: 1;
+  transition: opacity .4s ease;
+}
+
+/* image load hone ke baad hide */
+.gallery-item.loaded::before{
+  opacity: 0;
+  pointer-events: none;
+}
+
+@keyframes shimmer{
+
+  0%{
+    background-position: 200% 0;
+  }
+
+  100%{
+    background-position: -200% 0;
+  }
+
+}
+</style>
+
+
+
 {{ $types := slice "Documents" "Cybercafe" "Schemes" "Admission" "Jobs" "Exams" "Banking" "Printing" "Multi" "forms"}}
 
 {{ $titles := dict 
@@ -13,46 +121,56 @@
   "Jobs" "🧑‍💻 Jobs & Recruitment Update"
 }}
 
-<!-- सभी पोस्ट को latest अनुसार sort -->
+<!-- सभी पोस्ट latest अनुसार -->
 {{ $allLatestPosts := sort .Site.RegularPages ".Lastmod" "desc" }}
 
 <!-- सिर्फ latest 20 -->
 {{ $latest20 := first 20 $allLatestPosts }}
+
 
 <!-- Latest Section -->
 <div class="category">
 
   <h2>🔥 Latest Posters</h2>
 
-  <div class="gallery">
+  <div class="gallery-wrapper">
 
-    {{ range $latest20 }}
+    <button class="scroll-btn scroll-left hide">❮</button>
 
-      <a href="{{ .RelPermalink }}" class="gallery-item">
+    <div class="gallery">
 
-        <img src="{{ .Params.imagePoster }}"
-             alt="{{ .Params.PosterName }}"
-             loading="lazy">
+      {{ range $latest20 }}
 
-        <!-- NEW Badge -->
-        {{ if and 
-            (eq .Date.Year now.Year) 
-            (eq .Date.Month now.Month) 
-            (eq .Date.Day now.Day) 
-        }}
-          <span class="badge-new">NEW</span>
-        {{ end }}
+        <a href="{{ .RelPermalink }}" class="gallery-item">
 
-        <div class="icon">{{ .Params.icon }}</div>
-        <div class="image-title">{{ .Title }}</div>
+          <img src="{{ .Params.imagePoster }}"
+               alt="{{ .Params.PosterName }}"
+               loading="lazy">
 
-      </a>
+          <!-- NEW Badge -->
+          {{ if and 
+              (eq .Date.Year now.Year) 
+              (eq .Date.Month now.Month) 
+              (eq .Date.Day now.Day) 
+          }}
+            <span class="badge-new">NEW</span>
+          {{ end }}
 
-    {{ end }}
+          <div class="icon">{{ .Params.icon }}</div>
+          <div class="image-title">{{ .Title }}</div>
+
+        </a>
+
+      {{ end }}
+
+    </div>
+
+    <button class="scroll-btn scroll-right">❯</button>
 
   </div>
 
 </div>
+
 
 
 <!-- बाकी category wise -->
@@ -75,31 +193,39 @@
         {{ end }}
       </h2>
 
-      <div class="gallery">
+      <div class="gallery-wrapper">
 
-        {{ range $posts }}
+        <button class="scroll-btn scroll-left hide">❮</button>
 
-          <a href="{{ .RelPermalink }}" class="gallery-item">
+        <div class="gallery">
 
-            <img src="{{ .Params.imagePoster }}"
-                 alt="{{ .Params.PosterName }}"
-                 loading="lazy">
+          {{ range $posts }}
 
-            <!-- NEW Badge -->
-            {{ if and 
-                (eq .Date.Year now.Year) 
-                (eq .Date.Month now.Month) 
-                (eq .Date.Day now.Day) 
-            }}
-              <span class="badge-new">NEW</span>
-            {{ end }}
+            <a href="{{ .RelPermalink }}" class="gallery-item">
 
-            <div class="icon">{{ .Params.icon }}</div>
-            <div class="image-title">{{ .Title }}</div>
+              <img src="{{ .Params.imagePoster }}"
+                   alt="{{ .Params.PosterName }}"
+                   loading="lazy">
 
-          </a>
+              <!-- NEW Badge -->
+              {{ if and 
+                  (eq .Date.Year now.Year) 
+                  (eq .Date.Month now.Month) 
+                  (eq .Date.Day now.Day) 
+              }}
+                <span class="badge-new">NEW</span>
+              {{ end }}
 
-        {{ end }}
+              <div class="icon">{{ .Params.icon }}</div>
+              <div class="image-title">{{ .Title }}</div>
+
+            </a>
+
+          {{ end }}
+
+        </div>
+
+        <button class="scroll-btn scroll-right">❯</button>
 
       </div>
 
@@ -116,3 +242,137 @@
   {{ end }}
 
 {{ end }}
+
+
+
+<script>
+
+document.querySelectorAll(".gallery-wrapper").forEach(wrapper => {
+
+  const gallery = wrapper.querySelector(".gallery");
+  const leftBtn = wrapper.querySelector(".scroll-left");
+  const rightBtn = wrapper.querySelector(".scroll-right");
+
+  let autoScroll;
+
+  // smooth scrolling
+  gallery.style.scrollBehavior = "smooth";
+
+  function updateButtons(){
+
+    if(gallery.scrollLeft <= 5){
+      leftBtn.classList.add("hide");
+    }else{
+      leftBtn.classList.remove("hide");
+    }
+
+    if(
+      gallery.scrollLeft + gallery.clientWidth >=
+      gallery.scrollWidth - 5
+    ){
+      rightBtn.classList.add("hide");
+    }else{
+      rightBtn.classList.remove("hide");
+    }
+
+  }
+
+  function startAutoScroll(){
+
+    stopAutoScroll();
+
+    autoScroll = setInterval(() => {
+
+      // end पर वापस start
+      if(
+        gallery.scrollLeft + gallery.clientWidth >=
+        gallery.scrollWidth - 5
+      ){
+
+        gallery.scrollTo({
+          left: 0,
+          behavior: "smooth"
+        });
+
+      }else{
+
+        gallery.scrollBy({
+          left: 320,
+          behavior: "smooth"
+        });
+
+      }
+
+    }, 5000);
+
+  }
+
+  function stopAutoScroll(){
+    clearInterval(autoScroll);
+  }
+
+  rightBtn.addEventListener("click", () => {
+
+    gallery.scrollBy({
+      left: 320,
+      behavior: "smooth"
+    });
+
+  });
+
+  leftBtn.addEventListener("click", () => {
+
+    gallery.scrollBy({
+      left: -320,
+      behavior: "smooth"
+    });
+
+  });
+
+  gallery.addEventListener("scroll", updateButtons);
+
+  // hover पर stop
+  gallery.addEventListener("mouseenter", stopAutoScroll);
+
+  // mouse हटते ही फिर start
+  gallery.addEventListener("mouseleave", startAutoScroll);
+
+  // mobile touch support
+  gallery.addEventListener("touchstart", stopAutoScroll);
+
+  gallery.addEventListener("touchend", () => {
+    setTimeout(startAutoScroll, 2000);
+  });
+
+  updateButtons();
+
+  startAutoScroll();
+
+});
+
+</script>
+<script>
+
+document.querySelectorAll(".gallery-item img").forEach(img => {
+
+  function imageLoaded(){
+
+    img.classList.add("loaded");
+
+    img.parentElement.classList.add("loaded");
+
+  }
+
+  if(img.complete){
+
+    imageLoaded();
+
+  }else{
+
+    img.addEventListener("load", imageLoaded);
+
+  }
+
+});
+
+</script>
