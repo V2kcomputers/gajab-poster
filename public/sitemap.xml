@@ -2,13 +2,19 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://localhost:1313/banking/</loc>
-    <lastmod>2026-05-12T19:37:05+05:30</lastmod>
+    <loc>http://localhost:1313/document/</loc>
+    <lastmod>2026-05-13T09:57:18+05:30</lastmod>
   </url><url>
-    <loc>http://localhost:1313/indusind-bank-csp-servises/</loc>
-    <lastmod>2026-05-12T19:37:05+05:30</lastmod>
+    <loc>http://localhost:1313/epfo-ralated-online-work/</loc>
+    <lastmod>2026-05-13T09:57:18+05:30</lastmod>
   </url><url>
     <loc>http://localhost:1313/</loc>
+    <lastmod>2026-05-13T09:57:18+05:30</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/banking/</loc>
+    <lastmod>2026-05-12T19:57:59+05:30</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/indusind-bank-csp-servises/</loc>
     <lastmod>2026-05-12T19:37:05+05:30</lastmod>
   </url><url>
     <loc>http://localhost:1313/nsdl-payments-bank-csp/</loc>
@@ -86,9 +92,6 @@
     <loc>http://localhost:1313/schemes/</loc>
     <lastmod>2026-05-07T18:59:05+05:30</lastmod>
   </url><url>
-    <loc>http://localhost:1313/document/</loc>
-    <lastmod>2026-05-07T18:59:05+05:30</lastmod>
-  </url><url>
     <loc>http://localhost:1313/farmer-id-card/</loc>
     <lastmod>2026-05-07T18:59:05+05:30</lastmod>
   </url><url>
@@ -120,7 +123,7 @@
     <lastmod>2026-05-01T20:13:33+05:30</lastmod>
   </url><url>
     <loc>http://localhost:1313/fino-bank-account-opening/</loc>
-    <lastmod>2026-05-01T20:13:33+05:30</lastmod>
+    <lastmod>2026-05-12T19:57:59+05:30</lastmod>
   </url><url>
     <loc>http://localhost:1313/up-jan-seva-kendra/</loc>
     <lastmod>2026-05-01T20:13:33+05:30</lastmod>
