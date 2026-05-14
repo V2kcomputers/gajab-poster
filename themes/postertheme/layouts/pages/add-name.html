@@ -178,6 +178,22 @@ const imageURL =
 params.get("img");
 
 /* =========================
+   TITLE PARAM
+========================= */
+
+const titleName =
+params.get("tittle") ||
+params.get("title") ||
+"poster";
+
+/* SAFE FILE NAME */
+
+const safeTitle =
+decodeURIComponent(titleName)
+.replace(/[\\/:*?"<>|]/g, "")
+.trim();
+
+/* =========================
    LOAD IMAGE AS BLOB
 ========================= */
 
@@ -378,7 +394,7 @@ async function downloadPoster(){
     document.createElement("a");
 
     link.download =
-    "poster.png";
+    safeTitle + ".png";
 
     link.href =
     canvas.toDataURL(

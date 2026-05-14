@@ -177,6 +177,21 @@ params.get("img");
 
 
 
+const titleName =
+params.get("tittle") ||
+params.get("title") ||
+"poster";
+
+ 
+
+const safeTitle =
+decodeURIComponent(titleName)
+.replace(/[\\/:*?"<>|]/g, "")
+.trim();
+
+
+
+
 if(imageURL){
 
   loadBlobImage(
@@ -367,7 +382,7 @@ async function downloadPoster(){
     document.createElement("a");
 
     link.download =
-    "poster.png";
+    safeTitle + ".png";
 
     link.href =
     canvas.toDataURL(
