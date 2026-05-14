@@ -26,13 +26,22 @@
     <div class="nav-btn right" onclick="nextImage()">❯</div>
 
     <div class="actions">
-        
+        <a href="{{ with .Params.link }}{{ . }}{{ else }}https://yojnaportal.com/search?q={{ .Title | urlize }}{{ end }}" target="_blank">
+  <button id="viewBtn">🔗 Link</button>
+</a>
       <button onclick="downloadImg(this)">⬇️ Download</button>
       <button onclick="shareImg(this)">🔗 Share</button>
-      <button onclick="printCurrent()">🖨️ Current Print</button>
+      <button onclick="printCurrent()">🖨️ Print</button>
       <button onclick="printAll()">🖨️ All Print</button>
-        <a href="{{ with .Params.link }}{{ . }}{{ else }}https://yojnaportal.com/search?q={{ .Title | urlize }}{{ end }}" target="_blank">
-  <button id="viewBtn">🔗 More Details</button>
+        
+<a
+  id="addNameBtn"
+  target="_blank"
+  style="text-decoration:none;"
+>
+  <button class="poster-btn">
+    ➕ Add Name
+  </button>
 </a>
     </div>
 
@@ -57,7 +66,7 @@
 </a>
     <button onclick="downloadImg(this)">⬇️ Download</button>
     <button onclick="shareImg(this)">🔗 Share</button>
-    <button onclick="printCurrent()">🖨️ Current</button>
+    <button onclick="printCurrent()">🖨️ Print</button>
     <button onclick="printAll()">🖨️ All</button>
   </div>
 

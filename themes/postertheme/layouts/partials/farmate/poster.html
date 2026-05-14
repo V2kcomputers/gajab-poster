@@ -19,6 +19,21 @@
 <button onclick="downloadImg(this)">⬇️ Download</button>
 <button onclick="shareImg(this)">🔗 Share</button>
 <button onclick="printImg(this)">🖨️ Print</button>
+
+{{ with .Params.imagePoster }}
+
+<a
+  class="add-name-btn"
+  href="https://poster.yojnaportal.com/add-name/?img={{ . | urlquery }}&tittle={{ $.Params.posterName | urlquery }}"
+  target="_blank"
+> <button>
+  ➕ Add Name
+  </button>
+</a>
+
+{{ end }}
+
+
 </div>
 <div id="modal" class="modal">
   <span class="close" onclick="closeModal()">×</span>
@@ -31,6 +46,14 @@
   <button onclick="downloadImg(this)">⬇️ Download</button>
 <button onclick="shareImg(this)">🔗 Share</button>
 <button onclick="printImg(this)">🖨️ Print</button>
+<a
+  class="add-name-btn"
+  href="https://poster.yojnaportal.com/add-name/?img={{ . | urlquery }}&tittle={{ $.Params.posterName | urlquery }}"
+  target="_blank"
+> <button>
+  ➕ Add Name
+  </button>
+</a>
   </div>
 </div>
 {{ partial "main-parts/you-may-like.html" . }}

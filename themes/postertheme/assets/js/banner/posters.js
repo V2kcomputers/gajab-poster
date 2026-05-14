@@ -9,18 +9,34 @@ let currentImage = null;
 
 // SHOW IMAGE
 function showImage(index){
+
   currentIndex = index;
+
   const img = images[index];
 
   preview.src = img.url;
+
   preview.alt = img.title;
+
   modalImg.src = img.url;
 
   currentImage = img;
 
-  document.querySelectorAll(".image-item").forEach((el,i)=>{
-    el.classList.toggle("active", i===index);
+  // ADD NAME BUTTON LINK
+  document.getElementById("addNameBtn").href =
+  `https://poster.yojnaportal.com/add-name/?img=${encodeURIComponent(img.url)}&tittle=${encodeURIComponent(img.title)}`;
+
+  document
+  .querySelectorAll(".image-item")
+  .forEach((el,i)=>{
+
+    el.classList.toggle(
+      "active",
+      i===index
+    );
+
   });
+
 }
 
 // RENDER LIST
