@@ -6,6 +6,7 @@
 
 <title>Advanced Canva Style Poster Editor</title>
 
+
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;900&family=Roboto:wght@400;700&family=Montserrat:wght@400;700&family=Lobster&family=Oswald:wght@400;700&display=swap" rel="stylesheet">
 
 <style>
@@ -18,7 +19,7 @@
 
 body{
   background:#ececec;
-  font-family:Arial,sans-serif;
+  font-family:Arial, sans-serif;
   padding:20px;
 }
 
@@ -412,7 +413,6 @@ body{
       class="poster-image editable"
       src="https://i.ibb.co/fdS3w0W/uco-bank.jpg"
       alt="Poster"
-      crossorigin="anonymous"
     >
 
     
@@ -452,6 +452,10 @@ body{
   </button>
 
 </div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+
 
 <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
 
@@ -514,12 +518,8 @@ document
 .getElementById("imageLink")
 .addEventListener("change", function(){
 
-  const img =
-  document.getElementById("posterImage");
-
-  img.crossOrigin = "anonymous";
-
-  img.src = this.value;
+  document.getElementById("posterImage").src =
+  this.value;
 
 });
 
@@ -665,12 +665,7 @@ params.get("img");
 
 if(imageURL){
 
-  const img =
-  document.getElementById("posterImage");
-
-  img.crossOrigin = "anonymous";
-
-  img.src =
+  document.getElementById("posterImage").src =
   decodeURIComponent(imageURL);
 
 }
@@ -783,22 +778,16 @@ function downloadPoster(){
       el.classList.remove("selected-element");
     });
 
-  html2canvas(
-    document.querySelector("#posterBox"),
-    {
-      useCORS:true,
-      allowTaint:false,
-      scale:3
-    }
-  ).then(canvas => {
+  html2canvas(document.querySelector("#posterBox"),{
+    useCORS:true,
+    scale:3
+  }).then(canvas => {
 
-    let link =
-    document.createElement("a");
+    let link = document.createElement("a");
 
     link.download = "poster.png";
 
-    link.href =
-    canvas.toDataURL("image/png");
+    link.href = canvas.toDataURL("image/png");
 
     link.click();
 
@@ -807,6 +796,5 @@ function downloadPoster(){
 }
 
 </script>
-
 </body>
 </html>
