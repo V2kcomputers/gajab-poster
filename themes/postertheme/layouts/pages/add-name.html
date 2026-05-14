@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Poster Editor</title>
+<title>Blob Poster Editor</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;900&display=swap" rel="stylesheet">
 
@@ -105,10 +105,8 @@ body{
     <img
       id="posterImage"
       class="poster-image"
-      src="https://i.ibb.co/fdS3w0W/uco-bank.jpg"
+      src=""
       alt="Poster"
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
     >
 
     <!-- FOOTER -->
@@ -145,18 +143,13 @@ body{
 
 </div>
 
-<script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 
 <script>
 
 /* =========================
-   URL PARAMS
+   ELEMENTS
 ========================= */
-
-const params =
-new URLSearchParams(window.location.search);
-
-/* ELEMENTS */
 
 const posterImage =
 document.getElementById("posterImage");
@@ -171,44 +164,79 @@ const shopSection =
 document.getElementById("shopSection");
 
 /* =========================
-   IMAGE FROM URL
+   URL PARAMS
+========================= */
+
+const params =
+new URLSearchParams(window.location.search);
+
+/* =========================
+   IMAGE PARAM
 ========================= */
 
 const imageURL =
 params.get("img");
 
+/* =========================
+   LOAD IMAGE AS BLOB
+========================= */
+
 if(imageURL){
 
-  const finalImage =
-  decodeURIComponent(imageURL);
+  loadBlobImage(
+    decodeURIComponent(imageURL)
+  );
 
-  posterImage.crossOrigin =
-  "anonymous";
+}
 
-  posterImage.referrerPolicy =
-  "no-referrer";
+async function loadBlobImage(url){
 
-  posterImage.onload = () => {
+  try{
 
-    console.log("Image Loaded");
-
-  };
-
-  posterImage.onerror = () => {
-
-    alert(
-      "Image blocked by CORS or failed to load"
+    const response =
+    await fetch(
+      url + "?t=" + Date.now()
     );
 
-  };
+    if(!response.ok){
 
-  posterImage.src =
-  finalImage;
+      throw new Error(
+        "Image fetch failed"
+      );
+
+    }
+
+    const blob =
+    await response.blob();
+
+    const blobURL =
+    URL.createObjectURL(blob);
+
+    posterImage.onload = () => {
+
+      console.log(
+        "Blob image loaded"
+      );
+
+    };
+
+    posterImage.src =
+    blobURL;
+
+  }catch(err){
+
+    console.log(err);
+
+    alert(
+      "Image failed to load"
+    );
+
+  }
 
 }
 
 /* =========================
-   NAME
+   NAME PARAM
 ========================= */
 
 const name =
@@ -222,7 +250,7 @@ if(name){
 }
 
 /* =========================
-   ADDRESS
+   ADDRESS PARAM
 ========================= */
 
 const address =
@@ -236,7 +264,7 @@ if(address){
 }
 
 /* =========================
-   BACKGROUND
+   BG PARAM
 ========================= */
 
 const bg =
@@ -250,7 +278,7 @@ if(bg){
 }
 
 /* =========================
-   TEXT COLOR
+   TEXT COLOR PARAM
 ========================= */
 
 const color =
@@ -281,7 +309,7 @@ if(localStorage.getItem("shopAddress")){
 
 }
 
-shopName.addEventListener("input", () => {
+shopName.addEventListener("input", ()=>{
 
   localStorage.setItem(
     "shopName",
@@ -290,7 +318,7 @@ shopName.addEventListener("input", () => {
 
 });
 
-shopAddress.addEventListener("input", () => {
+shopAddress.addEventListener("input", ()=>{
 
   localStorage.setItem(
     "shopAddress",
@@ -313,10 +341,9 @@ function waitImageLoad(img){
 
     }else{
 
-      img.onload = () => resolve();
+      img.onload = ()=>resolve();
 
-      img.onerror = () =>
-      reject();
+      img.onerror = ()=>reject();
 
     }
 
@@ -332,16 +359,18 @@ async function downloadPoster(){
 
   try{
 
-    await waitImageLoad(posterImage);
+    await waitImageLoad(
+      posterImage
+    );
 
     const canvas =
     await html2canvas(
       document.getElementById("posterBox"),
       {
+        scale:3,
         useCORS:true,
         allowTaint:false,
-        backgroundColor:null,
-        scale:3
+        backgroundColor:null
       }
     );
 
@@ -352,17 +381,19 @@ async function downloadPoster(){
     "poster.png";
 
     link.href =
-    canvas.toDataURL("image/png");
+    canvas.toDataURL(
+      "image/png"
+    );
 
     link.click();
 
-  }catch(error){
+  }catch(err){
+
+    console.log(err);
 
     alert(
-      "Image download blocked by CDN CORS"
+      "Download failed"
     );
-
-    console.log(error);
 
   }
 
