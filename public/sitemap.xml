@@ -3,13 +3,13 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>http://localhost:1313/mp/</loc>
-    <lastmod>2026-05-14T13:05:23+05:30</lastmod>
+    <lastmod>2026-05-14T13:08:00+05:30</lastmod>
   </url><url>
     <loc>http://localhost:1313/mptaas-profile-panjiyan-banner/</loc>
-    <lastmod>2026-05-14T13:05:23+05:30</lastmod>
+    <lastmod>2026-05-14T13:08:00+05:30</lastmod>
   </url><url>
     <loc>http://localhost:1313/</loc>
-    <lastmod>2026-05-14T13:05:23+05:30</lastmod>
+    <lastmod>2026-05-14T13:08:00+05:30</lastmod>
   </url><url>
     <loc>http://localhost:1313/banking/</loc>
     <lastmod>2026-05-13T18:42:58+05:30</lastmod>
@@ -229,6 +229,12 @@
   </url><url>
     <loc>http://localhost:1313/sbm-toilet-scheme/</loc>
     <lastmod>2026-04-25T20:08:58+05:30</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/add-name/</loc>
+    <lastmod>2026-01-18T09:00:00-07:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/edit/</loc>
+    <lastmod>2026-01-18T09:00:00-07:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/list/</loc>
     <lastmod>2026-04-27T18:31:03+05:30</lastmod>

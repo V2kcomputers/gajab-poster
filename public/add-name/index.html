@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Advanced Canva Style Poster Editor</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;900&family=Roboto:wght@400;700&family=Montserrat:wght@400;700&family=Lobster&family=Oswald:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  background:#ececec;
+  font-family:Arial,sans-serif;
+  padding:20px;
+}
+
+.container{
+  width:100%;
+  max-width:1000px;
+  margin:auto;
+}
+
+ 
+
+.top-toolbar{
+  position:sticky;
+  top:10px;
+  z-index:999;
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+  margin-bottom:20px;
+}
+
+.tool-item{
+  position:relative;
+}
+
+.tool-btn{
+  width:58px;
+  height:58px;
+  border:none;
+  border-radius:18px;
+  background:#fff;
+  font-size:24px;
+  cursor:pointer;
+  box-shadow:0 5px 15px rgba(0,0,0,0.12);
+}
+
+.tool-panel{
+  position:absolute;
+  top:70px;
+  left:0;
+  width:240px;
+  background:#fff;
+  padding:16px;
+  border-radius:16px;
+  display:none;
+  box-shadow:0 10px 30px rgba(0,0,0,0.18);
+}
+
+.tool-panel.active{
+  display:block;
+}
+
+.tool-panel label{
+  display:block;
+  margin-bottom:10px;
+  font-weight:bold;
+}
+
+.tool-panel input[type="color"],
+.tool-panel input[type="range"],
+.tool-panel input[type="file"],
+.tool-panel input[type="text"],
+.tool-panel select{
+  width:100%;
+}
+
+.tool-panel input[type="color"]{
+  height:55px;
+  border:none;
+  cursor:pointer;
+}
+
+.tool-panel input[type="text"],
+.tool-panel select{
+  padding:12px;
+  border:none;
+  border-radius:10px;
+  background:#f3f3f3;
+}
+
+.tool-panel input[type="range"]{
+  cursor:pointer;
+}
+
+ 
+
+.poster-box{
+  background:#fff;
+  border:6px solid red;
+  overflow:hidden;
+  border-radius:10px;
+}
+
+.poster-image{
+  width:100%;
+  display:block;
+}
+
+.shop-section{
+  background:#000;
+  border-top:6px solid red;
+  padding:35px 20px;
+  text-align:center;
+}
+
+ 
+
+.editable{
+  outline:none;
+  cursor:text;
+  transition:0.2s;
+}
+
+.selected-element{
+  outline:2px dashed #00aaff !important;
+  outline-offset:6px;
+}
+
+ 
+
+#shopName{
+  color:#ff2020;
+  font-size:72px;
+  font-weight:900;
+  line-height:1.1;
+  text-transform:uppercase;
+  word-break:break-word;
+}
+
+ 
+
+#shopAddress{
+  color:#fff;
+  font-size:24px;
+  margin-top:12px;
+  line-height:1.5;
+  word-break:break-word;
+}
+
+ 
+
+.download-btn{
+  width:100%;
+  margin-top:20px;
+  padding:18px;
+  border:none;
+  border-radius:16px;
+  background:#0a9b32;
+  color:#fff;
+  font-size:20px;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+ 
+
+@media(max-width:768px){
+
+  #shopName{
+    font-size:42px;
+  }
+
+  #shopAddress{
+    font-size:18px;
+  }
+
+}
+
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  
+  <div class="top-toolbar">
+
+    
+    <div class="tool-item">
+
+      <button class="tool-btn" onclick="togglePanel('imagePanel')">
+        🖼️
+      </button>
+
+      <div class="tool-panel" id="imagePanel">
+
+        <label>Image URL</label>
+
+        <input
+          type="text"
+          id="imageLink"
+          placeholder="Paste Image URL"
+        >
+
+        <br><br>
+
+        <input
+          type="file"
+          id="uploadImage"
+          accept="image/*"
+        >
+
+      </div>
+
+    </div>
+
+    
+    <div class="tool-item">
+
+      <button class="tool-btn" onclick="togglePanel('colorPanel')">
+        🎨
+      </button>
+
+      <div class="tool-panel" id="colorPanel">
+
+        <label>Color</label>
+
+        <input
+          type="color"
+          id="colorControl"
+          value="#ff2020"
+        >
+
+      </div>
+
+    </div>
+
+    
+    <div class="tool-item">
+
+      <button class="tool-btn" onclick="togglePanel('fontSizePanel')">
+        🔠
+      </button>
+
+      <div class="tool-panel" id="fontSizePanel">
+
+        <label>Font Size</label>
+
+        <input
+          type="range"
+          id="fontSizeControl"
+          min="10"
+          max="140"
+          value="72"
+        >
+
+      </div>
+
+    </div>
+
+    
+    <div class="tool-item">
+
+      <button class="tool-btn" onclick="togglePanel('bgPanel')">
+        🧱
+      </button>
+
+      <div class="tool-panel" id="bgPanel">
+
+        <label>Background</label>
+
+        <input
+          type="color"
+          id="bgColorControl"
+          value="#000000"
+        >
+
+      </div>
+
+    </div>
+
+    
+    <div class="tool-item">
+
+      <button class="tool-btn" onclick="togglePanel('borderPanel')">
+        ⬛
+      </button>
+
+      <div class="tool-panel" id="borderPanel">
+
+        <label>Border Color</label>
+
+        <input
+          type="color"
+          id="borderColorControl"
+          value="#ff0000"
+        >
+
+      </div>
+
+    </div>
+
+    
+    <div class="tool-item">
+
+      <button class="tool-btn" onclick="togglePanel('fontFamilyPanel')">
+        🔤
+      </button>
+
+      <div class="tool-panel" id="fontFamilyPanel">
+
+        <label>Font Family</label>
+
+        <select id="fontFamilyControl">
+
+          <option value="Arial">Arial</option>
+
+          <option value="'Poppins', sans-serif">
+            Poppins
+          </option>
+
+          <option value="'Roboto', sans-serif">
+            Roboto
+          </option>
+
+          <option value="'Montserrat', sans-serif">
+            Montserrat
+          </option>
+
+          <option value="'Lobster', cursive">
+            Lobster
+          </option>
+
+          <option value="'Oswald', sans-serif">
+            Oswald
+          </option>
+
+        </select>
+
+      </div>
+
+    </div>
+
+    
+    <div class="tool-item">
+
+      <button class="tool-btn" onclick="togglePanel('paddingPanel')">
+        📦
+      </button>
+
+      <div class="tool-panel" id="paddingPanel">
+
+        <label>Padding</label>
+
+        <input
+          type="range"
+          id="paddingControl"
+          min="0"
+          max="100"
+          value="0"
+        >
+
+      </div>
+
+    </div>
+
+    
+    <div class="tool-item">
+
+      <button class="tool-btn" onclick="togglePanel('radiusPanel')">
+        ⭕
+      </button>
+
+      <div class="tool-panel" id="radiusPanel">
+
+        <label>Border Radius</label>
+
+        <input
+          type="range"
+          id="radiusControl"
+          min="0"
+          max="100"
+          value="0"
+        >
+
+      </div>
+
+    </div>
+
+  </div>
+
+  
+  <div
+    class="poster-box editable"
+    id="posterBox"
+  >
+
+    
+    <img
+      id="posterImage"
+      class="poster-image editable"
+      src="https://i.ibb.co/fdS3w0W/uco-bank.jpg"
+      alt="Poster"
+      crossorigin="anonymous"
+    >
+
+    
+    <div
+      class="shop-section editable"
+      id="shopSection"
+    >
+
+      
+      <div
+        id="shopName"
+        class="editable"
+        contenteditable="true"
+      >
+        SHOP NAME
+      </div>
+
+      
+      <div
+        id="shopAddress"
+        class="editable"
+        contenteditable="true"
+      >
+        Address / Mobile Number
+      </div>
+
+    </div>
+
+  </div>
+
+  
+  <button
+    class="download-btn"
+    onclick="downloadPoster()"
+  >
+    Download Poster
+  </button>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+
+<script>
+
+ 
+
+let currentElement = null;
+
+ 
+
+document
+.querySelectorAll(".editable")
+.forEach(el => {
+
+  el.addEventListener("click", function(e){
+
+    e.stopPropagation();
+
+    currentElement = this;
+
+    document
+      .querySelectorAll(".selected-element")
+      .forEach(item => {
+        item.classList.remove("selected-element");
+      });
+
+    this.classList.add("selected-element");
+
+  });
+
+});
+
+ 
+
+function togglePanel(id){
+
+  document
+    .querySelectorAll(".tool-panel")
+    .forEach(panel => {
+
+      if(panel.id !== id){
+
+        panel.classList.remove("active");
+
+      }
+
+    });
+
+  document
+    .getElementById(id)
+    .classList
+    .toggle("active");
+
+}
+
+ 
+
+document
+.getElementById("imageLink")
+.addEventListener("change", function(){
+
+  const img =
+  document.getElementById("posterImage");
+
+  img.crossOrigin = "anonymous";
+
+  img.src = this.value;
+
+});
+
+ 
+
+document
+.getElementById("uploadImage")
+.addEventListener("change", function(e){
+
+  let file = e.target.files[0];
+
+  if(file){
+
+    let reader = new FileReader();
+
+    reader.onload = function(event){
+
+      document.getElementById("posterImage").src =
+      event.target.result;
+
+    }
+
+    reader.readAsDataURL(file);
+
+  }
+
+});
+
+ 
+
+document
+.getElementById("colorControl")
+.addEventListener("input", function(){
+
+  if(currentElement){
+
+    currentElement.style.color = this.value;
+
+  }
+
+});
+
+ 
+
+document
+.getElementById("fontSizeControl")
+.addEventListener("input", function(){
+
+  if(currentElement){
+
+    currentElement.style.fontSize =
+    this.value + "px";
+
+  }
+
+});
+
+ 
+
+document
+.getElementById("bgColorControl")
+.addEventListener("input", function(){
+
+  if(currentElement){
+
+    currentElement.style.background =
+    this.value;
+
+  }
+
+});
+
+ 
+
+document
+.getElementById("borderColorControl")
+.addEventListener("input", function(){
+
+  if(currentElement){
+
+    currentElement.style.border =
+    "3px solid " + this.value;
+
+  }
+
+});
+
+ 
+
+document
+.getElementById("fontFamilyControl")
+.addEventListener("change", function(){
+
+  if(currentElement){
+
+    currentElement.style.fontFamily =
+    this.value;
+
+  }
+
+});
+
+ 
+
+document
+.getElementById("paddingControl")
+.addEventListener("input", function(){
+
+  if(currentElement){
+
+    currentElement.style.padding =
+    this.value + "px";
+
+  }
+
+});
+
+ 
+
+document
+.getElementById("radiusControl")
+.addEventListener("input", function(){
+
+  if(currentElement){
+
+    currentElement.style.borderRadius =
+    this.value + "px";
+
+  }
+
+});
+
+
+
+
+const params =
+new URLSearchParams(window.location.search);
+
+ 
+
+const imageURL =
+params.get("img");
+
+if(imageURL){
+
+  const img =
+  document.getElementById("posterImage");
+
+  img.crossOrigin = "anonymous";
+
+  img.src =
+  decodeURIComponent(imageURL);
+
+}
+
+ 
+
+const shopName =
+params.get("name");
+
+if(shopName){
+
+  document.getElementById("shopName").innerHTML =
+  decodeURIComponent(shopName);
+
+}
+
+ 
+
+const address =
+params.get("address");
+
+if(address){
+
+  document.getElementById("shopAddress").innerHTML =
+  decodeURIComponent(address);
+
+}
+
+ 
+
+const bg =
+params.get("bg");
+
+if(bg){
+
+  document.getElementById("shopSection").style.background =
+  decodeURIComponent(bg);
+
+}
+
+ 
+
+const color =
+params.get("color");
+
+if(color){
+
+  document.getElementById("shopName").style.color =
+  decodeURIComponent(color);
+
+}
+
+
+
+
+const shopNameElement =
+document.getElementById("shopName");
+
+const shopAddressElement =
+document.getElementById("shopAddress");
+
+ 
+
+if(localStorage.getItem("shopName")){
+
+  shopNameElement.innerHTML =
+  localStorage.getItem("shopName");
+
+}
+
+ 
+
+if(localStorage.getItem("shopAddress")){
+
+  shopAddressElement.innerHTML =
+  localStorage.getItem("shopAddress");
+
+}
+
+ 
+
+shopNameElement.addEventListener("input", function(){
+
+  localStorage.setItem(
+    "shopName",
+    this.innerHTML
+  );
+
+});
+
+ 
+
+shopAddressElement.addEventListener("input", function(){
+
+  localStorage.setItem(
+    "shopAddress",
+    this.innerHTML
+  );
+
+});
+
+
+
+
+function downloadPoster(){
+
+  document
+    .querySelectorAll(".selected-element")
+    .forEach(el => {
+      el.classList.remove("selected-element");
+    });
+
+  html2canvas(
+    document.querySelector("#posterBox"),
+    {
+      useCORS:true,
+      allowTaint:false,
+      scale:3
+    }
+  ).then(canvas => {
+
+    let link =
+    document.createElement("a");
+
+    link.download = "poster.png";
+
+    link.href =
+    canvas.toDataURL("image/png");
+
+    link.click();
+
+  });
+
+}
+
+</script>
+
+</body>
+</html>
