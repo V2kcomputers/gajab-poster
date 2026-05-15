@@ -1,15 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta charset="UTF-8">
+<meta
+name="viewport"
+content="width=device-width, initial-scale=1.0"
+/>
 
-<title>Canva Style Poster Editor</title>
+<title>Professional Poster Editor</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;900&display=swap" rel="stylesheet">
+<link
+href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700;900&display=swap"
+rel="stylesheet"
+/>
 
-<script src="https://cdn.jsdelivr.net/npm/interactjs/dist/interact.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/5.3.0/fabric.min.js"></script>
 
 <style>
 
@@ -20,332 +25,371 @@
 }
 
 body{
-  background:#e7e7e7;
   font-family:'Poppins',sans-serif;
+  background:#edf0f5;
   overflow:hidden;
 }
 
  
 
-.app{
+.editor{
   display:flex;
+  width:100%;
   height:100vh;
 }
 
  
 
-.sidebar{
-  width:320px;
+.left-icons{
+
+  width:70px;
+
   background:#fff;
-  padding:20px;
-  overflow:auto;
 
-  box-shadow:
-  0 0 20px rgba(0,0,0,0.08);
+  border-right:1px solid #ddd;
 
-  z-index:10;
+  display:flex;
+
+  flex-direction:column;
+
+  align-items:center;
+
+  padding:10px 0;
+
+  gap:12px;
+
+  z-index:1000;
+
 }
 
-.sidebar h2{
-  margin-bottom:20px;
-}
+.left-icons button{
 
-.control-group{
-  margin-bottom:20px;
-}
+  width:52px;
+  height:52px;
 
-.control-group label{
-  display:block;
-  margin-bottom:8px;
-  font-size:14px;
-  font-weight:600;
-}
+  border:none;
 
-.control-group input,
-.control-group button,
-.control-group textarea{
-  width:100%;
-}
+  border-radius:16px;
 
-input[type="range"]{
+  background:#f5f5f5;
+
+  font-size:22px;
+
   cursor:pointer;
+
+  transition:.2s;
+
 }
 
-input[type="color"]{
-  height:45px;
-  border:none;
-}
+.left-icons button:hover,
+.left-icons button.active{
 
-button{
-  border:none;
-  padding:14px;
-  border-radius:12px;
   background:#0a9b32;
   color:#fff;
-  font-size:15px;
-  font-weight:700;
-  cursor:pointer;
-  margin-bottom:10px;
+
 }
 
  
 
-.workspace{
-  flex:1;
-  overflow:auto;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  padding:40px;
-}
+.left-panel{
 
- 
-
-.canvas{
-  width:794px;
-  height:1123px;
+  width:280px;
 
   background:#fff;
 
-  position:relative;
+  border-right:1px solid #ddd;
 
-  overflow:hidden;
+  overflow:auto;
 
-  box-shadow:
-  0 10px 40px rgba(0,0,0,0.15);
+  padding:20px;
+
 }
 
- 
-
-.layer{
-  position:absolute;
-  touch-action:none;
-  user-select:none;
-}
-
- 
-
-.selected{
-  outline:2px dashed #0a84ff;
-}
-
- 
-
-.image-layer img{
-  width:100%;
-  height:100%;
-  pointer-events:none;
-}
-
- 
-
-.text-layer{
-  min-width:120px;
-  min-height:50px;
-
-  padding:10px;
-
-  font-size:40px;
-  font-weight:700;
-  color:#fff;
-  cursor:move;
-
-  outline:none;
-text-shadow: 2px 5px 8px #000;
-  word-break:break-word;
-    resize:none;
-  overflow:visible;
-}
-
- 
-
-.resize-handle{
-  width:14px;
-  height:14px;
-
-  background:#0a84ff;
-
-  position:absolute;
-  right:-7px;
-  bottom:-7px;
-
-  border-radius:50%;
-}
- 
-
-.mobile-toolbar{
+.panel{
   display:none;
 }
 
- 
+.panel.active{
+  display:block;
+}
+
+.panel h2{
+  margin-bottom:20px;
+}
+
  
 
-.mobile-control-box{
+.top-toolbar{
 
   position:fixed;
 
-  bottom:95px;
+  top:0;
 
-  left:50%;
+  left:350px;
 
-  transform:translateX(-50%);
+  right:320px;
 
-  width:92%;
+  height:60px;
 
   background:#fff;
 
-  border-radius:20px;
+  border-bottom:1px solid #ddd;
 
-  padding:18px;
+  display:flex;
 
-  z-index:999999;
+  align-items:center;
 
-  box-shadow:
-  0 10px 30px rgba(0,0,0,.18);
+  gap:10px;
 
-  display:none;
+  padding:0 15px;
 
-}
-
-.mobile-control-box.active{
-  display:block;
-}
-
-.mobile-control-box input{
-
-  width:100%;
+  z-index:999;
 
 }
 
-.mobile-control-box label{
+.top-toolbar input,
+.top-toolbar select{
 
-  display:block;
+  height:38px;
 
-  margin-bottom:10px;
+  border:1px solid #ccc;
 
-  font-size:14px;
+  border-radius:8px;
+
+  padding:0 10px;
+
+}
+
+.toolbar-btn{
+
+  border:none;
+
+  padding:10px 14px;
+
+  border-radius:10px;
+
+  background:#f3f3f3;
+
+  cursor:pointer;
 
   font-weight:700;
 
 }
+
+ 
+
+.top-title{
+
+  position:fixed;
+
+  top:6px;
+
+  left:80%;
+
+  transform:translateX(-50%);
+
+  background:#fff;
+
+  border:4px solid #000;
+
+  padding:5px 25px;
+
+  font-size:8px;
+
+  font-weight:900;
+
+  z-index:99999;
+  display: none;
+
+}
+
+ 
+
+.canvas-area{
+
+  flex:1;
+
+  overflow:auto;
+
+  padding-top:70px;
+
+  display:flex;
+
+  justify-content:center;
+
+  align-items:flex-start;
+
+}
+
+.canvas-wrapper{
+
+  background:#fff;
+
+  margin:20px;
+
+  box-shadow:
+  0 10px 40px rgba(0,0,0,.15);
+
+}
+
+ 
+
+.right-panel{
+
+  width:320px;
+
+  background:#fff;
+
+  border-left:1px solid #ddd;
+
+  padding:20px;
+
+  overflow:auto;
+
+}
+
+.right-panel h2{
+  margin-bottom:20px;
+}
+
+.export-btn{
+
+  width:100%;
+
+  border:none;
+
+  padding:14px;
+
+  border-radius:14px;
+
+  background:#0a9b32;
+
+  color:#fff;
+
+  font-weight:700;
+
+  margin-bottom:12px;
+
+  cursor:pointer;
+
+}
+
+ 
+
+.text-style{
+
+  padding:18px;
+
+  border-radius:14px;
+
+  background:#f6f6f6;
+
+  margin-bottom:15px;
+
+  cursor:pointer;
+
+  font-weight:700;
+
+}
+
+.neon{
+
+  background:#000;
+
+  color:#0ff;
+
+  text-shadow:
+  0 0 10px #0ff,
+  0 0 20px #0ff;
+
+}
+
+ 
+
+.shape-grid{
+
+  display:grid;
+
+  grid-template-columns:repeat(3,1fr);
+
+  gap:10px;
+
+}
+
+.shape-btn{
+
+  height:70px;
+
+  border:none;
+
+  border-radius:16px;
+
+  background:#f4f4f4;
+
+  font-size:30px;
+
+  cursor:pointer;
+
+}
+
+ 
+
+.upload-box{
+
+  border:2px dashed #ccc;
+
+  padding:30px;
+
+  border-radius:20px;
+
+  text-align:center;
+
+  cursor:pointer;
+
+  margin-bottom:20px;
+
+}
+
+.recent-images{
+
+  display:grid;
+
+  grid-template-columns:repeat(2,1fr);
+
+  gap:10px;
+
+}
+
+.recent-images img{
+
+  width:100%;
+
+  border-radius:14px;
+
+  cursor:pointer;
+
+}
+
+ 
+
 @media(max-width:768px){
 
-  body{
-    overflow:hidden;
-  }
-
-  .app{
-    flex-direction:column;
-  }
-
-   
-
-  .sidebar{
+  .left-panel,
+  .right-panel{
     display:none;
   }
 
-   
+  .top-toolbar{
 
- .workspace{
-
-    width:100%;
+    left:70px;
+    right:0;
 
     overflow:auto;
 
-    padding:10px 10px 120px;
-
-    display:block;
-
   }
 
-  .canvas{
-
-    width:100%;
-
-    max-width:100%;
-
-    height:auto;
-
-    aspect-ratio:794 / 1123;
-
-    margin:auto;
-
-  }
-
-
-   
-
-   
-
-  .mobile-toolbar{
-
-    display:flex;
-
-    position:fixed;
-
-    bottom:0;
-    left:0;
-
-    width:100%;
-
-    background:#fff;
-
-    overflow-x:auto;
-
-    gap:12px;
-
-    padding:12px;
-
-    z-index:99999;
-
-    box-shadow:
-    0 -5px 20px rgba(0,0,0,.12);
-
-  }
-
-  .mobile-toolbar button{
-
-    min-width:70px;
-
-    height:70px;
-
-    border-radius:18px;
-
-    margin:0;
-
-    flex-shrink:0;
-
-    display:flex;
-
-    flex-direction:column;
-
-    align-items:center;
-
-    justify-content:center;
-
-    gap:6px;
-
-    font-size:12px;
-
-    background:#f3f3f3;
-
-    color:#222;
-
-    font-weight:700;
-
-  }
-
-  .mobile-toolbar button.active{
-    background:#0a9b32;
-    color:#fff;
-  }
-
-  .mobile-toolbar button span{
-    font-size:24px;
-    line-height:1;
-  }
-    .text-layer{
-    font-size:24px !important;
+  .top-title{
+    font-size:18px;
   }
 
 }
@@ -356,188 +400,339 @@ text-shadow: 2px 5px 8px #000;
 
 
 
-<div class="mobile-control-box" id="mobileControlBox">
-
-  <label id="mobileControlLabel">
-    Control
-  </label>
-
-  <div id="mobileControlArea"></div>
+<div
+class="top-title"
+id="topLiveTitle"
+>
+Title Name
 </div>
 
-<div class="mobile-toolbar">
-
-  <button onclick="showControl('color')">
-    <span>🎨</span>
-    Color
-  </button>
-
-  <button onclick="showControl('font')">
-    <span>🔠</span>
-    Font
-  </button>
-
-  <button onclick="showControl('rotate')">
-    <span>🔄</span>
-    Rotate
-  </button>
-
-  <button onclick="showControl('opacity')">
-    <span>🌫️</span>
-    Opacity
-  </button>
-
-  <button onclick="addText()">
-    <span>📝</span>
-    Text
-  </button>
-
-  <button onclick="addImage()">
-    <span>🖼️</span>
-    Image
-  </button>
-
-  <button onclick="downloadCanvas()">
-    <span>⬇️</span>
-    Save
-  </button>
-
-</div>
-<div class="app">
+<div class="editor">
 
   
-  <div class="sidebar">
 
+  <div class="left-icons">
 
-
-    <h2>Poster Editor</h2>
-
-    
-    <button onclick="addImage()">
-      Add Image
+    <button
+    onclick="openPanel('textPanel')"
+    >
+      🅣
     </button>
 
-    
-    <button onclick="addText()">
-      Add Text
+    <button
+    onclick="openPanel('shapePanel')"
+    >
+      ⬜
     </button>
 
-    
-    <button onclick="deleteSelected()">
-      Delete Selected
+    <button
+    onclick="openPanel('imagePanel')"
+    >
+      🖼️
     </button>
 
-    
-    <button onclick="bringFront()">
-      Bring Front
+    <button
+    onclick="openPanel('toolPanel')"
+    >
+      ✏️
     </button>
-
-    
-    <button onclick="sendBack()">
-      Send Back
-    </button>
-
-    
-    <button onclick="downloadCanvas()">
-      Download HD
-    </button>
-
-    
-    <div class="control-group">
-
-      <label>Text Color</label>
-
-      <input
-        type="color"
-        id="textColor"
-        value=""
-      >
-
-    </div>
-
-    <div class="control-group">
-
-      <label>Font Size</label>
-
-      <input
-        type="range"
-        id="fontSize"
-        min="10"
-        max="150"
-        value="40"
-      >
-
-    </div>
-
-    <div class="control-group">
-
-      <label>Rotate</label>
-
-      <input
-        type="range"
-        id="rotate"
-        min="-180"
-        max="180"
-        value="0"
-      >
-
-    </div>
-
-    <div class="control-group">
-
-      <label>Opacity</label>
-
-      <input
-        type="range"
-        id="opacity"
-        min="0"
-        max="1"
-        step="0.05"
-        value="1"
-      >
-
-    </div>
-        
-<div class="control-group">
-  <label>Footer BG</label>
-  <input type="color" id="footerBG">
-</div>
-
-<div class="control-group">
-  <label>Footer Radius</label>
-  <input type="range" id="footerRadius" min="0" max="100" value="0">
-</div>
-
-<div class="control-group">
-  <label>Footer Blur</label>
-  <input type="range" id="footerBlur" min="0" max="40" value="0">
-</div>
-
-<div class="control-group">
-  <label>Footer Shadow</label>
-  <input type="range" id="footerShadow" min="0" max="80" value="0">
-</div>
 
   </div>
 
   
-  <div class="workspace">
+
+  <div class="left-panel">
+
+    
 
     <div
-      class="canvas"
-      id="canvas"
-    ></div>
+    class="panel active"
+    id="textPanel"
+    >
+
+      <h2>Add Text</h2>
+
+      <div
+      class="text-style"
+      onclick="addText('Heading Text',50)"
+      >
+        Heading
+      </div>
+
+      <div
+      class="text-style"
+      onclick="addText('Sub Heading',32)"
+      >
+        Sub Heading
+      </div>
+
+      <div
+      class="text-style neon"
+      onclick="addNeonText()"
+      >
+        Neon Text
+      </div>
+
+    </div>
+
+    
+
+    <div
+    class="panel"
+    id="shapePanel"
+    >
+
+      <h2>Shapes</h2>
+
+      <div class="shape-grid">
+
+        <button
+        class="shape-btn"
+        onclick="addRect()"
+        >
+          ▭
+        </button>
+
+        <button
+        class="shape-btn"
+        onclick="addCircle()"
+        >
+          ◯
+        </button>
+
+        <button
+        class="shape-btn"
+        onclick="addTriangle()"
+        >
+          △
+        </button>
+
+      </div>
+
+    </div>
+
+    
+
+    <div
+    class="panel"
+    id="imagePanel"
+    >
+
+      <h2>Images</h2>
+
+      <div
+      class="upload-box"
+      onclick="imageUpload.click()"
+      >
+        Upload Image
+      </div>
+
+      <input
+      type="file"
+      id="imageUpload"
+      hidden
+      accept="image/*"
+      >
+
+      <h3 style="margin-bottom:10px;">
+        Recent Images
+      </h3>
+
+      <div
+      class="recent-images"
+      id="recentImages"
+      ></div>
+
+    </div>
+
+    
+
+    <div
+    class="panel"
+    id="toolPanel"
+    >
+
+      <h2>Tools</h2>
+
+      <button
+      class="export-btn"
+      onclick="enableDrawing()"
+      >
+        Pencil
+      </button>
+
+      <button
+      class="export-btn"
+      onclick="disableDrawing()"
+      >
+        Select
+      </button>
+
+    </div>
+
+  </div>
+
+  
+
+  <div style="flex:1; display:flex; flex-direction:column;">
+
+    
+
+    <div class="top-toolbar">
+
+      <select id="fontFamily">
+
+        <option>Poppins</option>
+        <option>Arial</option>
+        <option>Impact</option>
+
+      </select>
+
+      <input
+      type="number"
+      id="fontSize"
+      value="36"
+      min="10"
+      max="200"
+      >
+
+      <input
+      type="color"
+      id="fontColor"
+      value="#7c1414"
+      >
+
+      <button
+      class="toolbar-btn"
+      onclick="makeBold()"
+      >
+        Bold
+      </button>
+
+      <button
+      class="toolbar-btn"
+      onclick="alignLeft()"
+      >
+        Left
+      </button>
+
+      <button
+      class="toolbar-btn"
+      onclick="alignCenter()"
+      >
+        Center
+      </button>
+
+      <button
+      class="toolbar-btn"
+      onclick="alignRight()"
+      >
+        Right
+      </button>
+
+    </div>
+
+    
+
+    <div class="canvas-area">
+
+      <div class="canvas-wrapper">
+
+        <canvas
+        id="canvas"
+        width="794"
+        height="1123"
+        ></canvas>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  
+
+  <div class="right-panel">
+
+    <h2>Project Title</h2>
+
+    <input
+    type="text"
+    id="projectTitle"
+    value="Title Name"
+    style="
+    width:100%;
+    height:50px;
+    padding:10px;
+    border-radius:14px;
+    border:2px solid #ddd;
+    margin-bottom:20px;
+    font-size:18px;
+    font-weight:700;
+    "
+    >
+
+    <h2>Export</h2>
+
+    <button
+    class="export-btn"
+    onclick="downloadPNG()"
+    >
+      Download PNG
+    </button>
+
+    <button
+    class="export-btn"
+    onclick="downloadJPG()"
+    >
+      Download JPG
+    </button>
+
+    <button
+    class="export-btn"
+    onclick="printCanvas()"
+    >
+      Print
+    </button>
+
+    <button
+    class="export-btn"
+    onclick="downloadPDF()"
+    >
+      Download PDF
+    </button>
+
+    <h2 style="margin-top:30px;">
+      Canvas Size
+    </h2>
+
+    <select
+    id="canvasSize"
+    style="
+    width:100%;
+    height:50px;
+    border-radius:14px;
+    padding:10px;
+    "
+    >
+
+      <option value="794x1123">
+        A4
+      </option>
+
+      <option value="1080x1080">
+        Instagram Post
+      </option>
+
+      <option value="1920x1080">
+        YouTube Thumbnail
+      </option>
+
+    </select>
 
   </div>
 
 </div>
-
-<input
-  type="file"
-  id="imageInput"
-  accept="image/*"
-  hidden
->
 
 <script>
 
@@ -545,34 +740,32 @@ text-shadow: 2px 5px 8px #000;
 
 
 const canvas =
-document.getElementById("canvas");
-
-const imageInput =
-document.getElementById("imageInput");
-
-let selectedLayer = null;
-
-let zIndexCounter = 1;
+new fabric.Canvas(
+  "canvas",
+  {
+    preserveObjectStacking:true
+  }
+);
 
 
 
 
-function selectLayer(layer){
+function openPanel(id){
 
   document
-  .querySelectorAll(".layer")
-  .forEach(el=>{
+  .querySelectorAll(".panel")
+  .forEach(panel=>{
 
-    el.classList.remove(
-      "selected"
+    panel.classList.remove(
+      "active"
     );
 
   });
 
-  selectedLayer = layer;
-
-  layer.classList.add(
-    "selected"
+  document
+  .getElementById(id)
+  .classList.add(
+    "active"
   );
 
 }
@@ -580,190 +773,131 @@ function selectLayer(layer){
 
 
 
-function addResizeHandle(layer){
+function addText(text,size){
 
-  const handle =
-  document.createElement("div");
+  const textbox =
+  new fabric.Textbox(
+    text,
+    {
 
-  handle.className =
-  "resize-handle";
+      left:100,
+      top:100,
 
-  layer.appendChild(handle);
+      fontSize:size,
 
-}
+      fontFamily:'Poppins',
 
+      fill:'#000',
 
-
-
-function enableInteract(layer){
-
-  interact(layer)
-
-  .draggable({
-
-    listeners:{
-
-      move(event){
-
-        let x =
-        (
-          parseFloat(
-            layer.getAttribute(
-              "data-x"
-            )
-          ) || 0
-        ) + event.dx;
-
-        let y =
-        (
-          parseFloat(
-            layer.getAttribute(
-              "data-y"
-            )
-          ) || 0
-        ) + event.dy;
-
-        layer.style.transform =
-        `
-        translate(${x}px,${y}px)
-        rotate(${layer.dataset.rotate || 0}deg)
-        `;
-
-        layer.setAttribute(
-          "data-x",
-          x
-        );
-
-        layer.setAttribute(
-          "data-y",
-          y
-        );
-
-      }
+      fontWeight:'700'
 
     }
+  );
 
-  })
+  canvas.add(textbox);
 
-.resizable({
-  edges:{
-    top:true,
-    left:true,
-    bottom:true,
-    right:true
-  },
+  canvas.setActiveObject(textbox);
 
-  listeners:{
+}
 
-    move(event){
+function addNeonText(){
 
-      let {
-        width,
-        height
-      } = event.rect;
+  const text =
+  new fabric.Textbox(
+    "NEON TXT",
+    {
 
-      
+      left:150,
+      top:150,
 
+      fontSize:40,
 
-      if(
-        layer.classList.contains(
-          "text-layer"
-        )
-      ){
+      fill:'#00ffff',
 
-         
+      shadow:'0 0 20px #00ffff',
 
-        layer.style.width =
-        width + "px";
-
-        layer.style.minHeight =
-        height + "px";
-
-         
-
-        const autoFont =
-        Math.max(
-          14,
-          width / 8
-        );
-
-        layer.style.fontSize =
-        autoFont + "px";
-
-      }
-
-      
-
-
-      else{
-
-        layer.style.width =
-        width + "px";
-
-        layer.style.height =
-        height + "px";
-
-      }
-
-       
-
-      let x =
-      (
-        parseFloat(
-          layer.getAttribute(
-            "data-x"
-          )
-        ) || 0
-      );
-
-      let y =
-      (
-        parseFloat(
-          layer.getAttribute(
-            "data-y"
-          )
-        ) || 0
-      );
-
-      x += event.deltaRect.left;
-      y += event.deltaRect.top;
-
-      layer.style.transform =
-      `
-      translate(${x}px,${y}px)
-      rotate(${layer.dataset.rotate || 0}deg)
-      `;
-
-      layer.setAttribute(
-        "data-x",
-        x
-      );
-
-      layer.setAttribute(
-        "data-y",
-        y
-      );
+      fontWeight:'900'
 
     }
+  );
 
-  }
+  canvas.add(text);
 
-});
+}
+
+
+
+
+function addRect(){
+
+  const rect =
+  new fabric.Rect({
+
+    left:100,
+    top:100,
+
+    width:300,
+    height:120,
+
+    fill:'#7c1414',
+
+    rx:20,
+    ry:20
+
+  });
+
+  canvas.add(rect);
+
+}
+
+function addCircle(){
+
+  const circle =
+  new fabric.Circle({
+
+    left:100,
+    top:100,
+
+    radius:80,
+
+    fill:'#0a9b32'
+
+  });
+
+  canvas.add(circle);
+
+}
+
+function addTriangle(){
+
+  const triangle =
+  new fabric.Triangle({
+
+    left:100,
+    top:100,
+
+    width:150,
+    height:150,
+
+    fill:'#ff9900'
+
+  });
+
+  canvas.add(triangle);
 
 }
 
 
 
 
-function addImage(){
+const imageUpload =
+document.getElementById(
+  "imageUpload"
+);
 
-  imageInput.click();
-
-}
-
-imageInput.addEventListener(
+imageUpload.addEventListener(
   "change",
-  e=>{
+  function(e){
 
     const file =
     e.target.files[0];
@@ -774,45 +908,28 @@ imageInput.addEventListener(
     new FileReader();
 
     reader.onload =
-    function(ev){
+    function(f){
 
-      const layer =
-      document.createElement("div");
+      fabric.Image.fromURL(
+        f.target.result,
+        function(img){
 
-      layer.className =
-      "layer image-layer";
+          img.set({
 
-      layer.style.width =
-      "300px";
+            left:50,
+            top:50
 
-      layer.style.height =
-      "300px";
+          });
 
-      layer.style.left =
-      "100px";
+          img.scaleToWidth(400);
 
-      layer.style.top =
-      "100px";
+          canvas.add(img);
 
-      layer.style.zIndex =
-      zIndexCounter++;
+          saveRecentImage(
+            f.target.result
+          );
 
-      layer.innerHTML =
-      `
-      <img src="${ev.target.result}">
-      `;
-
-      addResizeHandle(layer);
-
-      canvas.appendChild(layer);
-
-      enableInteract(layer);
-
-      selectLayer(layer);
-
-      layer.addEventListener(
-        "mousedown",
-        ()=>selectLayer(layer)
+        }
       );
 
     };
@@ -825,352 +942,389 @@ imageInput.addEventListener(
 
 
 
-document.addEventListener(
-  "paste",
-  e=>{
+function saveRecentImage(src){
 
-    const items =
-    e.clipboardData.items;
-
-    for(
-      let item of items
-    ){
-
-      if(
-        item.type.indexOf(
-          "image"
-        ) !== -1
-      ){
-
-        const file =
-        item.getAsFile();
-
-        const reader =
-        new FileReader();
-
-        reader.onload =
-        function(ev){
-
-          const layer =
-          document.createElement("div");
-
-          layer.className =
-          "layer image-layer";
-
-          layer.style.width =
-          "300px";
-
-          layer.style.height =
-          "300px";
-
-          layer.style.left =
-          "100px";
-
-          layer.style.top =
-          "100px";
-
-          layer.style.zIndex =
-          zIndexCounter++;
-
-          layer.innerHTML =
-          `
-          <img src="${ev.target.result}">
-          `;
-
-          addResizeHandle(layer);
-
-          canvas.appendChild(layer);
-
-          enableInteract(layer);
-
-          selectLayer(layer);
-
-          layer.addEventListener(
-            "mousedown",
-            ()=>selectLayer(layer)
-          );
-
-        };
-
-        reader.readAsDataURL(
-          file
-        );
-
-      }
-
-    }
-
-  }
-);
-
-
-
-function addText(){
-
-  const layer =
-  document.createElement("div");
-
-  layer.className =
-  "layer text-layer";
-
-  layer.contentEditable =
-  true;
-
-  layer.innerHTML =
-  "Your Text";
-
-  layer.style.left =
-  "100px";
-
-  layer.style.top =
-  "100px";
-
-   
-
-  layer.style.zIndex =
-  "9999";
-
-   
-
-  layer.style.width =
-  "300px";
-
-  layer.style.minHeight =
-  "80px";
-
-  layer.style.padding =
-  "15px";
-
-  layer.style.resize =
-  "both";
-
-  layer.style.overflow =
-  "hidden";
-
-  layer.style.display =
-  "block";
-
-  layer.style.cursor =
-  "move";
-
-  layer.style.background =
-  "transparent";
-
-  layer.style.border =
-  "2px dashed transparent";
-
-  layer.style.wordBreak =
-  "break-word";
-
-  layer.style.whiteSpace =
-  "pre-wrap";
-
-  layer.style.outline =
-  "none";
-
-   
-
-  if(window.innerWidth < 768){
-
-    layer.style.width =
-    "220px";
-
-    layer.style.fontSize =
-    "24px";
-
-  }
-
-  addResizeHandle(layer);
-
-  canvas.appendChild(layer);
-
-  enableInteract(layer);
-
-  selectLayer(layer);
-
-  layer.addEventListener(
-    "mousedown",
-    ()=>{
-
-      selectLayer(layer);
-
-    }
+  let images =
+  JSON.parse(
+    localStorage.getItem(
+      "recentImages"
+    ) || "[]"
   );
 
-}
+  images.unshift(src);
 
+  images =
+  images.slice(0,6);
 
-
-
-function deleteSelected(){
-
-  if(selectedLayer){
-
-    selectedLayer.remove();
-
-    selectedLayer = null;
-
-  }
-
-}
-
- 
-
-document.addEventListener(
-  "keydown",
-  e=>{
-
-    if(
-      e.key === "Delete"
-    ){
-
-      deleteSelected();
-
-    }
-
-  }
-);
-
-
-
-
-function bringFront(){
-
-  if(selectedLayer){
-
-    selectedLayer.style.zIndex =
-    zIndexCounter++;
-
-  }
-
-}
-
-function sendBack(){
-
-  if(selectedLayer){
-
-    selectedLayer.style.zIndex =
-    1;
-
-  }
-
-}
-
-
-
-
-const textColor =
-document.getElementById("textColor");
-
-const fontSize =
-document.getElementById("fontSize");
-
-const rotate =
-document.getElementById("rotate");
-
-const opacity =
-document.getElementById("opacity");
-
-function updateControls(){
-
-  if(!selectedLayer) return;
-
-  selectedLayer.style.opacity =
-  opacity.value;
-
-  selectedLayer.dataset.rotate =
-  rotate.value;
-
-  const x =
-  selectedLayer.getAttribute(
-    "data-x"
-  ) || 0;
-
-  const y =
-  selectedLayer.getAttribute(
-    "data-y"
-  ) || 0;
-
-  selectedLayer.style.transform =
-  `
-  translate(${x}px,${y}px)
-  rotate(${rotate.value}deg)
-  `;
-
-  if(
-    selectedLayer.classList.contains(
-      "text-layer"
-    )
-  ){
-
-    selectedLayer.style.color =
-    textColor.value;
-
-    selectedLayer.style.fontSize =
-    fontSize.value + "px";
-
-  }
-
-}
-
-[
-  textColor,
-  fontSize,
-  rotate,
-  opacity
-].forEach(el=>{
-
-  el.addEventListener(
-    "input",
-    updateControls
+  localStorage.setItem(
+    "recentImages",
+    JSON.stringify(images)
   );
 
-});
+  loadRecentImages();
 
+}
 
+function loadRecentImages(){
 
+  const container =
+  document.getElementById(
+    "recentImages"
+  );
 
-async function downloadCanvas(){
+  container.innerHTML = "";
 
-  document
-  .querySelectorAll(
-    ".selected"
-  )
-  .forEach(el=>{
+  let images =
+  JSON.parse(
+    localStorage.getItem(
+      "recentImages"
+    ) || "[]"
+  );
 
-    el.classList.remove(
-      "selected"
-    );
+  images.forEach(src=>{
+
+    const img =
+    document.createElement("img");
+
+    img.src = src;
+
+    img.onclick = ()=>{
+
+      fabric.Image.fromURL(
+        src,
+        function(image){
+
+          image.set({
+
+            left:100,
+            top:100
+
+          });
+
+          image.scaleToWidth(300);
+
+          canvas.add(image);
+
+        }
+      );
+
+    };
+
+    container.appendChild(img);
 
   });
 
-  const canvasImage =
-  await html2canvas(
-    canvas,
-    {
-      scale:4,
-      useCORS:true
+}
+
+loadRecentImages();
+
+
+
+
+function enableDrawing(){
+
+  canvas.isDrawingMode = true;
+
+}
+
+function disableDrawing(){
+
+  canvas.isDrawingMode = false;
+
+}
+
+
+
+
+document
+.getElementById("fontSize")
+.addEventListener(
+  "input",
+  function(){
+
+    const obj =
+    canvas.getActiveObject();
+
+    if(obj){
+
+      obj.set(
+        "fontSize",
+        parseInt(this.value)
+      );
+
+      canvas.renderAll();
+
     }
-  );
+
+  }
+);
+
+document
+.getElementById("fontColor")
+.addEventListener(
+  "input",
+  function(){
+
+    const obj =
+    canvas.getActiveObject();
+
+    if(obj){
+
+      obj.set(
+        "fill",
+        this.value
+      );
+
+      canvas.renderAll();
+
+    }
+
+  }
+);
+
+document
+.getElementById("fontFamily")
+.addEventListener(
+  "change",
+  function(){
+
+    const obj =
+    canvas.getActiveObject();
+
+    if(obj){
+
+      obj.set(
+        "fontFamily",
+        this.value
+      );
+
+      canvas.renderAll();
+
+    }
+
+  }
+);
+
+function makeBold(){
+
+  const obj =
+  canvas.getActiveObject();
+
+  if(obj){
+
+    obj.set(
+      "fontWeight",
+      obj.fontWeight === 'bold'
+      ? 'normal'
+      : 'bold'
+    );
+
+    canvas.renderAll();
+
+  }
+
+}
+
+function alignLeft(){
+
+  const obj =
+  canvas.getActiveObject();
+
+  if(obj){
+
+    obj.set(
+      "textAlign",
+      "left"
+    );
+
+    canvas.renderAll();
+
+  }
+
+}
+
+function alignCenter(){
+
+  const obj =
+  canvas.getActiveObject();
+
+  if(obj){
+
+    obj.set(
+      "textAlign",
+      "center"
+    );
+
+    canvas.renderAll();
+
+  }
+
+}
+
+function alignRight(){
+
+  const obj =
+  canvas.getActiveObject();
+
+  if(obj){
+
+    obj.set(
+      "textAlign",
+      "right"
+    );
+
+    canvas.renderAll();
+
+  }
+
+}
+
+
+
+
+const projectTitle =
+document.getElementById(
+  "projectTitle"
+);
+
+const topLiveTitle =
+document.getElementById(
+  "topLiveTitle"
+);
+
+projectTitle.addEventListener(
+  "input",
+  function(){
+
+    topLiveTitle.innerHTML =
+    this.value;
+
+    localStorage.setItem(
+      "project_title",
+      this.value
+    );
+
+  }
+);
+
+ 
+
+const savedTitle =
+localStorage.getItem(
+  "project_title"
+);
+
+if(savedTitle){
+
+  projectTitle.value =
+  savedTitle;
+
+  topLiveTitle.innerHTML =
+  savedTitle;
+
+}
+
+
+
+
+function downloadPNG(){
+
+  const fileName =
+  (
+    projectTitle.value ||
+    "poster"
+  ).trim();
 
   const link =
   document.createElement("a");
 
   link.download =
-  "poster.png";
+  fileName + ".png";
 
   link.href =
-  canvasImage.toDataURL(
-    "image/png"
-  );
+  canvas.toDataURL({
+    format:'png',
+    quality:1
+  });
 
   link.click();
 
 }
 
-</script>
+function downloadJPG(){
 
-<script>
+  const fileName =
+  (
+    projectTitle.value ||
+    "poster"
+  ).trim();
+
+  const link =
+  document.createElement("a");
+
+  link.download =
+  fileName + ".jpg";
+
+  link.href =
+  canvas.toDataURL({
+    format:'jpeg',
+    quality:1
+  });
+
+  link.click();
+
+}
+
+function printCanvas(){
+
+  const data =
+  canvas.toDataURL();
+
+  const win =
+  window.open("");
+
+  win.document.write(`
+    <img
+    src="${data}"
+    style="width:100%;"
+    onload="window.print();"
+    >
+  `);
+
+}
+
+function downloadPDF(){
+
+  alert(
+    "Add jsPDF library for real PDF export"
+  );
+
+}
+
+
+
+
+document
+.getElementById("canvasSize")
+.addEventListener(
+  "change",
+  function(){
+
+    const size =
+    this.value.split("x");
+
+    canvas.setWidth(
+      parseInt(size[0])
+    );
+
+    canvas.setHeight(
+      parseInt(size[1])
+    );
+
+    canvas.renderAll();
+
+  }
+);
 
 
 
@@ -1183,527 +1337,109 @@ new URLSearchParams(
 const imageURL =
 params.get("img");
 
+const titleURL =
+params.get("tittle");
+
+ 
+
+if(titleURL){
+
+  const decodedTitle =
+  decodeURIComponent(
+    titleURL
+  );
+
+  projectTitle.value =
+  decodedTitle;
+
+  topLiveTitle.innerHTML =
+  decodedTitle;
+
+}
+
+ 
+
 if(imageURL){
 
-  addImageFromURL(
-    decodeURIComponent(imageURL)
+  const decodedImage =
+  decodeURIComponent(
+    imageURL
   );
 
-}
+  fabric.Image.fromURL(
 
+    decodedImage +
 
+    (
+      decodedImage.includes("?")
+      ? "&"
+      : "?"
+    ) +
 
+    "t=" + Date.now(),
 
-function addImageFromURL(url){
+    function(img){
 
-  const layer =
-  document.createElement("div");
+      const canvasWidth =
+      canvas.getWidth();
 
-  layer.className =
-  "layer image-layer";
-
-  layer.style.width =
-  "100%";
-
-  layer.style.height =
-  "auto";
-
-  layer.style.left =
-  "0";
-
-  layer.style.top =
-  "0";
-
-  layer.style.zIndex =
-  "1";
-
-  const img =
-document.createElement("img");
-
-img.crossOrigin =
-"anonymous";
-
-img.src =
-url + (
-  url.includes("?")
-  ? "&"
-  : "?"
-) + "t=" + Date.now();
-
- 
-
-img.onerror = ()=>{
-
-  img.removeAttribute(
-    "crossorigin"
-  );
-
-  img.src =
-  url + (
-    url.includes("?")
-    ? "&"
-    : "?"
-  ) + "nocors=" + Date.now();
-
-};
-
-img.style.width =
-"100%";
-
-img.style.height =
-"auto";
-
-img.style.display =
-"block";
-
- 
-
-img.onload = ()=>{
-
-  const imageHeight =
-  img.offsetHeight;
-
-  createFooterText(
-    imageHeight
-  );
-
-};
-
-layer.appendChild(img);
-
-canvas.appendChild(layer);
-
-}
-
-
-
-function createFooterText(imageHeight){
-
-   
-
-  const old =
-  document.getElementById(
-    "footerContainer"
-  );
-
-  if(old){
-    old.remove();
-  }
-
-  
-
-
-  const container =
-  document.createElement("div");
-
-  container.className =
-  "layer text-layer";
-
-  container.id =
-  "footerContainer";
-
-  container.style.left =
-  "0px";
-
-  container.style.top =
-  imageHeight + "px";
-
-  container.style.width =
-  "100%";
-
-  container.style.minHeight =
-  "180px";
-
-  container.style.padding =
-  "2px";
-
-  container.style.zIndex =
-  "9";
-
-  container.style.display =
-  "flex";
-
-  container.style.flexDirection =
-  "column";
-
-  container.style.alignItems =
-  "center";
-
-  container.style.justifyContent =
-  "center";
-
-  container.style.textAlign =
-  "center";
-
-  container.style.cursor =
-  "move";
-
-  
-
-
-  const footerBG =
-  localStorage.getItem(
-    "footer_bg"
-  ) || "rgb(254, 225, 225)";
-
-  const footerColor =
-  localStorage.getItem(
-    "footer_color"
-  ) || "#fff";
-
-  const footerRadius =
-  localStorage.getItem(
-    "footer_radius"
-  ) || "0";
-
-  const footerBlur =
-  localStorage.getItem(
-    "footer_blur"
-  ) || "0";
-
-  const footerShadow =
-  localStorage.getItem(
-    "footer_shadow"
-  ) || "0";
-
-  container.style.background =
-  footerBG;
-
-  container.style.color =
-  footerColor;
-
-  container.style.borderRadius =
-  footerRadius + "px";
-
-  container.style.backdropFilter =
-  `blur(${footerBlur}px)`;
-
-  container.style.boxShadow =
-  `0 0 ${footerShadow}px rgba(0,0,0,.5)`;
-
-  
-
-
-  const h2 =
-  document.createElement("h2");
-
-  h2.contentEditable =
-  true;
-
-  h2.innerHTML =
-  localStorage.getItem(
-    "poster_h2"
-  ) ||
-  "YOJNA PORTAL";
-
-  h2.style.width =
-  "100%";
-
-  h2.style.fontWeight =
-  "900";
-
-  h2.style.outline =
-  "none";
-
-  h2.style.wordBreak =
-  "break-word";
-
-  h2.style.fontSize =
-  window.innerWidth < 768
-  ? "28px"
-  : "60px";
-
-  
-
-
-  const h5 =
-  document.createElement("h5");
-
-  h5.contentEditable =
-  true;
-
-  h5.innerHTML =
-  localStorage.getItem(
-    "poster_h5"
-  ) ||
-  "Mo. 9999999999";
-
-  h5.style.width =
-  "100%";
-
-  h5.style.marginTop =
-  "10px";
-
-  h5.style.outline =
-  "none";
-
-  h5.style.wordBreak =
-  "break-word";
-
-  h5.style.fontSize =
-  window.innerWidth < 768
-  ? "16px"
-  : "28px";
-
-  
-
-
-  h2.addEventListener(
-    "input",
-    ()=>{
-
-      localStorage.setItem(
-        "poster_h2",
-        h2.innerHTML
+      img.scaleToWidth(
+        canvasWidth
       );
 
+      img.set({
+
+        left:0,
+        top:0,
+
+        selectable:true
+
+      });
+
+      canvas.add(img);
+
+      canvas.sendToBack(img);
+
+       
+
+      const footer =
+      new fabric.Rect({
+
+        left:0,
+
+        top:
+        img.getScaledHeight() - 30,
+
+        width:
+        canvas.getWidth(),
+
+        height:120,
+
+        fill:'#7c1414',
+
+        selectable:true
+
+      });
+
+      canvas.add(footer);
+
+      footer.sendToBack();
+
+      canvas.renderAll();
+
+    },
+
+    {
+
+      crossOrigin:'anonymous'
+
     }
-  );
 
-  h5.addEventListener(
-    "input",
-    ()=>{
-
-      localStorage.setItem(
-        "poster_h5",
-        h5.innerHTML
-      );
-
-    }
-  );
-
-  
-
-
-  container.appendChild(h2);
-
-  container.appendChild(h5);
-
-  canvas.appendChild(container);
-
-  
-
-
-  addResizeHandle(container);
-
-  enableInteract(container);
-
-  selectLayer(container);
-
-  container.addEventListener(
-    "mousedown",
-    ()=>selectLayer(container)
   );
 
 }
-</script>
-<script>
-
-
-
-
-const mobileControlBox =
-document.getElementById(
-  "mobileControlBox"
-);
-
-const mobileControlArea =
-document.getElementById(
-  "mobileControlArea"
-);
-
-const mobileControlLabel =
-document.getElementById(
-  "mobileControlLabel"
-);
-
-function showControl(type){
-
-  mobileControlBox.classList.add(
-    "active"
-  );
-
-  mobileControlArea.innerHTML = "";
-
-  let clone;
-
-  if(type === "color"){
-
-    mobileControlLabel.innerHTML =
-    "Text Color";
-
-    clone =
-    textColor.cloneNode(true);
-
-  }
-
-  if(type === "font"){
-
-    mobileControlLabel.innerHTML =
-    "Font Size";
-
-    clone =
-    fontSize.cloneNode(true);
-
-  }
-
-  if(type === "rotate"){
-
-    mobileControlLabel.innerHTML =
-    "Rotate";
-
-    clone =
-    rotate.cloneNode(true);
-
-  }
-
-  if(type === "opacity"){
-
-    mobileControlLabel.innerHTML =
-    "Opacity";
-
-    clone =
-    opacity.cloneNode(true);
-
-  }
-
-  clone.addEventListener(
-    "input",
-    e=>{
-
-      if(type === "color"){
-
-        textColor.value =
-        e.target.value;
-
-      }
-
-      if(type === "font"){
-
-        fontSize.value =
-        e.target.value;
-
-      }
-
-      if(type === "rotate"){
-
-        rotate.value =
-        e.target.value;
-
-      }
-
-      if(type === "opacity"){
-
-        opacity.value =
-        e.target.value;
-
-      }
-
-      updateControls();
-
-    }
-  );
-
-  mobileControlArea.appendChild(
-    clone
-  );
-
-}
-
- 
-
-document.addEventListener(
-  "click",
-  e=>{
-
-    if(
-      !e.target.closest(
-        ".mobile-control-box"
-      ) &&
-
-      !e.target.closest(
-        ".mobile-toolbar button"
-      )
-    ){
-
-      mobileControlBox.classList.remove(
-        "active"
-      );
-
-    }
-
-  }
-);
 
 </script>
 
-<script>
-  const footerBG =
-document.getElementById("footerBG");
-
-const footerRadius =
-document.getElementById("footerRadius");
-
-const footerBlur =
-document.getElementById("footerBlur");
-
-const footerShadow =
-document.getElementById("footerShadow");
-
-[
-  footerBG,
-  footerRadius,
-  footerBlur,
-  footerShadow
-].forEach(el=>{
-
-  el.addEventListener(
-    "input",
-    ()=>{
-
-      const box =
-      document.getElementById(
-        "footerContainer"
-      );
-
-      if(!box) return;
-
-      box.style.background =
-      footerBG.value;
-
-      box.style.borderRadius =
-      footerRadius.value + "px";
-
-      box.style.backdropFilter =
-      `blur(${footerBlur.value}px)`;
-
-      box.style.boxShadow =
-      `0 0 ${footerShadow.value}px rgba(0,0,0,.5)`;
-
-      localStorage.setItem(
-        "footer_bg",
-        footerBG.value
-      );
-
-      localStorage.setItem(
-        "footer_radius",
-        footerRadius.value
-      );
-
-      localStorage.setItem(
-        "footer_blur",
-        footerBlur.value
-      );
-
-      localStorage.setItem(
-        "footer_shadow",
-        footerShadow.value
-      );
-
-    }
-  );
-
-});
-</script>
 </body>
 </html>
