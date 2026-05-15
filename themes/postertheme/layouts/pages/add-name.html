@@ -1129,9 +1129,22 @@ img.style.height =
 img.style.display =
 "block";
 
-  layer.appendChild(img);
+/* IMAGE LOAD */
 
-  canvas.appendChild(layer);
+img.onload = ()=>{
+
+  const imageHeight =
+  img.offsetHeight;
+
+  createFooterText(
+    imageHeight
+  );
+
+};
+
+layer.appendChild(img);
+
+canvas.appendChild(layer);
 
 }
 /* =========================
@@ -1140,121 +1153,162 @@ img.style.display =
 
 function createFooterText(imageHeight){
 
-  /* REMOVE OLD */
-
   const old =
   document.getElementById(
-    "footerTextLayer"
+    "footerContainer"
   );
 
   if(old){
-
     old.remove();
-
   }
 
-  /* CREATE */
+  /* MAIN BOX */
 
-  const layer =
+  const container =
   document.createElement("div");
 
-  layer.className =
-  "layer text-layer";
+  container.className =
+  "layer";
 
-  layer.id =
-  "footerTextLayer";
+  container.id =
+  "footerContainer";
 
-  layer.contentEditable =
-  true;
-
-  /* LOCAL STORAGE */
-
-  layer.innerHTML =
-  localStorage.getItem(
-    "footerText"
-  ) ||
-  "V2K COMPUTERS<br>Mo. 9999999999";
-
-  /* POSITION */
-
-  layer.style.left =
+  container.style.left =
   "0px";
 
-  /* IMAGE KE JUST NICHE */
-
-  layer.style.top =
+  container.style.top =
   imageHeight + "px";
 
-  layer.style.width =
+  container.style.width =
   "100%";
 
-  layer.style.height =
-  "220px";
-
-  layer.style.padding =
-  "40px";
-
-  layer.style.fontSize =
-  "60px";
-
-  layer.style.fontWeight =
-  "900";
-
-  layer.style.lineHeight =
-  "1.2";
-
-  layer.style.textAlign =
-  "center";
-
-  layer.style.color =
-  "#ffffff";
-
-  layer.style.background =
+  container.style.background =
   "rgba(0,0,0,0.85)";
 
-  layer.style.zIndex =
+  container.style.padding =
+  "30px 20px";
+
+  container.style.zIndex =
   "999";
 
-  layer.style.display =
+  container.style.textAlign =
+  "center";
+
+  container.style.display =
   "flex";
 
-  layer.style.alignItems =
-  "center";
-
-  layer.style.justifyContent =
-  "center";
-
-  layer.style.flexDirection =
+  container.style.flexDirection =
   "column";
+
+  container.style.alignItems =
+  "center";
+
+  container.style.justifyContent =
+  "center";
+
+  /* =====================
+     H2
+  ===================== */
+
+  const h2 =
+  document.createElement("h2");
+
+  h2.contentEditable =
+  true;
+
+  h2.innerHTML =
+  localStorage.getItem(
+    "poster_h2"
+  ) ||
+  "V2K COMPUTERS";
+
+  h2.style.width =
+  "100%";
+
+  h2.style.color =
+  "#fff";
+
+  h2.style.fontWeight =
+  "900";
+
+  h2.style.outline =
+  "none";
+
+  h2.style.wordBreak =
+  "break-word";
+
+  h2.style.fontSize =
+  window.innerWidth < 768
+  ? "28px"
+  : "58px";
+
+  /* =====================
+     H5
+  ===================== */
+
+  const h5 =
+  document.createElement("h5");
+
+  h5.contentEditable =
+  true;
+
+  h5.innerHTML =
+  localStorage.getItem(
+    "poster_h5"
+  ) ||
+  "Mo. 9999999999";
+
+  h5.style.width =
+  "100%";
+
+  h5.style.color =
+  "#fff";
+
+  h5.style.marginTop =
+  "10px";
+
+  h5.style.outline =
+  "none";
+
+  h5.style.wordBreak =
+  "break-word";
+
+  h5.style.fontSize =
+  window.innerWidth < 768
+  ? "16px"
+  : "28px";
 
   /* SAVE */
 
-  layer.addEventListener(
+  h2.addEventListener(
     "input",
     ()=>{
 
       localStorage.setItem(
-        "footerText",
-        layer.innerHTML
+        "poster_h2",
+        h2.innerHTML
       );
 
     }
   );
 
-  canvas.appendChild(layer);
+  h5.addEventListener(
+    "input",
+    ()=>{
 
-  /* RESIZE */
+      localStorage.setItem(
+        "poster_h5",
+        h5.innerHTML
+      );
 
-  addResizeHandle(layer);
-
-  enableInteract(layer);
-
-  selectLayer(layer);
-
-  layer.addEventListener(
-    "mousedown",
-    ()=>selectLayer(layer)
+    }
   );
+
+  container.appendChild(h2);
+
+  container.appendChild(h5);
+
+  canvas.appendChild(container);
 
 }
 </script>
