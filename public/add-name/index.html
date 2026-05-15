@@ -1066,38 +1066,43 @@ function addImageFromURL(url){
   "1";
 
   const img =
-  document.createElement("img");
+document.createElement("img");
 
-  img.src = url;
+img.crossOrigin =
+"anonymous";
 
-  img.crossOrigin =
-  "anonymous";
+img.src =
+url + (
+  url.includes("?")
+  ? "&"
+  : "?"
+) + "t=" + Date.now();
 
-  img.style.width =
-  "100%";
+ 
 
-  img.style.height =
-  "auto";
+img.onerror = ()=>{
 
-  img.style.display =
-  "block";
+  img.removeAttribute(
+    "crossorigin"
+  );
 
-   
+  img.src =
+  url + (
+    url.includes("?")
+    ? "&"
+    : "?"
+  ) + "nocors=" + Date.now();
 
-  img.onload = ()=>{
+};
 
-     
+img.style.width =
+"100%";
 
-    const imageHeight =
-    img.offsetHeight;
+img.style.height =
+"auto";
 
-     
-
-    createFooterText(
-      imageHeight
-    );
-
-  };
+img.style.display =
+"block";
 
   layer.appendChild(img);
 
