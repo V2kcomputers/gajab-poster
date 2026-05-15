@@ -415,6 +415,186 @@ MOBILE
   }
 
 }
+/* =========================
+MOBILE
+========================= */
+
+.mobile-panel{
+  display:none;
+}
+
+@media(max-width:768px){
+
+  body{
+    overflow:hidden;
+  }
+
+  .editor{
+    flex-direction:column;
+  }
+
+  /* LEFT ICONS BOTTOM BAR */
+
+  .left-icons{
+
+    position:fixed;
+
+    bottom:0;
+
+    left:0;
+
+    width:100%;
+
+    height:75px;
+
+    flex-direction:row;
+
+    justify-content:flex-start;
+
+    overflow-x:auto;
+
+    gap:12px;
+
+    padding:10px;
+
+    border-right:none;
+
+    border-top:1px solid #ddd;
+
+    z-index:99999;
+
+    background:#fff;
+
+  }
+
+  .left-icons button{
+
+    min-width:55px;
+
+    height:55px;
+
+    border-radius:16px;
+
+    font-size:24px;
+
+    flex:none;
+
+  }
+
+  /* LEFT PANEL */
+
+  .left-panel{
+
+    position:fixed;
+
+    left:0;
+
+    right:0;
+
+    bottom:75px;
+
+    width:100%;
+
+    height:260px;
+
+    z-index:9999;
+
+    border-radius:20px 20px 0 0;
+
+    display:none;
+
+    overflow:auto;
+
+    box-shadow:
+    0 -5px 30px rgba(0,0,0,.15);
+
+  }
+
+  .left-panel.show{
+    display:block;
+  }
+
+  /* RIGHT PANEL HIDE */
+
+  .right-panel{
+    display:none;
+  }
+
+  /* TOOLBAR */
+
+.top-toolbar{
+
+    position:fixed;
+
+    left:0;
+
+    right:0;
+
+    bottom:335px;
+
+    top:auto;
+
+    height:auto;
+
+    padding:12px;
+
+    overflow-x:auto;
+
+    white-space:nowrap;
+
+    display:none;
+
+    gap:10px;
+
+    border-top:1px solid #ddd;
+
+    box-shadow:
+    0 -5px 20px rgba(0,0,0,.1);
+
+  }
+
+  .top-toolbar.show{
+    display:flex;
+  }
+
+
+  .top-toolbar input,
+  .top-toolbar select,
+  .toolbar-btn{
+
+    flex:none;
+
+  }
+
+  /* CANVAS */
+
+  .canvas-area{
+
+    padding-top:10px;
+
+    padding-bottom:170px;
+
+    overflow:auto;
+
+  }
+
+  .canvas-wrapper{
+
+    width:100%;
+
+    margin:10px;
+
+  }
+
+  canvas{
+
+    width:100% !important;
+
+    height:auto !important;
+
+  }
+
+}
 
 </style>
 </head>
@@ -439,11 +619,11 @@ Title Name
 
   <div class="left-icons">
 
-    <button
-    onclick="openPanel('textPanel')"
-    >
-      🅣
-    </button>
+  <button
+onclick="toggleTextTools()"
+>
+  🅣
+</button>
 
     <button
     onclick="openPanel('shapePanel')"
@@ -783,24 +963,57 @@ new fabric.Canvas(
 /* =========================
 OPEN PANEL
 ========================= */
-
 function openPanel(id){
 
   document
   .querySelectorAll(".panel")
   .forEach(panel=>{
 
-    panel.classList.remove(
-      "active"
-    );
+    panel.classList.remove("active");
 
   });
 
   document
   .getElementById(id)
-  .classList.add(
-    "active"
-  );
+  .classList.add("active");
+
+  /* MOBILE PANEL OPEN */
+
+  if(window.innerWidth <= 768){
+
+    document
+    .querySelector(".left-panel")
+    .classList.add("show");
+
+  }
+  document.addEventListener("click",function(e){
+
+  if(window.innerWidth > 768) return;
+
+  const panel =
+  document.querySelector(".left-panel");
+
+  const icons =
+  document.querySelector(".left-icons");
+
+  const toolbar =
+  document.querySelector(".top-toolbar");
+
+  if(
+    !panel.contains(e.target)
+    &&
+    !icons.contains(e.target)
+    &&
+    !toolbar.contains(e.target)
+  ){
+
+    panel.classList.remove("show");
+
+    toolbar.classList.remove("show");
+
+  }
+
+});
 
 }
 
@@ -1483,6 +1696,22 @@ if(imageURL){
 
 }
 
+</script>
+<script>
+  function toggleTextTools(){
+
+  openPanel("textPanel");
+
+  if(window.innerWidth <= 768){
+
+    document
+    .querySelector(".top-toolbar")
+    .classList.toggle("show");
+
+  }
+  
+
+}
 </script>
 
 </body>
