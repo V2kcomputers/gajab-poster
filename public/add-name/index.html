@@ -1,12 +1,15 @@
 <!DOCTYPE html>
-<html lang="hi">
+<html lang="en">
 <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-<title>Blob Poster Editor</title>
+<title>Canva Style Poster Editor</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;900&display=swap" rel="stylesheet">
+
+<script src="https://cdn.jsdelivr.net/npm/interactjs/dist/interact.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 
 <style>
 
@@ -17,74 +20,332 @@
 }
 
 body{
-  background:#ececec;
-  font-family:Arial,sans-serif;
-  padding:20px;
-}
-
-.container{
-  width:100%;
-  max-width:1000px;
-  margin:auto;
-}
-
-.poster-box{
-  background:#fff;
-  border:6px solid red;
-  overflow:hidden;
-  border-radius:12px;
-}
-
-.poster-image{
-  width:100%;
-  display:block;
-}
-
-.shop-section{
-  background:#000;
-  border-top:6px solid red;
-  padding:35px 20px;
-  text-align:center;
-}
-
-#shopName{
-  color:#ff2020;
-  font-size:72px;
-  font-weight:900;
-  line-height:1.1;
-  text-transform:uppercase;
-  word-break:break-word;
+  background:#e7e7e7;
   font-family:'Poppins',sans-serif;
+  overflow:hidden;
 }
 
-#shopAddress{
-  color:#fff;
-  font-size:24px;
-  margin-top:12px;
-  line-height:1.5;
+ 
+
+.app{
+  display:flex;
+  height:100vh;
 }
 
-.download-btn{
+ 
+
+.sidebar{
+  width:320px;
+  background:#fff;
+  padding:20px;
+  overflow:auto;
+
+  box-shadow:
+  0 0 20px rgba(0,0,0,0.08);
+
+  z-index:10;
+}
+
+.sidebar h2{
+  margin-bottom:20px;
+}
+
+.control-group{
+  margin-bottom:20px;
+}
+
+.control-group label{
+  display:block;
+  margin-bottom:8px;
+  font-size:14px;
+  font-weight:600;
+}
+
+.control-group input,
+.control-group button,
+.control-group textarea{
   width:100%;
-  margin-top:20px;
-  padding:18px;
-  border:none;
-  border-radius:16px;
-  background:#0a9b32;
-  color:#fff;
-  font-size:20px;
-  font-weight:bold;
+}
+
+input[type="range"]{
   cursor:pointer;
 }
 
+input[type="color"]{
+  height:45px;
+  border:none;
+}
+
+button{
+  border:none;
+  padding:14px;
+  border-radius:12px;
+  background:#0a9b32;
+  color:#fff;
+  font-size:15px;
+  font-weight:700;
+  cursor:pointer;
+  margin-bottom:10px;
+}
+
+ 
+
+.workspace{
+  flex:1;
+  overflow:auto;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  padding:40px;
+}
+
+ 
+
+.canvas{
+  width:794px;
+  height:1123px;
+
+  background:#fff;
+
+  position:relative;
+
+  overflow:hidden;
+
+  box-shadow:
+  0 10px 40px rgba(0,0,0,0.15);
+}
+
+ 
+
+.layer{
+  position:absolute;
+  touch-action:none;
+  user-select:none;
+}
+
+ 
+
+.selected{
+  outline:2px dashed #0a84ff;
+}
+
+ 
+
+.image-layer img{
+  width:100%;
+  height:100%;
+  pointer-events:none;
+}
+
+ 
+
+.text-layer{
+  min-width:120px;
+  min-height:50px;
+
+  padding:10px;
+
+  font-size:40px;
+  font-weight:700;
+
+  color:#fff;
+
+  cursor:move;
+
+  outline:none;
+
+  word-break:break-word;
+}
+
+ 
+
+.resize-handle{
+  width:14px;
+  height:14px;
+
+  background:#0a84ff;
+
+  position:absolute;
+  right:-7px;
+  bottom:-7px;
+
+  border-radius:50%;
+}
+ 
+
+.mobile-toolbar{
+  display:none;
+}
+
+ 
+ 
+
+.mobile-control-box{
+
+  position:fixed;
+
+  bottom:95px;
+
+  left:50%;
+
+  transform:translateX(-50%);
+
+  width:92%;
+
+  background:#fff;
+
+  border-radius:20px;
+
+  padding:18px;
+
+  z-index:999999;
+
+  box-shadow:
+  0 10px 30px rgba(0,0,0,.18);
+
+  display:none;
+
+}
+
+.mobile-control-box.active{
+  display:block;
+}
+
+.mobile-control-box input{
+
+  width:100%;
+
+}
+
+.mobile-control-box label{
+
+  display:block;
+
+  margin-bottom:10px;
+
+  font-size:14px;
+
+  font-weight:700;
+
+}
 @media(max-width:768px){
 
-  #shopName{
-    font-size:42px;
+  body{
+    overflow:hidden;
   }
 
-  #shopAddress{
-    font-size:18px;
+  .app{
+    flex-direction:column;
+  }
+
+   
+
+  .sidebar{
+    display:none;
+  }
+
+   
+
+ .workspace{
+
+    width:100%;
+
+    overflow:auto;
+
+    padding:10px 10px 120px;
+
+    display:block;
+
+  }
+
+  .canvas{
+
+    width:100%;
+
+    max-width:100%;
+
+    height:auto;
+
+    aspect-ratio:794 / 1123;
+
+    margin:auto;
+
+  }
+
+
+   
+
+   
+
+  .mobile-toolbar{
+
+    display:flex;
+
+    position:fixed;
+
+    bottom:0;
+    left:0;
+
+    width:100%;
+
+    background:#fff;
+
+    overflow-x:auto;
+
+    gap:12px;
+
+    padding:12px;
+
+    z-index:99999;
+
+    box-shadow:
+    0 -5px 20px rgba(0,0,0,.12);
+
+  }
+
+  .mobile-toolbar button{
+
+    min-width:70px;
+
+    height:70px;
+
+    border-radius:18px;
+
+    margin:0;
+
+    flex-shrink:0;
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:6px;
+
+    font-size:12px;
+
+    background:#f3f3f3;
+
+    color:#222;
+
+    font-weight:700;
+
+  }
+
+  .mobile-toolbar button.active{
+    background:#0a9b32;
+    color:#fff;
+  }
+
+  .mobile-toolbar button span{
+    font-size:24px;
+    line-height:1;
+  }
+    .text-layer{
+    font-size:24px !important;
   }
 
 }
@@ -93,262 +354,300 @@ body{
 </head>
 <body>
 
-<div class="container">
+
+
+
+
+<div class="mobile-control-box" id="mobileControlBox">
+
+  <label id="mobileControlLabel">
+    Control
+  </label>
+
+  <div id="mobileControlArea"></div>
+</div>
+
+<div class="mobile-toolbar">
+
+  <button onclick="showControl('color')">
+    <span>🎨</span>
+    Color
+  </button>
+
+  <button onclick="showControl('font')">
+    <span>🔠</span>
+    Font
+  </button>
+
+  <button onclick="showControl('rotate')">
+    <span>🔄</span>
+    Rotate
+  </button>
+
+  <button onclick="showControl('opacity')">
+    <span>🌫️</span>
+    Opacity
+  </button>
+
+  <button onclick="addText()">
+    <span>📝</span>
+    Text
+  </button>
+
+  <button onclick="addImage()">
+    <span>🖼️</span>
+    Image
+  </button>
+
+  <button onclick="downloadCanvas()">
+    <span>⬇️</span>
+    Save
+  </button>
+
+</div>
+<div class="app">
 
   
-  <div
-    class="poster-box"
-    id="posterBox"
-  >
+  <div class="sidebar">
+
+    <h2>Poster Editor</h2>
 
     
-    <img
-      id="posterImage"
-      class="poster-image"
-      src=""
-      alt="Poster"
-    >
+    <button onclick="addImage()">
+      Add Image
+    </button>
 
     
-    <div
-      class="shop-section"
-      id="shopSection"
-    >
+    <button onclick="addText()">
+      Add Text
+    </button>
 
-      <div
-        id="shopName"
-        contenteditable="true"
-      >
-        SHOP NAME
-      </div>
+    
+    <button onclick="deleteSelected()">
+      Delete Selected
+    </button>
 
-      <div
-        id="shopAddress"
-        contenteditable="true"
+    
+    <button onclick="bringFront()">
+      Bring Front
+    </button>
+
+    
+    <button onclick="sendBack()">
+      Send Back
+    </button>
+
+    
+    <button onclick="downloadCanvas()">
+      Download HD
+    </button>
+
+    
+    <div class="control-group">
+
+      <label>Text Color</label>
+
+      <input
+        type="color"
+        id="textColor"
+        value="#000000"
       >
-        Address / Mobile Number
-      </div>
+
+    </div>
+
+    <div class="control-group">
+
+      <label>Font Size</label>
+
+      <input
+        type="range"
+        id="fontSize"
+        min="10"
+        max="150"
+        value="40"
+      >
+
+    </div>
+
+    <div class="control-group">
+
+      <label>Rotate</label>
+
+      <input
+        type="range"
+        id="rotate"
+        min="-180"
+        max="180"
+        value="0"
+      >
+
+    </div>
+
+    <div class="control-group">
+
+      <label>Opacity</label>
+
+      <input
+        type="range"
+        id="opacity"
+        min="0"
+        max="1"
+        step="0.05"
+        value="1"
+      >
 
     </div>
 
   </div>
 
   
-  <button
-    class="download-btn"
-    onclick="downloadPoster()"
-  >
-    Download Poster
-  </button>
+  <div class="workspace">
+
+    <div
+      class="canvas"
+      id="canvas"
+    ></div>
+
+  </div>
 
 </div>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<input
+  type="file"
+  id="imageInput"
+  accept="image/*"
+  hidden
+>
 
 <script>
 
 
 
 
-const posterImage =
-document.getElementById("posterImage");
+const canvas =
+document.getElementById("canvas");
 
-const shopName =
-document.getElementById("shopName");
+const imageInput =
+document.getElementById("imageInput");
 
-const shopAddress =
-document.getElementById("shopAddress");
+let selectedLayer = null;
 
-const shopSection =
-document.getElementById("shopSection");
+let zIndexCounter = 1;
 
 
 
 
-const params =
-new URLSearchParams(window.location.search);
+function selectLayer(layer){
 
+  document
+  .querySelectorAll(".layer")
+  .forEach(el=>{
 
+    el.classList.remove(
+      "selected"
+    );
 
+  });
 
-const imageURL =
-params.get("img");
+  selectedLayer = layer;
 
-
-
-
-const titleName =
-params.get("tittle") ||
-params.get("title") ||
-"poster";
-
- 
-
-const safeTitle =
-decodeURIComponent(titleName)
-.replace(/[\\/:*?"<>|]/g, "")
-.trim();
-
-
-
-
-if(imageURL){
-
-  loadBlobImage(
-    decodeURIComponent(imageURL)
+  layer.classList.add(
+    "selected"
   );
 
 }
 
-async function loadBlobImage(url){
 
-  try{
 
-    const response =
-    await fetch(
-      url + "?t=" + Date.now()
-    );
 
-    if(!response.ok){
+function addResizeHandle(layer){
 
-      throw new Error(
-        "Image fetch failed"
-      );
+  const handle =
+  document.createElement("div");
+
+  handle.className =
+  "resize-handle";
+
+  layer.appendChild(handle);
+
+}
+
+
+
+
+function enableInteract(layer){
+
+  interact(layer)
+
+  .draggable({
+
+    listeners:{
+
+      move(event){
+
+        let x =
+        (
+          parseFloat(
+            layer.getAttribute(
+              "data-x"
+            )
+          ) || 0
+        ) + event.dx;
+
+        let y =
+        (
+          parseFloat(
+            layer.getAttribute(
+              "data-y"
+            )
+          ) || 0
+        ) + event.dy;
+
+        layer.style.transform =
+        `
+        translate(${x}px,${y}px)
+        rotate(${layer.dataset.rotate || 0}deg)
+        `;
+
+        layer.setAttribute(
+          "data-x",
+          x
+        );
+
+        layer.setAttribute(
+          "data-y",
+          y
+        );
+
+      }
 
     }
 
-    const blob =
-    await response.blob();
+  })
 
-    const blobURL =
-    URL.createObjectURL(blob);
+  .resizable({
 
-    posterImage.onload = () => {
+    edges:{
+      right:true,
+      bottom:true
+    },
 
-      console.log(
-        "Blob image loaded"
-      );
+    listeners:{
 
-    };
+      move(event){
 
-    posterImage.src =
-    blobURL;
+        let {
+          width,
+          height
+        } = event.rect;
 
-  }catch(err){
+        layer.style.width =
+        width + "px";
 
-    console.log(err);
+        layer.style.height =
+        height + "px";
 
-    alert(
-      "Image failed to load"
-    );
-
-  }
-
-}
-
-
-
-
-const name =
-params.get("name");
-
-if(name){
-
-  shopName.innerHTML =
-  decodeURIComponent(name);
-
-}
-
-
-
-
-const address =
-params.get("address");
-
-if(address){
-
-  shopAddress.innerHTML =
-  decodeURIComponent(address);
-
-}
-
-
-
-
-const bg =
-params.get("bg");
-
-if(bg){
-
-  shopSection.style.background =
-  decodeURIComponent(bg);
-
-}
-
-
-
-
-const color =
-params.get("color");
-
-if(color){
-
-  shopName.style.color =
-  decodeURIComponent(color);
-
-}
-
-
-
-
-if(localStorage.getItem("shopName")){
-
-  shopName.innerHTML =
-  localStorage.getItem("shopName");
-
-}
-
-if(localStorage.getItem("shopAddress")){
-
-  shopAddress.innerHTML =
-  localStorage.getItem("shopAddress");
-
-}
-
-shopName.addEventListener("input", ()=>{
-
-  localStorage.setItem(
-    "shopName",
-    shopName.innerHTML
-  );
-
-});
-
-shopAddress.addEventListener("input", ()=>{
-
-  localStorage.setItem(
-    "shopAddress",
-    shopAddress.innerHTML
-  );
-
-});
-
-
-
-
-function waitImageLoad(img){
-
-  return new Promise((resolve,reject)=>{
-
-    if(img.complete){
-
-      resolve();
-
-    }else{
-
-      img.onload = ()=>resolve();
-
-      img.onerror = ()=>reject();
+      }
 
     }
 
@@ -359,51 +658,715 @@ function waitImageLoad(img){
 
 
 
-async function downloadPoster(){
+function addImage(){
 
-  try{
+  imageInput.click();
 
-    await waitImageLoad(
-      posterImage
-    );
+}
 
-    const canvas =
-    await html2canvas(
-      document.getElementById("posterBox"),
-      {
-        scale:3,
-        useCORS:true,
-        allowTaint:false,
-        backgroundColor:null
+imageInput.addEventListener(
+  "change",
+  e=>{
+
+    const file =
+    e.target.files[0];
+
+    if(!file) return;
+
+    const reader =
+    new FileReader();
+
+    reader.onload =
+    function(ev){
+
+      const layer =
+      document.createElement("div");
+
+      layer.className =
+      "layer image-layer";
+
+      layer.style.width =
+      "300px";
+
+      layer.style.height =
+      "300px";
+
+      layer.style.left =
+      "100px";
+
+      layer.style.top =
+      "100px";
+
+      layer.style.zIndex =
+      zIndexCounter++;
+
+      layer.innerHTML =
+      `
+      <img src="${ev.target.result}">
+      `;
+
+      addResizeHandle(layer);
+
+      canvas.appendChild(layer);
+
+      enableInteract(layer);
+
+      selectLayer(layer);
+
+      layer.addEventListener(
+        "mousedown",
+        ()=>selectLayer(layer)
+      );
+
+    };
+
+    reader.readAsDataURL(file);
+
+  }
+);
+
+
+
+
+document.addEventListener(
+  "paste",
+  e=>{
+
+    const items =
+    e.clipboardData.items;
+
+    for(
+      let item of items
+    ){
+
+      if(
+        item.type.indexOf(
+          "image"
+        ) !== -1
+      ){
+
+        const file =
+        item.getAsFile();
+
+        const reader =
+        new FileReader();
+
+        reader.onload =
+        function(ev){
+
+          const layer =
+          document.createElement("div");
+
+          layer.className =
+          "layer image-layer";
+
+          layer.style.width =
+          "300px";
+
+          layer.style.height =
+          "300px";
+
+          layer.style.left =
+          "100px";
+
+          layer.style.top =
+          "100px";
+
+          layer.style.zIndex =
+          zIndexCounter++;
+
+          layer.innerHTML =
+          `
+          <img src="${ev.target.result}">
+          `;
+
+          addResizeHandle(layer);
+
+          canvas.appendChild(layer);
+
+          enableInteract(layer);
+
+          selectLayer(layer);
+
+          layer.addEventListener(
+            "mousedown",
+            ()=>selectLayer(layer)
+          );
+
+        };
+
+        reader.readAsDataURL(
+          file
+        );
+
       }
-    );
 
-    const link =
-    document.createElement("a");
+    }
 
-    link.download =
-    safeTitle + ".png";
+  }
+);
 
-    link.href =
-    canvas.toDataURL(
-      "image/png"
-    );
 
-    link.click();
 
-  }catch(err){
 
-    console.log(err);
+function addText(){
 
-    alert(
-      "Download failed"
-    );
+  const layer =
+  document.createElement("div");
+
+  layer.className =
+  "layer text-layer";
+
+  layer.contentEditable =
+  true;
+
+  layer.innerHTML =
+  "Your Text";
+
+  layer.style.left =
+  "100px";
+
+  layer.style.top =
+  "100px";
+
+  layer.style.zIndex =
+  zIndexCounter++;
+
+  addResizeHandle(layer);
+
+  canvas.appendChild(layer);
+
+  enableInteract(layer);
+
+  selectLayer(layer);
+
+  layer.addEventListener(
+    "mousedown",
+    ()=>selectLayer(layer)
+  );
+
+}
+
+
+
+
+function deleteSelected(){
+
+  if(selectedLayer){
+
+    selectedLayer.remove();
+
+    selectedLayer = null;
 
   }
 
 }
 
+ 
+
+document.addEventListener(
+  "keydown",
+  e=>{
+
+    if(
+      e.key === "Delete"
+    ){
+
+      deleteSelected();
+
+    }
+
+  }
+);
+
+
+
+
+function bringFront(){
+
+  if(selectedLayer){
+
+    selectedLayer.style.zIndex =
+    zIndexCounter++;
+
+  }
+
+}
+
+function sendBack(){
+
+  if(selectedLayer){
+
+    selectedLayer.style.zIndex =
+    1;
+
+  }
+
+}
+
+
+
+
+const textColor =
+document.getElementById("textColor");
+
+const fontSize =
+document.getElementById("fontSize");
+
+const rotate =
+document.getElementById("rotate");
+
+const opacity =
+document.getElementById("opacity");
+
+function updateControls(){
+
+  if(!selectedLayer) return;
+
+  selectedLayer.style.opacity =
+  opacity.value;
+
+  selectedLayer.dataset.rotate =
+  rotate.value;
+
+  const x =
+  selectedLayer.getAttribute(
+    "data-x"
+  ) || 0;
+
+  const y =
+  selectedLayer.getAttribute(
+    "data-y"
+  ) || 0;
+
+  selectedLayer.style.transform =
+  `
+  translate(${x}px,${y}px)
+  rotate(${rotate.value}deg)
+  `;
+
+  if(
+    selectedLayer.classList.contains(
+      "text-layer"
+    )
+  ){
+
+    selectedLayer.style.color =
+    textColor.value;
+
+    selectedLayer.style.fontSize =
+    fontSize.value + "px";
+
+  }
+
+}
+
+[
+  textColor,
+  fontSize,
+  rotate,
+  opacity
+].forEach(el=>{
+
+  el.addEventListener(
+    "input",
+    updateControls
+  );
+
+});
+
+
+
+
+async function downloadCanvas(){
+
+  document
+  .querySelectorAll(
+    ".selected"
+  )
+  .forEach(el=>{
+
+    el.classList.remove(
+      "selected"
+    );
+
+  });
+
+  const canvasImage =
+  await html2canvas(
+    canvas,
+    {
+      scale:4,
+      useCORS:true
+    }
+  );
+
+  const link =
+  document.createElement("a");
+
+  link.download =
+  "poster.png";
+
+  link.href =
+  canvasImage.toDataURL(
+    "image/png"
+  );
+
+  link.click();
+
+}
+
 </script>
+
+<script>
+
+
+
+
+const params =
+new URLSearchParams(
+  window.location.search
+);
+
+const imageURL =
+params.get("img");
+
+if(imageURL){
+
+  addImageFromURL(
+    decodeURIComponent(imageURL)
+  );
+
+}
+
+
+
+
+function addImageFromURL(url){
+
+  const layer =
+  document.createElement("div");
+
+  layer.className =
+  "layer image-layer";
+
+  layer.style.width =
+  "100%";
+
+  layer.style.height =
+  "auto";
+
+  layer.style.left =
+  "0";
+
+  layer.style.top =
+  "0";
+
+  layer.style.zIndex =
+  "1";
+
+  const img =
+  document.createElement("img");
+
+  img.src = url;
+
+  img.crossOrigin =
+  "anonymous";
+
+  img.style.width =
+  "100%";
+
+  img.style.height =
+  "auto";
+
+  img.style.display =
+  "block";
+
+   
+
+  img.onload = ()=>{
+
+     
+
+    const imageHeight =
+    img.offsetHeight;
+
+     
+
+    createFooterText(
+      imageHeight
+    );
+
+  };
+
+  layer.appendChild(img);
+
+  canvas.appendChild(layer);
+
+}
+
+
+
+function createFooterText(imageHeight){
+
+   
+
+  const old =
+  document.getElementById(
+    "footerTextLayer"
+  );
+
+  if(old){
+
+    old.remove();
+
+  }
+
+   
+
+  const layer =
+  document.createElement("div");
+
+  layer.className =
+  "layer text-layer";
+
+  layer.id =
+  "footerTextLayer";
+
+  layer.contentEditable =
+  true;
+
+   
+
+  layer.innerHTML =
+  localStorage.getItem(
+    "footerText"
+  ) ||
+  "V2K COMPUTERS<br>Mo. 9999999999";
+
+   
+
+  layer.style.left =
+  "0px";
+
+   
+
+  layer.style.top =
+  imageHeight + "px";
+
+  layer.style.width =
+  "100%";
+
+  layer.style.height =
+  "220px";
+
+  layer.style.padding =
+  "40px";
+
+  layer.style.fontSize =
+  "60px";
+
+  layer.style.fontWeight =
+  "900";
+
+  layer.style.lineHeight =
+  "1.2";
+
+  layer.style.textAlign =
+  "center";
+
+  layer.style.color =
+  "#ffffff";
+
+  layer.style.background =
+  "rgba(0,0,0,0.85)";
+
+  layer.style.zIndex =
+  "999";
+
+  layer.style.display =
+  "flex";
+
+  layer.style.alignItems =
+  "center";
+
+  layer.style.justifyContent =
+  "center";
+
+  layer.style.flexDirection =
+  "column";
+
+   
+
+  layer.addEventListener(
+    "input",
+    ()=>{
+
+      localStorage.setItem(
+        "footerText",
+        layer.innerHTML
+      );
+
+    }
+  );
+
+  canvas.appendChild(layer);
+
+   
+
+  addResizeHandle(layer);
+
+  enableInteract(layer);
+
+  selectLayer(layer);
+
+  layer.addEventListener(
+    "mousedown",
+    ()=>selectLayer(layer)
+  );
+
+}
+</script>
+<script>
+
+
+
+
+const mobileControlBox =
+document.getElementById(
+  "mobileControlBox"
+);
+
+const mobileControlArea =
+document.getElementById(
+  "mobileControlArea"
+);
+
+const mobileControlLabel =
+document.getElementById(
+  "mobileControlLabel"
+);
+
+function showControl(type){
+
+  mobileControlBox.classList.add(
+    "active"
+  );
+
+  mobileControlArea.innerHTML = "";
+
+  let clone;
+
+  if(type === "color"){
+
+    mobileControlLabel.innerHTML =
+    "Text Color";
+
+    clone =
+    textColor.cloneNode(true);
+
+  }
+
+  if(type === "font"){
+
+    mobileControlLabel.innerHTML =
+    "Font Size";
+
+    clone =
+    fontSize.cloneNode(true);
+
+  }
+
+  if(type === "rotate"){
+
+    mobileControlLabel.innerHTML =
+    "Rotate";
+
+    clone =
+    rotate.cloneNode(true);
+
+  }
+
+  if(type === "opacity"){
+
+    mobileControlLabel.innerHTML =
+    "Opacity";
+
+    clone =
+    opacity.cloneNode(true);
+
+  }
+
+  clone.addEventListener(
+    "input",
+    e=>{
+
+      if(type === "color"){
+
+        textColor.value =
+        e.target.value;
+
+      }
+
+      if(type === "font"){
+
+        fontSize.value =
+        e.target.value;
+
+      }
+
+      if(type === "rotate"){
+
+        rotate.value =
+        e.target.value;
+
+      }
+
+      if(type === "opacity"){
+
+        opacity.value =
+        e.target.value;
+
+      }
+
+      updateControls();
+
+    }
+  );
+
+  mobileControlArea.appendChild(
+    clone
+  );
+
+}
+
+ 
+
+document.addEventListener(
+  "click",
+  e=>{
+
+    if(
+      !e.target.closest(
+        ".mobile-control-box"
+      ) &&
+
+      !e.target.closest(
+        ".mobile-toolbar button"
+      )
+    ){
+
+      mobileControlBox.classList.remove(
+        "active"
+      );
+
+    }
+
+  }
+);
+
+</script>
+
 
 </body>
 </html>
