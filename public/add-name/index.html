@@ -147,14 +147,14 @@ button{
 
   font-size:40px;
   font-weight:700;
-
   color:#fff;
-
   cursor:move;
 
   outline:none;
-
+text-shadow: 2px 5px 8px #000;
   word-break:break-word;
+    resize:none;
+  overflow:visible;
 }
 
  
@@ -356,8 +356,6 @@ button{
 
 
 
-
-
 <div class="mobile-control-box" id="mobileControlBox">
 
   <label id="mobileControlLabel">
@@ -410,6 +408,8 @@ button{
   
   <div class="sidebar">
 
+
+
     <h2>Poster Editor</h2>
 
     
@@ -450,7 +450,7 @@ button{
       <input
         type="color"
         id="textColor"
-        value="#000000"
+        value=""
       >
 
     </div>
@@ -497,6 +497,26 @@ button{
       >
 
     </div>
+        
+<div class="control-group">
+  <label>Footer BG</label>
+  <input type="color" id="footerBG">
+</div>
+
+<div class="control-group">
+  <label>Footer Radius</label>
+  <input type="range" id="footerRadius" min="0" max="100" value="0">
+</div>
+
+<div class="control-group">
+  <label>Footer Blur</label>
+  <input type="range" id="footerBlur" min="0" max="40" value="0">
+</div>
+
+<div class="control-group">
+  <label>Footer Shadow</label>
+  <input type="range" id="footerShadow" min="0" max="80" value="0">
+</div>
 
   </div>
 
@@ -625,21 +645,57 @@ function enableInteract(layer){
 
   })
 
-  .resizable({
+.resizable({
+  edges:{
+    top:true,
+    left:true,
+    bottom:true,
+    right:true
+  },
 
-    edges:{
-      right:true,
-      bottom:true
-    },
+  listeners:{
 
-    listeners:{
+    move(event){
 
-      move(event){
+      let {
+        width,
+        height
+      } = event.rect;
 
-        let {
-          width,
-          height
-        } = event.rect;
+      
+
+
+      if(
+        layer.classList.contains(
+          "text-layer"
+        )
+      ){
+
+         
+
+        layer.style.width =
+        width + "px";
+
+        layer.style.minHeight =
+        height + "px";
+
+         
+
+        const autoFont =
+        Math.max(
+          14,
+          width / 8
+        );
+
+        layer.style.fontSize =
+        autoFont + "px";
+
+      }
+
+      
+
+
+      else{
 
         layer.style.width =
         width + "px";
@@ -649,9 +705,50 @@ function enableInteract(layer){
 
       }
 
+       
+
+      let x =
+      (
+        parseFloat(
+          layer.getAttribute(
+            "data-x"
+          )
+        ) || 0
+      );
+
+      let y =
+      (
+        parseFloat(
+          layer.getAttribute(
+            "data-y"
+          )
+        ) || 0
+      );
+
+      x += event.deltaRect.left;
+      y += event.deltaRect.top;
+
+      layer.style.transform =
+      `
+      translate(${x}px,${y}px)
+      rotate(${layer.dataset.rotate || 0}deg)
+      `;
+
+      layer.setAttribute(
+        "data-x",
+        x
+      );
+
+      layer.setAttribute(
+        "data-y",
+        y
+      );
+
     }
 
-  });
+  }
+
+});
 
 }
 
@@ -808,7 +905,6 @@ document.addEventListener(
 
 
 
-
 function addText(){
 
   const layer =
@@ -829,8 +925,60 @@ function addText(){
   layer.style.top =
   "100px";
 
+   
+
   layer.style.zIndex =
-  zIndexCounter++;
+  "9999";
+
+   
+
+  layer.style.width =
+  "300px";
+
+  layer.style.minHeight =
+  "80px";
+
+  layer.style.padding =
+  "15px";
+
+  layer.style.resize =
+  "both";
+
+  layer.style.overflow =
+  "hidden";
+
+  layer.style.display =
+  "block";
+
+  layer.style.cursor =
+  "move";
+
+  layer.style.background =
+  "transparent";
+
+  layer.style.border =
+  "2px dashed transparent";
+
+  layer.style.wordBreak =
+  "break-word";
+
+  layer.style.whiteSpace =
+  "pre-wrap";
+
+  layer.style.outline =
+  "none";
+
+   
+
+  if(window.innerWidth < 768){
+
+    layer.style.width =
+    "220px";
+
+    layer.style.fontSize =
+    "24px";
+
+  }
 
   addResizeHandle(layer);
 
@@ -842,7 +990,11 @@ function addText(){
 
   layer.addEventListener(
     "mousedown",
-    ()=>selectLayer(layer)
+    ()=>{
+
+      selectLayer(layer);
+
+    }
   );
 
 }
@@ -1127,6 +1279,8 @@ canvas.appendChild(layer);
 
 function createFooterText(imageHeight){
 
+   
+
   const old =
   document.getElementById(
     "footerContainer"
@@ -1136,13 +1290,14 @@ function createFooterText(imageHeight){
     old.remove();
   }
 
-   
+  
+
 
   const container =
   document.createElement("div");
 
   container.className =
-  "layer";
+  "layer text-layer";
 
   container.id =
   "footerContainer";
@@ -1156,17 +1311,14 @@ function createFooterText(imageHeight){
   container.style.width =
   "100%";
 
-  container.style.background =
-  "rgba(0,0,0,0.85)";
+  container.style.minHeight =
+  "180px";
 
   container.style.padding =
-  "30px 20px";
+  "2px";
 
   container.style.zIndex =
-  "999";
-
-  container.style.textAlign =
-  "center";
+  "9";
 
   container.style.display =
   "flex";
@@ -1179,6 +1331,55 @@ function createFooterText(imageHeight){
 
   container.style.justifyContent =
   "center";
+
+  container.style.textAlign =
+  "center";
+
+  container.style.cursor =
+  "move";
+
+  
+
+
+  const footerBG =
+  localStorage.getItem(
+    "footer_bg"
+  ) || "rgb(254, 225, 225)";
+
+  const footerColor =
+  localStorage.getItem(
+    "footer_color"
+  ) || "#fff";
+
+  const footerRadius =
+  localStorage.getItem(
+    "footer_radius"
+  ) || "0";
+
+  const footerBlur =
+  localStorage.getItem(
+    "footer_blur"
+  ) || "0";
+
+  const footerShadow =
+  localStorage.getItem(
+    "footer_shadow"
+  ) || "0";
+
+  container.style.background =
+  footerBG;
+
+  container.style.color =
+  footerColor;
+
+  container.style.borderRadius =
+  footerRadius + "px";
+
+  container.style.backdropFilter =
+  `blur(${footerBlur}px)`;
+
+  container.style.boxShadow =
+  `0 0 ${footerShadow}px rgba(0,0,0,.5)`;
 
   
 
@@ -1193,13 +1394,10 @@ function createFooterText(imageHeight){
   localStorage.getItem(
     "poster_h2"
   ) ||
-  "V2K COMPUTERS";
+  "YOJNA PORTAL";
 
   h2.style.width =
   "100%";
-
-  h2.style.color =
-  "#fff";
 
   h2.style.fontWeight =
   "900";
@@ -1213,7 +1411,7 @@ function createFooterText(imageHeight){
   h2.style.fontSize =
   window.innerWidth < 768
   ? "28px"
-  : "58px";
+  : "60px";
 
   
 
@@ -1233,9 +1431,6 @@ function createFooterText(imageHeight){
   h5.style.width =
   "100%";
 
-  h5.style.color =
-  "#fff";
-
   h5.style.marginTop =
   "10px";
 
@@ -1250,7 +1445,8 @@ function createFooterText(imageHeight){
   ? "16px"
   : "28px";
 
-   
+  
+
 
   h2.addEventListener(
     "input",
@@ -1276,11 +1472,28 @@ function createFooterText(imageHeight){
     }
   );
 
+  
+
+
   container.appendChild(h2);
 
   container.appendChild(h5);
 
   canvas.appendChild(container);
+
+  
+
+
+  addResizeHandle(container);
+
+  enableInteract(container);
+
+  selectLayer(container);
+
+  container.addEventListener(
+    "mousedown",
+    ()=>selectLayer(container)
+  );
 
 }
 </script>
@@ -1424,6 +1637,73 @@ document.addEventListener(
 
 </script>
 
+<script>
+  const footerBG =
+document.getElementById("footerBG");
 
+const footerRadius =
+document.getElementById("footerRadius");
+
+const footerBlur =
+document.getElementById("footerBlur");
+
+const footerShadow =
+document.getElementById("footerShadow");
+
+[
+  footerBG,
+  footerRadius,
+  footerBlur,
+  footerShadow
+].forEach(el=>{
+
+  el.addEventListener(
+    "input",
+    ()=>{
+
+      const box =
+      document.getElementById(
+        "footerContainer"
+      );
+
+      if(!box) return;
+
+      box.style.background =
+      footerBG.value;
+
+      box.style.borderRadius =
+      footerRadius.value + "px";
+
+      box.style.backdropFilter =
+      `blur(${footerBlur.value}px)`;
+
+      box.style.boxShadow =
+      `0 0 ${footerShadow.value}px rgba(0,0,0,.5)`;
+
+      localStorage.setItem(
+        "footer_bg",
+        footerBG.value
+      );
+
+      localStorage.setItem(
+        "footer_radius",
+        footerRadius.value
+      );
+
+      localStorage.setItem(
+        "footer_blur",
+        footerBlur.value
+      );
+
+      localStorage.setItem(
+        "footer_shadow",
+        footerShadow.value
+      );
+
+    }
+  );
+
+});
+</script>
 </body>
 </html>
