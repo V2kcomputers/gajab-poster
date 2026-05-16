@@ -1881,14 +1881,15 @@ SMART TOOLBAR
 
   <div class="tool-item">
 
-    <button
-      class="icon-btn"
-      onclick="toggleLock()"
-    >
-      🔒
-    </button>
+  <button
+    class="icon-btn"
+    id="lockBtn"
+    onclick="toggleLock()"
+  >
+    🔓
+  </button>
 
-  </div>
+</div>
 
   <!-- DUPLICATE -->
 
@@ -3747,10 +3748,17 @@ function toggleLock(){
 
   if(!obj) return;
 
-  const isLocked =
-  obj.selectable === false;
+  const lockBtn =
+  document.getElementById(
+    "lockBtn"
+  );
 
-  /* UNLOCK */
+  const isLocked =
+  obj.isLocked === true;
+
+  /* =====================
+     UNLOCK
+  ===================== */
 
   if(isLocked){
 
@@ -3770,20 +3778,34 @@ function toggleLock(){
       hasControls:true,
       hasBorders:true,
 
-      opacity:1
+      opacity:1,
+
+      isLocked:false
 
     });
 
+    // TOOLBAR ICON
+    if(lockBtn){
+
+      lockBtn.innerHTML = "🔓";
+
+    }
+
+    // OBJECT ICON
+    addLockIcon(obj,false);
+
   }
 
-  /* LOCK */
+  /* =====================
+     LOCK
+  ===================== */
 
   else{
 
     obj.set({
 
-      selectable:false,
-      evented:false,
+      selectable:true,
+      evented:true,
 
       lockMovementX:true,
       lockMovementY:true,
@@ -3796,19 +3818,58 @@ function toggleLock(){
       hasControls:false,
       hasBorders:false,
 
-      opacity:0.7
+      opacity:1,
+
+      isLocked:true
 
     });
 
+    // TOOLBAR ICON
+    if(lockBtn){
+
+      lockBtn.innerHTML = "🔒";
+
+    }
+
+    // OBJECT ICON
+    addLockIcon(obj,true);
+
   }
 
-  canvas.discardActiveObject();
+  canvas.setActiveObject(obj);
 
   canvas.renderAll();
 
   saveHistory();
 
 }
+
+/* =========================================================
+SELECT LOCKED OBJECT
+========================================================= */
+
+canvas.on(
+  "mouse:down",
+  function(opt){
+
+    if(!opt.target) return;
+
+    const obj =
+    opt.target;
+
+    // icon ignore
+    if(obj.excludeFromExport) return;
+
+    if(obj.isLocked){
+
+      canvas.setActiveObject(obj);
+
+      canvas.renderAll();
+
+    }
+
+  }
+);
 
 /* =========================================================
 DUPLICATE
@@ -3865,31 +3926,66 @@ function deleteLayer(){
 DELETE KEY SUPPORT
 ========================================================= */
 
+/* =========================================================
+SAFE DELETE KEY
+========================================================= */
+
 document.addEventListener(
+
   "keydown",
+
   function(e){
 
+    const obj =
+    canvas.getActiveObject();
+
+    if(!obj) return;
+
+    /* =====================
+       TEXT EDIT MODE
+    ===================== */
+
+    const isEditingText =
+
+      (
+        obj.type === "textbox" ||
+        obj.type === "i-text"
+      )
+
+      &&
+
+      obj.isEditing;
+
+    /* =====================
+       DELETE OBJECT
+    ===================== */
+
     if(
-      e.key === "Delete" ||
-      e.key === "Backspace"
+
+      (
+        e.key === "Delete" ||
+        e.key === "Backspace"
+      )
+
+      &&
+
+      !isEditingText
+
     ){
 
-      const obj =
-      canvas.getActiveObject();
+      e.preventDefault();
 
-      if(obj){
+      canvas.remove(obj);
 
-        canvas.remove(obj);
+      canvas.renderAll();
 
-        canvas.renderAll();
-
-        saveHistory();
-
-      }
+      saveHistory();
 
     }
 
-    /* CTRL + Z */
+    /* =====================
+       CTRL + Z
+    ===================== */
 
     if(
       e.ctrlKey &&
@@ -3902,7 +3998,9 @@ document.addEventListener(
 
     }
 
-    /* CTRL + Y */
+    /* =====================
+       CTRL + Y
+    ===================== */
 
     if(
       e.ctrlKey &&
@@ -3916,7 +4014,195 @@ document.addEventListener(
     }
 
   }
+
 );
+
+/* =========================================================
+PARTIAL TEXT COLOR
+========================================================= */
+
+function applySelectedTextColor(color){
+
+  const obj =
+  canvas.getActiveObject();
+
+  if(
+    !obj ||
+    (
+      obj.type !== "textbox" &&
+      obj.type !== "i-text"
+    )
+  ) return;
+
+  /* =====================
+     SELECTED TEXT
+  ===================== */
+
+  if(
+
+    obj.selectionStart !==
+    obj.selectionEnd
+
+  ){
+
+    obj.setSelectionStyles(
+
+      {
+
+        fill:color
+
+      },
+
+      obj.selectionStart,
+
+      obj.selectionEnd
+
+    );
+
+  }
+
+  /* =====================
+     FULL TEXT
+  ===================== */
+
+  else{
+
+    obj.set(
+      "fill",
+      color
+    );
+
+  }
+
+  canvas.renderAll();
+
+  saveHistory();
+
+}
+
+/* =========================================================
+PARTIAL TEXT BOLD
+========================================================= */
+
+function applySelectedBold(){
+
+  const obj =
+  canvas.getActiveObject();
+
+  if(
+    !obj ||
+    (
+      obj.type !== "textbox" &&
+      obj.type !== "i-text"
+    )
+  ) return;
+
+  if(
+
+    obj.selectionStart !==
+    obj.selectionEnd
+
+  ){
+
+    obj.setSelectionStyles(
+
+      {
+
+        fontWeight:"bold"
+
+      },
+
+      obj.selectionStart,
+
+      obj.selectionEnd
+
+    );
+
+  }
+
+  else{
+
+    obj.set(
+
+      "fontWeight",
+
+      obj.fontWeight ===
+      "bold"
+
+      ? "normal"
+      : "bold"
+
+    );
+
+  }
+
+  canvas.renderAll();
+
+  saveHistory();
+
+}
+
+/* =========================================================
+PARTIAL TEXT ITALIC
+========================================================= */
+
+function applySelectedItalic(){
+
+  const obj =
+  canvas.getActiveObject();
+
+  if(
+    !obj ||
+    (
+      obj.type !== "textbox" &&
+      obj.type !== "i-text"
+    )
+  ) return;
+
+  if(
+
+    obj.selectionStart !==
+    obj.selectionEnd
+
+  ){
+
+    obj.setSelectionStyles(
+
+      {
+
+        fontStyle:"italic"
+
+      },
+
+      obj.selectionStart,
+
+      obj.selectionEnd
+
+    );
+
+  }
+
+  else{
+
+    obj.set(
+
+      "fontStyle",
+
+      obj.fontStyle ===
+      "italic"
+
+      ? "normal"
+      : "italic"
+
+    );
+
+  }
+
+  canvas.renderAll();
+
+  saveHistory();
+
+}
 
 </script>
 
@@ -4039,26 +4325,9 @@ document
   "input",
   function(){
 
-    const obj =
-    canvas.getActiveObject();
-
-    if(obj){
-
-      obj.set(
-        "fill",
-        this.value
-      );
-
-      canvas.renderAll();
-
-    }
-
-    /* A COLOR CHANGE */
-
-    document
-    .getElementById("fontColorIcon")
-    .style.color =
-    this.value;
+    applySelectedTextColor(
+      this.value
+    );
 
   }
 );
@@ -4107,6 +4376,199 @@ document.addEventListener(
 
   }
 );
+</script>
+<script>
+  /* =========================================================
+CANVAS DRAG & DROP IMAGE UPLOAD
+========================================================= */
+
+function initCanvasDragDrop(){
+
+  const canvasContainer =
+  canvas.upperCanvasEl;
+
+  /* =====================
+     PREVENT DEFAULT
+  ===================== */
+
+  [
+    "dragenter",
+    "dragover",
+    "dragleave",
+    "drop"
+  ].forEach(eventName=>{
+
+    canvasContainer.addEventListener(
+
+      eventName,
+
+      function(e){
+
+        e.preventDefault();
+
+        e.stopPropagation();
+
+      },
+
+      false
+
+    );
+
+  });
+
+  /* =====================
+     CANVAS HIGHLIGHT
+  ===================== */
+
+  [
+    "dragenter",
+    "dragover"
+  ].forEach(eventName=>{
+
+    canvasContainer.addEventListener(
+
+      eventName,
+
+      function(){
+
+        canvasContainer.style.outline =
+        "3px dashed #7c3aed";
+
+        canvasContainer.style.outlineOffset =
+        "-6px";
+
+      },
+
+      false
+
+    );
+
+  });
+
+  /* =====================
+     REMOVE HIGHLIGHT
+  ===================== */
+
+  [
+    "dragleave",
+    "drop"
+  ].forEach(eventName=>{
+
+    canvasContainer.addEventListener(
+
+      eventName,
+
+      function(){
+
+        canvasContainer.style.outline =
+        "none";
+
+      },
+
+      false
+
+    );
+
+  });
+
+  /* =====================
+     DROP IMAGE
+  ===================== */
+
+  canvasContainer.addEventListener(
+
+    "drop",
+
+    function(e){
+
+      const dt =
+      e.dataTransfer;
+
+      const files =
+      dt.files;
+
+      if(!files.length) return;
+
+      [...files].forEach(file=>{
+
+        if(
+          !file.type.startsWith(
+            "image/"
+          )
+        ) return;
+
+        const reader =
+        new FileReader();
+
+        reader.onload =
+        function(event){
+
+          fabric.Image.fromURL(
+
+            event.target.result,
+
+            function(img){
+
+              /* DROP POSITION */
+
+              const pointer =
+              canvas.getPointer(e);
+
+              img.set({
+
+                left:pointer.x,
+                top:pointer.y,
+
+                originX:"center",
+                originY:"center"
+
+              });
+
+              /* AUTO SCALE */
+
+              if(
+                img.width > 500
+              ){
+
+                img.scaleToWidth(300);
+
+              }
+
+              canvas.add(img);
+
+              canvas.setActiveObject(img);
+
+              canvas.renderAll();
+
+              saveRecentImage(
+                event.target.result
+              );
+
+              saveHistory();
+
+            }
+
+          );
+
+        };
+
+        reader.readAsDataURL(file);
+
+      });
+
+    },
+
+    false
+
+  );
+
+}
+
+/* =========================================================
+INIT
+========================================================= */
+
+initCanvasDragDrop();
 </script>
 </body> 
 </html>

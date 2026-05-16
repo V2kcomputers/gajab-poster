@@ -1841,14 +1841,15 @@ id="fontPanel"
 
   <div class="tool-item">
 
-    <button
-      class="icon-btn"
-      onclick="toggleLock()"
-    >
-      🔒
-    </button>
+  <button
+    class="icon-btn"
+    id="lockBtn"
+    onclick="toggleLock()"
+  >
+    🔓
+  </button>
 
-  </div>
+</div>
 
   
 
@@ -3672,10 +3673,16 @@ function toggleLock(){
 
   if(!obj) return;
 
-  const isLocked =
-  obj.selectable === false;
+  const lockBtn =
+  document.getElementById(
+    "lockBtn"
+  );
 
-   
+  const isLocked =
+  obj.isLocked === true;
+
+  
+
 
   if(isLocked){
 
@@ -3695,20 +3702,33 @@ function toggleLock(){
       hasControls:true,
       hasBorders:true,
 
-      opacity:1
+      opacity:1,
+
+      isLocked:false
 
     });
 
+    
+    if(lockBtn){
+
+      lockBtn.innerHTML = "🔓";
+
+    }
+
+    
+    addLockIcon(obj,false);
+
   }
 
-   
+  
+
 
   else{
 
     obj.set({
 
-      selectable:false,
-      evented:false,
+      selectable:true,
+      evented:true,
 
       lockMovementX:true,
       lockMovementY:true,
@@ -3721,19 +3741,57 @@ function toggleLock(){
       hasControls:false,
       hasBorders:false,
 
-      opacity:0.7
+      opacity:1,
+
+      isLocked:true
 
     });
 
+    
+    if(lockBtn){
+
+      lockBtn.innerHTML = "🔒";
+
+    }
+
+    
+    addLockIcon(obj,true);
+
   }
 
-  canvas.discardActiveObject();
+  canvas.setActiveObject(obj);
 
   canvas.renderAll();
 
   saveHistory();
 
 }
+
+
+
+
+canvas.on(
+  "mouse:down",
+  function(opt){
+
+    if(!opt.target) return;
+
+    const obj =
+    opt.target;
+
+    
+    if(obj.excludeFromExport) return;
+
+    if(obj.isLocked){
+
+      canvas.setActiveObject(obj);
+
+      canvas.renderAll();
+
+    }
+
+  }
+);
 
 
 
@@ -3787,31 +3845,62 @@ function deleteLayer(){
 
 
 
+
+
+
 document.addEventListener(
+
   "keydown",
+
   function(e){
 
+    const obj =
+    canvas.getActiveObject();
+
+    if(!obj) return;
+
+    
+
+
+    const isEditingText =
+
+      (
+        obj.type === "textbox" ||
+        obj.type === "i-text"
+      )
+
+      &&
+
+      obj.isEditing;
+
+    
+
+
     if(
-      e.key === "Delete" ||
-      e.key === "Backspace"
+
+      (
+        e.key === "Delete" ||
+        e.key === "Backspace"
+      )
+
+      &&
+
+      !isEditingText
+
     ){
 
-      const obj =
-      canvas.getActiveObject();
+      e.preventDefault();
 
-      if(obj){
+      canvas.remove(obj);
 
-        canvas.remove(obj);
+      canvas.renderAll();
 
-        canvas.renderAll();
-
-        saveHistory();
-
-      }
+      saveHistory();
 
     }
 
-     
+    
+
 
     if(
       e.ctrlKey &&
@@ -3824,7 +3913,8 @@ document.addEventListener(
 
     }
 
-     
+    
+
 
     if(
       e.ctrlKey &&
@@ -3838,7 +3928,190 @@ document.addEventListener(
     }
 
   }
+
 );
+
+
+
+
+function applySelectedTextColor(color){
+
+  const obj =
+  canvas.getActiveObject();
+
+  if(
+    !obj ||
+    (
+      obj.type !== "textbox" &&
+      obj.type !== "i-text"
+    )
+  ) return;
+
+  
+
+
+  if(
+
+    obj.selectionStart !==
+    obj.selectionEnd
+
+  ){
+
+    obj.setSelectionStyles(
+
+      {
+
+        fill:color
+
+      },
+
+      obj.selectionStart,
+
+      obj.selectionEnd
+
+    );
+
+  }
+
+  
+
+
+  else{
+
+    obj.set(
+      "fill",
+      color
+    );
+
+  }
+
+  canvas.renderAll();
+
+  saveHistory();
+
+}
+
+
+
+
+function applySelectedBold(){
+
+  const obj =
+  canvas.getActiveObject();
+
+  if(
+    !obj ||
+    (
+      obj.type !== "textbox" &&
+      obj.type !== "i-text"
+    )
+  ) return;
+
+  if(
+
+    obj.selectionStart !==
+    obj.selectionEnd
+
+  ){
+
+    obj.setSelectionStyles(
+
+      {
+
+        fontWeight:"bold"
+
+      },
+
+      obj.selectionStart,
+
+      obj.selectionEnd
+
+    );
+
+  }
+
+  else{
+
+    obj.set(
+
+      "fontWeight",
+
+      obj.fontWeight ===
+      "bold"
+
+      ? "normal"
+      : "bold"
+
+    );
+
+  }
+
+  canvas.renderAll();
+
+  saveHistory();
+
+}
+
+
+
+
+function applySelectedItalic(){
+
+  const obj =
+  canvas.getActiveObject();
+
+  if(
+    !obj ||
+    (
+      obj.type !== "textbox" &&
+      obj.type !== "i-text"
+    )
+  ) return;
+
+  if(
+
+    obj.selectionStart !==
+    obj.selectionEnd
+
+  ){
+
+    obj.setSelectionStyles(
+
+      {
+
+        fontStyle:"italic"
+
+      },
+
+      obj.selectionStart,
+
+      obj.selectionEnd
+
+    );
+
+  }
+
+  else{
+
+    obj.set(
+
+      "fontStyle",
+
+      obj.fontStyle ===
+      "italic"
+
+      ? "normal"
+      : "italic"
+
+    );
+
+  }
+
+  canvas.renderAll();
+
+  saveHistory();
+
+}
 
 </script>
 
@@ -3956,26 +4229,9 @@ document
   "input",
   function(){
 
-    const obj =
-    canvas.getActiveObject();
-
-    if(obj){
-
-      obj.set(
-        "fill",
-        this.value
-      );
-
-      canvas.renderAll();
-
-    }
-
-     
-
-    document
-    .getElementById("fontColorIcon")
-    .style.color =
-    this.value;
+    applySelectedTextColor(
+      this.value
+    );
 
   }
 );
@@ -4022,6 +4278,193 @@ document.addEventListener(
 
   }
 );
+</script>
+<script>
+  
+
+
+function initCanvasDragDrop(){
+
+  const canvasContainer =
+  canvas.upperCanvasEl;
+
+  
+
+
+  [
+    "dragenter",
+    "dragover",
+    "dragleave",
+    "drop"
+  ].forEach(eventName=>{
+
+    canvasContainer.addEventListener(
+
+      eventName,
+
+      function(e){
+
+        e.preventDefault();
+
+        e.stopPropagation();
+
+      },
+
+      false
+
+    );
+
+  });
+
+  
+
+
+  [
+    "dragenter",
+    "dragover"
+  ].forEach(eventName=>{
+
+    canvasContainer.addEventListener(
+
+      eventName,
+
+      function(){
+
+        canvasContainer.style.outline =
+        "3px dashed #7c3aed";
+
+        canvasContainer.style.outlineOffset =
+        "-6px";
+
+      },
+
+      false
+
+    );
+
+  });
+
+  
+
+
+  [
+    "dragleave",
+    "drop"
+  ].forEach(eventName=>{
+
+    canvasContainer.addEventListener(
+
+      eventName,
+
+      function(){
+
+        canvasContainer.style.outline =
+        "none";
+
+      },
+
+      false
+
+    );
+
+  });
+
+  
+
+
+  canvasContainer.addEventListener(
+
+    "drop",
+
+    function(e){
+
+      const dt =
+      e.dataTransfer;
+
+      const files =
+      dt.files;
+
+      if(!files.length) return;
+
+      [...files].forEach(file=>{
+
+        if(
+          !file.type.startsWith(
+            "image/"
+          )
+        ) return;
+
+        const reader =
+        new FileReader();
+
+        reader.onload =
+        function(event){
+
+          fabric.Image.fromURL(
+
+            event.target.result,
+
+            function(img){
+
+               
+
+              const pointer =
+              canvas.getPointer(e);
+
+              img.set({
+
+                left:pointer.x,
+                top:pointer.y,
+
+                originX:"center",
+                originY:"center"
+
+              });
+
+               
+
+              if(
+                img.width > 500
+              ){
+
+                img.scaleToWidth(300);
+
+              }
+
+              canvas.add(img);
+
+              canvas.setActiveObject(img);
+
+              canvas.renderAll();
+
+              saveRecentImage(
+                event.target.result
+              );
+
+              saveHistory();
+
+            }
+
+          );
+
+        };
+
+        reader.readAsDataURL(file);
+
+      });
+
+    },
+
+    false
+
+  );
+
+}
+
+
+
+
+initCanvasDragDrop();
 </script>
 </body> 
 </html>
