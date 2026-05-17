@@ -1,8 +1,20 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
 
 <meta charset="UTF-8" />
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4855323063398382" crossorigin="anonymous"></script>
+  
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-MTRBDMHW1C"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-MTRBDMHW1C');
+</script>
 
 <meta
 name="viewport"
@@ -965,37 +977,6 @@ body{
     display:none;
   }
 
-   
-
-  .top-toolbar{
-
-    position:fixed;
-
-    left:0;
-
-    right:0;
-
-    bottom:335px;
-
-    top:auto;
-
-    height:auto;
-
-    padding:12px;
-
-    white-space:nowrap;
-
-    display:none;
-
-    gap:10px;
-
-  }
-
-  .top-toolbar.show{
-    display:flex;
-  }
-
-   
 
   .canvas-area{
 
@@ -1065,6 +1046,411 @@ body{
 
  
 
+@media(max-width:768px){
+
+   
+
+  .top-toolbar{
+
+    position:fixed;
+
+    left:0;
+
+    right:0;
+
+    bottom:78px;
+
+    top:auto;
+
+    transform:none;
+
+    width:100%;
+
+    display:none;
+
+    align-items:center;
+
+    gap:10px;
+
+    padding:10px 12px;
+
+    overflow-x:auto;
+
+    overflow-y:visible;
+
+    white-space:nowrap;
+
+    background:#ffffff;
+
+    border-top:1px solid #e5e5e5;
+
+    border-radius:22px 22px 0 0;
+
+    box-shadow:
+    0 -5px 30px rgba(0,0,0,.08);
+
+    z-index:99999;
+
+    scrollbar-width:none;
+
+  }
+
+  .top-toolbar.show{
+    display:flex;
+  }
+
+  .top-toolbar::-webkit-scrollbar{
+    display:none;
+  }
+
+   
+
+  .tool-item{
+
+    position:static;
+
+    flex:none;
+
+  }
+
+   
+
+  .icon-btn{
+
+    width:48px;
+
+    height:48px;
+
+    min-width:48px;
+
+    border:none;
+
+    border-radius:16px;
+
+    background:#f3f3f3;
+
+    font-size:22px;
+
+    cursor:pointer;
+
+    transition:.2s;
+
+    flex:none;
+
+  }
+
+  .icon-btn:hover{
+
+    background:#ede9fe;
+
+    color:#6d28d9;
+
+  }
+
+  .icon-btn.active{
+
+    background:#e9ddff;
+
+    color:#6d28d9;
+
+  }
+
+   
+
+  .tool-select{
+
+    height:48px;
+
+    min-width:130px;
+
+    border:none;
+
+    border-radius:14px;
+
+    padding:0 14px;
+
+    background:#f5f5f5;
+
+    font-size:15px;
+
+    font-weight:600;
+
+    outline:none;
+
+  }
+
+   
+
+  .tool-control{
+
+    position:fixed !important;
+
+    left:50% !important;
+
+    bottom:150px !important;
+
+    top:auto !important;
+
+    transform:translateX(-50%) !important;
+
+    width:92vw;
+
+    max-width:340px;
+
+    min-width:auto;
+
+    max-height:55vh;
+
+    overflow:auto;
+
+    padding:18px;
+
+    border-radius:24px;
+
+    background:#ffffff;
+
+    border:1px solid #e5e5e5;
+
+    box-shadow:
+    0 10px 40px rgba(0,0,0,.18);
+
+    display:none;
+
+    z-index:999999999;
+
+  }
+
+  .tool-control.show{
+    display:block;
+  }
+
+   
+
+  .tool-control input[type=range]{
+
+    width:100%;
+
+  }
+
+   
+
+  .tool-control input[type=color]{
+
+    width:100%;
+
+    height:48px;
+
+    border:none;
+
+    background:none;
+
+    cursor:pointer;
+
+  }
+
+   
+
+  .size-box{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:10px;
+
+    background:#f5f5f5;
+
+    border-radius:16px;
+
+    padding:10px;
+
+  }
+
+  .size-box input{
+
+    width:70px;
+
+    height:42px;
+
+    border:none;
+
+    border-radius:12px;
+
+    background:#fff;
+
+    text-align:center;
+
+    font-size:18px;
+
+    font-weight:700;
+
+    outline:none;
+
+  }
+
+   
+
+  .mini-btn{
+
+    width:40px;
+
+    height:40px;
+
+    min-width:40px;
+
+    border-radius:12px;
+
+    font-size:20px;
+
+  }
+
+   
+
+  .align-popup{
+
+    display:none;
+
+    flex-wrap:wrap;
+
+    justify-content:center;
+
+    gap:10px;
+
+  }
+
+  .align-popup.show{
+    display:flex;
+  }
+
+  .align-tools{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:10px;
+
+    margin-top:10px;
+
+  }
+
+  .align-tools .icon-btn{
+
+    flex:1;
+
+    min-width:60px;
+
+  }
+
+   
+
+  .tool-group{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    padding-right:8px;
+
+    border-right:1px solid #ececec;
+
+    flex:none;
+
+  }
+
+  .tool-group:last-child{
+    border-right:none;
+  }
+
+   
+
+  .toolbar-text-btn{
+
+    border:none;
+
+    background:none;
+
+    font-size:14px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    padding:0 6px;
+
+    color:#333;
+
+    white-space:nowrap;
+
+  }
+
+   
+
+  .range-row{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    margin-bottom:18px;
+
+  }
+
+  .range-row input[type=range]{
+    flex:1;
+  }
+
+   
+
+  .range-value{
+
+    width:52px;
+
+    height:44px;
+
+    border-radius:12px;
+
+    border:1px solid #ddd;
+
+    background:#fff;
+
+    text-align:center;
+
+    font-size:18px;
+
+  }
+
+   
+
+  .tool-icon{
+
+    font-size:24px;
+
+    font-weight:700;
+
+  }
+
+   
+
+  .delete-btn{
+
+    background:#ffe5e5;
+
+    color:#d10000;
+
+  }
+
+}
+
+
+ 
+
 ::-webkit-scrollbar{
   width:6px;
   height:6px;
@@ -1075,7 +1461,12 @@ body{
   border-radius:20px;
 }
 
+
+
+
 </style>
+
+
 </head>
 
 <body>
@@ -1117,6 +1508,9 @@ body{
   <button onclick="openPanel('effectPanel')">
     ✨
   </button>
+  <button onclick="openPanel('imageEffectPanel')">
+  🪄
+</button>
 
   
 
@@ -1132,6 +1526,131 @@ body{
   
 
   <div class="left-panel">
+
+
+    
+
+<div
+class="panel"
+id="imageEffectPanel"
+>
+
+<h2>Image Effects</h2>
+
+<div class="effect-grid">
+
+  
+
+<button
+class="effect-btn"
+onclick="enableCropMode()"
+onmousedown="event.preventDefault()"
+>
+  ✂️ Crop
+</button>
+<button
+class="effect-btn"
+id="applyCropBtn"
+onclick="applyCrop()"
+onmousedown="event.preventDefault()"
+style="display:none;"
+>
+  ✅ Apply Crop
+</button>
+
+  
+
+  <div class="effect-control">
+
+    <label>Brightness</label>
+
+    <input
+    type="range"
+    id="brightnessRange"
+    min="-1"
+    max="1"
+    step="0.1"
+    value="0"
+    oninput="applyImageFilters()"
+    >
+
+  </div>
+
+  
+
+  <div class="effect-control">
+
+    <label>Contrast</label>
+
+    <input
+    type="range"
+    id="contrastRange"
+    min="-1"
+    max="1"
+    step="0.1"
+    value="0"
+    oninput="applyImageFilters()"
+    >
+
+  </div>
+
+  
+
+  <div class="effect-control">
+
+    <label>Saturation</label>
+
+    <input
+    type="range"
+    id="saturationRange"
+    min="-1"
+    max="1"
+    step="0.1"
+    value="0"
+    oninput="applyImageFilters()"
+    >
+
+  </div>
+
+  
+
+  <div class="effect-control">
+
+    <label>Blur</label>
+
+    <input
+    type="range"
+    id="blurRange"
+    min="0"
+    max="1"
+    step="0.01"
+    value="0"
+    oninput="applyImageFilters()"
+    >
+
+  </div>
+
+  
+
+  <button
+  class="effect-btn"
+  onclick="toggleGrayscale()"
+  >
+    Black & White
+  </button>
+
+  
+
+  <button
+  class="effect-btn"
+  onclick="resetImageFilters()"
+  >
+    Reset Effects
+  </button>
+
+</div>
+
+</div>
     
 
 <div
@@ -1902,6 +2421,14 @@ id="fontPanel"
     </button>
 
   </div>
+  <button
+class="effect-btn"
+id="applyCropBtn"
+onclick="applyCrop()"
+style="display:none;"
+>
+  ✅ Apply Crop
+</button>
 
 </div>
 
@@ -1960,6 +2487,12 @@ id="fontPanel"
     >
       Download JPG
     </button>
+    <button
+class="export-btn"
+onclick="downloadTransparentPNG()"
+>
+  Transparent PNG
+</button>
 
     <button
     class="export-btn"
@@ -2023,10 +2556,12 @@ const canvas =
 new fabric.Canvas(
   "canvas",
   {
-    preserveObjectStacking:true
+    preserveObjectStacking:true,
+    backgroundColor:"#ffffff"
   }
 );
 
+canvas.renderAll();
 
 
 
@@ -2696,6 +3231,47 @@ function downloadPNG(){
 
 }
 
+
+
+function downloadTransparentPNG(){
+
+  const fileName =
+  (
+    projectTitle.value ||
+    "poster"
+  ).trim();
+
+  
+  const oldBg =
+  canvas.backgroundColor;
+
+  
+  canvas.setBackgroundColor(
+    null,
+    canvas.renderAll.bind(canvas)
+  );
+
+  const link =
+  document.createElement("a");
+
+  link.download =
+  fileName + "-transparent.png";
+
+  link.href =
+  canvas.toDataURL({
+    format:'png',
+    quality:1
+  });
+
+  link.click();
+
+  
+  canvas.setBackgroundColor(
+    oldBg,
+    canvas.renderAll.bind(canvas)
+  );
+
+}
 
 
 
@@ -4465,6 +5041,396 @@ function initCanvasDragDrop(){
 
 
 initCanvasDragDrop();
+</script>
+<script>
+  
+
+
+function applyImageFilters(){
+
+  const obj =
+  canvas.getActiveObject();
+
+  if(
+    !obj ||
+    obj.type !== "image"
+  ) return;
+
+  obj.filters = [];
+
+   
+
+  const brightness =
+  parseFloat(
+    document.getElementById(
+      "brightnessRange"
+    ).value
+  );
+
+  if(brightness !== 0){
+
+    obj.filters.push(
+
+      new fabric.Image.filters.Brightness({
+        brightness:brightness
+      })
+
+    );
+
+  }
+
+   
+
+  const contrast =
+  parseFloat(
+    document.getElementById(
+      "contrastRange"
+    ).value
+  );
+
+  if(contrast !== 0){
+
+    obj.filters.push(
+
+      new fabric.Image.filters.Contrast({
+        contrast:contrast
+      })
+
+    );
+
+  }
+
+   
+
+  const saturation =
+  parseFloat(
+    document.getElementById(
+      "saturationRange"
+    ).value
+  );
+
+  if(saturation !== 0){
+
+    obj.filters.push(
+
+      new fabric.Image.filters.Saturation({
+        saturation:saturation
+      })
+
+    );
+
+  }
+
+   
+
+  const blur =
+  parseFloat(
+    document.getElementById(
+      "blurRange"
+    ).value
+  );
+
+  if(blur > 0){
+
+    obj.filters.push(
+
+      new fabric.Image.filters.Blur({
+        blur:blur
+      })
+
+    );
+
+  }
+
+  obj.applyFilters();
+
+  canvas.renderAll();
+
+}
+
+
+
+
+function toggleGrayscale(){
+
+  const obj =
+  canvas.getActiveObject();
+
+  if(
+    !obj ||
+    obj.type !== "image"
+  ) return;
+
+  obj.filters.push(
+    new fabric.Image.filters.Grayscale()
+  );
+
+  obj.applyFilters();
+
+  canvas.renderAll();
+
+}
+
+
+
+
+function resetImageFilters(){
+
+  const obj =
+  canvas.getActiveObject();
+
+  if(
+    !obj ||
+    obj.type !== "image"
+  ) return;
+
+  obj.filters = [];
+
+  obj.applyFilters();
+
+  canvas.renderAll();
+
+}
+
+
+
+
+
+
+
+let cropRect = null;
+let croppingImage = null;
+
+function enableCropMode(){
+
+  
+  const activeImg =
+  canvas.getActiveObject();
+
+  if(
+    !activeImg ||
+    activeImg.type !== "image"
+  ){
+
+    alert("Please select image first");
+
+    return;
+
+  }
+
+  
+  croppingImage = activeImg;
+
+  
+  canvas.discardActiveObject();
+
+  
+  if(cropRect){
+
+    canvas.remove(cropRect);
+
+  }
+
+  
+  cropRect =
+  new fabric.Rect({
+
+    left:activeImg.left + 20,
+    top:activeImg.top + 20,
+
+    width:
+    activeImg.width *
+    activeImg.scaleX * 0.6,
+
+    height:
+    activeImg.height *
+    activeImg.scaleY * 0.6,
+
+    fill:'rgba(0,0,0,0.2)',
+
+    stroke:'#7c3aed',
+    strokeWidth:2,
+
+    strokeDashArray:[8,8],
+
+    cornerColor:'#7c3aed',
+
+    transparentCorners:false,
+
+    cornerSize:14,
+
+    borderScaleFactor:2,
+
+    selectable:true,
+    evented:true
+
+  });
+
+  canvas.add(cropRect);
+
+  
+  canvas.bringToFront(cropRect);
+
+  
+  
+  
+
+  canvas.setActiveObject(cropRect);
+
+  canvas.renderAll();
+
+}
+
+
+
+
+function applyCrop(){
+
+  if(
+    !cropRect ||
+    !croppingImage
+  ) return;
+
+  const img =
+  croppingImage;
+
+  const scaleX =
+  img.scaleX;
+
+  const scaleY =
+  img.scaleY;
+
+   
+
+  const cropX =
+  (cropRect.left - img.left) / scaleX;
+
+  const cropY =
+  (cropRect.top - img.top) / scaleY;
+
+  const cropWidth =
+  cropRect.width * cropRect.scaleX / scaleX;
+
+  const cropHeight =
+  cropRect.height * cropRect.scaleY / scaleY;
+
+   
+
+  img.set({
+
+    cropX:cropX,
+    cropY:cropY,
+
+    width:cropWidth,
+    height:cropHeight
+
+  });
+
+   
+
+  img.set({
+
+    scaleX:scaleX,
+    scaleY:scaleY
+
+  });
+
+  canvas.remove(cropRect);
+
+  cropRect = null;
+
+ canvas.discardActiveObject();
+
+canvas.setActiveObject(img);
+
+canvas.renderAll();
+
+
+}
+
+
+
+
+canvas.on(
+  "selection:created",
+  updateCropButton
+);
+
+canvas.on(
+  "selection:updated",
+  updateCropButton
+);
+
+canvas.on(
+  "selection:cleared",
+  function(){
+
+    document.getElementById(
+      "applyCropBtn"
+    ).style.display = "none";
+
+  }
+);
+
+function updateCropButton(){
+
+  const obj =
+  canvas.getActiveObject();
+
+  const btn =
+  document.getElementById(
+    "applyCropBtn"
+  );
+
+  
+  
+
+  if(
+
+    (
+      obj &&
+      obj.type === "image"
+    )
+
+    ||
+
+    cropRect
+
+  ){
+
+    btn.style.display =
+    "block";
+
+  }
+
+  else{
+
+    btn.style.display =
+    "none";
+
+  }
+
+}
+
+
+
+document.addEventListener(
+  "keydown",
+  function(e){
+
+    if(
+      e.key === "Enter" &&
+      cropRect
+    ){
+
+      e.preventDefault();
+
+      applyCrop();
+
+    }
+
+  }
+);
 </script>
 </body> 
 </html>
