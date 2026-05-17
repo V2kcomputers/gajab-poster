@@ -3,7 +3,8 @@
 <head>
 
 <meta charset="UTF-8" />
-
+{{ partial "imp-codes/adsense.html" . }}
+{{ partial "imp-codes/analytics.html" . }}
 <meta
 name="viewport"
 content="width=device-width, initial-scale=1.0"
@@ -2000,6 +2001,12 @@ SMART TOOLBAR
     >
       Download JPG
     </button>
+    <button
+class="export-btn"
+onclick="downloadTransparentPNG()"
+>
+  Transparent PNG
+</button>
 
     <button
     class="export-btn"
@@ -2064,10 +2071,12 @@ const canvas =
 new fabric.Canvas(
   "canvas",
   {
-    preserveObjectStacking:true
+    preserveObjectStacking:true,
+    backgroundColor:"#ffffff"
   }
 );
 
+canvas.renderAll();
 /* =========================
 RESPONSIVE FIX
 ========================= */
@@ -2747,7 +2756,49 @@ function downloadPNG(){
   link.click();
 
 }
+/* =========================
+TRANSPARENT PNG
+========================= */
 
+function downloadTransparentPNG(){
+
+  const fileName =
+  (
+    projectTitle.value ||
+    "poster"
+  ).trim();
+
+  // OLD BG SAVE
+  const oldBg =
+  canvas.backgroundColor;
+
+  // TEMP REMOVE BG
+  canvas.setBackgroundColor(
+    null,
+    canvas.renderAll.bind(canvas)
+  );
+
+  const link =
+  document.createElement("a");
+
+  link.download =
+  fileName + "-transparent.png";
+
+  link.href =
+  canvas.toDataURL({
+    format:'png',
+    quality:1
+  });
+
+  link.click();
+
+  // RESTORE BG
+  canvas.setBackgroundColor(
+    oldBg,
+    canvas.renderAll.bind(canvas)
+  );
+
+}
 /* =========================
 DOWNLOAD JPG
 ========================= */
