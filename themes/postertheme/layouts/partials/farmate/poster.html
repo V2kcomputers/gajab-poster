@@ -99,7 +99,10 @@
   </div>
   {{ end }}
 
-</div>
+
+
+
+
 
   <!-- Tagline -->
   <div class="tagline">
@@ -136,6 +139,21 @@
     <p>{{ . }}</p>
     {{ end }}
   </div>
+<!-- Full Hindi Sharing -->
+  {{ if .Params.ai_voiceover }}
+  <div class="prompt-card">
+    <div class="prompt-header">
+      <h3>📢 Summary (Hindi)</h3>
+    
+    </div>
+
+    <pre id="full-hi">
+{{ range .Params.ai_voiceover }}{{ . }}{{ end }}
+    </pre>
+  </div>
+  {{ end }}
+
+</div>
 
 
   <!-- English Prompt -->

@@ -33,5 +33,5 @@ function copyText(id, btn) {
   navigator.clipboard.writeText(text);
 
   btn.innerText = "✅ Copied!";
-  setTimeout(() => btn.innerText = "📋 Copy Prompt", 2000);
+  setTimeout(() => btn.innerText = "📋 Copy again", 2000);
 }

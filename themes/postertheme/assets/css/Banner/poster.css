@@ -240,13 +240,18 @@ border-image: linear-gradient(135deg,  #ffd700, #fff8dc, #d4af37) 1;
   font-size: 13px;
   line-height: 1.6;
   overflow-x: auto;
+  overflow-y: auto;
   white-space: pre-wrap;
   border: 1px solid #1e293b;
   max-height: 400px;
   
 
 }
-
+.prompt-card pre{
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
 /* Scrollbar (optional) */
 #prompt-box::-webkit-scrollbar {
   height: 6px;
