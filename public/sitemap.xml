@@ -2,14 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://localhost:1313/ctet-sep-2026/</loc>
-    <lastmod>2026-05-17T18:34:29+05:30</lastmod>
+    <loc>http://localhost:1313/jobs/</loc>
+    <lastmod>2026-05-18T09:50:30+05:30</lastmod>
   </url><url>
-    <loc>http://localhost:1313/exams/</loc>
-    <lastmod>2026-05-17T18:34:29+05:30</lastmod>
+    <loc>http://localhost:1313/rrb-alp-2026/</loc>
+    <lastmod>2026-05-18T09:50:30+05:30</lastmod>
   </url><url>
     <loc>http://localhost:1313/</loc>
-    <lastmod>2026-05-17T18:34:29+05:30</lastmod>
+    <lastmod>2026-05-18T09:50:30+05:30</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/ctet-sep-2026/</loc>
+    <lastmod>2026-05-17T18:40:59+05:30</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/exams/</loc>
+    <lastmod>2026-05-17T18:40:59+05:30</lastmod>
   </url><url>
     <loc>http://localhost:1313/mp/</loc>
     <lastmod>2026-05-14T17:32:05+05:30</lastmod>
@@ -88,9 +94,6 @@
   </url><url>
     <loc>http://localhost:1313/mpesb-profile-registration/</loc>
     <lastmod>2026-05-09T16:08:03+05:30</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/jobs/</loc>
-    <lastmod>2026-05-09T10:41:29+05:30</lastmod>
   </url><url>
     <loc>http://localhost:1313/mpesb-hospital-assistant-recruitment-2026/</loc>
     <lastmod>2026-05-09T10:41:29+05:30</lastmod>
