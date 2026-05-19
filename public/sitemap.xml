@@ -2,14 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://localhost:1313/mobile-repairin-work/</loc>
-    <lastmod>2026-05-19T10:19:41+05:30</lastmod>
+    <loc>http://localhost:1313/mp-college-admission-allotment-letter/</loc>
+    <lastmod>2026-05-19T20:25:55+05:30</lastmod>
   </url><url>
-    <loc>http://localhost:1313/service/</loc>
-    <lastmod>2026-05-19T10:19:41+05:30</lastmod>
+    <loc>http://localhost:1313/mp/</loc>
+    <lastmod>2026-05-19T20:25:55+05:30</lastmod>
   </url><url>
     <loc>http://localhost:1313/</loc>
-    <lastmod>2026-05-19T10:19:41+05:30</lastmod>
+    <lastmod>2026-05-19T20:25:55+05:30</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/mobile-repairing-work/</loc>
+    <lastmod>2026-05-19T10:33:47+05:30</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/service/</loc>
+    <lastmod>2026-05-19T10:33:47+05:30</lastmod>
   </url><url>
     <loc>http://localhost:1313/jobs/</loc>
     <lastmod>2026-05-18T19:04:47+05:30</lastmod>
@@ -25,9 +31,6 @@
   </url><url>
     <loc>http://localhost:1313/exams/</loc>
     <lastmod>2026-05-17T18:40:59+05:30</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/mp/</loc>
-    <lastmod>2026-05-14T17:32:05+05:30</lastmod>
   </url><url>
     <loc>http://localhost:1313/mptaas-profile-panjiyan-banner/</loc>
     <lastmod>2026-05-14T17:32:05+05:30</lastmod>
