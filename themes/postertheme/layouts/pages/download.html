@@ -1,4 +1,7 @@
 
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,26 +23,26 @@ body{
   justify-content:center;
   align-items:center;
   background:linear-gradient(135deg,#0f172a,#1e293b);
-  padding:20px;
+  padding:10px;
 }
 
 .card{
   width:100%;
-  max-width:420px;
+  max-width:900px;
   background:rgba(255,255,255,0.08);
   border:1px solid rgba(255,255,255,0.1);
   backdrop-filter:blur(10px);
   border-radius:20px;
   padding:25px;
   color:#fff;
-  text-align:center;
+  text-align:left;
   box-shadow:0 10px 30px rgba(0,0,0,0.4);
 }
 
 .preview{
   width:100%;
   height:320px;
-  border-radius:16px;
+  border-radius:16px;  
   overflow:hidden;
   background:#111827;
   margin-bottom:20px;
@@ -211,6 +214,7 @@ h1{
 
 <script>
 const params = new URLSearchParams(window.location.search);
+
 const imageUrl = params.get('img');
 const titleParam = params.get('tittle') || 'Downloading File';
 const referParam = params.get('rafer') || '';
@@ -223,13 +227,31 @@ const fileSizeText = document.getElementById('fileSize');
 const fileFormatText = document.getElementById('fileFormat');
 const imageSizeText = document.getElementById('imageSize');
 const downloadTime = document.getElementById('downloadTime');
+
 const viewBtn = document.getElementById('viewBtn');
-const previewPopup = document.getElementById('previewPopup');
-const popupImage = document.getElementById('popupImage');
-const closePopup = document.getElementById('closePopup');
-const recentList = document.getElementById('recentList');
-const progressBar = document.getElementById('progressBar');
-const percentText = document.getElementById('percentText');
+
+const previewPopup =
+  document.getElementById('previewPopup');
+
+const popupImage =
+  document.getElementById('popupImage');
+
+const closePopup =
+  document.getElementById('closePopup');
+
+const recentList =
+  document.getElementById('recentList');
+
+const progressBar =
+  document.getElementById('progressBar');
+
+const percentText =
+  document.getElementById('percentText');
+
+
+// ======================================
+// RECENT DOWNLOADS
+// ======================================
 
 function renderRecentDownloads(){
 
@@ -243,10 +265,15 @@ function renderRecentDownloads(){
 
     const div = document.createElement('div');
 
-    div.style.background = 'rgba(255,255,255,0.08)';
+    div.style.background =
+      'rgba(255,255,255,0.08)';
+
     div.style.padding = '12px';
+
     div.style.borderRadius = '12px';
+
     div.style.fontSize = '13px';
+
     div.style.wordBreak = 'break-all';
 
     div.innerHTML = `
@@ -317,14 +344,21 @@ function renderRecentDownloads(){
 
     recentList.appendChild(div);
 
-    const btn = div.querySelector('.recentViewBtn');
+    // VIEW BUTTON
+    const btn =
+      div.querySelector('.recentViewBtn');
 
     btn.onclick = ()=>{
+
       popupImage.src = btn.dataset.img;
+
       previewPopup.style.display = 'flex';
+
     };
 
-    const referBtn = div.querySelector('.referBtn');
+    // REFER BUTTON
+    const referBtn =
+      div.querySelector('.referBtn');
 
     if(referBtn){
 
@@ -345,31 +379,129 @@ function renderRecentDownloads(){
 
 renderRecentDownloads();
 
+
+// ======================================
+// POPUP CLOSE SYSTEM
+// ======================================
+
+// CLOSE BUTTON
+closePopup.addEventListener('click', ()=>{
+
+  previewPopup.style.display = 'none';
+
+});
+
+// OUTSIDE CLICK
+previewPopup.addEventListener('click', (e)=>{
+
+  if(e.target === previewPopup){
+
+    previewPopup.style.display = 'none';
+
+  }
+
+});
+
+// IMAGE CLICK STOP
+popupImage.addEventListener('click', (e)=>{
+
+  e.stopPropagation();
+
+});
+
+
+// ======================================
+// MAIN DOWNLOAD CHECK
+// ======================================
+
 async function downloadFile(url, filename){
 
+  const recentDownloads = JSON.parse(
+    localStorage.getItem('recentDownloads') || '[]'
+  );
+
+  const alreadyDownloaded =
+    recentDownloads.find(
+      item =>
+        item.image ===
+        decodeURIComponent(imageUrl)
+    );
+
+  // ALREADY DOWNLOADED
+  if(alreadyDownloaded){
+
+    percentText.innerHTML =
+      'Already Downloaded';
+
+    progressBar.style.width = '100%';
+
+    downloadTime.innerHTML =
+      'Downloaded Time: ' +
+      alreadyDownloaded.time;
+
+    viewBtn.style.display = 'block';
+
+    viewBtn.innerHTML =
+      '⬇ Download Again';
+
+    viewBtn.onclick = ()=>{
+
+      viewBtn.innerHTML =
+        'Downloading...';
+
+      startRealDownload(url, filename);
+
+    };
+
+    return;
+
+  }
+
+  // FIRST DOWNLOAD
+  startRealDownload(url, filename);
+
+}
+
+
+// ======================================
+// REAL DOWNLOAD
+// ======================================
+
+async function startRealDownload(url, filename){
+
   try{
+
+    progressBar.style.width = '0%';
+
+    percentText.innerHTML = '0%';
 
     const response = await fetch(url,{
       mode:'cors'
     });
 
     if(!response.ok){
+
       throw new Error('Download Error');
+
     }
 
-    const contentLength = response.headers.get('content-length');
+    const contentLength =
+      response.headers.get('content-length');
 
-    const total = parseInt(contentLength,10);
+    const total =
+      parseInt(contentLength,10);
 
     let loaded = 0;
 
-    const reader = response.body.getReader();
+    const reader =
+      response.body.getReader();
 
     const chunks = [];
 
     while(true){
 
-      const {done,value} = await reader.read();
+      const {done,value} =
+        await reader.read();
 
       if(done) break;
 
@@ -383,9 +515,11 @@ async function downloadFile(url, filename){
           (loaded / total) * 100
         );
 
-        progressBar.style.width = percent + '%';
+        progressBar.style.width =
+          percent + '%';
 
-        percentText.innerHTML = percent + '%';
+        percentText.innerHTML =
+          percent + '%';
 
       }
 
@@ -393,11 +527,14 @@ async function downloadFile(url, filename){
 
     const blob = new Blob(chunks);
 
-    const blobUrl = URL.createObjectURL(blob);
+    const blobUrl =
+      URL.createObjectURL(blob);
 
-    const a = document.createElement('a');
+    const a =
+      document.createElement('a');
 
     a.href = blobUrl;
+
     a.download = filename;
 
     document.body.appendChild(a);
@@ -407,64 +544,79 @@ async function downloadFile(url, filename){
     a.remove();
 
     setTimeout(()=>{
-      URL.revokeObjectURL(blobUrl);
-    },10000);
 
-    percentText.innerHTML = 'Download Complete';
+      URL.revokeObjectURL(blobUrl);
+
+    },10000);
 
     progressBar.style.width = '100%';
 
+    percentText.innerHTML =
+      'Download Complete';
+
     const now = new Date();
 
-    const downloadedAt = now.toLocaleString();
+    const downloadedAt =
+      now.toLocaleString();
 
     downloadTime.innerHTML =
-      'Downloaded Time: ' + downloadedAt;
+      'Downloaded Time: ' +
+      downloadedAt;
 
     const recentDownloads = JSON.parse(
       localStorage.getItem('recentDownloads') || '[]'
     );
 
-    recentDownloads.unshift({
-      title: decodeURIComponent(titleParam),
+    // REMOVE DUPLICATES
+    const filteredDownloads =
+      recentDownloads.filter(
+        item =>
+          item.image !==
+          decodeURIComponent(imageUrl)
+      );
+
+    filteredDownloads.unshift({
+
+      title:
+        decodeURIComponent(titleParam),
+
       file: filename,
+
       time: downloadedAt,
-      image: decodeURIComponent(imageUrl),
+
+      image:
+        decodeURIComponent(imageUrl),
+
       refer: referParam
+
     });
 
-    const updatedList = recentDownloads.slice(0,20);
+    const updatedList =
+      filteredDownloads.slice(0,20);
 
     localStorage.setItem(
+
       'recentDownloads',
+
       JSON.stringify(updatedList)
+
     );
 
     renderRecentDownloads();
 
+    // VIEW BUTTON
     viewBtn.style.display = 'block';
+
+    viewBtn.innerHTML =
+      '👁 View Download Image';
 
     viewBtn.onclick = ()=>{
 
-      popupImage.src = currentImageUrl;
+      popupImage.src =
+        currentImageUrl;
 
-      previewPopup.style.display = 'flex';
-
-    };
-
-    closePopup.onclick = ()=>{
-
-      previewPopup.style.display = 'none';
-
-    };
-
-    previewPopup.onclick = (e)=>{
-
-      if(e.target === previewPopup){
-
-        previewPopup.style.display = 'none';
-
-      }
+      previewPopup.style.display =
+        'flex';
 
     };
 
@@ -472,15 +624,22 @@ async function downloadFile(url, filename){
 
     console.log(err);
 
-    percentText.innerHTML = 'Download Failed';
+    percentText.innerHTML =
+      'Download Failed';
 
   }
 
 }
 
+
+// ======================================
+// PAGE LOAD
+// ======================================
+
 if(imageUrl){
 
-  const decodedUrl = decodeURIComponent(imageUrl);
+  const decodedUrl =
+    decodeURIComponent(imageUrl);
 
   currentImageUrl = decodedUrl;
 
@@ -503,6 +662,7 @@ if(imageUrl){
   fileFormatText.innerHTML =
     'Format: ' + fileFormat;
 
+  // IMAGE SIZE
   const img = new Image();
 
   img.onload = function(){
@@ -518,10 +678,12 @@ if(imageUrl){
 
   img.src = decodedUrl;
 
+  // FILE SIZE
   fetch(decodedUrl,{method:'HEAD'})
   .then(res=>{
 
-    const size = res.headers.get('content-length');
+    const size =
+      res.headers.get('content-length');
 
     if(size){
 
@@ -547,11 +709,13 @@ if(imageUrl){
 
   });
 
+  // START DOWNLOAD
   downloadFile(decodedUrl,fileName);
 
 }else{
 
-  titleText.innerHTML = 'No Image URL Found';
+  titleText.innerHTML =
+    'No Image URL Found';
 
 }
 </script>
