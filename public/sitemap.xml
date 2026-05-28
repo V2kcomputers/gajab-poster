@@ -2,13 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>http://localhost:1313/page/</loc>
+    <lastmod>2026-05-28T11:00:00-07:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/</loc>
+    <lastmod>2026-05-28T11:00:00-07:00</lastmod>
+  </url><url>
     <loc>http://localhost:1313/document/</loc>
     <lastmod>2026-05-27T17:43:42+05:30</lastmod>
   </url><url>
     <loc>http://localhost:1313/udid-card-divyang-cerfiticate/</loc>
-    <lastmod>2026-05-27T17:43:42+05:30</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/</loc>
     <lastmod>2026-05-27T17:43:42+05:30</lastmod>
   </url><url>
     <loc>http://localhost:1313/jobs/</loc>
@@ -287,14 +290,11 @@
     <loc>http://localhost:1313/tags/list/</loc>
     <lastmod>2026-04-27T18:31:03+05:30</lastmod>
   </url><url>
-    <loc>http://localhost:1313/page/</loc>
-    <lastmod>2026-04-27T18:31:03+05:30</lastmod>
+    <loc>http://localhost:1313/search/</loc>
+    <lastmod>2026-04-22T18:41:34+05:30</lastmod>
   </url><url>
     <loc>http://localhost:1313/baner-update/</loc>
     <lastmod>2026-04-27T18:31:03+05:30</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/search/</loc>
-    <lastmod>2026-04-22T18:41:34+05:30</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/</loc>
     <lastmod>2026-04-27T18:31:03+05:30</lastmod>

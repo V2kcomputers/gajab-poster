@@ -1,0 +1,561 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Image Download Page</title>
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Arial,sans-serif;
+}
+
+body{
+  min-height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background:linear-gradient(135deg,#0f172a,#1e293b);
+  padding:20px;
+}
+
+.card{
+  width:100%;
+  max-width:420px;
+  background:rgba(255,255,255,0.08);
+  border:1px solid rgba(255,255,255,0.1);
+  backdrop-filter:blur(10px);
+  border-radius:20px;
+  padding:25px;
+  color:#fff;
+  text-align:center;
+  box-shadow:0 10px 30px rgba(0,0,0,0.4);
+}
+
+.preview{
+  width:100%;
+  height:320px;
+  border-radius:16px;
+  overflow:hidden;
+  background:#111827;
+  margin-bottom:20px;
+}
+
+.preview img{
+  width:100%;
+  height:100%;
+  object-fit:contain;
+}
+
+h1{
+  font-size:26px;
+  margin-bottom:10px;
+}
+
+.info{
+  font-size:14px;
+  color:#cbd5e1;
+  margin-bottom:20px;
+  word-break:break-all;
+}
+
+.download-btn{
+  display:block;
+  width:100%;
+  padding:15px;
+  border-radius:14px;
+  text-decoration:none;
+  background:linear-gradient(135deg,#2563eb,#3b82f6);
+  color:#fff;
+  font-size:18px;
+  font-weight:bold;
+  transition:0.3s;
+}
+
+.download-btn:hover{
+  transform:translateY(-2px);
+  box-shadow:0 10px 20px rgba(37,99,235,0.4);
+}
+
+.note{
+  margin-top:18px;
+  font-size:13px;
+  color:#94a3b8;
+}
+</style>
+</head>
+<body>
+
+<div class="card">
+
+  <h1>Downloading...</h1>
+
+  <div class="loader-box">
+    <div class="loader-bar">
+      <div class="loader-progress" id="progressBar"></div>
+    </div>
+
+    <div class="percent" id="percentText">0%</div>
+  </div>
+
+  <div class="info">
+  <div id="titleText">Loading...</div>
+  <br>
+  <div id="fileName">File Name: --</div>
+  <div id="fileSize">File Size: --</div>
+  <div id="fileFormat">Format: --</div>
+  <div id="imageSize">Image Size: --</div>
+</div>
+
+  <div class="note" id="downloadTime">
+    Download Time: --
+  </div>
+
+  <br>
+
+  <button id="viewBtn" style="
+      display:none;
+      width:100%;
+      padding:14px;
+      border:none;
+      border-radius:14px;
+      background:linear-gradient(135deg,#16a34a,#22c55e);
+      color:white;
+      font-size:16px;
+      font-weight:bold;
+      cursor:pointer;
+    ">
+      👁 View Download Image
+    </button>
+
+  <div style="margin-top:30px; text-align:left;">
+    <h3 style="margin-bottom:15px; color:#fff;">
+      Recent Downloads
+    </h3>
+
+    <div id="recentList" style="display:flex; flex-direction:column; gap:10px;"></div>
+  </div>
+
+<div id="previewPopup" style="
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.85);
+  display:none;
+  justify-content:center;
+  align-items:center;
+  z-index:9999;
+  padding:20px;
+">
+
+  <div style="position:relative; max-width:90%; max-height:90%;">
+
+    <button id="closePopup" style="
+      position:absolute;
+      top:-15px;
+      right:-15px;
+      width:40px;
+      height:40px;
+      border:none;
+      border-radius:50%;
+      background:red;
+      color:#fff;
+      font-size:20px;
+      cursor:pointer;
+    ">×</button>
+
+    <img id="popupImage" style="
+      max-width:100%;
+      max-height:85vh;
+      border-radius:16px;
+      background:#fff;
+    ">
+
+  </div>
+
+</div>
+
+</div>
+
+<style>
+.loader-box{
+  margin:25px 0;
+}
+
+.loader-bar{
+  width:100%;
+  height:16px;
+  background:rgba(255,255,255,0.1);
+  border-radius:30px;
+  overflow:hidden;
+}
+
+.loader-progress{
+  width:0%;
+  height:100%;
+  background:linear-gradient(90deg,#3b82f6,#60a5fa);
+  border-radius:30px;
+  transition:0.2s;
+}
+
+.percent{
+  margin-top:12px;
+  font-size:28px;
+  font-weight:bold;
+  color:#fff;
+}
+</style>
+
+<script>
+const params = new URLSearchParams(window.location.search);
+const imageUrl = params.get('img');
+const titleParam = params.get('tittle') || 'Downloading File';
+const referParam = params.get('rafer') || '';
+
+let currentImageUrl = '';
+
+const titleText = document.getElementById('titleText');
+const fileNameText = document.getElementById('fileName');
+const fileSizeText = document.getElementById('fileSize');
+const fileFormatText = document.getElementById('fileFormat');
+const imageSizeText = document.getElementById('imageSize');
+const downloadTime = document.getElementById('downloadTime');
+const viewBtn = document.getElementById('viewBtn');
+const previewPopup = document.getElementById('previewPopup');
+const popupImage = document.getElementById('popupImage');
+const closePopup = document.getElementById('closePopup');
+const recentList = document.getElementById('recentList');
+const progressBar = document.getElementById('progressBar');
+const percentText = document.getElementById('percentText');
+
+function renderRecentDownloads(){
+
+  const downloads = JSON.parse(
+    localStorage.getItem('recentDownloads') || '[]'
+  );
+
+  recentList.innerHTML = '';
+
+  downloads.forEach(item=>{
+
+    const div = document.createElement('div');
+
+    div.style.background = 'rgba(255,255,255,0.08)';
+    div.style.padding = '12px';
+    div.style.borderRadius = '12px';
+    div.style.fontSize = '13px';
+    div.style.wordBreak = 'break-all';
+
+    div.innerHTML = `
+      <div style="
+        font-weight:bold;
+        color:#fff;
+        margin-bottom:6px;
+      ">
+        ${item.title}
+      </div>
+
+      <div style="color:#cbd5e1;">
+        ${item.file}
+      </div>
+
+      <div style="
+        margin-top:5px;
+        color:#94a3b8;
+        font-size:12px;
+      ">
+        ${item.time}
+      </div>
+
+      <div style="
+        display:flex;
+        gap:8px;
+        margin-top:10px;
+      ">
+
+        <button 
+          class="recentViewBtn"
+          data-img="${item.image}"
+          style="
+            flex:1;
+            padding:10px;
+            border:none;
+            border-radius:10px;
+            background:#2563eb;
+            color:white;
+            cursor:pointer;
+            font-size:13px;
+          "
+        >
+          👁 View Image
+        </button>
+
+        ${item.refer ? `
+        <button
+          class="referBtn"
+          data-link="${item.refer}"
+          style="
+            flex:1;
+            padding:10px;
+            border:none;
+            border-radius:10px;
+            background:#16a34a;
+            color:white;
+            cursor:pointer;
+            font-size:13px;
+          "
+        >
+          🔗 Refer Page
+        </button>
+        ` : ''}
+
+      </div>
+    `;
+
+    recentList.appendChild(div);
+
+    const btn = div.querySelector('.recentViewBtn');
+
+    btn.onclick = ()=>{
+      popupImage.src = btn.dataset.img;
+      previewPopup.style.display = 'flex';
+    };
+
+    const referBtn = div.querySelector('.referBtn');
+
+    if(referBtn){
+
+      referBtn.onclick = ()=>{
+
+        window.open(
+          referBtn.dataset.link,
+          '_blank'
+        );
+
+      };
+
+    }
+
+  });
+
+}
+
+renderRecentDownloads();
+
+async function downloadFile(url, filename){
+
+  try{
+
+    const response = await fetch(url,{
+      mode:'cors'
+    });
+
+    if(!response.ok){
+      throw new Error('Download Error');
+    }
+
+    const contentLength = response.headers.get('content-length');
+
+    const total = parseInt(contentLength,10);
+
+    let loaded = 0;
+
+    const reader = response.body.getReader();
+
+    const chunks = [];
+
+    while(true){
+
+      const {done,value} = await reader.read();
+
+      if(done) break;
+
+      chunks.push(value);
+
+      loaded += value.length;
+
+      if(total){
+
+        const percent = Math.floor(
+          (loaded / total) * 100
+        );
+
+        progressBar.style.width = percent + '%';
+
+        percentText.innerHTML = percent + '%';
+
+      }
+
+    }
+
+    const blob = new Blob(chunks);
+
+    const blobUrl = URL.createObjectURL(blob);
+
+    const a = document.createElement('a');
+
+    a.href = blobUrl;
+    a.download = filename;
+
+    document.body.appendChild(a);
+
+    a.click();
+
+    a.remove();
+
+    setTimeout(()=>{
+      URL.revokeObjectURL(blobUrl);
+    },10000);
+
+    percentText.innerHTML = 'Download Complete';
+
+    progressBar.style.width = '100%';
+
+    const now = new Date();
+
+    const downloadedAt = now.toLocaleString();
+
+    downloadTime.innerHTML =
+      'Downloaded Time: ' + downloadedAt;
+
+    const recentDownloads = JSON.parse(
+      localStorage.getItem('recentDownloads') || '[]'
+    );
+
+    recentDownloads.unshift({
+      title: decodeURIComponent(titleParam),
+      file: filename,
+      time: downloadedAt,
+      image: decodeURIComponent(imageUrl),
+      refer: referParam
+    });
+
+    const updatedList = recentDownloads.slice(0,20);
+
+    localStorage.setItem(
+      'recentDownloads',
+      JSON.stringify(updatedList)
+    );
+
+    renderRecentDownloads();
+
+    viewBtn.style.display = 'block';
+
+    viewBtn.onclick = ()=>{
+
+      popupImage.src = currentImageUrl;
+
+      previewPopup.style.display = 'flex';
+
+    };
+
+    closePopup.onclick = ()=>{
+
+      previewPopup.style.display = 'none';
+
+    };
+
+    previewPopup.onclick = (e)=>{
+
+      if(e.target === previewPopup){
+
+        previewPopup.style.display = 'none';
+
+      }
+
+    };
+
+  }catch(err){
+
+    console.log(err);
+
+    percentText.innerHTML = 'Download Failed';
+
+  }
+
+}
+
+if(imageUrl){
+
+  const decodedUrl = decodeURIComponent(imageUrl);
+
+  currentImageUrl = decodedUrl;
+
+  const fileName = decodedUrl
+    .split('/')
+    .pop()
+    .split('?')[0];
+
+  const fileFormat = fileName
+    .split('.')
+    .pop()
+    .toUpperCase();
+
+  titleText.innerHTML =
+    decodeURIComponent(titleParam);
+
+  fileNameText.innerHTML =
+    'File Name: ' + fileName;
+
+  fileFormatText.innerHTML =
+    'Format: ' + fileFormat;
+
+  const img = new Image();
+
+  img.onload = function(){
+
+    imageSizeText.innerHTML =
+      'Image Size: ' +
+      img.width +
+      ' × ' +
+      img.height +
+      ' px';
+
+  };
+
+  img.src = decodedUrl;
+
+  fetch(decodedUrl,{method:'HEAD'})
+  .then(res=>{
+
+    const size = res.headers.get('content-length');
+
+    if(size){
+
+      const kb = size / 1024;
+
+      if(kb > 1024){
+
+        fileSizeText.innerHTML =
+          'File Size: ' +
+          (kb/1024).toFixed(2) +
+          ' MB';
+
+      }else{
+
+        fileSizeText.innerHTML =
+          'File Size: ' +
+          kb.toFixed(2) +
+          ' KB';
+
+      }
+
+    }
+
+  });
+
+  downloadFile(decodedUrl,fileName);
+
+}else{
+
+  titleText.innerHTML = 'No Image URL Found';
+
+}
+</script>
+
+</body>
+</html>
+
