@@ -467,167 +467,163 @@ async function downloadFile(url, filename){
 // REAL DOWNLOAD
 // ======================================
 
-async function startRealDownload(url, filename){
+async function startRealDownload(
+url,
+filename
+){
 
-  try{
+try{
 
-    progressBar.style.width = '0%';
+progressBar.style.width =
+'20%';
 
-    percentText.innerHTML = '0%';
+percentText.innerHTML =
+'Preparing JPG...';
 
-    const response = await fetch(url,{
-      mode:'cors'
-    });
+// LOAD IMAGE
+const img = new Image();
 
-    if(!response.ok){
+img.crossOrigin = 'anonymous';
 
-      throw new Error('Download Error');
+img.onload = ()=>{
 
-    }
+try{
 
-    const contentLength =
-      response.headers.get('content-length');
+progressBar.style.width =
+'50%';
 
-    const total =
-      parseInt(contentLength,10);
+// CREATE CANVAS
+const canvas =
+document.createElement(
+'canvas'
+);
 
-    let loaded = 0;
+canvas.width =
+img.naturalWidth;
 
-    const reader =
-      response.body.getReader();
+canvas.height =
+img.naturalHeight;
 
-    const chunks = [];
+const ctx =
+canvas.getContext('2d');
 
-    while(true){
+// WHITE BACKGROUND
+ctx.fillStyle = '#ffffff';
 
-      const {done,value} =
-        await reader.read();
+ctx.fillRect(
+0,
+0,
+canvas.width,
+canvas.height
+);
 
-      if(done) break;
+// DRAW IMAGE
+ctx.drawImage(
+img,
+0,
+0
+);
 
-      chunks.push(value);
+progressBar.style.width =
+'80%';
 
-      loaded += value.length;
+// CONVERT JPG
+canvas.toBlob(
 
-      if(total){
+(blob)=>{
 
-        const percent = Math.floor(
-          (loaded / total) * 100
-        );
+if(!blob){
 
-        progressBar.style.width =
-          percent + '%';
+throw new Error(
+'JPG Convert Failed'
+);
 
-        percentText.innerHTML =
-          percent + '%';
+}
 
-      }
+const blobUrl =
+URL.createObjectURL(
+blob
+);
 
-    }
+// JPG FILE NAME
+const jpgName =
+filename
+.replace(/\.[^/.]+$/, "")
++ '.jpg';
 
-    const blob = new Blob(chunks);
+// DOWNLOAD
+const a =
+document.createElement(
+'a'
+);
 
-    const blobUrl =
-      URL.createObjectURL(blob);
+a.href = blobUrl;
 
-    const a =
-      document.createElement('a');
+a.download = jpgName;
 
-    a.href = blobUrl;
+document.body.appendChild(
+a
+);
 
-    a.download = filename;
+a.click();
 
-    document.body.appendChild(a);
+a.remove();
 
-    a.click();
+setTimeout(()=>{
 
-    a.remove();
+URL.revokeObjectURL(
+blobUrl
+);
 
-    setTimeout(()=>{
+},10000);
 
-      URL.revokeObjectURL(blobUrl);
+progressBar.style.width =
+'100%';
 
-    },10000);
+percentText.innerHTML =
+'JPG Download Complete';
 
-    progressBar.style.width = '100%';
+// SAVE DOWNLOAD
+saveRecentDownload(
+jpgName
+);
 
-    percentText.innerHTML =
-      'Download Complete';
+},
 
-    const now = new Date();
+'image/jpeg',
+0.95
 
-    const downloadedAt =
-      now.toLocaleString();
+);
 
-    downloadTime.innerHTML =
-      'Downloaded Time: ' +
-      downloadedAt;
+}catch(err){
 
-    const recentDownloads = JSON.parse(
-      localStorage.getItem('recentDownloads') || '[]'
-    );
+console.log(err);
 
-    // REMOVE DUPLICATES
-    const filteredDownloads =
-      recentDownloads.filter(
-        item =>
-          item.image !==
-          decodeURIComponent(imageUrl)
-      );
+percentText.innerHTML =
+'Convert Failed';
 
-    filteredDownloads.unshift({
+}
 
-      title:
-        decodeURIComponent(titleParam),
+};
 
-      file: filename,
+img.onerror = ()=>{
 
-      time: downloadedAt,
+percentText.innerHTML =
+'Image Load Failed';
 
-      image:
-        decodeURIComponent(imageUrl),
+};
 
-      refer: referParam
+img.src =
+url + '?t=' + Date.now();
 
-    });
+}catch(err){
 
-    const updatedList =
-      filteredDownloads.slice(0,20);
+console.log(err);
 
-    localStorage.setItem(
+percentText.innerHTML =
+'Download Failed';
 
-      'recentDownloads',
-
-      JSON.stringify(updatedList)
-
-    );
-
-    renderRecentDownloads();
-
-    // VIEW BUTTON
-    viewBtn.style.display = 'block';
-
-    viewBtn.innerHTML =
-      '👁 View Download Image';
-
-    viewBtn.onclick = ()=>{
-
-      popupImage.src =
-        currentImageUrl;
-
-      previewPopup.style.display =
-        'flex';
-
-    };
-
-  }catch(err){
-
-    console.log(err);
-
-    percentText.innerHTML =
-      'Download Failed';
-
-  }
+}
 
 }
 

@@ -467,167 +467,163 @@ async function downloadFile(url, filename){
 
 
 
-async function startRealDownload(url, filename){
+async function startRealDownload(
+url,
+filename
+){
 
-  try{
+try{
 
-    progressBar.style.width = '0%';
+progressBar.style.width =
+'20%';
 
-    percentText.innerHTML = '0%';
+percentText.innerHTML =
+'Preparing JPG...';
 
-    const response = await fetch(url,{
-      mode:'cors'
-    });
 
-    if(!response.ok){
+const img = new Image();
 
-      throw new Error('Download Error');
+img.crossOrigin = 'anonymous';
 
-    }
+img.onload = ()=>{
 
-    const contentLength =
-      response.headers.get('content-length');
+try{
 
-    const total =
-      parseInt(contentLength,10);
+progressBar.style.width =
+'50%';
 
-    let loaded = 0;
 
-    const reader =
-      response.body.getReader();
+const canvas =
+document.createElement(
+'canvas'
+);
 
-    const chunks = [];
+canvas.width =
+img.naturalWidth;
 
-    while(true){
+canvas.height =
+img.naturalHeight;
 
-      const {done,value} =
-        await reader.read();
+const ctx =
+canvas.getContext('2d');
 
-      if(done) break;
 
-      chunks.push(value);
+ctx.fillStyle = '#ffffff';
 
-      loaded += value.length;
+ctx.fillRect(
+0,
+0,
+canvas.width,
+canvas.height
+);
 
-      if(total){
 
-        const percent = Math.floor(
-          (loaded / total) * 100
-        );
+ctx.drawImage(
+img,
+0,
+0
+);
 
-        progressBar.style.width =
-          percent + '%';
+progressBar.style.width =
+'80%';
 
-        percentText.innerHTML =
-          percent + '%';
 
-      }
+canvas.toBlob(
 
-    }
+(blob)=>{
 
-    const blob = new Blob(chunks);
+if(!blob){
 
-    const blobUrl =
-      URL.createObjectURL(blob);
+throw new Error(
+'JPG Convert Failed'
+);
 
-    const a =
-      document.createElement('a');
+}
 
-    a.href = blobUrl;
+const blobUrl =
+URL.createObjectURL(
+blob
+);
 
-    a.download = filename;
 
-    document.body.appendChild(a);
+const jpgName =
+filename
+.replace(/\.[^/.]+$/, "")
++ '.jpg';
 
-    a.click();
 
-    a.remove();
+const a =
+document.createElement(
+'a'
+);
 
-    setTimeout(()=>{
+a.href = blobUrl;
 
-      URL.revokeObjectURL(blobUrl);
+a.download = jpgName;
 
-    },10000);
+document.body.appendChild(
+a
+);
 
-    progressBar.style.width = '100%';
+a.click();
 
-    percentText.innerHTML =
-      'Download Complete';
+a.remove();
 
-    const now = new Date();
+setTimeout(()=>{
 
-    const downloadedAt =
-      now.toLocaleString();
+URL.revokeObjectURL(
+blobUrl
+);
 
-    downloadTime.innerHTML =
-      'Downloaded Time: ' +
-      downloadedAt;
+},10000);
 
-    const recentDownloads = JSON.parse(
-      localStorage.getItem('recentDownloads') || '[]'
-    );
+progressBar.style.width =
+'100%';
 
-    
-    const filteredDownloads =
-      recentDownloads.filter(
-        item =>
-          item.image !==
-          decodeURIComponent(imageUrl)
-      );
+percentText.innerHTML =
+'JPG Download Complete';
 
-    filteredDownloads.unshift({
 
-      title:
-        decodeURIComponent(titleParam),
+saveRecentDownload(
+jpgName
+);
 
-      file: filename,
+},
 
-      time: downloadedAt,
+'image/jpeg',
+0.95
 
-      image:
-        decodeURIComponent(imageUrl),
+);
 
-      refer: referParam
+}catch(err){
 
-    });
+console.log(err);
 
-    const updatedList =
-      filteredDownloads.slice(0,20);
+percentText.innerHTML =
+'Convert Failed';
 
-    localStorage.setItem(
+}
 
-      'recentDownloads',
+};
 
-      JSON.stringify(updatedList)
+img.onerror = ()=>{
 
-    );
+percentText.innerHTML =
+'Image Load Failed';
 
-    renderRecentDownloads();
+};
 
-    
-    viewBtn.style.display = 'block';
+img.src =
+url + '?t=' + Date.now();
 
-    viewBtn.innerHTML =
-      '👁 View Download Image';
+}catch(err){
 
-    viewBtn.onclick = ()=>{
+console.log(err);
 
-      popupImage.src =
-        currentImageUrl;
+percentText.innerHTML =
+'Download Failed';
 
-      previewPopup.style.display =
-        'flex';
-
-    };
-
-  }catch(err){
-
-    console.log(err);
-
-    percentText.innerHTML =
-      'Download Failed';
-
-  }
+}
 
 }
 
