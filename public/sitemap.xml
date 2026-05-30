@@ -2,14 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>http://localhost:1313/mp-sambal-card-yojna/</loc>
+    <lastmod>2026-05-30T19:09:28+05:30</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/mp/</loc>
+    <lastmod>2026-05-30T19:09:28+05:30</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/</loc>
+    <lastmod>2026-05-30T19:09:28+05:30</lastmod>
+  </url><url>
     <loc>http://localhost:1313/document/</loc>
-    <lastmod>2026-05-27T17:43:42+05:30</lastmod>
+    <lastmod>2026-05-30T09:54:47+05:30</lastmod>
   </url><url>
     <loc>http://localhost:1313/udid-card-divyang-cerfiticate/</loc>
     <lastmod>2026-05-27T17:43:42+05:30</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/</loc>
-    <lastmod>2026-05-28T16:53:00+05:30</lastmod>
   </url><url>
     <loc>http://localhost:1313/jobs/</loc>
     <lastmod>2026-05-26T19:39:38+05:30</lastmod>
@@ -18,9 +24,6 @@
     <lastmod>2026-05-26T19:39:38+05:30</lastmod>
   </url><url>
     <loc>http://localhost:1313/mp-iti-admission-2026-27/</loc>
-    <lastmod>2026-05-26T19:39:38+05:30</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/mp/</loc>
     <lastmod>2026-05-26T19:39:38+05:30</lastmod>
   </url><url>
     <loc>http://localhost:1313/mp-up-pg-college-admission-2nd-round/</loc>
@@ -207,7 +210,7 @@
     <lastmod>2026-04-29T12:57:06+05:30</lastmod>
   </url><url>
     <loc>http://localhost:1313/aadhaar-card-name-and-address/</loc>
-    <lastmod>2026-04-29T12:26:03+05:30</lastmod>
+    <lastmod>2026-05-30T09:54:47+05:30</lastmod>
   </url><url>
     <loc>http://localhost:1313/food-safety-license/</loc>
     <lastmod>2026-04-28T17:34:21+05:30</lastmod>
@@ -279,7 +282,7 @@
     <lastmod>2026-04-25T20:08:58+05:30</lastmod>
   </url><url>
     <loc>http://localhost:1313/downloads/</loc>
-    <lastmod>2026-05-28T16:53:00+05:30</lastmod>
+    <lastmod>2026-05-30T09:54:47+05:30</lastmod>
   </url><url>
     <loc>http://localhost:1313/add-name/</loc>
     <lastmod>2026-05-28T11:58:21+05:30</lastmod>

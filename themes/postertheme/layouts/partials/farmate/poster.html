@@ -46,6 +46,7 @@
   <button onclick="downloadImg(this)">⬇️ Download</button>
 <button onclick="shareImg(this)">🔗 Share</button>
 <button onclick="printImg(this)">🖨️ Print</button>
+{{ with .Params.imagePoster }}
 <a
   class="add-name-btn"
   href="https://poster.yojnaportal.com/add-name/?img={{ . | urlquery }}&tittle={{ $.Params.posterName | urlquery }}"
@@ -54,6 +55,7 @@
   ➕ Add Name
   </button>
 </a>
+{{ end }}
   </div>
 </div>
 {{ partial "main-parts/you-may-like.html" . }}
@@ -139,7 +141,7 @@
     <p>{{ . }}</p>
     {{ end }}
   </div>
-<!-- Full Hindi Sharing -->
+<!-- Short Summary -->
   {{ if .Params.ai_voiceover }}
   <div class="prompt-card">
     <div class="prompt-header">
