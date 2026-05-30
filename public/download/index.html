@@ -467,163 +467,167 @@ async function downloadFile(url, filename){
 
 
 
-async function startRealDownload(
-url,
-filename
-){
+async function startRealDownload(url, filename){
 
-try{
+  try{
 
-progressBar.style.width =
-'20%';
+    progressBar.style.width = '0%';
 
-percentText.innerHTML =
-'Preparing JPG...';
+    percentText.innerHTML = '0%';
 
+    const response = await fetch(url,{
+      mode:'cors'
+    });
 
-const img = new Image();
+    if(!response.ok){
 
-img.crossOrigin = 'anonymous';
+      throw new Error('Download Error');
 
-img.onload = ()=>{
+    }
 
-try{
+    const contentLength =
+      response.headers.get('content-length');
 
-progressBar.style.width =
-'50%';
+    const total =
+      parseInt(contentLength,10);
 
+    let loaded = 0;
 
-const canvas =
-document.createElement(
-'canvas'
-);
+    const reader =
+      response.body.getReader();
 
-canvas.width =
-img.naturalWidth;
+    const chunks = [];
 
-canvas.height =
-img.naturalHeight;
+    while(true){
 
-const ctx =
-canvas.getContext('2d');
+      const {done,value} =
+        await reader.read();
 
+      if(done) break;
 
-ctx.fillStyle = '#ffffff';
+      chunks.push(value);
 
-ctx.fillRect(
-0,
-0,
-canvas.width,
-canvas.height
-);
+      loaded += value.length;
 
+      if(total){
 
-ctx.drawImage(
-img,
-0,
-0
-);
+        const percent = Math.floor(
+          (loaded / total) * 100
+        );
 
-progressBar.style.width =
-'80%';
+        progressBar.style.width =
+          percent + '%';
 
+        percentText.innerHTML =
+          percent + '%';
 
-canvas.toBlob(
+      }
 
-(blob)=>{
+    }
 
-if(!blob){
+    const blob = new Blob(chunks);
 
-throw new Error(
-'JPG Convert Failed'
-);
+    const blobUrl =
+      URL.createObjectURL(blob);
 
-}
+    const a =
+      document.createElement('a');
 
-const blobUrl =
-URL.createObjectURL(
-blob
-);
+    a.href = blobUrl;
 
+    a.download = filename;
 
-const jpgName =
-filename
-.replace(/\.[^/.]+$/, "")
-+ '.jpg';
+    document.body.appendChild(a);
 
+    a.click();
 
-const a =
-document.createElement(
-'a'
-);
+    a.remove();
 
-a.href = blobUrl;
+    setTimeout(()=>{
 
-a.download = jpgName;
+      URL.revokeObjectURL(blobUrl);
 
-document.body.appendChild(
-a
-);
+    },10000);
 
-a.click();
+    progressBar.style.width = '100%';
 
-a.remove();
+    percentText.innerHTML =
+      'Download Complete';
 
-setTimeout(()=>{
+    const now = new Date();
 
-URL.revokeObjectURL(
-blobUrl
-);
+    const downloadedAt =
+      now.toLocaleString();
 
-},10000);
+    downloadTime.innerHTML =
+      'Downloaded Time: ' +
+      downloadedAt;
 
-progressBar.style.width =
-'100%';
+    const recentDownloads = JSON.parse(
+      localStorage.getItem('recentDownloads') || '[]'
+    );
 
-percentText.innerHTML =
-'JPG Download Complete';
+    
+    const filteredDownloads =
+      recentDownloads.filter(
+        item =>
+          item.image !==
+          decodeURIComponent(imageUrl)
+      );
 
+    filteredDownloads.unshift({
 
-saveRecentDownload(
-jpgName
-);
+      title:
+        decodeURIComponent(titleParam),
 
-},
+      file: filename,
 
-'image/jpeg',
-0.95
+      time: downloadedAt,
 
-);
+      image:
+        decodeURIComponent(imageUrl),
 
-}catch(err){
+      refer: referParam
 
-console.log(err);
+    });
 
-percentText.innerHTML =
-'Convert Failed';
+    const updatedList =
+      filteredDownloads.slice(0,20);
 
-}
+    localStorage.setItem(
 
-};
+      'recentDownloads',
 
-img.onerror = ()=>{
+      JSON.stringify(updatedList)
 
-percentText.innerHTML =
-'Image Load Failed';
+    );
 
-};
+    renderRecentDownloads();
 
-img.src =
-url + '?t=' + Date.now();
+    
+    viewBtn.style.display = 'block';
 
-}catch(err){
+    viewBtn.innerHTML =
+      '👁 View Download Image';
 
-console.log(err);
+    viewBtn.onclick = ()=>{
 
-percentText.innerHTML =
-'Download Failed';
+      popupImage.src =
+        currentImageUrl;
 
-}
+      previewPopup.style.display =
+        'flex';
+
+    };
+
+  }catch(err){
+
+    console.log(err);
+
+    percentText.innerHTML =
+      'Download Failed';
+
+  }
 
 }
 
