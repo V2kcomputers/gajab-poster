@@ -2,19 +2,22 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://localhost:1313/pm-kisan-23-kisht-update/</loc>
-    <lastmod>2026-06-16T08:38:15+05:30</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/schemes/</loc>
-    <lastmod>2026-06-16T08:38:15+05:30</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/</loc>
-    <lastmod>2026-06-16T08:38:15+05:30</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/mpbse-10th-result-upcoming/</loc>
-    <lastmod>2026-06-16T07:38:19+05:30</lastmod>
+    <loc>http://localhost:1313/mpbse-10th-2nd-result/</loc>
+    <lastmod>2026-06-16T16:02:35+05:30</lastmod>
   </url><url>
     <loc>http://localhost:1313/mp/</loc>
+    <lastmod>2026-06-16T16:02:35+05:30</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/</loc>
+    <lastmod>2026-06-16T16:02:35+05:30</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/pm-kisan-23-kisht-update/</loc>
+    <lastmod>2026-06-16T08:57:09+05:30</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/schemes/</loc>
+    <lastmod>2026-06-16T08:57:09+05:30</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/mpbse-10th-result-upcoming/</loc>
     <lastmod>2026-06-16T07:38:19+05:30</lastmod>
   </url><url>
     <loc>http://localhost:1313/ruk-jana-nahin-yojna-june-2026/</loc>
