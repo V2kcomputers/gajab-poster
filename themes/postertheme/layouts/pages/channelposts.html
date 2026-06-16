@@ -9,32 +9,42 @@
 
     <div class="post-header">
         <div class="avatar">{{ .Params.icon }}</div>
-
-        <div class="meta">
-            <div class="title">{{ .Title }}</div>
-  
-<div class="time"
-     data-time="{{ .Date.Unix }}">
-</div>
-    </div>
-    </div>
-<div class="post-body">
-
-    {{ with index .Params.Hindi_Sharing 0 }}
-
-    <div class="post-text collapsed">
-        {{ . }}
-    </div>
-
-    <button class="read-more-btn">
-        Read More...
-    </button>
-
-    {{ end }}
-
+        
+<div class="meta">
+    <div class="title">{{ .Title }}</div>
+    <div class="time" data-time="{{ .Date.Unix }}"></div>
 </div>
 
+<div class="menu-wrap">
+    <button class="menu-btn">☰</button>
 
+    <div class="menu-dropdown">
+    <a href="{{ .RelPermalink }}">  <button  class="share-btn"> 🔗 Open </button></a>
+
+        <button
+            class="copy-btn"
+            data-text="{{ index .Params.Hindi_Sharing 0 }}">
+            📑 Copy Text
+        </button>
+
+        <button
+            class="whatsapp-btn"
+            data-text="{{ index .Params.Hindi_Sharing 0 }}"
+            data-url="{{ .Permalink }}">
+            📤 WhatsApp
+        </button>
+
+        <button
+            class="share-btn"
+            data-title="{{ .Title }}"
+            data-url="{{ .Permalink }}">
+            🖇️ Share Link
+        </button>
+    </div>
+
+
+    </div>
+    </div>
 
     {{ if .Params.imagePoster }}
     <div class="post-image">
@@ -42,23 +52,48 @@
     </div>
     {{ end }}
 
+<div class="post-body">
+    {{ with index .Params.Hindi_Sharing 0 }}
 
-
-
-    <div class="post-footer">
-
-        <a href="{{ .RelPermalink }}" class="btn">
-           Complete
-        </a>
-         <button class="btn copy-btn" data-text="{{ index .Params.Hindi_Sharing 0 }}"> Copy Text</button>
-        <button
-            class="btn share-btn"
-            data-title="{{ .Title }}"
-            data-url="{{ .Permalink }}">
-            Share Post
-        </button>
-
+    <div class="post-text collapsed">
+        {{ . }}
     </div>
+
+    {{ end }}
+
+</div>
+
+
+
+<div class="post-footer">
+
+    <a href="{{ .RelPermalink }}" class="action-btn">
+        <span>🔗</span>
+    </a>
+
+    <button
+        class="action-btn copy-btn"
+        data-text="{{ index .Params.Hindi_Sharing 0 }}">
+        <span>📑</span>
+    </button>
+
+    <button
+        class="action-btn whatsapp-btn"
+        data-text="{{ index .Params.Hindi_Sharing 0 }}"
+        data-url="{{ .Permalink }}">
+        <span>📤</span>
+    </button>
+
+    <button
+        class="action-btn share-btn"
+        data-title="{{ .Title }}"
+        data-url="{{ .Permalink }}">
+        <span>🖇️</span>
+    </button>
+
+</div>
+
+
 
 </article>
 
@@ -67,6 +102,80 @@
 </div>
 
 <style>
+
+
+
+.post-header{
+    display:flex;
+    align-items:flex-start;
+    gap:12px;
+    padding:15px;
+}
+a:link {text-decoration: none;}
+.meta{
+    flex:1;
+    min-width:0;
+}
+
+.menu-wrap{
+    position:relative;
+    flex-shrink:0;
+}
+
+.menu-btn{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    width:36px;
+    height:36px;
+    border:none;
+    background:none;
+    color:#444;
+    font-size:22px;
+    cursor:pointer;
+    border-radius:50%;
+}
+
+.menu-btn:hover{
+    background:#f3f4f6;
+}
+
+
+
+.menu-dropdown{
+    position:absolute;
+    right:0;
+    top:35px;
+    background:#fff;
+    min-width:180px;
+    border-radius:10px;
+    box-shadow:0 5px 20px rgba(0,0,0,.15);
+    display:none;
+    z-index:999;
+}
+
+.menu-dropdown.show{
+    display:block;
+}
+
+.menu-dropdown a,
+.menu-dropdown button{
+    width:100%;
+    border:none;
+    background:none;
+    text-align:left;
+    padding:12px;
+    cursor:pointer;
+    display:block;
+    color:#333;
+}
+
+.menu-dropdown a:hover,
+.menu-dropdown button:hover{
+    background:#f5f5f5;
+}
+
+
 .channel-feed{
     max-width:850px;
     margin:auto;
@@ -79,13 +188,6 @@
     overflow:hidden;
     margin-bottom:20px;
     box-shadow:0 2px 12px rgba(0,0,0,.08);
-}
-
-.post-header{
-    display:flex;
-    align-items:center;
-    gap:12px;
-    padding:15px;
 }
 
 .avatar{
@@ -117,26 +219,20 @@
     padding:15px;
 }
 
-.post-footer{
-    display:flex;
-    gap:10px;
-    padding:15px;
-    border-top:1px solid #eee;
-}
 
-.btn{
-    background:#16a34a;
-    color:#fff;
-    text-decoration:none;
-    border:none;
-    padding:10px 16px;
-    border-radius:8px;
+
+
+
+.post-text{
+    white-space: pre-line;
+    line-height: 1.7;
     cursor:pointer;
 }
 
-.post-text{
-    white-space: pre-line;   /* line breaks preserve */
-    line-height: 1.7;
+.post-text.collapsed::after{
+    content:" ...more";
+    color:#16a34a;
+    font-weight:600;
 }
 
 .post-text.collapsed{
@@ -175,6 +271,63 @@
 .post-tag:hover{
     text-decoration:underline;
 }
+
+.post-footer{
+    display:flex;
+    justify-content:center;
+    gap:12px;
+    padding:14px;
+    border-top:1px solid #eee;
+}
+
+.action-btn{
+    width:46px;
+    height:46px;
+    border:none;
+    border-radius:14px;
+    background:#f8fafc;
+    color:#222;
+    text-decoration:none;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    cursor:pointer;
+    font-size:22px;
+    transition:.25s ease;
+    box-shadow:
+        0 2px 8px rgba(0,0,0,.08),
+        inset 0 1px 0 rgba(255,255,255,.8);
+}
+
+.action-btn:hover{
+    transform:translateY(-2px);
+    background:#16a34a;
+    color:#fff;
+}
+
+.action-btn:active{
+    transform:scale(.92);
+}
+
+.action-btn span{
+    line-height:1;
+}
+.copy-btn{
+    background:#eff6ff;
+}
+
+.whatsapp-btn{
+    background:#dcfce7;
+}
+
+.share-btn{
+    background:#fef3c7;
+}
+
+.post-link{
+    background:#e0f2fe;
+}
+
 </style>
 
 <script>
@@ -199,23 +352,36 @@ document.addEventListener("click", async function(e){
 
     }catch(err){}
 });
-</script>
-<script>
+
+
 document.addEventListener("click", function(e){
 
-    if(!e.target.classList.contains("read-more-btn")) return;
+    if(!e.target.classList.contains("whatsapp-btn")) return;
 
-    const text = e.target.previousElementSibling;
+    const text = e.target.dataset.text;
+    const url = e.target.dataset.url;
 
-    if(text.classList.contains("collapsed")){
-        text.classList.remove("collapsed");
-        e.target.textContent = "Show Less";
-    }else{
-        text.classList.add("collapsed");
-        e.target.textContent = "Continue...";
-    }
+    const shareText = text + "\n\n" + url;
+
+    window.open(
+        "https://wa.me/?text=" + encodeURIComponent(shareText),
+        "_blank"
+    );
 
 });
+</script>
+<script>
+
+document.addEventListener("click", function(e){
+
+    const text = e.target.closest(".post-text");
+
+    if(!text) return;
+
+    text.classList.toggle("collapsed");
+
+});
+
 </script>
 
 
@@ -332,5 +498,32 @@ document.querySelectorAll(".post-text").forEach(el=>{
 });
 
 </script>
+<script>
+
+document.addEventListener("click", function(e){
+
+    if(e.target.classList.contains("menu-btn")){
+
+        const menu = e.target.nextElementSibling;
+
+        document
+            .querySelectorAll(".menu-dropdown")
+            .forEach(m => {
+                if(m !== menu) m.classList.remove("show");
+            });
+
+        menu.classList.toggle("show");
+        return;
+    }
+
+    document
+        .querySelectorAll(".menu-dropdown")
+        .forEach(m => m.classList.remove("show"));
+
+});
+
+
+</script>
+
 {{ end }}
 
