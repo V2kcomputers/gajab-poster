@@ -3,13 +3,13 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>http://localhost:1313/mpbse-10th-2nd-result/</loc>
-    <lastmod>2026-06-16T16:02:35+05:30</lastmod>
+    <lastmod>2026-06-16T16:06:44+05:30</lastmod>
   </url><url>
     <loc>http://localhost:1313/mp/</loc>
-    <lastmod>2026-06-16T16:02:35+05:30</lastmod>
+    <lastmod>2026-06-16T16:06:44+05:30</lastmod>
   </url><url>
     <loc>http://localhost:1313/</loc>
-    <lastmod>2026-06-16T16:02:35+05:30</lastmod>
+    <lastmod>2026-06-16T16:06:44+05:30</lastmod>
   </url><url>
     <loc>http://localhost:1313/pm-kisan-23-kisht-update/</loc>
     <lastmod>2026-06-16T08:57:09+05:30</lastmod>
@@ -328,6 +328,9 @@
   </url><url>
     <loc>http://localhost:1313/baner-update/</loc>
     <lastmod>2026-05-28T11:58:21+05:30</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/baner-update/</loc>
+    <lastmod>2026-01-18T09:00:00-07:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/</loc>
     <lastmod>2026-05-28T11:58:21+05:30</lastmod>
