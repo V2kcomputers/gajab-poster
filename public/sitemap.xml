@@ -2,14 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>http://localhost:1313/farmate/</loc>
+    <lastmod>2026-06-17T16:48:32+05:30</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/saved-posts/</loc>
+    <lastmod>2026-06-17T16:48:32+05:30</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/</loc>
+    <lastmod>2026-06-17T16:48:32+05:30</lastmod>
+  </url><url>
     <loc>http://localhost:1313/mpbse-10th-2nd-result/</loc>
     <lastmod>2026-06-16T16:06:44+05:30</lastmod>
   </url><url>
     <loc>http://localhost:1313/mp/</loc>
     <lastmod>2026-06-16T16:06:44+05:30</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/</loc>
-    <lastmod>2026-06-17T11:50:33+05:30</lastmod>
   </url><url>
     <loc>http://localhost:1313/pm-kisan-23-kisht-update/</loc>
     <lastmod>2026-06-16T08:57:09+05:30</lastmod>
@@ -338,6 +344,5 @@
     <loc>http://localhost:1313/categories/</loc>
   </url><url>
     <loc>http://localhost:1313/channel.json</loc>
-    <lastmod>2026-06-17T11:50:33+05:30</lastmod>
   </url>
 </urlset>

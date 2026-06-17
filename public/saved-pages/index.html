@@ -1,0 +1,175 @@
+<script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><div class="channel-feed">
+
+    <h2>
+        ⭐ Saved Posts
+    </h2>
+
+    <div id="savedFeed"></div>
+
+</div>
+
+<script>
+
+const savedPosts =
+
+    JSON.parse(
+        localStorage.getItem(
+            "savedPosts"
+        ) || "[]"
+    );
+
+const feed =
+
+    document.getElementById(
+        "savedFeed"
+    );
+
+if(savedPosts.length === 0){
+
+    feed.innerHTML = `
+        <div class="post-card">
+            <div class="post-body">
+                No saved posts found.
+            </div>
+        </div>
+    `;
+
+}else{
+
+    feed.innerHTML =
+
+    savedPosts.map(post=>`
+
+    <article class="post-card">
+
+        <div class="post-header">
+
+            <div class="avatar">
+
+                <img
+                    src="${
+                        post.sourceLogo || '/favicon.ico'
+                    }">
+
+            </div>
+
+            <div class="meta">
+
+                <div class="title">
+
+                    ${
+                        post.sourceName ||
+                        "Saved Post"
+                    }
+
+                    <span class="verified-badge">
+                        ✓
+                    </span>
+
+                </div>
+
+                <div class="date">
+
+                    Saved Post
+
+                </div>
+
+            </div>
+
+        </div>
+
+        ${
+            post.image
+            ?
+            `
+            <div class="post-image">
+
+                <a
+                    href="${post.url}">
+
+                    <img
+                        src="${post.image}">
+
+                </a>
+
+            </div>
+            `
+            :
+            ''
+        }
+
+        <div class="post-body">
+
+            <div class="post-text">
+
+                ${
+                    post.description || ''
+                }
+
+            </div>
+
+        </div>
+
+        <div class="post-footer">
+
+            <a
+                href="${post.url}"
+                target="_blank"
+                class="action-btn">
+
+                🔗
+
+            </a>
+
+            <button
+                class="action-btn remove-saved"
+                data-url="${post.url}">
+
+                🗑️
+
+            </button>
+
+        </div>
+
+    </article>
+
+    `).join('');
+
+}
+
+document.addEventListener(
+"click",
+function(e){
+
+    const btn =
+        e.target.closest(
+            ".remove-saved"
+        );
+
+    if(!btn) return;
+
+    const url =
+        btn.dataset.url;
+
+    let posts =
+        JSON.parse(
+            localStorage.getItem(
+                "savedPosts"
+            ) || "[]"
+        );
+
+    posts =
+        posts.filter(
+            p => p.url !== url
+        );
+
+    localStorage.setItem(
+        "savedPosts",
+        JSON.stringify(posts)
+    );
+
+    location.reload();
+
+});
+
+</script>

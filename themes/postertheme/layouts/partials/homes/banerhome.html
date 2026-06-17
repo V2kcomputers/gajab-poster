@@ -148,7 +148,7 @@
 
 
 
-{{ $types := slice "Documents" "Cybercafe" "Schemes" "Admission" "Jobs" "Exams" "Banking" "Services" "Printing" "Multi" "forms"}}
+{{ $types := slice "Documents" "Cybercafe" "Schemes" "Admission" "Jobs" "Exams" "Banking" "Services" "Printing" "Multi" "forms" }}
 
 {{ $titles := dict 
   "Banking" "🏦 Banking Related Posters"
@@ -165,7 +165,7 @@
 }}
 
 <!-- सभी पोस्ट latest अनुसार -->
-{{ $allLatestPosts := sort .Site.RegularPages ".Lastmod" "desc" }}
+{{ $allLatestPosts := sort (where .Site.RegularPages "Section" "ne" "farmate") ".Lastmod" "desc" }}
 
 <!-- सिर्फ latest 20 -->
 {{ $latest20 := first 20 $allLatestPosts }}
