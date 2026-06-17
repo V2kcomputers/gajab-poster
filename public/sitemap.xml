@@ -336,5 +336,7 @@
     <lastmod>2026-06-16T18:07:33+05:30</lastmod>
   </url><url>
     <loc>http://localhost:1313/categories/</loc>
+  </url><url>
+    <loc>http://localhost:1313/channel.json</loc>
   </url>
 </urlset>

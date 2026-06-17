@@ -2,103 +2,8 @@
 {{ define "main" }}
 
 <div class="channel-feed">
-
-{{ range first 20 (where site.RegularPages "Type" "poster") }}
-
-<article class="post-card">
-
-    <div class="post-header">
-        <div class="avatar">{{ .Params.icon }}</div>
-        
-<div class="meta">
-    <div class="title">{{ .Title }}</div>
-    <div class="time" data-time="{{ .Date.Unix }}"></div>
-</div>
-
-<div class="menu-wrap">
-    <button class="menu-btn">☰</button>
-
-    <div class="menu-dropdown">
-    <a href="{{ .RelPermalink }}">  <button  class="share-btn"> 🔗 Open </button></a>
-
-        <button
-            class="copy-btn"
-            data-text="{{ index .Params.Hindi_Sharing 0 }}">
-            📑 Copy Text
-        </button>
-
-        <button
-            class="whatsapp-btn"
-            data-text="{{ index .Params.Hindi_Sharing 0 }}"
-            data-url="{{ .Permalink }}">
-            📤 WhatsApp
-        </button>
-
-        <button
-            class="share-btn"
-            data-title="{{ .Title }}"
-            data-url="{{ .Permalink }}">
-            🖇️ Share Link
-        </button>
-    </div>
-
-
-    </div>
-    </div>
-
-    {{ if .Params.imagePoster }}
-    <div class="post-image">
-       <a href="{{ .Permalink }}"> <img src="{{ .Params.imagePoster }}" alt="{{ .Title }}"></a>
-    </div>
-    {{ end }}
-
-<div class="post-body">
-    {{ with index .Params.Hindi_Sharing 0 }}
-
-    <div class="post-text collapsed">
-        {{ . }}
-    </div>
-
-    {{ end }}
-
-</div>
-
-
-
-<div class="post-footer">
-
-    <a href="{{ .RelPermalink }}" class="action-btn">
-        <span>🔗</span>
-    </a>
-
-    <button
-        class="action-btn copy-btn"
-        data-text="{{ index .Params.Hindi_Sharing 0 }}">
-        <span>📑</span>
-    </button>
-
-    <button
-        class="action-btn whatsapp-btn"
-        data-text="{{ index .Params.Hindi_Sharing 0 }}"
-        data-url="{{ .Permalink }}">
-        <span>📤</span>
-    </button>
-
-    <button
-        class="action-btn share-btn"
-        data-title="{{ .Title }}"
-        data-url="{{ .Permalink }}">
-        <span>🖇️</span>
-    </button>
-
-</div>
-
-
-
-</article>
-
-{{ end }}
-
+<div id="remotePosts"></div>
+<div id="channelFeed"></div>
 </div>
 
 <style>
@@ -330,69 +235,19 @@ a:link {text-decoration: none;}
 
 </style>
 
-<script>
-document.addEventListener("click", async function(e){
-
-    if(!e.target.classList.contains("share-btn")) return;
-
-    const title = e.target.dataset.title;
-    const url = e.target.dataset.url;
-
-    try{
-
-        if(navigator.share){
-            await navigator.share({
-                title:title,
-                url:url
-            });
-        }else{
-            await navigator.clipboard.writeText(url);
-            alert("Link copied");
-        }
-
-    }catch(err){}
-});
-
-
-document.addEventListener("click", function(e){
-
-    if(!e.target.classList.contains("whatsapp-btn")) return;
-
-    const text = e.target.dataset.text;
-    const url = e.target.dataset.url;
-
-    const shareText = text + "\n\n" + url;
-
-    window.open(
-        "https://wa.me/?text=" + encodeURIComponent(shareText),
-        "_blank"
-    );
-
-});
-</script>
-<script>
-
-document.addEventListener("click", function(e){
-
-    const text = e.target.closest(".post-text");
-
-    if(!text) return;
-
-    text.classList.toggle("collapsed");
-
-});
-
-</script>
-
 
 <script>
+
 function formatPostTime(unixTimestamp){
 
     const now = Date.now();
     const postTime = unixTimestamp * 1000;
 
-    const diffMinutes = Math.floor((now - postTime) / 60000);
-    const diffHours = Math.floor(diffMinutes / 60);
+    const diffMinutes =
+        Math.floor((now - postTime) / 60000);
+
+    const diffHours =
+        Math.floor(diffMinutes / 60);
 
     if(diffMinutes < 2){
         return "Just now";
@@ -408,122 +263,216 @@ function formatPostTime(unixTimestamp){
             : `${diffHours} hours ago`;
     }
 
-    const postDate = new Date(postTime);
-    const yesterday = new Date();
-    yesterday.setDate(yesterday.getDate() - 1);
-
-    if(
-        postDate.getDate() === yesterday.getDate() &&
-        postDate.getMonth() === yesterday.getMonth() &&
-        postDate.getFullYear() === yesterday.getFullYear()
-    ){
-        return "Yesterday";
-    }
-
-    return postDate.toLocaleString("en-IN", {
-        day: "2-digit",
-        month: "short",
-        year: "numeric",
-        hour: "numeric",
-        minute: "2-digit"
-    });
+    return new Date(postTime)
+        .toLocaleDateString("en-IN",{
+            day:"2-digit",
+            month:"short",
+            year:"numeric"
+        });
 }
 
 function updateTimes(){
-    document.querySelectorAll(".time").forEach(el=>{
-        const ts = Number(el.dataset.time);
-        el.textContent = formatPostTime(ts);
+
+    document
+    .querySelectorAll(".time")
+    .forEach(el=>{
+
+        const ts =
+            Number(el.dataset.time);
+
+        el.textContent =
+            formatPostTime(ts);
+
     });
+
 }
-
-updateTimes();
-setInterval(updateTimes, 60000);
-
-
-</script>
-<script>
-
-document.addEventListener("click", async function(e){
-
-    if(!e.target.classList.contains("copy-btn")) return;
-
-    try{
-
-        await navigator.clipboard.writeText(
-            e.target.dataset.text
-        );
-
-        const old = e.target.textContent;
-
-        e.target.textContent = "✓ Copied";
-
-        setTimeout(()=>{
-            e.target.textContent = old;
-        },1500);
-
-    }catch(err){
-        alert("Copy failed");
-    }
-
-});
-
-
-</script>
-<script>
 
 function linkifyText(text){
 
-    // URLs
     text = text.replace(
         /(https?:\/\/[^\s]+)/g,
         '<a href="$1" target="_blank" class="post-link">$1</a>'
     );
 
-    // Hashtags => /search/?q=
     text = text.replace(
         /(^|\s)(#[a-zA-Z0-9_\u0900-\u097F]+)/g,
-        function(match, space, tag){
+        function(match,space,tag){
 
-            const keyword = tag.slice(1); // remove #
+            const keyword =
+                tag.slice(1);
 
             return `${space}<a href="/search/?q=${encodeURIComponent(keyword)}" class="post-tag">${tag}</a>`;
+
         }
     );
 
-    return text.replace(/\n/g,'<br>');
+    return text;
+
 }
 
-document.querySelectorAll(".post-text").forEach(el=>{
-    el.innerHTML = linkifyText(el.textContent);
-});
+async function loadFeed(){
 
-</script>
-<script>
+    const feed =
+        document.getElementById(
+            "channelFeed"
+        );
 
-document.addEventListener("click", function(e){
+    try{
 
-    if(e.target.classList.contains("menu-btn")){
+        const posts =
+            await fetch(
+                "https://www.gajabtools.com/channel.json"
+            ).then(r=>r.json());
 
-        const menu = e.target.nextElementSibling;
+        feed.innerHTML =
+            posts.slice(0,20).map(post=>`
 
-        document
-            .querySelectorAll(".menu-dropdown")
-            .forEach(m => {
-                if(m !== menu) m.classList.remove("show");
-            });
+        <article class="post-card">
 
-        menu.classList.toggle("show");
-        return;
+            <div class="post-header">
+
+                <div class="avatar">
+                    🌐
+                </div>
+
+                <div class="meta">
+
+                    <div class="title">
+                        ${post.title}
+                    </div>
+
+                    <div
+                        class="time"
+                        data-time="${
+                            Date.parse(post.date)/1000
+                        }">
+                    </div>
+
+                </div>
+
+            </div>
+
+            ${
+                post.image
+                ? `
+                <div class="post-image">
+                    <a href="${post.url}">
+                        <img
+                            src="${post.image}"
+                            alt="${post.title}">
+                    </a>
+                </div>
+                `
+                : ""
+            }
+
+            <div class="post-body">
+
+                <div
+                    class="post-text collapsed">
+
+                    ${
+                        linkifyText(
+                            post.description || ""
+                        )
+                    }
+
+                </div>
+
+            </div>
+
+            <div class="post-footer">
+
+                <a
+                    href="${post.url}"
+                    target="_blank"
+                    class="action-btn">
+                    🔗
+                </a>
+
+                <button
+                    class="action-btn copy-btn"
+                    data-text="${(post.description||'').replace(/"/g,'&quot;')}">
+                    📑
+                </button>
+
+                <button
+                    class="action-btn whatsapp-btn"
+                    data-text="${(post.description||'').replace(/"/g,'&quot;')}"
+                    data-url="${post.url}">
+                    📤
+                </button>
+
+            </div>
+
+        </article>
+
+        `).join("");
+
+        updateTimes();
+
+    }catch(err){
+
+        console.error(err);
+
+        feed.innerHTML =
+            "<h3>Feed loading failed</h3>";
+
     }
 
-    document
-        .querySelectorAll(".menu-dropdown")
-        .forEach(m => m.classList.remove("show"));
+}
+
+loadFeed();
+
+document.addEventListener(
+"click",
+async function(e){
+
+    if(
+        e.target.classList.contains(
+            "copy-btn"
+        )
+    ){
+
+        await navigator.clipboard
+        .writeText(
+            e.target.dataset.text
+        );
+
+        e.target.textContent = "✓";
+
+        setTimeout(()=>{
+            e.target.textContent = "📑";
+        },1000);
+
+    }
+
+    if(
+        e.target.classList.contains(
+            "whatsapp-btn"
+        )
+    ){
+
+        const text =
+            e.target.dataset.text;
+
+        const url =
+            e.target.dataset.url;
+
+        window.open(
+            "https://wa.me/?text=" +
+            encodeURIComponent(
+                text + "\n\n" + url
+            ),
+            "_blank"
+        );
+
+    }
 
 });
 
-
 </script>
+
 
 {{ end }}
 
