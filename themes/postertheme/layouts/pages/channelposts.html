@@ -1,16 +1,290 @@
 
-{{ define "main" }}
+<header> <div class="channel-header">
+    <div class="channel-left">
+        <img src="/logo/logo-100x100.png" alt="YOJNA PORTAL">
+        
+        <div class="channel-info">
+            <div class="channel-name">
+                YOJNA PORTAL
+            </div>
+
+            <div class="channel-followers">
+                1L followers
+            </div>
+        </div>
+    </div>
+
+    <div class="channel-right">
+     <div class="channel-follow-box">
+        <div class="onesignal-customlink-container"></div> 
+        <button> <a href="https://yojnaportal.com/whatsapp" target="_blank" class="follow-btn-top"> Follow</a></button>
+    </div>
+        <a
+    href="/saved-posts/"
+    class="saved-page-btn">
+ ⭐ Saved Posts </a>
+
+
+        <button class="icon-btn" title="Share">
+            🔗
+        </button>
+
+        <div class="menu-wrapper">
+
+    <button class="icon-btn" id="menuBtn">
+        ⋮
+    </button>
+
+    <div class="social-menu" id="socialMenu">
+
+        <a href="https://yojnaportal.com/whatsapp" target="_blank">
+            <i class="fab fa-whatsapp"></i>
+            WhatsApp
+        </a>
+
+        <a href="https://yojnaportal.com/telegram" target="_blank">
+            <i class="fab fa-telegram"></i>
+            Telegram
+        </a>
+
+        <a href="https://yojnaportal.com/youtube" target="_blank">
+            <i class="fab fa-youtube"></i>
+            YouTube
+        </a>
+
+        <a href="https://yojnaportal.com/facebook" target="_blank">
+            <i class="fab fa-facebook"></i>
+            Facebook
+        </a>
+
+        <a href="https://yojnaportal.com/instagram" target="_blank">
+            <i class="fab fa-instagram"></i>
+            Instagram
+        </a>
+
+        <a href="https://yojnaportal.com/x" target="_blank">
+            <i class="fab fa-x-twitter"></i>
+            X (Twitter)
+        </a>
+
+    </div>
+
+</div>
+    </div>
+</div>
+</header>
+
+<head>
+       <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"> 
+
+<script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
+<script>
+  window.OneSignalDeferred = window.OneSignalDeferred || [];
+  OneSignalDeferred.push(async function(OneSignal) {
+    await OneSignal.init({
+      appId: "0ae02b63-20a7-4a29-82bc-48c7a576de91",
+    });
+  });
+</script>
+
+</head>
+<script>
+const menuBtn = document.getElementById("menuBtn");
+const socialMenu = document.getElementById("socialMenu");
+
+menuBtn.addEventListener("click", (e) => {
+    e.stopPropagation();
+    socialMenu.classList.toggle("show");
+});
+
+document.addEventListener("click", () => {
+    socialMenu.classList.remove("show");
+});
+</script>
+
 
 <div class="channel-feed">
-     <div class="channel-follow-box">
-        <div class="onesignal-customlink-container"></div>
-        <a href="/saved-posts/" class="saved-page-btn"> ⭐ Saved Posts </a>
-    </div>
+
 <div id="remotePosts"></div>
 <div id="channelFeed"></div>
 </div>
 
 <style>
+
+header .menu-wrapper{
+    position:relative;
+}
+
+header .social-menu{
+    position:absolute;
+    top:50px;
+    right:0;
+
+    width:220px;
+    background:#1f1f1f;
+
+    border-radius:12px;
+    overflow:hidden;
+
+    box-shadow:0 10px 30px rgba(0,0,0,.25);
+
+    display:none;
+    z-index:9999;
+}
+
+header .social-menu.show{
+    display:block;
+}
+
+header .social-menu a{
+    display:flex;
+    align-items:center;
+    gap:12px;
+
+    padding:14px 16px;
+
+    color:#fff;
+    text-decoration:none;
+
+    border-bottom:1px solid rgba(255,255,255,.08);
+
+    transition:.2s;
+}
+
+header.social-menu a:last-child{
+    border-bottom:none;
+}
+
+header .social-menu a:hover{
+    background:#2d2d2d;
+}
+
+header .social-menu i{
+    width:20px;
+    text-align:center;
+    font-size:18px;
+}
+
+header{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    z-index:9999;
+}
+header .channel-header{
+   background:#111;
+    color:#fff;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    padding:14px 20px;
+    border-bottom:1px solid #222;
+
+    font-family:Arial,sans-serif;
+}
+
+header .channel-left{
+    display:flex;
+    align-items:center;
+    gap:14px;
+}
+
+header .channel-left img{
+    width:54px;
+    height:54px;
+    border-radius:50%;
+    object-fit:cover;
+    background:#fff;
+}
+
+header .channel-name{
+    font-size:18px;
+    font-weight:700;
+    line-height:1.2;
+}
+
+header .channel-followers{
+    color:#b0b0b0;
+    font-size:14px;
+    margin-top:4px;
+}
+
+header .channel-right{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+header .icon-btn{
+    width:40px;
+    height:40px;
+
+    border:none;
+    background:transparent;
+    color:#fff;
+
+    font-size:22px;
+    cursor:pointer;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border-radius:50%;
+}
+
+header .icon-btn:hover{
+    background:#222;
+}
+
+header .follow-btn-top{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+
+    padding:8px 20px;
+
+    background:#fff;
+    color:#111;
+
+    font-weight:700;
+    font-size:14px;
+
+    text-decoration:none;
+
+    border-radius:50px;
+
+    transition:.3s;
+}
+
+header .follow-btn-top::before{
+    content:"+";
+    font-size:18px;
+    font-weight:700;
+}
+
+header .follow-btn-top:hover{
+    background:#25D366;
+    color:#fff;
+}
+
+header .saved-page-btn{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:10px 16px;
+    border-radius:999px;
+    background:#fef3c7;
+    color:#92400e;
+    font-weight:600;
+    text-decoration:none;
+}
 .channel-follow-box{
     display:flex;
     justify-content:flex-end;
@@ -186,7 +460,7 @@ a:link {text-decoration: none;}
 .post-body{
     padding:15px;
 }
-
+ .channel-feed {margin: 80px auto;}
 .post-text{
     white-space: pre-line;
     line-height: 1.4;
@@ -1029,5 +1303,5 @@ document.addEventListener("click",function(e){
 
 }
 </script>
-{{ end }}
+
 
