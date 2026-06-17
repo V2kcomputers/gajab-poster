@@ -9,7 +9,7 @@
     <lastmod>2026-06-16T16:06:44+05:30</lastmod>
   </url><url>
     <loc>http://localhost:1313/</loc>
-    <lastmod>2026-06-16T18:07:33+05:30</lastmod>
+    <lastmod>2026-06-17T11:50:33+05:30</lastmod>
   </url><url>
     <loc>http://localhost:1313/pm-kisan-23-kisht-update/</loc>
     <lastmod>2026-06-16T08:57:09+05:30</lastmod>
@@ -338,5 +338,6 @@
     <loc>http://localhost:1313/categories/</loc>
   </url><url>
     <loc>http://localhost:1313/channel.json</loc>
+    <lastmod>2026-06-17T11:50:33+05:30</lastmod>
   </url>
 </urlset>

@@ -29,6 +29,7 @@ enableGitInfo = true
   filename = "sitemap.xml"
   [outputs]
   home = ["HTML", "JSON", "RSS"]
+  page = ["HTML", "JSON"]
 
 [params]
 SiteDisclaimer = """

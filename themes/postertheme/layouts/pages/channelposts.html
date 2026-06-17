@@ -310,6 +310,10 @@ function linkifyText(text){
 
 }
 
+let allPosts = [];
+let currentPage = 0;
+const postsPerPage = 20;
+
 async function loadFeed(){
 
     const feed =
@@ -317,22 +321,99 @@ async function loadFeed(){
             "channelFeed"
         );
 
+    const feedSources = [
+
+        "/channel.json",
+
+        "https://www.gajabtools.com/channel.json",
+
+        "https://poster.yojnaportal.com/channel.json"
+
+    ];
+
     try{
 
-        const posts =
-            await fetch(
-                "https://www.gajabtools.com/channel.json"
-            ).then(r=>r.json());
+        let posts = [];
+
+        const results =
+            await Promise.allSettled(
+
+                feedSources.map(url=>
+
+                    fetch(url)
+                    .then(r=>r.json())
+
+                )
+
+            );
+
+        results.forEach(result=>{
+
+            if(
+                result.status === "fulfilled"
+            ){
+
+                posts.push(
+                    ...result.value
+                );
+
+            }
+
+        });
+
+        posts.sort(
+            (a,b)=>
+            new Date(b.date) -
+            new Date(a.date)
+        );
+
+        allPosts = posts;
+
+        renderPosts();
+
+    }catch(err){
+
+        console.error(err);
 
         feed.innerHTML =
-            posts.slice(0,20).map(post=>`
+            "<h3>Feed loading failed</h3>";
+
+    }
+
+}
+
+function renderPosts(){
+
+    const feed =
+        document.getElementById(
+            "channelFeed"
+        );
+
+    const start =
+        currentPage * postsPerPage;
+
+    const end =
+        start + postsPerPage;
+
+    const chunk =
+        allPosts.slice(start,end);
+
+    if(chunk.length === 0){
+        return;
+    }
+
+    feed.insertAdjacentHTML(
+
+        "beforeend",
+
+        chunk.map(post=>`
 
         <article class="post-card">
 
             <div class="post-header">
 
                 <div class="avatar">
-                    🌐
+                    📢
                 </div>
 
                 <div class="meta">
@@ -407,22 +488,38 @@ async function loadFeed(){
 
         </article>
 
-        `).join("");
+        `).join("")
 
-        updateTimes();
+    );
 
-    }catch(err){
-
-        console.error(err);
-
-        feed.innerHTML =
-            "<h3>Feed loading failed</h3>";
-
-    }
+    updateTimes();
 
 }
 
+window.addEventListener(
+"scroll",
+function(){
+
+    if(
+
+        window.innerHeight +
+        window.scrollY >=
+
+        document.body.offsetHeight - 500
+
+    ){
+
+        currentPage++;
+
+        renderPosts();
+
+    }
+
+});
+
 loadFeed();
+
+
 
 document.addEventListener(
 "click",
