@@ -277,14 +277,11 @@ a:link {text-decoration: none;}
     padding:15px;
 }
 
-
-
-
-
 .post-text{
     white-space: pre-line;
-    line-height: 1.7;
+    line-height: 1.4;
     cursor:pointer;
+    margin-top: -50px;
 }
 
 .post-text.collapsed::after{
@@ -301,7 +298,7 @@ a:link {text-decoration: none;}
 }
 
 .read-more-btn{
-    margin-top:10px;
+    margin-top:0px;
     background:none;
     border:none;
     color:#16a34a;
@@ -479,7 +476,7 @@ async function loadFeed(){
         "/channel.json",
 
         "https://www.gajabtools.com/channel.json",
-
+         "https://www.yojnaportal.com/channel.json",
         "https://poster.yojnaportal.com/channel.json"
 
     ];
@@ -583,6 +580,55 @@ function renderPosts(){
                     </div>
 
                 </div>
+            <div class="menu-wrap">
+
+    <button class="menu-btn">⋮</button>
+
+    <div class="menu-dropdown">
+
+        <a href="${post.url}" target="_blank">
+            🔗 Open
+        </a>
+
+        <button
+            class="copy-btn"
+            data-text="${(post.description||'').replace(/"/g,'&quot;')}">
+            📑 Copy Text
+        </button>
+
+        <button
+            class="whatsapp-btn"
+            data-text="${(post.description||'').replace(/"/g,'&quot;')}"
+            data-url="${post.url}">
+            📤 WhatsApp
+        </button>
+
+        <button
+            class="share-btn"
+            data-title="${post.title}"
+            data-url="${post.url}">
+            🖇️ Share Link
+        </button>
+
+    </div>
+
+
+
+
+    </div>
+            </div>
+                <div class="post-body">
+
+                <div
+                    class="post-text collapsed">
+
+                    ${
+                        linkifyText(
+                            post.description || ""
+                        )
+                    }
+
+                </div>
 
             </div>
 
@@ -600,20 +646,7 @@ function renderPosts(){
                 : ""
             }
 
-            <div class="post-body">
-
-                <div
-                    class="post-text collapsed">
-
-                    ${
-                        linkifyText(
-                            post.description || ""
-                        )
-                    }
-
-                </div>
-
-            </div>
+        
 
             <div class="post-footer">
 
@@ -722,7 +755,85 @@ async function(e){
 });
 
 </script>
+<script>
 
+document.addEventListener("click", function(e){
+
+    if(e.target.classList.contains("menu-btn")){
+
+        const menu = e.target.nextElementSibling;
+
+        document
+            .querySelectorAll(".menu-dropdown")
+            .forEach(m => {
+                if(m !== menu) m.classList.remove("show");
+            });
+
+        menu.classList.toggle("show");
+        return;
+    }
+
+    document
+        .querySelectorAll(".menu-dropdown")
+        .forEach(m => m.classList.remove("show"));
+
+});
+
+
+</script>
+<script>
+document.addEventListener("click", async function(e){
+
+    if(!e.target.classList.contains("share-btn")) return;
+
+    const title = e.target.dataset.title;
+    const url = e.target.dataset.url;
+
+    try{
+
+        if(navigator.share){
+            await navigator.share({
+                title:title,
+                url:url
+            });
+        }else{
+            await navigator.clipboard.writeText(url);
+            alert("Link copied");
+        }
+
+    }catch(err){}
+});
+
+
+document.addEventListener("click", function(e){
+
+    if(!e.target.classList.contains("whatsapp-btn")) return;
+
+    const text = e.target.dataset.text;
+    const url = e.target.dataset.url;
+
+    const shareText = text + "\n\n" + url;
+
+    window.open(
+        "https://wa.me/?text=" + encodeURIComponent(shareText),
+        "_blank"
+    );
+
+});
+</script>
+<script>
+
+document.addEventListener("click", function(e){
+
+    const text = e.target.closest(".post-text");
+
+    if(!text) return;
+
+    text.classList.toggle("collapsed");
+
+});
+
+</script>
 
 
   </main>

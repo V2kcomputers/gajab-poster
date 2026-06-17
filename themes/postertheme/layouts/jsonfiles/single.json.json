@@ -1,4 +1,5 @@
 
+
 [
 {{- range $i, $p := first 20 ((where site.RegularPages "Section" "ne" "farmate").ByDate.Reverse) }}
 {{- if $i }},{{ end }}
@@ -28,3 +29,4 @@
     {{ end }}
 }
 {{- end }}
+]
