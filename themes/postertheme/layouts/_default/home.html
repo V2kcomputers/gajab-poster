@@ -8,6 +8,57 @@
 </div>
 
 <style>
+/* Light Theme */
+:root{
+    --bg:#f5f7fb;
+    --card-bg:#ffffff;
+    --text:#222;
+    --text-light:#666;
+    --border:#e5e7eb;
+
+    --hover:#f3f4f6;
+    --footer-bg:#f8fafc;
+
+    --shadow:0 2px 12px rgba(0,0,0,.08);
+    --menu-shadow:0 5px 20px rgba(0,0,0,.15);
+
+    --save-bg:#fff7ed;
+    --save-text:#f59e0b;
+
+    --copy-bg:#eff6ff;
+    --wa-bg:#dcfce7;
+    --share-bg:#fef3c7;
+    --link-bg:#e0f2fe;
+
+    --green:#16a34a;
+    --blue:#2563eb;
+}
+
+/* Dark Theme */
+body.dark{
+    --bg:#0f172a;
+    --card-bg:#1f2c33;
+    --text:#f8fafc;
+    --text-light:#94a3b8;
+    --border:#334155;
+
+    --hover:#334155;
+    --footer-bg:#273449;
+
+    --shadow:0 2px 15px rgba(0,0,0,.4);
+    --menu-shadow:0 5px 20px rgba(0,0,0,.5);
+
+    --save-bg:#3b2f12;
+    --save-text:#fbbf24;
+
+    --copy-bg:#1e3a5f;
+    --wa-bg:#14532d;
+    --share-bg:#4a3b12;
+    --link-bg:#0c4a6e;
+
+    --green:#22c55e;
+    --blue:#60a5fa;
+}
 
 .post-header{
     display:flex;
@@ -87,7 +138,7 @@ a:link {text-decoration: none;}
 }
 
 .post-card{
-    background:#fff;
+    background:var(--card-bg);
     border-radius:16px;
     overflow:hidden;
     margin-bottom:20px;
@@ -128,6 +179,7 @@ a:link {text-decoration: none;}
     display:flex;
     align-items:center;
     gap:6px;
+    color:var(--text)
 }
 
 .verified-badge{
@@ -144,9 +196,9 @@ a:link {text-decoration: none;}
     flex-shrink:0;
 }
 
-.date{
+.time{
     font-size:13px;
-    color:#666;
+    color:var(--text-light);
 }
 .header-save-btn{
     margin-left:auto;
@@ -182,6 +234,7 @@ a:link {text-decoration: none;}
     white-space: pre-line;
     line-height: 1.4;
     cursor:pointer;
+    color: var(--text);
     margin-top: -50px;
 }
 
