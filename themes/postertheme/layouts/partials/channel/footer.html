@@ -1,0 +1,217 @@
+<footer></footer>
+
+<div id="menuFooter"></div>
+
+
+<div id="mainMenu" style="display:none;">
+
+    <div class="bottom-nav">
+
+        <a href="/" class="nav-item">
+            <i class="fas fa-home"></i>
+            <span>Home</span>
+        </a>
+
+        <a href="/Channel/" class="nav-item">
+            <i class="fas fa-bolt"></i>
+            <span>Latest</span>
+        </a>
+
+        <a href="/saved-posts/" class="nav-item">
+            <i class="fas fa-bookmark"></i>
+            <span>Saved</span>
+        </a>
+
+        <a href="/tools/" class="nav-item">
+            <i class="fas fa-toolbox"></i>
+            <span>Tools</span>
+        </a>
+
+        <a href="/search/"
+           target="_blank"
+           class="nav-item">
+            <i class="fas fa-Search"></i>
+            <span>Search</span>
+        </a>
+
+    </div>
+
+</div>
+
+<style>
+    .bottom-nav{
+    position:fixed;
+    bottom:0;
+    left:0;
+    width:100%;
+    height:65px;
+
+    background:#111;
+    border-top:1px solid #222;
+
+    display:flex;
+    justify-content:space-around;
+    align-items:center;
+
+    z-index:9999;
+}
+
+.bottom-nav .nav-item{
+    flex:1;
+
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+
+    color:#aaa;
+    text-decoration:none;
+
+    font-size:12px;
+    gap:4px;
+
+    transition:.3s;
+}
+
+.bottom-nav .nav-item i{
+    font-size:22px;
+}
+
+.bottom-nav .nav-item:hover,
+.bottom-nav .nav-item.active{
+    color:#25D366;
+}
+
+body{
+    padding-bottom:80px;
+}
+
+.bottom-nav{
+    display:flex;
+    justify-content:space-around;
+    align-items:center;
+    background:#111;
+}
+
+.nav-item{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:4px;
+    color:#fff;
+    text-decoration:none;
+    padding:12px;
+}
+
+.nav-item i{
+    font-size:20px;
+}
+.nav-item{
+    color:#aaa;
+    transition:.3s;
+    position:relative;
+}
+
+.nav-item.active{
+    color:#25D366;
+    font-weight:700;
+}
+
+.nav-item.active i{
+    transform:scale(1.15);
+}
+
+.nav-item.active::after{
+    content:"";
+    position:absolute;
+    bottom:-2px;
+    left:50%;
+    transform:translateX(-50%);
+    width:24px;
+    height:3px;
+    background:#25D366;
+    border-radius:20px;
+}
+/* Mobile */
+@media (max-width:768px){
+
+    #menuFooter .bottom-nav{
+        position:fixed;
+        bottom:0;
+        left:0;
+        width:100%;
+        height:65px;
+        z-index:9999;
+        border-top:1px solid #333;
+    }
+
+    body{
+        padding-bottom:75px;
+    }
+}
+
+/* Desktop */
+@media (min-width:769px){
+
+    #menuHeader .bottom-nav{
+        position:static;
+        width:auto;
+        border-radius:12px;
+        padding:0 10px;
+    }
+
+    #menuHeader .nav-item{
+        flex-direction:row;
+    }
+}
+</style>
+<script>
+function moveMenu(){
+
+    const menu = document.getElementById("mainMenu");
+
+    if(window.innerWidth <= 768){
+
+        document
+            .getElementById("menuFooter")
+            .appendChild(menu);
+
+    }else{
+
+        document
+            .getElementById("menuHeader")
+            .appendChild(menu);
+
+    }
+
+    menu.style.display = "block";
+}
+
+moveMenu();
+
+window.addEventListener("resize", moveMenu);
+</script>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+
+    const currentPath = window.location.pathname;
+
+    document.querySelectorAll(".bottom-nav .nav-item")
+    .forEach(link => {
+
+        link.classList.remove("active");
+
+        const linkPath = new URL(link.href).pathname;
+
+        if(
+            currentPath === linkPath ||
+            (linkPath !== "/" && currentPath.startsWith(linkPath))
+        ){
+            link.classList.add("active");
+        }
+
+    });
+
+});
+</script>
+{{ partial "jsFiles/getFiles.html" . }}

@@ -1,0 +1,9 @@
+<!-- Safe JS Loader -->
+{{ with .Params.jsFiles }}
+  {{ range . }}
+    {{ with resources.Get . }}
+      {{ $js := . | minify | fingerprint }}
+      <script src="{{ $js.Permalink }}" integrity="{{ $js.Data.Integrity }}" defer></script>
+    {{ end }}
+  {{ end }}
+{{ end }}
