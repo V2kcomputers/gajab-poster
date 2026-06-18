@@ -1,9 +1,5 @@
-<!DOCTYPE html>
-<html lang="en-us" dir="ltr">
-<head>
-	<meta name="generator" content="Hugo 0.148.2"><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
-  
-<meta charset="UTF-8">
+ <head>
+	<meta name="generator" content="Hugo 0.148.2"><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script> <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Yojna Portal Posters | Poster  </title>
@@ -121,2781 +117,1580 @@
   gtag('js', new Date());
   gtag('config', 'G-MTRBDMHW1C');
 </script>
+ </head>
 
 
-  
-    <link rel="stylesheet" href="/css/main/mainbase.min.4bcd2dcfe225c32e117fb4875db306bab1c5231d2fbfb0c931400f031b75890f.css" integrity="sha256-S80tz&#43;Ilwy4Rf7SHXbMGurHFIx0vv7DJMUAPAxt1iQ8=">
-  
+<header> <div class="channel-header">
+    <div class="channel-left">
+        <img src="/logo/logo-100x100.png" alt="YOJNA PORTAL">
+        
+        <div class="channel-info">
+            <div class="channel-name">
+                YOJNA PORTAL
+            </div>
 
+            <div class="channel-followers" id="dateTime">  Loading... </div>
+        </div>
+    </div>
 
-
-
-</head>
-<body>
-   <header>
-      
-    <div class="logo-box">
-    <a href="/">
-        <img src="/logo/logo-100x100.png" alt="Gajab Tools Logo">
+    <div class="channel-right">
+        
+     <div class="channel-follow-box">
+       <button>
+    <a id="followLink"
+       target="_blank"
+       class="follow-btn-top">
+       Follow
     </a>
-    <div class="logo-text">
-        <h1>YOJNA<span>PORTAL</span></h1>
+</button>
+      
+    </div>
+    <div id="menuHeader"></div>
+      
+  <div class="menu-wrapper">
+
+    <button class="icon-btn" id="menuBtn">
+        ⋮
+    </button>  
+
+    <div class="social-menu" id="socialMenu">
+
+        <a href="https://yojnaportal.com/whatsapp" target="_blank">
+            <i class="fab fa-whatsapp"></i>
+            WhatsApp
+        </a>
+
+        <a href="https://yojnaportal.com/telegram" target="_blank">
+            <i class="fab fa-telegram"></i>
+            Telegram
+        </a>
+
+        <a href="https://yojnaportal.com/youtube" target="_blank">
+            <i class="fab fa-youtube"></i>
+            YouTube
+        </a>
+
+        <a href="https://yojnaportal.com/facebook" target="_blank">
+            <i class="fab fa-facebook"></i>
+            Facebook
+        </a>
+
+        <a href="https://yojnaportal.com/instagram" target="_blank">
+            <i class="fab fa-instagram"></i>
+            Instagram
+        </a>
+
+        <a href="https://yojnaportal.com/x" target="_blank">
+            <i class="fab fa-x-twitter"></i>
+            X (Twitter)
+        </a>
+
+    </div>
+
+</div>
     </div>
 </div>
-    <div class="menu-btn" onclick="toggleMenu()">☰</div>
-    <div class="nav-links" id="navLinks">
-        <div class="close-btn" onclick="closeMenu()">✕</div>
-         <a href="/" onclick="closeMenu()">🏠 Home</a>
-        <a href="/all-tools/" onclick="closeMenu()">❤️ All Posters</a>
-        <a href="/search/" onclick="closeMenu()">🔎 Search</a>
-        <button class="toggle-btn" onclick="toggleDarkMode()">🌙</button>
-    </div>
+</header>
 
-      </header>
-  <main>
+<head> 
+       <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     
+    <link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"> 
+
+<script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
+<script>
+  window.OneSignalDeferred = window.OneSignalDeferred || [];
+  OneSignalDeferred.push(async function(OneSignal) {
+    await OneSignal.init({
+      appId: "0ae02b63-20a7-4a29-82bc-48c7a576de91",
+    });
+  });
+</script>
+<script>
+const socialLinks = [
+    "https://yojnaportal.com/whatsapp",
+    "https://yojnaportal.com/telegram",
+    "https://yojnaportal.com/youtube",
+    "https://yojnaportal.com/facebook",
+    "https://yojnaportal.com/instagram",
+    "https://yojnaportal.com/x"
+];
+
+const followBtn = document.getElementById("followLink");
+
+function setRandomLink() {
+    const randomLink =
+        socialLinks[Math.floor(Math.random() * socialLinks.length)];
+
+    followBtn.href = randomLink;
+}
+
+
+setRandomLink();
+
+
+followBtn.addEventListener("click", function() {
+
+    setTimeout(() => {
+        setRandomLink();
+    }, 100);
+
+});
+</script>
+<script>
+const menuBtn = document.getElementById("menuBtn");
+const socialMenu = document.getElementById("socialMenu");
+
+menuBtn.addEventListener("click", (e) => {
+    e.stopPropagation();
+    socialMenu.classList.toggle("show");
+});
+
+document.addEventListener("click", () => {
+    socialMenu.classList.remove("show");
+});
+</script>
+
+<div class="channel-followers" id="dateTime"></div>
+
+<script>
+function updateDateTime() {
+
+    const now = new Date();
+
+    const day = String(now.getDate()).padStart(2, '0');
+    const month = String(now.getMonth() + 1).padStart(2, '0');
+    const year = now.getFullYear();
+
+    const hours = String(now.getHours()).padStart(2, '0');
+    const minutes = String(now.getMinutes()).padStart(2, '0');
+    const seconds = String(now.getSeconds()).padStart(2, '0');
+
+    document.getElementById("dateTime").textContent =
+        `${day}-${month}-${year} ${hours}:${minutes}:${seconds}`;
+}
+
+updateDateTime();
+setInterval(updateDateTime, 1000);
+</script>
 <style>
-    :root {
-  --primary-color: #5c6bc0;
-  --hover-color: #3f51b5;
-  --text-color: #333;
-  --light-bg: #f5f5f5;
+    header .menu-wrapper{
+    position:relative;
 }
 
- 
-.search-container {
-  width: 100%;
-  max-width: 600px;
-  margin: 0 auto;
-  padding: 20px;
-  border-radius: 8px;
-  background-color: white;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+header .social-menu{
+    position:absolute;
+    top:50px;
+    right:0;
+
+    width:220px;
+    background:#1f1f1f;
+
+    border-radius:12px;
+    overflow:hidden;
+
+    box-shadow:0 10px 30px rgba(0,0,0,.25);
+
+    display:none;
+    z-index:9999;
 }
 
-.search-form {
-  display: flex;
-  position: relative;
+header .social-menu.show{
+    display:block;
 }
 
-.search-input {
-  flex: 1;
-  padding: 14px 20px;
-  border: 2px solid #e0e0e0;
-  border-radius: 50px;
-  font-size: 16px;
-  color: var(--text-color);
-  background-color: white;
-  transition: 0.3s;
+header .social-menu a{
+    display:flex;
+    align-items:center;
+    gap:12px;
+
+    padding:14px 16px;
+
+    color:#fff;
+    text-decoration:none;
+
+    border-bottom:1px solid rgba(255,255,255,.08);
+
+    transition:.2s;
 }
 
-.search-input:focus {
-  border-color: var(--primary-color);
-  outline: none;
-  box-shadow: 0 0 0 3px rgba(92, 107, 192, 0.2);
+header.social-menu a:last-child{
+    border-bottom:none;
 }
 
-.search-button {
-  position: absolute;
-  right: 5px;
-  top: 5px;
-  background-color: var(--primary-color);
-  color: white;
-  border: none;
-  border-radius: 50px;
-  padding: 10px 24px;
-  cursor: pointer;
+header .social-menu a:hover{
+    background:#2d2d2d;
 }
 
- 
-.category {
-  margin-bottom: 30px;
+header .social-menu i{
+    width:20px;
+    text-align:center;
+    font-size:18px;
 }
 
-.category h2 {
-  margin: 10px 0;
-  padding-left: 10px;
-  color: #444;
+header{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    z-index:9999;
+}
+header .channel-header{
+   background:#111;
+    color:#fff;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    padding:14px 20px;
+    border-bottom:1px solid #222;
+
+    font-family:Arial,sans-serif;
 }
 
- 
-.gallery {
-  display: flex;
-  overflow-x: auto;
-  padding: 10px;
-  gap: 15px;
+header .channel-left{
+    display:flex;
+    align-items:center;
+    gap:14px;
 }
 
- 
-.gallery::-webkit-scrollbar {
-  height: 6px;
-}
-.gallery::-webkit-scrollbar-thumb {
-  background: #ccc;
-  border-radius: 4px;
-}
-
- 
-.gallery-item {
-  position: relative;
-  min-width: 180px;
-  border-radius: 10px;
-  overflow: hidden;
-  background-color: white;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-  flex-shrink: 0;
-  text-decoration: none;
-  color: inherit;
-  transition: transform 0.2s ease;
+header .channel-left img{
+    width:54px;
+    height:54px;
+    border-radius:50%;
+    object-fit:cover;
+    background:#fff;
 }
 
- 
-.gallery-item:hover {
-  transform: translateY(-5px);
+header .channel-name{
+    font-size:18px;
+    font-weight:700;
+    line-height:1.2;
 }
 
-.gallery-item img {
-  width: 100%;
-  height: 180px;
-  object-fit: cover;
+header .channel-followers{
+    color:#b0b0b0;
+    font-size:14px;
+    margin-top:4px;
 }
 
- 
-.gallery-item .icon {
-  position: absolute;
-  bottom: 50px;
-  right: 10px;
-  background: rgba(255,255,255,0.9);
-  border-radius: 50%;
-  width: 24px;
-  height: 24px;
-  font-size: 14px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+header .channel-right{
+    display:flex;
+    align-items:center;
+    gap:2px;
 }
 
- 
-.image-title {
-  padding: 10px;
-  text-align: center;
-  font-size: 14px;
-  color: #333;
+header .icon-btn{
+    width:40px;
+    height:40px;
+
+    border:none;
+    background:transparent;
+    color:#fff;
+
+    font-size:22px;
+    cursor:pointer;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border-radius:50%;
 }
 
- 
-.badge-new {
-  position: absolute;
-  top: 8px;
-  left: 8px;
-  background: red;
-  color: #fff;
-  font-size: 10px;
-  padding: 3px 6px;
-  border-radius: 4px;
+header .icon-btn:hover{
+    background:#222;
 }
 
-.badge-update {
-  position: absolute;
-  top: 8px;
-  right: 8px;
-  background: orange;
-  color: #fff;
-  font-size: 10px;
-  padding: 3px 6px;
-  border-radius: 4px;
+header .follow-btn-top{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+
+    padding:8px 20px;
+
+    background:#fff;
+    color:#111;
+
+    font-weight:700;
+    font-size:14px;
+
+    text-decoration:none;
+
+    border-radius:50px;
+
+    transition:.3s;
 }
 
- 
-.view-more-wrap {
-  text-align: center;
-  margin-top: 10px;
+header .follow-btn-top::before{
+    content:"+";
+    font-size:18px;
+    font-weight:700;
 }
 
-.view-more-btn {
-  display: inline-block;
-  padding: 8px 18px;
-  background: var(--primary-color);
-  color: #fff;
-  border-radius: 20px;
-  text-decoration: none;
-  font-size: 14px;
-  transition: 0.3s;
+header .follow-btn-top:hover{
+    background:#25D366;
+    color:#fff;
 }
 
-.view-more-btn:hover {
-  background: var(--hover-color);
-}
-
- 
-.modal {
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.9);
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  z-index: 999;
-}
-
-.modal img {
-  max-width: 90%;
-  max-height: 80vh;
-}
-
-.close {
-  position: absolute;
-  top: 20px;
-  right: 30px;
-  font-size: 30px;
-  color: white;
-  cursor: pointer;
-}
-.badge-new {
-  position: absolute;
-  top: 8px;
-  left: 8px;
-  background: red;
-  color: #fff;
-  font-size: 10px;
-  padding: 3px 6px;
-  border-radius: 4px;
-}
-
- 
-@media (max-width: 600px) {
-  .gallery-item {
-    min-width: 150px;
-  }
+header .saved-page-btn{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:10px 16px;
+    border-radius:999px;
+    background:#fef3c7;
+    color:#92400e;
+    font-weight:600;
+    text-decoration:none;
 }
 </style>
+</head>
 
 
+
+
+<div class="channel-feed">
+
+<div id="remotePosts"></div>
+<div id="channelFeed"></div>
+</div>
 
 <style>
 
-.gallery-wrapper{
-  position: relative;
+.post-header{
+    display:flex;
+    align-items:flex-start;
+    gap:12px;
+    padding:15px;
+}
+a:link {text-decoration: none;}
+.meta{
+    flex:1;
+    min-width:0;
 }
 
-.scroll-btn{
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 42px;
-  height: 42px;
-  border: none;
-  border-radius: 50%;
-  background: rgba(0,0,0,0.7);
-  color: #fff;
-  font-size: 20px;
-  cursor: pointer;
-  z-index: 5;
+.menu-wrap{
+    position:relative;
+    flex-shrink:0;
 }
 
-.scroll-left{
-  left: -10px;
+.menu-btn{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    width:36px;
+    height:36px;
+    border:none;
+    background:none;
+    color:#444;
+    font-size:22px;
+    cursor:pointer;
+    border-radius:50%;
 }
 
-.scroll-right{
-  right: -10px;
+.menu-btn:hover{
+    background:#f3f4f6;
 }
 
-.scroll-btn.hide{
-  display: none;
+
+
+.menu-dropdown{
+    position:absolute;
+    right:0;
+    top:35px;
+    background:#fff;
+    min-width:180px;
+    border-radius:10px;
+    box-shadow:0 5px 20px rgba(0,0,0,.15);
+    display:none;
+    z-index:999;
 }
 
-@media(max-width:768px){
+.menu-dropdown.show{
+    display:block;
+}
 
-  .scroll-btn{
-    width: 34px;
-    height: 34px;
-    font-size: 16px;
-  }
+.menu-dropdown a,
+.menu-dropdown button{
+    width:100%;
+    border:none;
+    background:none;
+    text-align:left;
+    padding:12px;
+    cursor:pointer;
+    display:block;
+    color:#333;
+}
 
-  .scroll-left{
-    left: 5px;
-  }
+.menu-dropdown a:hover,
+.menu-dropdown button:hover{
+    background:#f5f5f5;
+}
 
-  .scroll-right{
-    right: 5px;
-  }
 
+.channel-feed{
+    max-width:850px;
+    margin:auto;
+    padding:15px;
+}
+
+.post-card{
+    background:#fff;
+    border-radius:16px;
+    overflow:hidden;
+    margin-bottom:20px;
+    box-shadow:0 2px 12px rgba(0,0,0,.08);
+}
+.saved-page-btn{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:10px 16px;
+    border-radius:999px;
+    background:#fef3c7;
+    color:#92400e;
+    font-weight:600;
+    text-decoration:none;
+    margin-bottom:15px;
+}
+.avatar{
+    width:40px;
+    height:40px;
+    border-radius:50%;
+    overflow:hidden;
+    background:#fff;
+    border:1px solid #eee;
+    flex-shrink:0;
+    padding: 5px;
+}
+
+.avatar img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+}
+
+.title{
+    font-weight:700;
+    display:flex;
+    align-items:center;
+    gap:6px;
+}
+
+.verified-badge{
+    width:18px;
+    height:18px;
+    border-radius:50%;
+    background:#1d9bf0;
+    color:#fff;
+    font-size:11px;
+    font-weight:700;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex-shrink:0;
+}
+
+.date{
+    font-size:13px;
+    color:#666;
+}
+.header-save-btn{
+    margin-left:auto;
+    border:none;
+    background:#fff7ed;
+    color:#f59e0b;
+    padding:8px 14px;
+    border-radius:999px;
+    font-size:14px;
+    font-weight:600;
+    cursor:pointer;
+    transition:.2s;
+}
+
+.header-save-btn:hover{
+    background:#fef3c7;
+}
+
+.header-save-btn.saved{
+    background:#f59e0b;
+    color:#fff;
+}
+.post-image img{
+    width:100%;
+    display:block;
+}
+
+.post-body{
+    padding:15px;
+}
+ .channel-feed {margin: 80px auto;}
+.post-text{
+    white-space: pre-line;
+    line-height: 1.4;
+    cursor:pointer;
+    margin-top: -50px;
+}
+
+.post-text.collapsed::after{
+    content:" ...more";
+    color:#16a34a;
+    font-weight:600;
+}
+
+.post-text.collapsed{
+    display: -webkit-box;
+    -webkit-line-clamp: 4;    
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.read-more-btn{
+    margin-top:0px;
+    background:none;
+    border:none;
+    color:#16a34a;
+    font-weight:600;
+    cursor:pointer;
+    padding:0;
+}
+
+.post-link{
+    color:#2563eb;
+    text-decoration:none;
+    word-break:break-word;
+}
+
+.post-link:hover{
+    text-decoration:underline;
+}
+
+.post-tag{
+    color:#16a34a;
+    font-weight:600;
+    text-decoration:none;
+}
+
+.post-tag:hover{
+    text-decoration:underline;
+}
+
+.post-footer{
+    display:flex;
+    justify-content:center;
+    gap:12px;
+    padding:14px;
+    border-top:1px solid #eee;
+}
+
+.action-btn{
+    width:46px;
+    height:46px;
+    border:none;
+    border-radius:14px;
+    background:#f8fafc;
+    color:#222;
+    text-decoration:none;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    cursor:pointer;
+    font-size:22px;
+    transition:.25s ease;
+    box-shadow:
+        0 2px 8px rgba(0,0,0,.08),
+        inset 0 1px 0 rgba(255,255,255,.8);
+}
+
+.action-btn:hover{
+    transform:translateY(-2px);
+    background:#f3980f;
+    color:#fff;
+}
+
+.action-btn:active{
+    transform:scale(.92);
+}
+
+.action-btn span{
+    line-height:1;
+}
+.copy-btn{
+    background:#eff6ff;
+}
+
+.whatsapp-btn{
+    background:#dcfce7;
+}
+
+.share-btn{
+    background:#fef3c7;
+}
+
+.post-link{
+    background:#e0f2fe;
 }
  
- 
 
-.gallery-item{
-  position: relative;
-  overflow: hidden;
-  background: #f5f5f5;
-}
-
- 
-.gallery-item::before{
-  content: "";
-  position: absolute;
-  inset: 0;
-  background:
-    linear-gradient(
-      120deg,
-      rgba(255,255,255,0.1),
-      rgba(255,255,255,0.7),
-      rgba(255,255,255,0.1)
+.skeleton{
+    background:linear-gradient(
+        90deg,
+        #f1f5f9 25%,
+        #e2e8f0 50%,
+        #f1f5f9 75%
     );
-  background-size: 200% 100%;
-  animation: shineMove 1.4s linear infinite;
-  z-index: 2;
+
+    background-size:200% 100%;
+
+    animation:skeletonLoading 1.4s infinite;
+
+    border-radius:8px;
 }
 
- 
-.gallery-item::after{
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 55px;
-  height: 55px;
-  margin-left: -27.5px;
-  margin-top: -27.5px;
-  border-radius: 50%;
-  border: 4px solid rgba(255,255,255,0.3);
-  border-top-color: #000;
-  animation: spinLoader .8s linear infinite;
-  z-index: 3;
+.skeleton.avatar{
+    width:45px;
+    height:45px;
+    border-radius:50%;
 }
 
- 
-.gallery-item img{
-  opacity: 0;
-  transform: scale(1.08);
-  filter: blur(10px);
-  transition:
-    opacity .8s ease,
-    transform 1s ease,
-    filter 1s ease;
-}
+@keyframes skeletonLoading{
 
- 
-.gallery-item.loaded img{
-  opacity: 1;
-  transform: scale(1);
-  filter: blur(0);
-}
+    0%{
+        background-position:200% 0;
+    }
 
- 
-.gallery-item.loaded::before,
-.gallery-item.loaded::after{
-  animation: none;
-  opacity: 0;
-  transition: opacity .4s ease;
-  pointer-events: none;
-}
-
- 
-@keyframes shineMove{
-
-  0%{
-    background-position: 200% 0;
-  }
-
-  100%{
-    background-position: -200% 0;
-  }
+    100%{
+        background-position:-200% 0;
+    }
 
 }
-
- 
-@keyframes spinLoader{
-
-  from{
-    transform: rotate(0deg);
-  }
-
-  to{
-    transform: rotate(360deg);
-  }
-
-}
-
 </style>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="category">
-
-  <h2>🔥 Latest Posters</h2>
-
-  <div class="gallery-wrapper">
-
-    <button class="scroll-btn scroll-left hide">❮</button>
-
-    <div class="gallery">
-
-      
-
-        <a href="/mpbse-10th-2nd-result/" class="gallery-item">
-
-          <img src="https://cdn.yojnaportal.com/Banner/mp/2026/MP-Board-10th-Results.webp"
-               alt="MP Board Second Exam Result 2026 Announcement"
-               loading="lazy">
-
-          
-          
-
-          <div class="icon">🖨️</div>
-          <div class="image-title">Mpbse 10th 2nd Result</div>
-
-        </a>
-
-      
-
-        <a href="/pm-kisan-23-kisht-update/" class="gallery-item">
-
-          <img src="https://cdn.yojnaportal.com/2026/PM-Kisan-23th-Installment.webp"
-               alt="PM Kisan Samman Nidhi 23rd Installment Update"
-               loading="lazy">
-
-          
-          
-
-          <div class="icon">🖨️</div>
-          <div class="image-title">PM Kisan 23 Kisht Update</div>
-
-        </a>
-
-      
-
-        <a href="/mpbse-10th-result-upcoming/" class="gallery-item">
-
-          <img src="https://cdn.yojnaportal.com/Banner/mp/2026/Class-10th-Second-Result-Update.webp"
-               alt="MPBSE Class 10 Second Examination Result 2026"
-               loading="lazy">
-
-          
-          
-
-          <div class="icon">🖨️</div>
-          <div class="image-title">MPBSE 10th Result Upcoming 2026</div>
-
-        </a>
-
-      
-
-        <a href="/ruk-jana-nahin-yojna-june-2026/" class="gallery-item">
-
-          <img src="https://cdn.yojnaportal.com/Banner/mp/2026/Ruk-Jana-Nahi-yojna-June-2026-_1_.webp"
-               alt="MPSOS Ruk Jana Nahi Yojana June 2026"
-               loading="lazy">
-
-          
-          
-
-          <div class="icon">🖨️</div>
-          <div class="image-title">Ruk Jana Nahin Yojna June 2026</div>
-
-        </a>
-
-      
-
-        <a href="/mp-deled-2nd-round-2026/" class="gallery-item">
-
-          <img src="https://cdn.yojnaportal.com/Banner/mp/2026/MP-D.El.Ed-2nd-Form-_1_.webp"
-               alt="MP D.El.Ed Counselling 2026-27 Second Round"
-               loading="lazy">
-
-          
-          
-
-          <div class="icon">🖨️</div>
-          <div class="image-title">Mp Deled 2nd Round 2026</div>
-
-        </a>
-
-      
-
-        <a href="/cmlby-ladli-behna-yojna-37/" class="gallery-item">
-
-          <img src="https://cdn.yojnaportal.com/Banner/mp/2026/Ladli-behna-yojna-37.webp"
-               alt="Ladli Behna Yojana 37th Installment Update"
-               loading="lazy">
-
-          
-          
-
-          <div class="icon">🖨️</div>
-          <div class="image-title">CMLBY Ladli Behna Yojna 37</div>
-
-        </a>
-
-      
-
-        <a href="/mpbse-12th-2nd-result-2026/" class="gallery-item">
-
-          <img src="https://cdn.yojnaportal.com/Banner/mp/2026/MP-BOARD-12th-2026.webp"
-               alt="MP Board Second Exam Result 2026"
-               loading="lazy">
-
-          
-          
-
-          <div class="icon">🖨️</div>
-          <div class="image-title">MPBSE 12th 2nd Result 2026</div>
-
-        </a>
-
-      
-
-        <a href="/cbi-apprentice-vacancy-2026/" class="gallery-item">
-
-          <img src="https://cdn.yojnaportal.com/jobs/2026/CBI-Apprentice-2026.webp"
-               alt="Central Bank of India Apprentice Recruitment 2026"
-               loading="lazy">
-
-          
-          
-
-          <div class="icon">🖨️</div>
-          <div class="image-title">CBI Apprentice 2026</div>
-
-        </a>
-
-      
-
-        <a href="/pnst-exam-2026/" class="gallery-item">
-
-          <img src="https://cdn.yojnaportal.com/exam/2026/pnst-exam-2026.webp"
-               alt="MP Pre Nursing Selection Test (PNST) 2026"
-               loading="lazy">
-
-          
-          
-
-          <div class="icon">🖨️</div>
-          <div class="image-title">PNST Exam 2026</div>
-
-        </a>
-
-      
-
-        <a href="/mp-sambal-card-yojna/" class="gallery-item">
-
-          <img src="https://cdn.yojnaportal.com/Banner/mp/MP-Sambal-Card.webp"
-               alt="MP E-Sambal Card Online Application"
-               loading="lazy">
-
-          
-          
-
-          <div class="icon">🖨️</div>
-          <div class="image-title">MP Sambal Card Yojna</div>
-
-        </a>
-
-      
-
-        <a href="/aadhaar-card-name-and-address/" class="gallery-item">
-
-          <img src="https://cdn.yojnaportal.com/Banner/25x32/documents/aadhar-address-update.webp"
-               alt="Aadhaar Card Name and Address Update (Father to Husband)"
-               loading="lazy">
-
-          
-          
-
-          <div class="icon">⬇</div>
-          <div class="image-title">Aadhaar Card Name and Address</div>
-
-        </a>
-
-      
-
-        <a href="/udid-card-divyang-cerfiticate/" class="gallery-item">
-
-          <img src="https://cdn.yojnaportal.com/Banner/25x32/documents/UDID-Card-apply.webp"
-               alt="UDID Card"
-               loading="lazy">
-
-          
-          
-
-          <div class="icon">🖨️</div>
-          <div class="image-title">UDID Card - Divyang Card Poster</div>
-
-        </a>
-
-      
-
-        <a href="/sbi-apprentice-2026/" class="gallery-item">
-
-          <img src="https://cdn.yojnaportal.com/exam/2026/SBI-Apprentice-Bharti-2026.webp"
-               alt="SBI Apprentice Bharti 2026"
-               loading="lazy">
-
-          
-          
-
-          <div class="icon">🖨️</div>
-          <div class="image-title">SBI Apprentice 2026</div>
-
-        </a>
-
-      
-
-        <a href="/mp-iti-admission-2026-27/" class="gallery-item">
-
-          <img src="https://cdn.yojnaportal.com/Banner/mp/2026/MP-ITI-Admission-2026.webp"
-               alt="MP ITI Admission 2026-27"
-               loading="lazy">
-
-          
-          
-
-          <div class="icon">🖨️</div>
-          <div class="image-title">MP ITI Admission 2026-27</div>
-
-        </a>
-
-      
-
-        <a href="/mp-up-pg-college-admission-2nd-round/" class="gallery-item">
-
-          <img src="https://cdn.yojnaportal.com/Banner/mp/2026/MP-UG-PG-Registration-2026-27.webp"
-               alt="MP UG PG College Admission 2026-27"
-               loading="lazy">
-
-          
-          
-
-          <div class="icon">🖨️</div>
-          <div class="image-title">MP UG &amp; PG College Admission 2026 - 2nd Round </div>
-
-        </a>
-
-      
-
-        <a href="/ssc-cgl-vacancy-2026-poster/" class="gallery-item">
-
-          <img src="https://cdn.yojnaportal.com/exam/2026/SSC-Combined-Graduate-Level-CGL-2026.webp"
-               alt="SSC Combined Graduate Level CGL 2026 Poster"
-               loading="lazy">
-
-          
-          
-
-          <div class="icon">🖨️</div>
-          <div class="image-title">SSC CGL Vacancy 2026 Poster</div>
-
-        </a>
-
-      
-
-        <a href="/mp-college-admission-2nd-round-2026/" class="gallery-item">
-
-          <img src="https://cdn.yojnaportal.com/Banner/mp/2026/mp-college-admission-2nd-round-2026.webp"
-               alt="MP College Admission 2026-27 Second Phase"
-               loading="lazy">
-
-          
-          
-
-          <div class="icon">🖨️</div>
-          <div class="image-title">MP College Admission 2026 2nd Round</div>
-
-        </a>
-
-      
-
-        <a href="/photo-studio-poster/" class="gallery-item">
-
-          <img src="https://cdn.yojnaportal.com/Banner/25x32/documents/argent-photo-poster.webp"
-               alt="Photo Studio Service Banner"
-               loading="lazy">
-
-          
-          
-
-          <div class="icon">🖨️</div>
-          <div class="image-title">Photo Studio Poster</div>
-
-        </a>
-
-      
-
-        <a href="/ayushman-bharat-health-card/" class="gallery-item">
-
-          <img src="https://cdn.yojnaportal.com/Banner/25x32/scheme/Aayushman-Card-yojana.webp"
-               alt="Ayushman Bharat Card Banner"
-               loading="lazy">
-
-          
-          
-
-          <div class="icon">🖨️</div>
-          <div class="image-title">Ayushman Bharat Health Card</div>
-
-        </a>
-
-      
-
-        <a href="/bike-repairing-center/" class="gallery-item">
-
-          <img src="https://cdn.yojnaportal.com/Banner/25x32/bussiness/Bike-Repairing-Center.webp"
-               alt="Bike Repairing &amp; Service Center"
-               loading="lazy">
-
-          
-          
-
-          <div class="icon">🖨️</div>
-          <div class="image-title">Bike Repairing Center</div>
-
-        </a>
-
-      
-
-    </div>
-
-    <button class="scroll-btn scroll-right">❯</button>
-
-  </div>
-
-</div>
-
-
-
-
-
-
-  
-  
-
-  
-
-    
-
-    <div class="category">
-
-      <h2>
-        
-          🪪 Documents &amp; Certificates
-        
-      </h2>
-
-      <div class="gallery-wrapper">
-
-        <button class="scroll-btn scroll-left hide">❮</button>
-
-        <div class="gallery">
-
-          
-
-            <a href="/aadhaar-card-name-and-address/" class="gallery-item">
-
-              <img src="https://cdn.yojnaportal.com/Banner/25x32/documents/aadhar-address-update.webp"
-                   alt="Aadhaar Card Name and Address Update (Father to Husband)"
-                   loading="lazy">
-
-              
-              
-
-              <div class="icon">⬇</div>
-              <div class="image-title">Aadhaar Card Name and Address</div>
-
-            </a>
-
-          
-
-            <a href="/udid-card-divyang-cerfiticate/" class="gallery-item">
-
-              <img src="https://cdn.yojnaportal.com/Banner/25x32/documents/UDID-Card-apply.webp"
-                   alt="UDID Card"
-                   loading="lazy">
-
-              
-              
-
-              <div class="icon">🖨️</div>
-              <div class="image-title">UDID Card - Divyang Card Poster</div>
-
-            </a>
-
-          
-
-            <a href="/farmer-id-card/" class="gallery-item">
-
-              <img src="https://cdn.yojnaportal.com/Banner/25x32/documents/farmer-id-card-apply.webp"
-                   alt="Farmer ID Card"
-                   loading="lazy">
-
-              
-              
-
-              <div class="icon">🖨️</div>
-              <div class="image-title">Farmer Id Card</div>
-
-            </a>
-
-          
-
-            <a href="/janm-praman-patra-apply/" class="gallery-item">
-
-              <img src="https://cdn.yojnaportal.com/Banner/25x32/documents/Janm-Praman-Patra.webp"
-                   alt="Birth Certificate Information Poster"
-                   loading="lazy">
-
-              
-              
-
-              <div class="icon">🖨️</div>
-              <div class="image-title">Janm Praman Patra Apply</div>
-
-            </a>
-
-          
-
-            <a href="/driving-license-apply/" class="gallery-item">
-
-              <img src="https://cdn.yojnaportal.com/Banner/25x32/documents/driving-license-apply-online.webp"
-                   alt="Driving License Application Poster"
-                   loading="lazy">
-
-              
-              
-
-              <div class="icon">🖨️</div>
-              <div class="image-title">Driving License Apply</div>
-
-            </a>
-
-          
-
-            <a href="/driving-lisense-apply-poster/" class="gallery-item">
-
-              <img src="https://ia800103.us.archive.org/20/items/driving-licence_202505/Driving%20Licence.gif"
-                   alt="Driving License Online Application Services"
-                   loading="lazy">
-
-              
-              
-
-              <div class="icon">⬇</div>
-              <div class="image-title">Driving Lisense Apply Poster</div>
-
-            </a>
-
-          
-
-            <a href="/e-shram-card-scheme/" class="gallery-item">
-
-              <img src="https://cdn.yojnaportal.com/Banner/25x32/documents/e-shram-card.webp"
-                   alt="e-Shram Card Scheme Poster"
-                   loading="lazy">
-
-              
-              
-
-              <div class="icon">🖨️</div>
-              <div class="image-title">E Shram Card Scheme</div>
-
-            </a>
-
-          
-
-            <a href="/mp-caste-certificate/" class="gallery-item">
-
-              <img src="https://cdn.yojnaportal.com/Banner/mp/mp-caste-certificate.webp"
-                   alt="MP Digital Caste Certificate Service"
-                   loading="lazy">
-
-              
-              
-
-              <div class="icon">⬇</div>
-              <div class="image-title">MP Caste Certificate</div>
-
-            </a>
-
-          
-
-            <a href="/digital-voter-id-card-download/" class="gallery-item">
-
-              <img src="https://cdn.yojnaportal.com/Banner/25x32/documents/votar-card-download.webp"
-                   alt="Digital Voter ID Card Download Poster"
-                   loading="lazy">
-
-              
-              
-
-              <div class="icon">⬇</div>
-              <div class="image-title">Digital Voter Id Card Download</div>
-
-            </a>
-
-          
-
-            <a href="/mp-income-and-domicile/" class="gallery-item">
-
-              <img src="https://cdn.yojnaportal.com/Banner/mp/income-and-domicile.webp"
-                   alt="MP Income and Domicile Certificate"
-                   loading="lazy">
-
-              
-              
-
-              <div class="icon">⬇</div>
-              <div class="image-title">Mp Income and Domicile</div>
-
-            </a>
-
-          
-
-            <a href="/mp-domicile-certificate/" class="gallery-item">
-
-              <img src="https://cdn.yojnaportal.com/Banner/mp/domicile-certificates.webp"
-                   alt="MP Domicile Certificate"
-                   loading="lazy">
-
-              
-              
-
-              <div class="icon">⬇</div>
-              <div class="image-title">Mp Domicile Certificate</div>
-
-            </a>
-
-          
-
-            <a href="/mp-income-certificate/" class="gallery-item">
-
-              <img src="https://cdn.yojnaportal.com/Banner/mp/income-certificates.webp"
-                   alt="MP Income Certificate Poster"
-                   loading="lazy">
-
-              
-              
-
-              <div class="icon">⬇</div>
-              <div class="image-title">MP Income Certificate</div>
-
-            </a>
-
-          
-
-            <a href="/pan-card-apply/" class="gallery-item">
-
-              <img src="https://cdn.yojnaportal.com/Banner/25x32/pancard-apply-banner.webp"
-                   alt="PAN Card Application and Update Service"
-                   loading="lazy">
-
-              
-              
-
-              <div class="icon">⬇</div>
-              <div class="image-title">Pan Card Apply</div>
-
-            </a>
-
-          
-
-        </div>
-
-        <button class="scroll-btn scroll-right">❯</button>
-
-      </div>
-
-      
-
-    </div>
-
-  
-
-
-
-  
-  
-
-  
-
-    
-
-    <div class="category">
-
-      <h2>
-        
-          📑 Cybercafe &amp; CSC
-        
-      </h2>
-
-      <div class="gallery-wrapper">
-
-        <button class="scroll-btn scroll-left hide">❮</button>
-
-        <div class="gallery">
-
-          
-
-            <a href="/photo-studio-poster/" class="gallery-item">
-
-              <img src="https://cdn.yojnaportal.com/Banner/25x32/documents/argent-photo-poster.webp"
-                   alt="Photo Studio Service Banner"
-                   loading="lazy">
-
-              
-              
-
-              <div class="icon">🖨️</div>
-              <div class="image-title">Photo Studio Poster</div>
-
-            </a>
-
-          
-
-            <a href="/epfo-ralated-online-work/" class="gallery-item">
-
-              <img src="https://cdn.yojnaportal.com/Banner/25x32/banking/EPFO-Related-Online-Works.webp"
-                   alt="EPFO Online Services Poster"
-                   loading="lazy">
-
-              
-              
-
-              <div class="icon">🖨️</div>
-              <div class="image-title">EPFO Ralated Online Work</div>
-
-            </a>
-
-          
-
-            <a href="/mpesb-profile-registration/" class="gallery-item">
-
-              <img src="https://cdn.yojnaportal.com/Banner/mp/MPESB-Profile-Panjiyan.webp"
-                   alt="MP ESB Profile Registration"
-                   loading="lazy">
-
-              
-              
-
-              <div class="icon">🖨️</div>
-              <div class="image-title">MPESB Profile Registration</div>
-
-            </a>
-
-          
-
-            <a href="/gumasta-license-registration-poster/" class="gallery-item">
-
-              <img src="https://cdn.yojnaportal.com/Banner/25x32/bussiness/gumasta-license.webp"
-                   alt="Gumasta License Registration Poster"
-                   loading="lazy">
-
-              
-              
-
-              <div class="icon">⬇</div>
-              <div class="image-title">Gumasta License Registration Poster</div>
-
-            </a>
-
-          
-
-            <a href="/food-safety-license/" class="gallery-item">
-
-              <img src="https://cdn.yojnaportal.com/Banner/25x32/bussiness/food-safety-license.webp"
-                   alt="Food Safety License FSSAI Registration Poster"
-                   loading="lazy">
-
-              
-              
-
-              <div class="icon">⬇</div>
-              <div class="image-title">Food Safety License</div>
-
-            </a>
-
-          
-
-            <a href="/udyam-adhar-registration/" class="gallery-item">
-
-              <img src="https://cdn.yojnaportal.com/Banner/25x32/bussiness/udhyam-aadhar-registration.webp"
-                   alt="Udyam Registration (MSME Registration)"
-                   loading="lazy">
-
-              
-              
-
-              <div class="icon">⬇</div>
-              <div class="image-title">Udyam Adhar Registration</div>
-
-            </a>
-
-          
-
-        </div>
-
-        <button class="scroll-btn scroll-right">❯</button>
-
-      </div>
-
-      
-
-    </div>
-
-  
-
-
-
-  
-  
-
-  
-
-    
-
-    <div class="category">
-
-      <h2>
-        
-          📄 Schemes Related Banner
-        
-      </h2>
-
-      <div class="gallery-wrapper">
-
-        <button class="scroll-btn scroll-left hide">❮</button>
-
-        <div class="gallery">
-
-          
-
-            <a href="/mpbse-10th-2nd-result/" class="gallery-item">
-
-              <img src="https://cdn.yojnaportal.com/Banner/mp/2026/MP-Board-10th-Results.webp"
-                   alt="MP Board Second Exam Result 2026 Announcement"
-                   loading="lazy">
-
-              
-              
-
-              <div class="icon">🖨️</div>
-              <div class="image-title">Mpbse 10th 2nd Result</div>
-
-            </a>
-
-          
-
-            <a href="/pm-kisan-23-kisht-update/" class="gallery-item">
-
-              <img src="https://cdn.yojnaportal.com/2026/PM-Kisan-23th-Installment.webp"
-                   alt="PM Kisan Samman Nidhi 23rd Installment Update"
-                   loading="lazy">
-
-              
-              
-
-              <div class="icon">🖨️</div>
-              <div class="image-title">PM Kisan 23 Kisht Update</div>
-
-            </a>
-
-          
-
-            <a href="/ruk-jana-nahin-yojna-june-2026/" class="gallery-item">
-
-              <img src="https://cdn.yojnaportal.com/Banner/mp/2026/Ruk-Jana-Nahi-yojna-June-2026-_1_.webp"
-                   alt="MPSOS Ruk Jana Nahi Yojana June 2026"
-                   loading="lazy">
-
-              
-              
-
-              <div class="icon">🖨️</div>
-              <div class="image-title">Ruk Jana Nahin Yojna June 2026</div>
-
-            </a>
-
-          
-
-            <a href="/cmlby-ladli-behna-yojna-37/" class="gallery-item">
-
-              <img src="https://cdn.yojnaportal.com/Banner/mp/2026/Ladli-behna-yojna-37.webp"
-                   alt="Ladli Behna Yojana 37th Installment Update"
-                   loading="lazy">
-
-              
-              
-
-              <div class="icon">🖨️</div>
-              <div class="image-title">CMLBY Ladli Behna Yojna 37</div>
-
-            </a>
-
-          
-
-            <a href="/mp-sambal-card-yojna/" class="gallery-item">
-
-              <img src="https://cdn.yojnaportal.com/Banner/mp/MP-Sambal-Card.webp"
-                   alt="MP E-Sambal Card Online Application"
-                   loading="lazy">
-
-              
-              
-
-              <div class="icon">🖨️</div>
-              <div class="image-title">MP Sambal Card Yojna</div>
-
-            </a>
-
-          
-
-            <a href="/mp-college-admission-2nd-round-2026/" class="gallery-item">
-
-              <img src="https://cdn.yojnaportal.com/Banner/mp/2026/mp-college-admission-2nd-round-2026.webp"
-                   alt="MP College Admission 2026-27 Second Phase"
-                   loading="lazy">
-
-              
-              
-
-              <div class="icon">🖨️</div>
-              <div class="image-title">MP College Admission 2026 2nd Round</div>
-
-            </a>
-
-          
-
-            <a href="/ayushman-bharat-health-card/" class="gallery-item">
-
-              <img src="https://cdn.yojnaportal.com/Banner/25x32/scheme/Aayushman-Card-yojana.webp"
-                   alt="Ayushman Bharat Card Banner"
-                   loading="lazy">
-
-              
-              
-
-              <div class="icon">🖨️</div>
-              <div class="image-title">Ayushman Bharat Health Card</div>
-
-            </a>
-
-          
-
-            <a href="/mp-college-admission-allotment-letter/" class="gallery-item">
-
-              <img src="https://cdn.yojnaportal.com/Banner/mp/2026/College-Admission-Allotment-Letter.webp"
-                   alt="MP College Admission 2026-27 Admission Guidelines Poster"
-                   loading="lazy">
-
-              
-              
-
-              <div class="icon">🖨️</div>
-              <div class="image-title">MP College Admission 1st Allotment Letter</div>
-
-            </a>
-
-          
-
-            <a href="/mptaas-profile-panjiyan-banner/" class="gallery-item">
-
-              <img src="https://cdn.yojnaportal.com/Banner/mp/MP-TAAS-Profile-Registration.webp"
-                   alt="MPTAAS Profile Registration Poster"
-                   loading="lazy">
-
-              
-              
-
-              <div class="icon">🖨️</div>
-              <div class="image-title">MPTAAS Profile Panjiyan Banner</div>
-
-            </a>
-
-          
-
-            <a href="/mp-ladli-behna-yojna-36th/" class="gallery-item">
-
-              <img src="https://cdn.yojnaportal.com/Banner/mp/2026/CMLBY-MP-Ladli-Behana-Yojna-36th.webp"
-                   alt="Ladli Behna Yojana 36th Installment Update"
-                   loading="lazy">
-
-              
-              
-
-              <div class="icon">🖨️</div>
-              <div class="image-title">MP Ladli Behna Yojna- 36th</div>
-
-            </a>
-
-          
-
-            <a href="/pm-kisan-samman-nidhi-apply/" class="gallery-item">
-
-              <img src="https://cdn.yojnaportal.com/Banner/25x32/scheme/pm-kisan-samman-nidhi.webp"
-                   alt="PM Kisan Samman Nidhi Yojana Online Registration Poster"
-                   loading="lazy">
-
-              
-              
-
-              <div class="icon">🖨️</div>
-              <div class="image-title">PM Kisan Samman Nidhi Apply</div>
-
-            </a>
-
-          
-
-            <a href="/pm-svanidhi-yojana/" class="gallery-item">
-
-              <img src="https://cdn.yojnaportal.com/Banner/25x32/scheme/pm-svanidhi-yojana.webp"
-                   alt="PM SVANidhi Yojana"
-                   loading="lazy">
-
-              
-              
-
-              <div class="icon">🖨️</div>
-              <div class="image-title">Pm Svanidhi Yojana</div>
-
-            </a>
-
-          
-
-            <a href="/mp-wheat-slot-booking/" class="gallery-item">
-
-              <img src="https://cdn.yojnaportal.com/Banner/mp/mp-wheat-slot-Booking.webp"
-                   alt="MP E-Uparjan Slot Booking"
-                   loading="lazy">
-
-              
-              
-
-              <div class="icon">🖨️</div>
-              <div class="image-title">Mp Wheat Slot Booking</div>
-
-            </a>
-
-          
-
-            <a href="/mp-rojgar-panjiyan/" class="gallery-item">
-
-              <img src="https://cdn.yojnaportal.com/Banner/mp/mp-rojgar-panjiyan.webp"
-                   alt="MP Employment Registration (Rojgar Panjiyan)"
-                   loading="lazy">
-
-              
-              
-
-              <div class="icon">⬇</div>
-              <div class="image-title">Mp Rojgar Panjiyan</div>
-
-            </a>
-
-          
-
-            <a href="/sambal-card-apply-poster/" class="gallery-item">
-
-              <img src="https://cdn.yojnaportal.com/Banner/mp/samabal-card-yojana.webp"
-                   alt="Sambal Card Online Application Poster"
-                   loading="lazy">
-
-              
-              
-
-              <div class="icon">⬇</div>
-              <div class="image-title">Sambal Card Apply Poster</div>
-
-            </a>
-
-          
-
-            <a href="/mp-social-security-pension-update/" class="gallery-item">
-
-              <img src="https://cdn.yojnaportal.com/Banner/mp/mp-pension-update.webp"
-                   alt="Madhya Pradesh Social Security Pension Transfer Update"
-                   loading="lazy">
-
-              
-              
-
-              <div class="icon">⬇</div>
-              <div class="image-title">MP Social Security Pension Update</div>
-
-            </a>
-
-          
-
-            <a href="/abha-health-card/" class="gallery-item">
-
-              <img src="https://cdn.yojnaportal.com/Banner/25x32/scheme/abha-card/abha-health-card.webp"
-                   alt="ABHA Health Card"
-                   loading="lazy">
-
-              
-              
-
-              <div class="icon">⬇</div>
-              <div class="image-title">Abha Health Card</div>
-
-            </a>
-
-          
-
-            <a href="/mp-social-security-pension-scheme/" class="gallery-item">
-
-              <img src="https://cdn.yojnaportal.com/Banner/25x32/mp/mp-pansion-baner.webp"
-                   alt="Madhya Pradesh Social Security Pension Scheme"
-                   loading="lazy">
-
-              
-              
-
-              <div class="icon">⬇</div>
-              <div class="image-title">MP Social Security Pension Scheme</div>
-
-            </a>
-
-          
-
-            <a href="/mp-e-token-generation/" class="gallery-item">
-
-              <img src="https://cdn.yojnaportal.com/Banner/mp/mp-e-tokan.webp"
-                   alt="MP E-Token Generation System for Fertilizer Distribution"
-                   loading="lazy">
-
-              
-              
-
-              <div class="icon">⬇</div>
-              <div class="image-title">Mp E Token Generation</div>
-
-            </a>
-
-          
-
-            <a href="/samagra-id-related-works/" class="gallery-item">
-
-              <img src="https://cdn.yojnaportal.com/Banner/25x32/mp/mp-samagra-id-works.webp"
-                   alt="MP Samagra ID Card Online Services"
-                   loading="lazy">
-
-              
-              
-
-              <div class="icon">🖨️</div>
-              <div class="image-title">Samagra Id Related Works</div>
-
-            </a>
-
-          
-
-        </div>
-
-        <button class="scroll-btn scroll-right">❯</button>
-
-      </div>
-
-      
-        <div class="view-more-wrap">
-          <a href="/banertype/schemes/" class="view-more-btn">
-            View More →
-          </a>
-        </div>
-      
-
-    </div>
-
-  
-
-
-
-  
-  
-
-  
-
-    
-
-    <div class="category">
-
-      <h2>
-        
-          Admission &amp; Education
-        
-      </h2>
-
-      <div class="gallery-wrapper">
-
-        <button class="scroll-btn scroll-left hide">❮</button>
-
-        <div class="gallery">
-
-          
-
-            <a href="/mpbse-10th-result-upcoming/" class="gallery-item">
-
-              <img src="https://cdn.yojnaportal.com/Banner/mp/2026/Class-10th-Second-Result-Update.webp"
-                   alt="MPBSE Class 10 Second Examination Result 2026"
-                   loading="lazy">
-
-              
-              
-
-              <div class="icon">🖨️</div>
-              <div class="image-title">MPBSE 10th Result Upcoming 2026</div>
-
-            </a>
-
-          
-
-            <a href="/mp-deled-2nd-round-2026/" class="gallery-item">
-
-              <img src="https://cdn.yojnaportal.com/Banner/mp/2026/MP-D.El.Ed-2nd-Form-_1_.webp"
-                   alt="MP D.El.Ed Counselling 2026-27 Second Round"
-                   loading="lazy">
-
-              
-              
-
-              <div class="icon">🖨️</div>
-              <div class="image-title">Mp Deled 2nd Round 2026</div>
-
-            </a>
-
-          
-
-            <a href="/pnst-exam-2026/" class="gallery-item">
-
-              <img src="https://cdn.yojnaportal.com/exam/2026/pnst-exam-2026.webp"
-                   alt="MP Pre Nursing Selection Test (PNST) 2026"
-                   loading="lazy">
-
-              
-              
-
-              <div class="icon">🖨️</div>
-              <div class="image-title">PNST Exam 2026</div>
-
-            </a>
-
-          
-
-            <a href="/mp-iti-admission-2026-27/" class="gallery-item">
-
-              <img src="https://cdn.yojnaportal.com/Banner/mp/2026/MP-ITI-Admission-2026.webp"
-                   alt="MP ITI Admission 2026-27"
-                   loading="lazy">
-
-              
-              
-
-              <div class="icon">🖨️</div>
-              <div class="image-title">MP ITI Admission 2026-27</div>
-
-            </a>
-
-          
-
-            <a href="/mp-up-pg-college-admission-2nd-round/" class="gallery-item">
-
-              <img src="https://cdn.yojnaportal.com/Banner/mp/2026/MP-UG-PG-Registration-2026-27.webp"
-                   alt="MP UG PG College Admission 2026-27"
-                   loading="lazy">
-
-              
-              
-
-              <div class="icon">🖨️</div>
-              <div class="image-title">MP UG &amp; PG College Admission 2026 - 2nd Round </div>
-
-            </a>
-
-          
-
-            <a href="/mp-rte-admission-2nd-round-2026/" class="gallery-item">
-
-              <img src="https://cdn.yojnaportal.com/Banner/mp/2026/mp-rte-admission-2nd-round.webp"
-                   alt="Madhya Pradesh RTE Admission 2026-27 Second Phase Poster"
-                   loading="lazy">
-
-              
-              
-
-              <div class="icon">🖨️</div>
-              <div class="image-title">MP RTE Admission 2nd Round 2026</div>
-
-            </a>
-
-          
-
-            <a href="/mp-deled-couselling-2026-27/" class="gallery-item">
-
-              <img src="https://cdn.yojnaportal.com/Banner/mp/2026/mp-deled-couselling-2026-27.webp"
-                   alt="MP D.El.Ed Counselling 2026-27 Poster"
-                   loading="lazy">
-
-              
-              
-
-              <div class="icon">🖨️</div>
-              <div class="image-title">MP D.El.Ed. Couselling 2026-27</div>
-
-            </a>
-
-          
-
-            <a href="/mp-college-admission-2026/" class="gallery-item">
-
-              <img src="https://cdn.yojnaportal.com/Banner/mp/2026/MP-College-Admission-2026-27.webp"
-                   alt="MP College Admission 2026-27 Poster"
-                   loading="lazy">
-
-              
-              
-
-              <div class="icon">🖨️</div>
-              <div class="image-title">MP College Admission 2026</div>
-
-            </a>
-
-          
-
-            <a href="/mp-dte-polytechnic/" class="gallery-item">
-
-              <img src="https://cdn.yojnaportal.com/Banner/mp/Exams/mp-dte-politechnic-admission-2026.webp"
-                   alt="MP DTE Polytechnic Admission 2026-27"
-                   loading="lazy">
-
-              
-              
-
-              <div class="icon">🖨️</div>
-              <div class="image-title">MP DTE Polytechnic 2026</div>
-
-            </a>
-
-          
-
-            <a href="/mp-college-admission/" class="gallery-item">
-
-              <img src="https://cdn.yojnaportal.com/Banner/25x32/admission/2026/MP-College-Admission.webp"
-                   alt="Madhya Pradesh College Admission 2026-27"
-                   loading="lazy">
-
-              
-              
-
-              <div class="icon">⬇</div>
-              <div class="image-title">Mp College Admission</div>
-
-            </a>
-
-          
-
-        </div>
-
-        <button class="scroll-btn scroll-right">❯</button>
-
-      </div>
-
-      
-
-    </div>
-
-  
-
-
-
-  
-  
-
-  
-
-    
-
-    <div class="category">
-
-      <h2>
-        
-          🧑‍💻 Jobs &amp; Recruitment Update
-        
-      </h2>
-
-      <div class="gallery-wrapper">
-
-        <button class="scroll-btn scroll-left hide">❮</button>
-
-        <div class="gallery">
-
-          
-
-            <a href="/cbi-apprentice-vacancy-2026/" class="gallery-item">
-
-              <img src="https://cdn.yojnaportal.com/jobs/2026/CBI-Apprentice-2026.webp"
-                   alt="Central Bank of India Apprentice Recruitment 2026"
-                   loading="lazy">
-
-              
-              
-
-              <div class="icon">🖨️</div>
-              <div class="image-title">CBI Apprentice 2026</div>
-
-            </a>
-
-          
-
-            <a href="/sbi-apprentice-2026/" class="gallery-item">
-
-              <img src="https://cdn.yojnaportal.com/exam/2026/SBI-Apprentice-Bharti-2026.webp"
-                   alt="SBI Apprentice Bharti 2026"
-                   loading="lazy">
-
-              
-              
-
-              <div class="icon">🖨️</div>
-              <div class="image-title">SBI Apprentice 2026</div>
-
-            </a>
-
-          
-
-            <a href="/ssc-cgl-vacancy-2026-poster/" class="gallery-item">
-
-              <img src="https://cdn.yojnaportal.com/exam/2026/SSC-Combined-Graduate-Level-CGL-2026.webp"
-                   alt="SSC Combined Graduate Level CGL 2026 Poster"
-                   loading="lazy">
-
-              
-              
-
-              <div class="icon">🖨️</div>
-              <div class="image-title">SSC CGL Vacancy 2026 Poster</div>
-
-            </a>
-
-          
-
-            <a href="/rrb-technician-grade-1-3/" class="gallery-item">
-
-              <img src="https://cdn.yojnaportal.com/exam/2026/RRB-Railway-Technician-Grade-I-_-III.webp"
-                   alt="RRB Railway Technician Recruitment 2026"
-                   loading="lazy">
-
-              
-              
-
-              <div class="icon">🖨️</div>
-              <div class="image-title">RRB Technician Grade I &amp; III</div>
-
-            </a>
-
-          
-
-            <a href="/rrb-alp-2026/" class="gallery-item">
-
-              <img src="https://cdn.yojnaportal.com/exam/2026/RRB-Assistant-Loco-Pilot-_ALP_-Recruitment-2026.webp"
-                   alt="RRB Assistant Loco Pilot ALP Recruitment 2026"
-                   loading="lazy">
-
-              
-              
-
-              <div class="icon">🖨️</div>
-              <div class="image-title">RRB ALP 2026</div>
-
-            </a>
-
-          
-
-            <a href="/mpesb-hospital-assistant-recruitment-2026/" class="gallery-item">
-
-              <img src="https://cdn.yojnaportal.com/jobs/mp/MPESB-Hospital-Assistant-Recruitment-2026.webp"
-                   alt="MPESB Hospital Assistant Vacancy 2026"
-                   loading="lazy">
-
-              
-              
-
-              <div class="icon">🖨️</div>
-              <div class="image-title">MPESB Hospital Assistant Recruitment 2026</div>
-
-            </a>
-
-          
-
-            <a href="/mp-guest-teacher-2026-27/" class="gallery-item">
-
-              <img src="https://cdn.yojnaportal.com/Banner/mp/athithi-shikshak-bharti-2026.webp"
-                   alt="MP Guest Teacher 2026-27 Timeline"
-                   loading="lazy">
-
-              
-              
-
-              <div class="icon">🧑‍💻</div>
-              <div class="image-title">MP Guest Teacher 2026-27</div>
-
-            </a>
-
-          
-
-        </div>
-
-        <button class="scroll-btn scroll-right">❯</button>
-
-      </div>
-
-      
-
-    </div>
-
-  
-
-
-
-  
-  
-
-  
-
-    
-
-    <div class="category">
-
-      <h2>
-        
-          🎓 Exams Related Posters
-        
-      </h2>
-
-      <div class="gallery-wrapper">
-
-        <button class="scroll-btn scroll-left hide">❮</button>
-
-        <div class="gallery">
-
-          
-
-            <a href="/mpbse-12th-2nd-result-2026/" class="gallery-item">
-
-              <img src="https://cdn.yojnaportal.com/Banner/mp/2026/MP-BOARD-12th-2026.webp"
-                   alt="MP Board Second Exam Result 2026"
-                   loading="lazy">
-
-              
-              
-
-              <div class="icon">🖨️</div>
-              <div class="image-title">MPBSE 12th 2nd Result 2026</div>
-
-            </a>
-
-          
-
-            <a href="/ctet-sep-2026/" class="gallery-item">
-
-              <img src="https://cdn.yojnaportal.com/exam/2026/CTET-SEP-2026.webp"
-                   alt="CTET 2026 Teacher Eligibility Poster"
-                   loading="lazy">
-
-              
-              
-
-              <div class="icon">🖨️</div>
-              <div class="image-title">CTET SEP 2026</div>
-
-            </a>
-
-          
-
-            <a href="/mpsos-rjny-alc-2026/" class="gallery-item">
-
-              <img src="https://cdn.yojnaportal.com/Banner/mp/Exams/mpsos-rjny-and-alc-2026.webp"
-                   alt="Ruk Jana Nahi and Aa Laut Chale Yojana Poster 2026"
-                   loading="lazy">
-
-              
-              
-
-              <div class="icon">🖨️</div>
-              <div class="image-title">Mpsos Rjny Alc 2026</div>
-
-            </a>
-
-          
-
-            <a href="/mpbse-2nd-exam-admitcard-26/" class="gallery-item">
-
-              <img src="https://cdn.yojnaportal.com/Banner/mp/Exams/mp-board-second-exam-2026.webp"
-                   alt="MP Board 10th &amp; 12th Second Exam Admit Card 2026"
-                   loading="lazy">
-
-              
-              
-
-              <div class="icon">🖨️</div>
-              <div class="image-title">Mpbse 2nd Exam Admitcard 26</div>
-
-            </a>
-
-          
-
-            <a href="/mpbse-2nd-exam-2026/" class="gallery-item">
-
-              <img src="https://cdn.yojnaportal.com/Banner/mp/Exams/dwitiye-exam-2026.webp"
-                   alt="MP Board Second Exam Form 2026"
-                   loading="lazy">
-
-              
-              
-
-              <div class="icon">🖨️</div>
-              <div class="image-title">MPBSE 2nd Exam 2026</div>
-
-            </a>
-
-          
-
-        </div>
-
-        <button class="scroll-btn scroll-right">❯</button>
-
-      </div>
-
-      
-
-    </div>
-
-  
-
-
-
-  
-  
-
-  
-
-    
-
-    <div class="category">
-
-      <h2>
-        
-          🏦 Banking Related Posters
-        
-      </h2>
-
-      <div class="gallery-wrapper">
-
-        <button class="scroll-btn scroll-left hide">❮</button>
-
-        <div class="gallery">
-
-          
-
-            <a href="/uco-bank-csp-banner/" class="gallery-item">
-
-              <img src="https://cdn.yojnaportal.com/Banner/25x32/banking/UCO-Bank-CSP-Poster.webp"
-                   alt="UCO Bank Customer Service Center AEPS Poster"
-                   loading="lazy">
-
-              
-              
-
-              <div class="icon">🖨️</div>
-              <div class="image-title">UCO Bank CSP Banner</div>
-
-            </a>
-
-          
-
-            <a href="/fino-bank-account-opening/" class="gallery-item">
-
-              <img src="https://cdn.yojnaportal.com/Banner/25x32/banking/fino-bank-account.webp"
-                   alt="Fino Payments Bank Services Poster"
-                   loading="lazy">
-
-              
-              
-
-              <div class="icon">🖨️</div>
-              <div class="image-title">Fino Bank Account Opening</div>
-
-            </a>
-
-          
-
-            <a href="/indusind-bank-csp-servises/" class="gallery-item">
-
-              <img src="https://cdn.yojnaportal.com/Banner/25x32/banking/IndusInd-Bank-CSP-.webp"
-                   alt="IndusInd Bank Aadhaar Banking Services"
-                   loading="lazy">
-
-              
-              
-
-              <div class="icon">🖨️</div>
-              <div class="image-title">Indusind Bank Csp Servises</div>
-
-            </a>
-
-          
-
-            <a href="/nsdl-payments-bank-csp/" class="gallery-item">
-
-              <img src="https://cdn.yojnaportal.com/Banner/25x32/banking/NSDL-Payments-Bank.webp"
-                   alt="NSDL Payments Bank Aadhaar Banking Services"
-                   loading="lazy">
-
-              
-              
-
-              <div class="icon">🖨️</div>
-              <div class="image-title">NSDL Payments Bank - CSP</div>
-
-            </a>
-
-          
-
-            <a href="/kotak-mahindra-bank-csp/" class="gallery-item">
-
-              <img src="https://cdn.yojnaportal.com/Banner/25x32/banking/Kotak-Mahindra-Bank.webp"
-                   alt="Kotak Mahindra Bank Aadhaar Banking Services"
-                   loading="lazy">
-
-              
-              
-
-              <div class="icon">🖨️</div>
-              <div class="image-title">Kotak Mahindra Bank- CSP</div>
-
-            </a>
-
-          
-
-            <a href="/ubi-union-bank-of-india-csp/" class="gallery-item">
-
-              <img src="https://cdn.yojnaportal.com/Banner/25x32/banking/Union-Bank-of-india-UBI-CSP.webp"
-                   alt="Union Bank Customer Service Center Poster"
-                   loading="lazy">
-
-              
-              
-
-              <div class="icon">🖨️</div>
-              <div class="image-title">UBI- Union Bank of India -CSP</div>
-
-            </a>
-
-          
-
-            <a href="/iob-indian-overseas-bank-csp/" class="gallery-item">
-
-              <img src="https://cdn.yojnaportal.com/Banner/25x32/banking/Indina-Overseas-Bank-IOB-CSP.webp"
-                   alt="Indian Overseas Bank Customer Service Center"
-                   loading="lazy">
-
-              
-              
-
-              <div class="icon">🖨️</div>
-              <div class="image-title">IOB Indian Overseas Bank -CSP</div>
-
-            </a>
-
-          
-
-            <a href="/bob-bank-of-baroda-csp/" class="gallery-item">
-
-              <img src="https://cdn.yojnaportal.com/Banner/25x32/banking/Bank-of-Baroda-BOB-CSP.webp"
-                   alt="Bank of Baroda Customer Service Center Poster"
-                   loading="lazy">
-
-              
-              
-
-              <div class="icon">🖨️</div>
-              <div class="image-title">BOB Bank of Baroda - CSP</div>
-
-            </a>
-
-          
-
-            <a href="/boi-bank-of-india-csp-poster/" class="gallery-item">
-
-              <img src="https://cdn.yojnaportal.com/Banner/25x32/banking/BOI-Bank-of-India-CSP-Poster.webp"
-                   alt="Bank of India Customer Service Center Poster"
-                   loading="lazy">
-
-              
-              
-
-              <div class="icon">🖨️</div>
-              <div class="image-title">BOI- Bank of India- CSP</div>
-
-            </a>
-
-          
-
-            <a href="/bom-bank-of-maharastra-csp/" class="gallery-item">
-
-              <img src="https://cdn.yojnaportal.com/Banner/25x32/banking/Bank-of-Maharashtra-BOM-CSP.webp"
-                   alt="Bank of Maharashtra Customer Service Center"
-                   loading="lazy">
-
-              
-              
-
-              <div class="icon">🖨️</div>
-              <div class="image-title">BOM Bank of Maharastra CSP</div>
-
-            </a>
-
-          
-
-            <a href="/ippb-india-post-payments-bank/" class="gallery-item">
-
-              <img src="https://cdn.yojnaportal.com/Banner/25x32/banking/IPPB-India-Post-Payments-Bank.webp"
-                   alt="India Post Payments Bank Services Poster"
-                   loading="lazy">
-
-              
-              
-
-              <div class="icon">🖨️</div>
-              <div class="image-title">IPPB India Post Payments Bank</div>
-
-            </a>
-
-          
-
-            <a href="/apb-airtel-payments-bank-csp-poster/" class="gallery-item">
-
-              <img src="https://cdn.yojnaportal.com/Banner/25x32/banking/ABP-CSP-Services.webp"
-                   alt="Airtel Payments Bank Customer Service Center"
-                   loading="lazy">
-
-              
-              
-
-              <div class="icon">🖨️</div>
-              <div class="image-title">Airtel Payments Bank CSP</div>
-
-            </a>
-
-          
-
-            <a href="/rgb-rajasthan-gramin-bank-poster/" class="gallery-item">
-
-              <img src="https://cdn.yojnaportal.com/Banner/25x32/banking/RGB-rajasthan-gramin-bank.webp"
-                   alt="Rajasthan Gramin Bank Customer Service Center"
-                   loading="lazy">
-
-              
-              
-
-              <div class="icon">🖨️</div>
-              <div class="image-title">Rgb Rajasthan Gramin Bank Poster</div>
-
-            </a>
-
-          
-
-            <a href="/upgb-up-gramin-bank-poster/" class="gallery-item">
-
-              <img src="https://cdn.yojnaportal.com/Banner/25x32/banking/UPGB%20uttarpradesh-gramin-bank.webp"
-                   alt="UP Gramin Bank Customer Service Center"
-                   loading="lazy">
-
-              
-              
-
-              <div class="icon">🖨️</div>
-              <div class="image-title">UPGB UP Gramin Bank Poster</div>
-
-            </a>
-
-          
-
-            <a href="/mpgb-mp-gramin-bank-poster/" class="gallery-item">
-
-              <img src="https://cdn.yojnaportal.com/Banner/25x32/banking/MPGB-madhya-pradesh-gramin-bank.webp"
-                   alt="MP Gramin Bank Aadhaar Service Center Poster"
-                   loading="lazy">
-
-              
-              
-
-              <div class="icon">🖨️</div>
-              <div class="image-title">MPGB MP Gramin Bank Poster</div>
-
-            </a>
-
-          
-
-            <a href="/cgb-cg-gramin-bank-poster/" class="gallery-item">
-
-              <img src="https://cdn.yojnaportal.com/Banner/25x32/banking/CGB-Chhattisgarh-gramin-bank.webp"
-                   alt="CG Gramin Bank Customer Service Center"
-                   loading="lazy">
-
-              
-              
-
-              <div class="icon">🖨️</div>
-              <div class="image-title">CGB Chhattisgarh Gramin Bank Poster</div>
-
-            </a>
-
-          
-
-            <a href="/bgb-bihar-gramin-bank-poster/" class="gallery-item">
-
-              <img src="https://cdn.yojnaportal.com/Banner/25x32/banking/BGB-Bihar-Gramin-Bank-Poster.webp"
-                   alt="Bihar Gramin Bank Customer Service Center"
-                   loading="lazy">
-
-              
-              
-
-              <div class="icon">🖨️</div>
-              <div class="image-title">BGB Bihar Gramin Bank Poster</div>
-
-            </a>
-
-          
-
-            <a href="/sbi-csp-banking-poster/" class="gallery-item">
-
-              <img src="https://cdn.yojnaportal.com/Banner/25x32/banking/SBI-Kiosk-Banking-ac-open.webp"
-                   alt="SBI Customer Service Center Poster"
-                   loading="lazy">
-
-              
-              
-
-              <div class="icon">🖨️</div>
-              <div class="image-title">SBI CSP Banking Poster</div>
-
-            </a>
-
-          
-
-            <a href="/pnb-account-opening-poster/" class="gallery-item">
-
-              <img src="https://cdn.yojnaportal.com/Banner/25x32/banking/PNB-Account-Opening-Poster.webp"
-                   alt="PNB Customer Service Point"
-                   loading="lazy">
-
-              
-              
-
-              <div class="icon">🖨️</div>
-              <div class="image-title">PNB Account Opening Poster</div>
-
-            </a>
-
-          
-
-            <a href="/npci-dbt-update-service/" class="gallery-item">
-
-              <img src="https://cdn.yojnaportal.com/Banner/25x32/banking/dbt-npci-link.webp"
-                   alt="NPCI DBT Linking &amp; Update Service"
-                   loading="lazy">
-
-              
-              
-
-              <div class="icon">⬇</div>
-              <div class="image-title">Npci Dbt Update Service</div>
-
-            </a>
-
-          
-
-        </div>
-
-        <button class="scroll-btn scroll-right">❯</button>
-
-      </div>
-
-      
-        <div class="view-more-wrap">
-          <a href="/banertype/banking/" class="view-more-btn">
-            View More →
-          </a>
-        </div>
-      
-
-    </div>
-
-  
-
-
-
-  
-  
-
-  
-
-    
-
-    <div class="category">
-
-      <h2>
-        
-          💁 Work &amp; Services Related
-        
-      </h2>
-
-      <div class="gallery-wrapper">
-
-        <button class="scroll-btn scroll-left hide">❮</button>
-
-        <div class="gallery">
-
-          
-
-            <a href="/bike-repairing-center/" class="gallery-item">
-
-              <img src="https://cdn.yojnaportal.com/Banner/25x32/bussiness/Bike-Repairing-Center.webp"
-                   alt="Bike Repairing &amp; Service Center"
-                   loading="lazy">
-
-              
-              
-
-              <div class="icon">🖨️</div>
-              <div class="image-title">Bike Repairing Center</div>
-
-            </a>
-
-          
-
-            <a href="/mobile-repairing-work/" class="gallery-item">
-
-              <img src="https://cdn.yojnaportal.com/Banner/25x32/bussiness/Mobile-Reparing-Work.webp"
-                   alt="Mobile Repairing Center"
-                   loading="lazy">
-
-              
-              
-
-              <div class="icon">🖨️</div>
-              <div class="image-title">Mobile Repairing Work</div>
-
-            </a>
-
-          
-
-        </div>
-
-        <button class="scroll-btn scroll-right">❯</button>
-
-      </div>
-
-      
-
-    </div>
-
-  
-
-
-
-  
-  
-
-  
-
-    
-
-    <div class="category">
-
-      <h2>
-        
-          🖨️ Printing &amp; Design
-        
-      </h2>
-
-      <div class="gallery-wrapper">
-
-        <button class="scroll-btn scroll-left hide">❮</button>
-
-        <div class="gallery">
-
-          
-
-            <a href="/shadi-card-printing-service/" class="gallery-item">
-
-              <img src="https://cdn.yojnaportal.com/Banner/25x32/marrige-card.webp"
-                   alt="Wedding Card Printing Services Poster"
-                   loading="lazy">
-
-              
-              
-
-              <div class="icon">⬇</div>
-              <div class="image-title">Shadi Card Printing Service</div>
-
-            </a>
-
-          
-
-        </div>
-
-        <button class="scroll-btn scroll-right">❯</button>
-
-      </div>
-
-      
-
-    </div>
-
-  
-
-
-
-  
-  
-
-  
-
-    
-
-    <div class="category">
-
-      <h2>
-        
-          🤷 Multi Services Posters
-        
-      </h2>
-
-      <div class="gallery-wrapper">
-
-        <button class="scroll-btn scroll-left hide">❮</button>
-
-        <div class="gallery">
-
-          
-
-            <a href="/up-jan-seva-kendra/" class="gallery-item">
-
-              <img src="https://cdn.yojnaportal.com/Banner/up/up-related-works.webp"
-                   alt="UP Jan Seva Kendra Services Poster"
-                   loading="lazy">
-
-              
-              
-
-              <div class="icon">🖨️</div>
-              <div class="image-title">UP Jan Seva Kendra</div>
-
-            </a>
-
-          
-
-            <a href="/mp-all-digital-services/" class="gallery-item">
-
-              <img src="https://cdn.yojnaportal.com/Banner/mp/mp-online-related-work.webp"
-                   alt="Online Government Services Banner"
-                   loading="lazy">
-
-              
-              
-
-              <div class="icon">⬇</div>
-              <div class="image-title">All MP Digital Services</div>
-
-            </a>
-
-          
-
-        </div>
-
-        <button class="scroll-btn scroll-right">❯</button>
-
-      </div>
-
-      
-
-    </div>
-
-  
-
-
-
-  
-  
-
-  
-
-    
-
-    <div class="category">
-
-      <h2>
-        
-          📄 Entry &amp; Forms
-        
-      </h2>
-
-      <div class="gallery-wrapper">
-
-        <button class="scroll-btn scroll-left hide">❮</button>
-
-        <div class="gallery">
-
-          
-
-            <a href="/daily-fast-shop-enteries/" class="gallery-item">
-
-              <img src="https://cdn.yojnaportal.com/forms/daily-fast-entry.webp"
-                   alt="Time Wise Fast Entry Register Sheet"
-                   loading="lazy">
-
-              
-              
-
-              <div class="icon">⬇</div>
-              <div class="image-title">Daily Fast Shop Enteries</div>
-
-            </a>
-
-          
-
-        </div>
-
-        <button class="scroll-btn scroll-right">❯</button>
-
-      </div>
-
-      
-
-    </div>
-
-  
-
-
-
 
 
 <script>
 
-document.querySelectorAll(".gallery-wrapper").forEach(wrapper => {
+function formatPostTime(unixTimestamp){
 
-  const gallery = wrapper.querySelector(".gallery");
-  const leftBtn = wrapper.querySelector(".scroll-left");
-  const rightBtn = wrapper.querySelector(".scroll-right");
+    const now = Date.now();
+    const postTime = unixTimestamp * 1000;
 
-  let autoScroll;
+    const diffMinutes =
+        Math.floor((now - postTime) / 60000);
 
-  
-  gallery.style.scrollBehavior = "smooth";
+    const diffHours =
+        Math.floor(diffMinutes / 60);
 
-  function updateButtons(){
+    if(diffMinutes < 2){
+        return "Just now";
+    }
 
-    if(gallery.scrollLeft <= 5){
-      leftBtn.classList.add("hide");
-    }else{
-      leftBtn.classList.remove("hide");
+    if(diffMinutes < 60){
+        return `${diffMinutes} minutes ago`;
+    }
+
+    if(diffHours < 24){
+        return diffHours === 1
+            ? "1 hour ago"
+            : `${diffHours} hours ago`;
+    }
+
+    return new Date(postTime)
+        .toLocaleDateString("en-IN",{
+            day:"2-digit",
+            month:"short",
+            year:"numeric"
+        });
+}
+
+function updateTimes(){
+
+    document
+    .querySelectorAll(".time")
+    .forEach(el=>{
+
+        const ts =
+            Number(el.dataset.time);
+
+        el.textContent =
+            formatPostTime(ts);
+
+    });
+
+}
+
+function linkifyText(text){
+
+    text = text.replace(
+        /(https?:\/\/[^\s]+)/g,
+        '<a href="$1" target="_blank" class="post-link">$1</a>'
+    );
+
+    text = text.replace(
+        /(^|\s)(#[a-zA-Z0-9_\u0900-\u097F]+)/g,
+        function(match,space,tag){
+
+            const keyword =
+                tag.slice(1);
+
+            return `${space}<a href="/search/?q=${encodeURIComponent(keyword)}" class="post-tag">${tag}</a>`;
+
+        }
+    );
+
+    return text;
+
+}
+
+let allPosts = [];
+let currentPage = 0;
+const postsPerPage = 20;
+
+async function loadFeed(){
+
+    const feed =
+        document.getElementById(
+            "channelFeed"
+        );
+
+    
+
+    feed.innerHTML = Array(5).fill(`
+
+        <article class="post-card skeleton-card">
+
+            <div class="post-header">
+
+                <div class="avatar skeleton"></div>
+
+                <div class="meta">
+
+                    <div
+                        class="skeleton"
+                        style="
+                        height:18px;
+                        width:70%;
+                        margin-bottom:8px;">
+                    </div>
+
+                    <div
+                        class="skeleton"
+                        style="
+                        height:12px;
+                        width:120px;">
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div
+                class="skeleton"
+                style="
+                height:220px;
+                margin:0 15px;
+                border-radius:12px;">
+            </div>
+
+            <div class="post-body">
+
+                <div
+                    class="skeleton"
+                    style="
+                    height:14px;
+                    margin-bottom:8px;">
+                </div>
+
+                <div
+                    class="skeleton"
+                    style="
+                    height:14px;
+                    margin-bottom:8px;">
+                </div>
+
+                <div
+                    class="skeleton"
+                    style="
+                    height:14px;
+                    width:60%;">
+                </div>
+
+            </div>
+
+        </article>
+
+    `).join("");
+
+   const feedSources = [
+
+{
+    url:"/channel.json",
+    name:"Yojna Portal Poster",
+    logo:"/favicon.ico"
+},
+
+{
+    url:"https://www.gajabtools.com/channel.json",
+    name:"Yojna Portal",
+    logo:"https://www.gajabtools.com/favicon.ico"
+},
+
+{
+    url:"https://www.yojnaportal.com/channel.json",
+    name:"Yojna Portal",
+    logo:"https://www.yojnaportal.com/favicon.ico"
+}
+
+];
+
+    try{
+
+        let posts = [];
+
+       const results =
+await Promise.allSettled(
+
+    feedSources.map(source=>
+
+        fetch(source.url)
+        .then(r=>r.json())
+        .then(data=>
+
+            data.map(post=>({
+
+                ...post,
+
+                sourceName:
+                    source.name,
+
+                sourceLogo:
+                    source.logo
+
+            }))
+
+        )
+
+    )
+
+);
+        results.forEach(result=>{
+
+            if(
+                result.status === "fulfilled"
+            ){
+
+                posts.push(
+                    ...result.value
+                );
+
+            }
+
+        });
+
+        posts.sort(
+            (a,b)=>
+            new Date(b.date) -
+            new Date(a.date)
+        );
+
+        allPosts = posts;
+
+        feed.innerHTML = "";
+
+        renderPosts();
+        updateSavedButtons();
+    }catch(err){
+
+        console.error(err);
+
+        feed.innerHTML =
+            "<h3>Feed loading failed</h3>";
+
+    }
+
+}
+
+function renderPosts(){
+
+    const feed =
+        document.getElementById(
+            "channelFeed"
+        );
+
+    const start =
+        currentPage * postsPerPage;
+
+    const end =
+        start + postsPerPage;
+
+    const chunk =
+        allPosts.slice(start,end);
+
+    if(chunk.length === 0){
+        return;
+    }
+
+    feed.insertAdjacentHTML(
+
+        "beforeend",
+
+        chunk.map(post=>`
+
+        <article class="post-card">
+
+            <div class="post-header">
+
+                <div class="avatar">
+
+    <img
+        src="${post.sourceLogo}"
+        alt="${post.sourceName}"
+        loading="lazy">
+
+      </div>
+
+                <div class="meta">
+
+                 <div class="title">
+
+    ${post.sourceName}
+
+    <span class="verified-badge">
+        <svg
+            viewBox="0 0 24 24"
+            width="14"
+            height="14"
+            fill="white">
+
+            <path d="M9.55 18.2L3.8 12.45l1.4-1.4 4.35 4.35 9.25-9.25 1.4 1.4z"/>
+
+        </svg>
+    </span>
+
+</div>
+
+<div
+    class="time"
+    data-time="${Date.parse(post.date)/1000}">
+</div>
+    
+                </div>
+
+          <button
+    class="header-save-btn save-btn"
+    data-post='${JSON.stringify(post).replace(/'/g,"&#39;")}'>
+    ⭐ Save
+</button>
+            <div class="menu-wrap">
+
+    <button class="menu-btn">⋮</button>
+    
+    <div class="menu-dropdown">
+
+        <a href="${post.url}" target="_blank">
+            🔗 Open
+        </a>
+
+        <button
+            class="copy-btn"
+            data-text="${(post.description||'').replace(/"/g,'&quot;')}">
+            📑 Copy Text
+        </button>
+
+        <button
+            class="whatsapp-btn"
+            data-text="${(post.description||'').replace(/"/g,'&quot;')}"
+            data-url="${post.url}">
+            📤 WhatsApp
+        </button>
+
+        <button
+            class="share-btn"
+            data-title="${post.title}"
+            data-url="${post.url}">
+            🖇️ Share Link
+        </button>
+      
+    </div>
+
+
+
+
+    </div>
+            </div>
+           
+                <div class="post-body">
+               
+                <div
+    class="post-text ${post.image ? 'collapsed' : ''}">
+           ${ linkifyText(  post.description || "" ) }
+    
+</div>
+            </div>
+
+            ${
+                post.image
+                ? `
+                <div class="post-image">
+                    <a href="${post.url}">
+                        <img
+                            src="${post.image}"
+                            alt="${post.title}">
+                    </a>
+                </div>
+                `
+                : ""
+            }
+
+        
+           
+            <div class="post-footer">
+               
+                <a
+                    href="${post.url}"
+                    target="_blank"
+                    class="action-btn">
+                    🔗
+                </a>
+
+                <button
+                    class="action-btn copy-btn"
+                    data-text="${(post.description||'').replace(/"/g,'&quot;')}">
+                    📑
+                </button>
+
+                <button
+                    class="action-btn whatsapp-btn"
+                    data-text="${(post.description||'').replace(/"/g,'&quot;')}"
+                    data-url="${post.url}">
+                    📤
+                </button>
+
+            </div>
+
+        </article>
+
+        `).join("")
+
+    );
+
+    updateTimes();
+updateSavedButtons();
+
+}
+
+window.addEventListener(
+"scroll",
+function(){
+
+    if(
+
+        window.innerHeight +
+        window.scrollY >=
+
+        document.body.offsetHeight - 500
+
+    ){
+
+        currentPage++;
+
+        renderPosts();
+
+    }
+
+});
+
+loadFeed();
+
+document
+.querySelectorAll(".save-btn")
+.forEach(btn=>{
+
+    const url =
+        btn.dataset.url;
+
+    const savedPosts =
+        JSON.parse(
+            localStorage.getItem(
+                "savedPosts"
+            ) || "[]"
+        );
+
+    if(
+        savedPosts.some(
+            p => p.url === url
+        )
+    ){
+
+        btn.innerHTML =
+            "★ Saved";
+
+        btn.classList
+            .add("saved");
+
+    }
+
+});
+
+document.addEventListener(
+"click",
+async function(e){
+
+    if(
+        e.target.classList.contains(
+            "copy-btn"
+        )
+    ){
+
+        await navigator.clipboard
+        .writeText(
+            e.target.dataset.text
+        );
+
+        e.target.textContent = "✓";
+
+        setTimeout(()=>{
+            e.target.textContent = "📑";
+        },1000);
+
     }
 
     if(
-      gallery.scrollLeft + gallery.clientWidth >=
-      gallery.scrollWidth - 5
+        e.target.classList.contains(
+            "whatsapp-btn"
+        )
     ){
-      rightBtn.classList.add("hide");
-    }else{
-      rightBtn.classList.remove("hide");
+
+        const text =
+            e.target.dataset.text;
+
+        const url =
+            e.target.dataset.url;
+
+        window.open(
+            "https://wa.me/?text=" +
+            encodeURIComponent(
+                text + "\n\n" + url
+            ),
+            "_blank"
+        );
+
     }
-
-  }
-
-  function startAutoScroll(){
-
-    stopAutoScroll();
-
-    autoScroll = setInterval(() => {
-
-      
-      if(
-        gallery.scrollLeft + gallery.clientWidth >=
-        gallery.scrollWidth - 5
-      ){
-
-        gallery.scrollTo({
-          left: 0,
-          behavior: "smooth"
-        });
-
-      }else{
-
-        gallery.scrollBy({
-          left: 320,
-          behavior: "smooth"
-        });
-
-      }
-
-    }, 5000);
-
-  }
-
-  function stopAutoScroll(){
-    clearInterval(autoScroll);
-  }
-
-  rightBtn.addEventListener("click", () => {
-
-    gallery.scrollBy({
-      left: 320,
-      behavior: "smooth"
-    });
-
-  });
-
-  leftBtn.addEventListener("click", () => {
-
-    gallery.scrollBy({
-      left: -320,
-      behavior: "smooth"
-    });
-
-  });
-
-  gallery.addEventListener("scroll", updateButtons);
-
-  
-  gallery.addEventListener("mouseenter", stopAutoScroll);
-
-  
-  gallery.addEventListener("mouseleave", startAutoScroll);
-
-  
-  gallery.addEventListener("touchstart", stopAutoScroll);
-
-  gallery.addEventListener("touchend", () => {
-    setTimeout(startAutoScroll, 2000);
-  });
-
-  updateButtons();
-
-  startAutoScroll();
 
 });
 
 </script>
 <script>
 
-document.querySelectorAll(".gallery-item img").forEach(img => {
+document.addEventListener("click", function(e){
 
-  function imageLoaded(){
+    if(e.target.classList.contains("menu-btn")){
 
-    
-    img.parentElement.classList.add("loaded");
+        const menu = e.target.nextElementSibling;
 
-  }
+        document
+            .querySelectorAll(".menu-dropdown")
+            .forEach(m => {
+                if(m !== menu) m.classList.remove("show");
+            });
 
-  if(img.complete && img.naturalWidth > 0){
+        menu.classList.toggle("show");
+        return;
+    }
 
-    imageLoaded();
+    document
+        .querySelectorAll(".menu-dropdown")
+        .forEach(m => m.classList.remove("show"));
 
-  }else{
+});
 
-    img.addEventListener("load", imageLoaded);
 
-  }
+</script>
+<script>
+document.addEventListener("click", async function(e){
+
+    if(!e.target.classList.contains("share-btn")) return;
+
+    const title = e.target.dataset.title;
+    const url = e.target.dataset.url;
+
+    try{
+
+        if(navigator.share){
+            await navigator.share({
+                title:title,
+                url:url
+            });
+        }else{
+            await navigator.clipboard.writeText(url);
+            alert("Link copied");
+        }
+
+    }catch(err){}
+});
+
+
+document.addEventListener("click", function(e){
+
+    if(!e.target.classList.contains("whatsapp-btn")) return;
+
+    const text = e.target.dataset.text;
+    const url = e.target.dataset.url;
+
+    const shareText = text + "\n\n" + url;
+
+    window.open(
+        "https://wa.me/?text=" + encodeURIComponent(shareText),
+        "_blank"
+    );
+
+});
+</script>
+<script>
+
+document.addEventListener("click", function(e){
+
+    const text = e.target.closest(".post-text");
+
+    if(!text) return;
+
+    text.classList.toggle("collapsed");
 
 });
 
 </script>
+<script>
+document.addEventListener("click",function(e){
+
+    const btn =
+        e.target.closest(".save-btn");
+
+    if(!btn) return;
+
+    const post =
+        JSON.parse(
+            btn.dataset.post
+                .replace(/&#39;/g,"'")
+        );
+
+    let savedPosts =
+        JSON.parse(
+            localStorage.getItem(
+                "savedPosts"
+            ) || "[]"
+        );
+
+    const exists =
+        savedPosts.find(
+            p => p.url === post.url
+        );
+
+    if(exists){
+
+        savedPosts =
+            savedPosts.filter(
+                p => p.url !== post.url
+            );
+
+        btn.innerHTML =
+            "⭐ Save";
+
+        btn.classList.remove(
+            "saved"
+        );
+
+    }else{
+
+        savedPosts.unshift(post);
+
+        btn.innerHTML =
+            "★ Saved";
+
+        btn.classList.add(
+            "saved"
+        );
+
+    }
+
+    localStorage.setItem(
+        "savedPosts",
+        JSON.stringify(savedPosts)
+    );
+
+});
+</script>
+<script>
+    function updateSavedButtons(){
+
+    const savedPosts =
+    JSON.parse(
+        localStorage.getItem(
+            "savedPosts"
+        ) || "[]"
+    );
+
+    document
+    .querySelectorAll(".save-btn")
+    .forEach(btn=>{
+
+        const post =
+        JSON.parse(
+            btn.dataset.post
+            .replace(/&#39;/g,"'")
+        );
+
+        const exists =
+        savedPosts.some(
+            p => p.url === post.url
+        );
+
+        if(exists){
+
+            btn.innerHTML =
+            "★ Saved";
+
+            btn.classList.add(
+                "saved"
+            );
+
+        }else{
+
+            btn.innerHTML =
+            "⭐ Save";
+
+            btn.classList.remove(
+                "saved"
+            );
+
+        }
+
+    });
+
+}
+</script>
 
 
+<footer></footer>
 
-  </main>
-  <footer>
-   <div class="footer-container">
+<div id="menuFooter"></div>
 
-  
-  <div class="footer-col">
-    <h3>About GajabTools</h3>
-    <p>
-      GajabTools.com is a privacy-focused online tools platform.
-      All tools work directly in your browser without uploading data to any server.
-    </p>
-    <div class="footer-highlight">
-      Client-Side Processing • Privacy First • Fast & Free Tools
+
+<div id="mainMenu" style="display:none;">
+
+    <div class="bottom-nav">
+
+        <a href="/" class="nav-item">
+            <i class="fas fa-home"></i>
+            <span>Home</span>
+        </a>
+
+        <a href="/baner-update/" class="nav-item">
+            <i class="fas fa-bolt"></i>
+            <span>Latest</span>
+        </a>
+
+        <a href="/saved-posts/" class="nav-item">
+            <i class="fas fa-bookmark"></i>
+            <span>Saved</span>
+        </a>
+
+        <a href="/gallery" class="nav-item">
+            <i class="fas fa-toolbox"></i>
+            <span>Gallery </span>
+        </a>
+
+        <a href="/search/"
+           target="_blank"
+           class="nav-item">
+            <i class="fas fa-Search"></i>
+            <span>Search</span>
+        </a>
+
     </div>
-  </div>
-
-  
-  <div class="footer-col">
-    <h3>Quick Links</h3>
-    <ul class="footer-links">
-      <li><a href="/">Home</a></li>
-      <li><a href="/about-us/">About Us</a></li>
-      <li><a href="/contact/">Contact</a></li>
-    </ul>
-  </div>
-
-  
-  <div class="footer-col">
-    <h3>Legal</h3>
-    <ul class="footer-links">
-      <li><a href="/privacy-policy/">Privacy Policy</a></li>
-      <li><a href="/terms-and-conditions/">Terms & Conditions</a></li>
-      <li><a href="/disclaimer/">Disclaimer</a></li>
-      <li><a href="/cookie-policy/">Cookie Policy</a></li>
-      <li><a href="/dmca-policy/">DMCA Policy</a></li>
-    </ul>
-  </div>
 
 </div>
 
-<div class="footer-bottom">
-  © 2026 GajabTools.com | All Rights Reserved | 
-  Page Update:
-  <strong>
-    
-      17-06-2026 18:43:59
-    
-  </strong>
-</div>
+<style>
+    .bottom-nav{
+    position:fixed;
+    bottom:0;
+    left:0;
+    width:100%;
+    height:65px;
+
+    background:#111;
+    border-top:1px solid #222;
+
+    display:flex;
+    justify-content:space-around;
+    align-items:center;
+
+    z-index:9999;
+}
+
+.bottom-nav .nav-item{
+    flex:1;
+
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+
+    color:#aaa;
+    text-decoration:none;
+
+    font-size:12px;
+    gap:4px;
+
+    transition:.3s;
+}
+
+.bottom-nav .nav-item i{
+    font-size:22px;
+}
+
+.bottom-nav .nav-item:hover,
+.bottom-nav .nav-item.active{
+    color:#25D366;
+}
+
+body{
+    padding-bottom:80px;
+}
+
+.bottom-nav{
+    display:flex;
+    justify-content:space-around;
+    align-items:center;
+    background:#111;
+}
+
+.nav-item{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:4px;
+    color:#fff;
+    text-decoration:none;
+    padding:12px;
+}
+
+.nav-item i{
+    font-size:20px;
+}
+.nav-item{
+    color:#aaa;
+    transition:.3s;
+    position:relative;
+}
+
+.nav-item.active{
+    color:#25D366;
+    font-weight:700;
+}
+
+.nav-item.active i{
+    transform:scale(1.15);
+}
+
+.nav-item.active::after{
+    content:"";
+    position:absolute;
+    bottom:-2px;
+    left:50%;
+    transform:translateX(-50%);
+    width:24px;
+    height:3px;
+    background:#25D366;
+    border-radius:20px;
+}
+ 
+@media (max-width:768px){
+
+    #menuFooter .bottom-nav{
+        position:fixed;
+        bottom:0;
+        left:0;
+        width:100%;
+        height:65px;
+        z-index:9999;
+        border-top:1px solid #333;
+    }
+
+    body{
+        padding-bottom:75px;
+    }
+}
+
+ 
+@media (min-width:769px){
+
+    #menuHeader .bottom-nav{
+        position:static;
+        width:auto;
+        border-radius:12px;
+        padding:0 10px;
+    }
+
+    #menuHeader .nav-item{
+        flex-direction:row;
+    }
+}
+</style>
+<script>
+function moveMenu(){
+
+    const menu = document.getElementById("mainMenu");
+
+    if(window.innerWidth <= 768){
+
+        document
+            .getElementById("menuFooter")
+            .appendChild(menu);
+
+    }else{
+
+        document
+            .getElementById("menuHeader")
+            .appendChild(menu);
+
+    }
+
+    menu.style.display = "block";
+}
+
+moveMenu();
+
+window.addEventListener("resize", moveMenu);
+</script>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+
+    const currentPath = window.location.pathname;
+
+    document.querySelectorAll(".bottom-nav .nav-item")
+    .forEach(link => {
+
+        link.classList.remove("active");
+
+        const linkPath = new URL(link.href).pathname;
+
+        if(
+            currentPath === linkPath ||
+            (linkPath !== "/" && currentPath.startsWith(linkPath))
+        ){
+            link.classList.add("active");
+        }
+
+    });
+
+});
+</script>
 
 
 
 
-
-
-<script src="http://localhost:1313/js/main/homepage.min.ef6114691abdfdda76716c9e2e5244d6392d3fb33d067fb0368fc60a993eb695.js" integrity="sha256-72EUaRq9/dp2cWyeLlJE1jktP7M9Bn&#43;wNo/GCpk&#43;tpU=" defer></script>
-  </footer>
-   
-
-
-  
-    <script src="http://localhost:1313/js/main/mainbase.min.68b3e159445938c93c5fa538bcef4f759922498cc10486baa38df5ecb7f850d8.js" integrity="sha256-aLPhWURZOMk8X6U4vO9PdZkiSYzBBIa6o4317Lf4UNg=" defer></script>
-  
-
-  
-    <script src="http://localhost:1313/js/pages/disabled.min.163900fe20f6f627929f358a505bf043308f959eb66947d7285eb575e51b24b2.js" integrity="sha256-FjkA/iD29ieSnzWKUFvwQzCPlZ62aUfXKF61deUbJLI=" defer></script>
-  
-
-</body>
-</html>

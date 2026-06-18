@@ -1,5 +1,4 @@
-
-{{ define "main" }}
+{{ partial "channel/header.html" . }}
 <haed>
 
 <script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
@@ -12,7 +11,7 @@
   });
 </script>
 </head>
-
+<br> <br> <br> <br> <br>
 <div class="banner-list">
 
 {{ $pages := where .Site.RegularPages "Draft" false }}
@@ -63,4 +62,4 @@
   {{ end }}
 
 </div>
-{{ end }}
+{{ partial "channel/footer.html" . }}
