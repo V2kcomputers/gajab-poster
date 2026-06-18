@@ -4,7 +4,7 @@
 {
   "title": {{ $p.Title | jsonify }},
   "date": "{{ $p.Date.Format "2006-01-02T15:04:05Z07:00" }}",
-  "url": {{ printf "%s%s" site.BaseURL $p.RelPermalink | jsonify }},
+  "url": "https://poster.yojnaportal.com{{ $p.RelPermalink }}",
 
   "image": {{ with $p.Params.imagePoster }}
       {{ . | jsonify }}
