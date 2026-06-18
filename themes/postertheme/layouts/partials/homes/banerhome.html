@@ -3,7 +3,7 @@
 .gallery-wrapper{
   position: relative;
 }
-
+.category h2 { color:#fff;}
 .scroll-btn{
   position: absolute;
   top: 50%;
@@ -168,7 +168,7 @@
 {{ $allLatestPosts := sort (where .Site.RegularPages "Section" "ne" "farmate") ".Lastmod" "desc" }}
 
 <!-- सिर्फ latest 20 -->
-{{ $latest20 := first 20 $allLatestPosts }}
+{{ $latest20 := first 12 $allLatestPosts }}
 
 
 <!-- Latest Section -->
@@ -224,7 +224,7 @@
 
   {{ if gt (len $sorted) 0 }}
 
-    {{ $posts := first 20 $sorted }}
+    {{ $posts := first 12 $sorted }}
 
     <div class="category">
 
@@ -272,7 +272,7 @@
 
       </div>
 
-      {{ if gt (len $sorted) 20 }}
+      {{ if gt (len $sorted) 12 }}
         <div class="view-more-wrap">
           <a href="/banertype/{{ lower . }}/" class="view-more-btn">
             View More →
