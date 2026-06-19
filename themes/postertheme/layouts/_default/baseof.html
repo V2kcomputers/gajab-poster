@@ -5,14 +5,14 @@
 
 </head>
 <body>
-   <header>
-      {{ partial "main-parts/header.html" . }}
-      </header>
+
+      {{ partial "channel/header.html" . }}
+     
   <main>
     {{ block "main" . }}{{ end }}
   </main>
   <footer>
-   {{ partial "main-parts/footer.html" . }}
+   {{ partial "channel/footer.html" . }}
   </footer>
    {{ partial "main-parts/jsfooter.html" . }}
 </body>
