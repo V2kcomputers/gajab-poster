@@ -1,6 +1,6 @@
 
  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script> <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=599">
 
 <title>Search AI Tools | Poster  </title>
 
@@ -126,10 +126,10 @@
         
         <div class="channel-info">
             <div class="channel-name">
-                YOJNA PORTAL
+                YOJNA PORTAL <i class="fas fa-check-circle"></i>
             </div>
 
-            <div class="channel-followers" id="dateTime">  Loading... </div>
+            <div class="channel-followers" > <i class="fas fa-clock"></i> <span id="dateTime">Loading...  </span>  </div>
         </div>
     </div>
 
@@ -153,10 +153,12 @@
         ⋮
     </button>  
 
-    <div class="social-menu" id="socialMenu">
-<button onclick="document.body.classList.toggle('dark')">
-    🌙
-</button>
+    <div class="social-menu" id="socialMenu"> 
+        <br>
+<label class="theme-switch" >
+    <input type="checkbox" id="themeToggle">
+    <span class="slider"></span> 
+</label>  <hr>
         <a href="https://yojnaportal.com/whatsapp" target="_blank">
             <i class="fab fa-whatsapp"></i>
             WhatsApp
@@ -277,18 +279,90 @@ function updateDateTime() {
 updateDateTime();
 setInterval(updateDateTime, 1000);
 </script>
+<script>
+const toggle = document.getElementById('themeToggle');
+
+
+if(localStorage.getItem('theme') === 'dark'){
+    document.body.classList.add('dark');
+    toggle.checked = true;
+}
+
+toggle.addEventListener('change', () => {
+    document.body.classList.toggle('dark');
+
+    localStorage.setItem(
+        'theme',
+        document.body.classList.contains('dark')
+            ? 'dark'
+            : 'light'
+    );
+});
+</script>
+
 <style>
+ 
+:root{
+    --bg:#f5f7fb;
+    --card-bg:#ffffff;
+    --text:#222;
+    --text-light:#666;
+    --border:#e5e7eb;
+
+    --hover:#f3f4f6;
+    --footer-bg:#f8fafc;
+
+    --shadow:0 2px 12px rgba(0,0,0,.08);
+    --menu-shadow:0 5px 20px rgba(0,0,0,.15);
+
+    --save-bg:#fff7ed;
+    --save-text:#f59e0b;
+
+    --copy-bg:#eff6ff;
+    --wa-bg:#dcfce7;
+    --share-bg:#fef3c7;
+    --link-bg:#e0f2fe;
+
+    --green:#16a34a;
+    --blue:#2563eb;
+}
+
+ 
+body.dark{
+    --bg:#0f172a;
+    --card-bg:#1f2c33;
+    --text:#f8fafc;
+    --text-light:#94a3b8;
+    --border:#334155;
+
+    --hover:#334155;
+    --footer-bg:#273449;
+
+    --shadow:0 2px 15px rgba(0,0,0,.4);
+    --menu-shadow:0 5px 20px rgba(0,0,0,.5);
+
+    --save-bg:#3b2f12;
+    --save-text:#fbbf24;
+
+    --copy-bg:#1e3a5f;
+    --wa-bg:#14532d;
+    --share-bg:#4a3b12;
+    --link-bg:#0c4a6e;
+
+    --green:#22c55e;
+    --blue:#60a5fa;
+}
 
   body {
   margin: 0;
   height: 200vh;
 
   background:
-    radial-gradient(#3a3a3a 1px, transparent 1px) 0 0/10px 10px,
-    radial-gradient(#686868 1px, transparent 1px) 10px 10px/40px 40px;
+    radial-gradient(var(--share-bg) 1px, transparent 1px) 0 0/10px 10px,
+    radial-gradient(var(--hover) 1px, transparent 1px) 10px 10px/40px 40px;
 
   background-attachment: fixed;
-  background-color: #272424;
+  background-color: var(--bg);
 }  
     header .menu-wrapper{
     position:relative;
@@ -300,7 +374,7 @@ header .social-menu{
     right:0;
 
     width:220px;
-    background:#1f1f1f;
+    background:var(--card-bg);
 
     border-radius:12px;
     overflow:hidden;
@@ -322,10 +396,10 @@ header .social-menu a{
 
     padding:14px 16px;
 
-    color:#fff;
+    color:var(--text);
     text-decoration:none;
 
-    border-bottom:1px solid rgba(255,255,255,.08);
+    border-bottom:1px solid var(--border);
 
     transition:.2s;
 }
@@ -335,7 +409,7 @@ header.social-menu a:last-child{
 }
 
 header .social-menu a:hover{
-    background:#2d2d2d;
+    background:var(--hover);
 }
 
 header .social-menu i{
@@ -352,15 +426,15 @@ header{
     z-index:9999;
 }
 header .channel-header{
-   background:#111;
-    color:#fff;
+   background:linear-gradient(180deg,var(--bg),var(--card-bg));
+    color:var(--text);
 
     display:flex;
     align-items:center;
     justify-content:space-between;
 
     padding:14px 20px;
-    border-bottom:1px solid #222;
+    border-bottom:1px solid var(--border);
 
     font-family:Arial,sans-serif;
 }
@@ -376,7 +450,7 @@ header .channel-left img{
     height:54px;
     border-radius:50%;
     object-fit:cover;
-    background:#fff;
+    background:var(--bg);
 }
 
 header .channel-name{
@@ -386,7 +460,7 @@ header .channel-name{
 }
 
 header .channel-followers{
-    color:#b0b0b0;
+    color:var(--text-light);
     font-size:14px;
     margin-top:4px;
 }
@@ -403,7 +477,7 @@ header .icon-btn{
 
     border:none;
     background:transparent;
-    color:#fff;
+    color:var(--text);
 
     font-size:22px;
     cursor:pointer;
@@ -416,7 +490,7 @@ header .icon-btn{
 }
 
 header .icon-btn:hover{
-    background:#222;
+    background:var(--text-light);
 }
 
 header .follow-btn-top{
@@ -426,8 +500,8 @@ header .follow-btn-top{
 
     padding:8px 20px;
 
-    background:#fff;
-    color:#111;
+    background:var(--text);
+    color:var(--bg);
 
     font-weight:700;
     font-size:14px;
@@ -461,6 +535,52 @@ header .saved-page-btn{
     font-weight:600;
     text-decoration:none;
 }
+
+.theme-switch{
+    position:relative;
+    display:inline-block;
+    width:60px;
+    height:32px;
+        margin: auto 30%;
+}
+
+.theme-switch input{
+    display:none;
+}
+
+.slider{
+    position:absolute;
+    inset:0;
+    cursor:pointer;
+    background:#ccc;
+    border-radius:50px;
+    transition:.3s;
+}
+
+.slider:before{
+    content:"☀️";
+    position:absolute;
+    width:26px;
+    height:26px;
+    left:3px;
+    top:3px;
+    background:#fff;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:14px;
+    transition:.3s;
+}
+
+input:checked + .slider{
+    background:#333;
+}
+
+input:checked + .slider:before{
+    transform:translateX(28px);
+    content:"🌙";
+}
 </style>
 </head>
 
@@ -490,7 +610,7 @@ header .saved-page-btn{
 </div>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.6.2"></script>
  
-<footer></footer>
+<footer>
 
 <div id="menuFooter"></div>
 
@@ -520,7 +640,6 @@ header .saved-page-btn{
         </a>
 
         <a href="/search/"
-           target="_blank"
            class="nav-item">
             <i class="fas fa-Search"></i>
             <span>Search</span>
@@ -538,8 +657,8 @@ header .saved-page-btn{
     width:100%;
     height:65px;
 
-    background:#111;
-    border-top:1px solid #222;
+    background:var(--card-bg);
+    border-top:1px solid var(--border);
 
     display:flex;
     justify-content:space-around;
@@ -556,7 +675,7 @@ header .saved-page-btn{
     align-items:center;
     justify-content:center;
 
-    color:#aaa;
+    color:var(--text);
     text-decoration:none;
 
     font-size:12px;
@@ -571,7 +690,7 @@ header .saved-page-btn{
 
 .bottom-nav .nav-item:hover,
 .bottom-nav .nav-item.active{
-    color:#25D366;
+    color:var(--green);
 }
 
 body{
@@ -582,7 +701,8 @@ body{
     display:flex;
     justify-content:space-around;
     align-items:center;
-    background:#111;
+    background:linear-gradient(180deg,var(--bg),var(--card-bg));
+    border-top:none;
 }
 
 .nav-item{
@@ -590,7 +710,7 @@ body{
     flex-direction:column;
     align-items:center;
     gap:4px;
-    color:#fff;
+    color:var(--bg);
     text-decoration:none;
     padding:12px;
 }
@@ -599,13 +719,13 @@ body{
     font-size:20px;
 }
 .nav-item{
-    color:#aaa;
+    color:var(--text-light);
     transition:.3s;
     position:relative;
 }
 
 .nav-item.active{
-    color:#25D366;
+    color:var(--green);
     font-weight:700;
 }
 
@@ -621,7 +741,7 @@ body{
     transform:translateX(-50%);
     width:24px;
     height:3px;
-    background:#25D366;
+    background:var(--green);
     border-radius:20px;
 }
  
@@ -634,7 +754,7 @@ body{
         width:100%;
         height:65px;
         z-index:9999;
-        border-top:1px solid #333;
+        border-top:1px solid var(--border);
     }
 
     body{
@@ -715,3 +835,4 @@ document.addEventListener("DOMContentLoaded", () => {
     
   
 
+</footer>

@@ -152,10 +152,12 @@
         ⋮
     </button>  
 
-    <div class="social-menu" id="socialMenu">
-<button onclick="document.body.classList.toggle('dark')">
-    🌙
-</button>
+    <div class="social-menu" id="socialMenu"> 
+        <br>
+<label class="theme-switch" >
+    <input type="checkbox" id="themeToggle">
+    <span class="slider"></span> 
+</label>  <hr>
         <a href="https://yojnaportal.com/whatsapp" target="_blank">
             <i class="fab fa-whatsapp"></i>
             WhatsApp
@@ -276,6 +278,27 @@ function updateDateTime() {
 updateDateTime();
 setInterval(updateDateTime, 1000);
 </script>
+<script>
+const toggle = document.getElementById('themeToggle');
+
+
+if(localStorage.getItem('theme') === 'dark'){
+    document.body.classList.add('dark');
+    toggle.checked = true;
+}
+
+toggle.addEventListener('change', () => {
+    document.body.classList.toggle('dark');
+
+    localStorage.setItem(
+        'theme',
+        document.body.classList.contains('dark')
+            ? 'dark'
+            : 'light'
+    );
+});
+</script>
+
 <style>
  
 :root{
@@ -511,6 +534,52 @@ header .saved-page-btn{
     font-weight:600;
     text-decoration:none;
 }
+
+.theme-switch{
+    position:relative;
+    display:inline-block;
+    width:60px;
+    height:32px;
+        margin: auto 30%;
+}
+
+.theme-switch input{
+    display:none;
+}
+
+.slider{
+    position:absolute;
+    inset:0;
+    cursor:pointer;
+    background:#ccc;
+    border-radius:50px;
+    transition:.3s;
+}
+
+.slider:before{
+    content:"☀️";
+    position:absolute;
+    width:26px;
+    height:26px;
+    left:3px;
+    top:3px;
+    background:#fff;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:14px;
+    transition:.3s;
+}
+
+input:checked + .slider{
+    background:#333;
+}
+
+input:checked + .slider:before{
+    transform:translateX(28px);
+    content:"🌙";
+}
 </style>
 </head>
 
@@ -720,7 +789,6 @@ header .saved-page-btn{
         </a>
 
         <a href="/search/"
-           target="_blank"
            class="nav-item">
             <i class="fas fa-Search"></i>
             <span>Search</span>
