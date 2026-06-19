@@ -1,6 +1,6 @@
  <head>
 	<meta name="generator" content="Hugo 0.148.2"><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script> <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=599">
 
 <title>Yojna Portal Posters | Poster  </title>
 
@@ -126,10 +126,10 @@
         
         <div class="channel-info">
             <div class="channel-name">
-                YOJNA PORTAL
+                YOJNA PORTAL <i class="fas fa-check-circle"></i>
             </div>
 
-            <div class="channel-followers" id="dateTime">  Loading... </div>
+            <div class="channel-followers" > <i class="fas fa-clock"></i> <span id="dateTime">Loading...  </span>  </div>
         </div>
     </div>
 
@@ -278,202 +278,6 @@ updateDateTime();
 setInterval(updateDateTime, 1000);
 </script>
 <style>
-
-  body {
-  margin: 0;
-  height: 200vh;
-
-  background:
-    radial-gradient(#3a3a3a 1px, transparent 1px) 0 0/10px 10px,
-    radial-gradient(#686868 1px, transparent 1px) 10px 10px/40px 40px;
-
-  background-attachment: fixed;
-  background-color: #272424;
-}  
-    header .menu-wrapper{
-    position:relative;
-}
-
-header .social-menu{
-    position:absolute;
-    top:50px;
-    right:0;
-
-    width:220px;
-    background:#1f1f1f;
-
-    border-radius:12px;
-    overflow:hidden;
-
-    box-shadow:0 10px 30px rgba(0,0,0,.25);
-
-    display:none;
-    z-index:9999;
-}
-
-header .social-menu.show{
-    display:block;
-}
-
-header .social-menu a{
-    display:flex;
-    align-items:center;
-    gap:12px;
-
-    padding:14px 16px;
-
-    color:#fff;
-    text-decoration:none;
-
-    border-bottom:1px solid rgba(255,255,255,.08);
-
-    transition:.2s;
-}
-
-header.social-menu a:last-child{
-    border-bottom:none;
-}
-
-header .social-menu a:hover{
-    background:#2d2d2d;
-}
-
-header .social-menu i{
-    width:20px;
-    text-align:center;
-    font-size:18px;
-}
-
-header{
-    position:fixed;
-    top:0;
-    left:0;
-    width:100%;
-    z-index:9999;
-}
-header .channel-header{
-   background:#111;
-    color:#fff;
-
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-
-    padding:14px 20px;
-    border-bottom:1px solid #222;
-
-    font-family:Arial,sans-serif;
-}
-
-header .channel-left{
-    display:flex;
-    align-items:center;
-    gap:14px;
-}
-
-header .channel-left img{
-    width:54px;
-    height:54px;
-    border-radius:50%;
-    object-fit:cover;
-    background:#fff;
-}
-
-header .channel-name{
-    font-size:18px;
-    font-weight:700;
-    line-height:1.2;
-}
-
-header .channel-followers{
-    color:#b0b0b0;
-    font-size:14px;
-    margin-top:4px;
-}
-
-header .channel-right{
-    display:flex;
-    align-items:center;
-    gap:2px;
-}
-
-header .icon-btn{
-    width:40px;
-    height:40px;
-
-    border:none;
-    background:transparent;
-    color:#fff;
-
-    font-size:22px;
-    cursor:pointer;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    border-radius:50%;
-}
-
-header .icon-btn:hover{
-    background:#222;
-}
-
-header .follow-btn-top{
-    display:inline-flex;
-    align-items:center;
-    gap:8px;
-
-    padding:8px 20px;
-
-    background:#fff;
-    color:#111;
-
-    font-weight:700;
-    font-size:14px;
-
-    text-decoration:none;
-
-    border-radius:50px;
-
-    transition:.3s;
-}
-
-header .follow-btn-top::before{
-    content:"+";
-    font-size:18px;
-    font-weight:700;
-}
-
-header .follow-btn-top:hover{
-    background:#25D366;
-    color:#fff;
-}
-
-header .saved-page-btn{
-    display:inline-flex;
-    align-items:center;
-    gap:8px;
-    padding:10px 16px;
-    border-radius:999px;
-    background:#fef3c7;
-    color:#92400e;
-    font-weight:600;
-    text-decoration:none;
-}
-</style>
-</head>
-
-
-
-
-<div class="channel-feed">
-
-<div id="remotePosts"></div>
-<div id="channelFeed"></div>
-</div>
-
-<style>
  
 :root{
     --bg:#f5f7fb;
@@ -526,6 +330,201 @@ body.dark{
     --blue:#60a5fa;
 }
 
+  body {
+  margin: 0;
+  height: 200vh;
+
+  background:
+    radial-gradient(var(--share-bg) 1px, transparent 1px) 0 0/10px 10px,
+    radial-gradient(var(--hover) 1px, transparent 1px) 10px 10px/40px 40px;
+
+  background-attachment: fixed;
+  background-color: var(--bg);
+}  
+    header .menu-wrapper{
+    position:relative;
+}
+
+header .social-menu{
+    position:absolute;
+    top:50px;
+    right:0;
+
+    width:220px;
+    background:var(--card-bg);
+
+    border-radius:12px;
+    overflow:hidden;
+
+    box-shadow:0 10px 30px rgba(0,0,0,.25);
+
+    display:none;
+    z-index:9999;
+}
+
+header .social-menu.show{
+    display:block;
+}
+
+header .social-menu a{
+    display:flex;
+    align-items:center;
+    gap:12px;
+
+    padding:14px 16px;
+
+    color:var(--text);
+    text-decoration:none;
+
+    border-bottom:1px solid var(--border);
+
+    transition:.2s;
+}
+
+header.social-menu a:last-child{
+    border-bottom:none;
+}
+
+header .social-menu a:hover{
+    background:var(--hover);
+}
+
+header .social-menu i{
+    width:20px;
+    text-align:center;
+    font-size:18px;
+}
+
+header{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    z-index:9999;
+}
+header .channel-header{
+   background:linear-gradient(180deg,var(--bg),var(--card-bg));
+    color:var(--text);
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    padding:14px 20px;
+    border-bottom:1px solid var(--border);
+
+    font-family:Arial,sans-serif;
+}
+
+header .channel-left{
+    display:flex;
+    align-items:center;
+    gap:14px;
+}
+
+header .channel-left img{
+    width:54px;
+    height:54px;
+    border-radius:50%;
+    object-fit:cover;
+    background:var(--bg);
+}
+
+header .channel-name{
+    font-size:18px;
+    font-weight:700;
+    line-height:1.2;
+}
+
+header .channel-followers{
+    color:var(--text-light);
+    font-size:14px;
+    margin-top:4px;
+}
+
+header .channel-right{
+    display:flex;
+    align-items:center;
+    gap:2px;
+}
+
+header .icon-btn{
+    width:40px;
+    height:40px;
+
+    border:none;
+    background:transparent;
+    color:var(--text);
+
+    font-size:22px;
+    cursor:pointer;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border-radius:50%;
+}
+
+header .icon-btn:hover{
+    background:var(--text-light);
+}
+
+header .follow-btn-top{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+
+    padding:8px 20px;
+
+    background:var(--text);
+    color:var(--bg);
+
+    font-weight:700;
+    font-size:14px;
+
+    text-decoration:none;
+
+    border-radius:50px;
+
+    transition:.3s;
+}
+
+header .follow-btn-top::before{
+    content:"+";
+    font-size:18px;
+    font-weight:700;
+}
+
+header .follow-btn-top:hover{
+    background:#25D366;
+    color:#fff;
+}
+
+header .saved-page-btn{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:10px 16px;
+    border-radius:999px;
+    background:#fef3c7;
+    color:#92400e;
+    font-weight:600;
+    text-decoration:none;
+}
+</style>
+</head>
+
+
+
+<br>
+<div class="channel-feed">
+
+<div id="remotePosts"></div>
+<div id="channelFeed"></div>
+</div>
+
+<style>
 .post-header{
     display:flex;
     align-items:flex-start;
@@ -551,14 +550,14 @@ a:link {text-decoration: none;}
     height:36px;
     border:none;
     background:none;
-    color:#444;
+    color:var(--text-light);
     font-size:22px;
     cursor:pointer;
     border-radius:50%;
 }
 
 .menu-btn:hover{
-    background:#f3f4f6;
+    background:var(--hover);
 }
 
 
@@ -567,7 +566,7 @@ a:link {text-decoration: none;}
     position:absolute;
     right:0;
     top:35px;
-    background:#fff;
+    background:var(--bg);
     min-width:180px;
     border-radius:10px;
     box-shadow:0 5px 20px rgba(0,0,0,.15);
@@ -588,12 +587,12 @@ a:link {text-decoration: none;}
     padding:12px;
     cursor:pointer;
     display:block;
-    color:#333;
+    color:var(--text);
 }
 
 .menu-dropdown a:hover,
 .menu-dropdown button:hover{
-    background:#f5f5f5;
+    background:var(--save-bg);
 }
 
 
@@ -617,7 +616,7 @@ a:link {text-decoration: none;}
     padding:10px 16px;
     border-radius:999px;
     background:#fef3c7;
-    color:#92400e;
+    color:var(--save-bg);
     font-weight:600;
     text-decoration:none;
     margin-bottom:15px;
@@ -627,8 +626,8 @@ a:link {text-decoration: none;}
     height:40px;
     border-radius:50%;
     overflow:hidden;
-    background:#fff;
-    border:1px solid #eee;
+    background:var(--bg);
+    border:1px solid var(--border);
     flex-shrink:0;
     padding: 5px;
 }
@@ -648,19 +647,7 @@ a:link {text-decoration: none;}
     color:var(--text)
 }
 
-.verified-badge{
-    width:18px;
-    height:18px;
-    border-radius:50%;
-    background:#1d9bf0;
-    color:#fff;
-    font-size:11px;
-    font-weight:700;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    flex-shrink:0;
-}
+.fa-check-circle {color:var(--blue);}
 
 .time{
     font-size:13px;
@@ -706,7 +693,7 @@ a:link {text-decoration: none;}
 
 .post-text.collapsed::after{
     content:" ...more";
-    color:#16a34a;
+    color:var(--green);
     font-weight:600;
 }
 
@@ -721,14 +708,14 @@ a:link {text-decoration: none;}
     margin-top:0px;
     background:none;
     border:none;
-    color:#16a34a;
+    color:var(--green);
     font-weight:600;
     cursor:pointer;
     padding:0;
 }
 
 .post-link{
-    color:#2563eb;
+    color:var(--blue);
     text-decoration:none;
     word-break:break-word;
 }
@@ -738,7 +725,7 @@ a:link {text-decoration: none;}
 }
 
 .post-tag{
-    color:#16a34a;
+    color:var(--green);
     font-weight:600;
     text-decoration:none;
 }
@@ -752,65 +739,81 @@ a:link {text-decoration: none;}
     justify-content:center;
     gap:12px;
     padding:14px;
+    border-top:1px solid var(--footer-bg);
+}
+
+.post-footer{
+    display:flex;
+    gap:10px;
+    padding:15px;
     border-top:1px solid #eee;
 }
 
-.action-btn{
-    width:46px;
-    height:46px;
+.post-footer .action-btn{
+    flex:1;
+    height:48px;
     border:none;
-    border-radius:14px;
-    background:#f8fafc;
-    color:#222;
-    text-decoration:none;
+    border-radius:12px;
     display:flex;
     align-items:center;
     justify-content:center;
+    gap:8px;
+    text-decoration:none;
     cursor:pointer;
-    font-size:22px;
-    transition:.25s ease;
-    box-shadow:
-        0 2px 8px rgba(0,0,0,.08),
-        inset 0 1px 0 rgba(255,255,255,.8);
+    font-size:14px;
+    font-weight:600;
+    transition:.25s;
 }
 
-.action-btn:hover{
-    transform:translateY(-2px);
-    background:#f3980f;
+.post-footer .action-btn i{
+    font-size:18px;
+}
+
+ 
+.details-btn{
+    background:var(--link-bg);
+    color:#2563eb;
+}
+
+.details-btn:hover{
+    background:#2563eb;
+    color:#fff;
+}
+
+ 
+.copy-btn{
+    background:var(--copy-bg);
+    color:#334155;
+}
+
+.copy-btn:hover{
+    background:#0f172a;
+    color:#fff;
+}
+
+ 
+.whatsapp-btn{
+    background:var(--wa-bg);
+    color:#16a34a;
+}
+
+.whatsapp-btn:hover{
+    background:#16a34a;
     color:#fff;
 }
 
 .action-btn:active{
-    transform:scale(.92);
-}
-
-.action-btn span{
-    line-height:1;
-}
-.copy-btn{
-    background:#eff6ff;
-}
-
-.whatsapp-btn{
-    background:#dcfce7;
-}
-
-.share-btn{
-    background:#fef3c7;
-}
-
-.post-link{
-    background:#e0f2fe;
+    transform:scale(.95);
 }
  
 
 .skeleton{
     background:linear-gradient(
         90deg,
-        #f1f5f9 25%,
-        #e2e8f0 50%,
-        #f1f5f9 75%
-    );
+        var(--card-bg) 25%,
+        var(--copy-bg) 50%,
+        var(--hover) 75%
+    );   
 
     background-size:200% 100%;
 
@@ -1125,19 +1128,7 @@ function renderPosts(){
 
                  <div class="title">
 
-    ${post.sourceName}
-
-    <span class="verified-badge">
-        <svg
-            viewBox="0 0 24 24"
-            width="14"
-            height="14"
-            fill="white">
-
-            <path d="M9.55 18.2L3.8 12.45l1.4-1.4 4.35 4.35 9.25-9.25 1.4 1.4z"/>
-
-        </svg>
-    </span>
+    ${post.sourceName} <i class="fas fa-check-circle"></i>
 
 </div>
 
@@ -1160,27 +1151,31 @@ function renderPosts(){
     <div class="menu-dropdown">
 
         <a href="${post.url}" target="_blank">
-            🔗 Open
+            <i class="fas fa-link"></i>
+        <span>Open</span>
         </a>
 
         <button
             class="copy-btn"
             data-text="${(post.description||'').replace(/"/g,'&quot;')}">
-            📑 Copy Text
+             <i class="fas fa-copy"></i>
+        <span>Copy Text</span>
         </button>
 
         <button
             class="whatsapp-btn"
             data-text="${(post.description||'').replace(/"/g,'&quot;')}"
             data-url="${post.url}">
-            📤 WhatsApp
+             <i class="fab fa-whatsapp"></i>
+        <span>Whatsapp Share</span>
         </button>
 
         <button
             class="share-btn"
             data-title="${post.title}"
             data-url="${post.url}">
-            🖇️ Share Link
+             <i class="fas fa-share"></i>
+        <span>Share</span>
         </button>
       
     </div>
@@ -1216,29 +1211,29 @@ function renderPosts(){
 
         
            
-            <div class="post-footer">
-               
-                <a
-                    href="${post.url}"
-                    target="_blank"
-                    class="action-btn">
-                    🔗
-                </a>
+           <div class="post-footer">
 
-                <button
-                    class="action-btn copy-btn"
-                    data-text="${(post.description||'').replace(/"/g,'&quot;')}">
-                    📑
-                </button>
+    <a href="${post.url}" target="_blank" class="action-btn details-btn">
+        <i class="fas fa-link"></i>
+        <span>Details</span>
+    </a>
 
-                <button
-                    class="action-btn whatsapp-btn"
-                    data-text="${(post.description||'').replace(/"/g,'&quot;')}"
-                    data-url="${post.url}">
-                    📤
-                </button>
+    <button
+        class="action-btn copy-btn"
+        data-text="${(post.description||'').replace(/"/g,'&quot;')}">
+        <i class="fas fa-copy"></i>
+        <span>Copy</span>
+    </button>
 
-            </div>
+    <button
+        class="action-btn whatsapp-btn"
+        data-text="${(post.description||'').replace(/"/g,'&quot;')}"
+        data-url="${post.url}">
+        <i class="fab fa-whatsapp"></i>
+        <span>Share</span>
+    </button>
+
+</div>
 
         </article>
 
@@ -1319,10 +1314,10 @@ async function(e){
             e.target.dataset.text
         );
 
-        e.target.textContent = "✓";
+        e.target.textContent = "✓ Copied";
 
         setTimeout(()=>{
-            e.target.textContent = "📑";
+            e.target.textContent = "📑 Copy again";
         },1000);
 
     }
@@ -1541,8 +1536,8 @@ document.addEventListener("click",function(e){
 }
 </script>
 
-
-<footer></footer>
+<br>
+<footer>
 
 <div id="menuFooter"></div>
 
@@ -1590,8 +1585,8 @@ document.addEventListener("click",function(e){
     width:100%;
     height:65px;
 
-    background:#111;
-    border-top:1px solid #222;
+    background:var(--card-bg);
+    border-top:1px solid var(--border);
 
     display:flex;
     justify-content:space-around;
@@ -1608,7 +1603,7 @@ document.addEventListener("click",function(e){
     align-items:center;
     justify-content:center;
 
-    color:#aaa;
+    color:var(--text);
     text-decoration:none;
 
     font-size:12px;
@@ -1623,7 +1618,7 @@ document.addEventListener("click",function(e){
 
 .bottom-nav .nav-item:hover,
 .bottom-nav .nav-item.active{
-    color:#25D366;
+    color:var(--green);
 }
 
 body{
@@ -1634,7 +1629,8 @@ body{
     display:flex;
     justify-content:space-around;
     align-items:center;
-    background:#111;
+    background:linear-gradient(180deg,var(--bg),var(--card-bg));
+    border-top:none;
 }
 
 .nav-item{
@@ -1642,7 +1638,7 @@ body{
     flex-direction:column;
     align-items:center;
     gap:4px;
-    color:#fff;
+    color:var(--bg);
     text-decoration:none;
     padding:12px;
 }
@@ -1651,13 +1647,13 @@ body{
     font-size:20px;
 }
 .nav-item{
-    color:#aaa;
+    color:var(--text-light);
     transition:.3s;
     position:relative;
 }
 
 .nav-item.active{
-    color:#25D366;
+    color:var(--green);
     font-weight:700;
 }
 
@@ -1673,7 +1669,7 @@ body{
     transform:translateX(-50%);
     width:24px;
     height:3px;
-    background:#25D366;
+    background:var(--green);
     border-radius:20px;
 }
  
@@ -1686,7 +1682,7 @@ body{
         width:100%;
         height:65px;
         z-index:9999;
-        border-top:1px solid #333;
+        border-top:1px solid var(--border);
     }
 
     body{
@@ -1760,5 +1756,6 @@ document.addEventListener("DOMContentLoaded", () => {
 </script>
 
 
+</footer>
 
 
