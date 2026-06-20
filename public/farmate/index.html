@@ -5,6 +5,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+
 <title>Farmates | Poster  </title>
 
 
@@ -127,7 +128,15 @@
   
 
 
-
+<script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
+<script>
+  window.OneSignalDeferred = window.OneSignalDeferred || [];
+  OneSignalDeferred.push(async function(OneSignal) {
+    await OneSignal.init({
+      appId: "0ae02b63-20a7-4a29-82bc-48c7a576de91",
+    });
+  });
+</script>
 
 </head>
 <body>
