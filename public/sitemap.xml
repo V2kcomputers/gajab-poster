@@ -2,14 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>http://localhost:1313/iaf-angniveer-vayu-2026/</loc>
+    <lastmod>2026-06-20T11:45:11+05:30</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/jobs/</loc>
+    <lastmod>2026-06-20T11:45:11+05:30</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/</loc>
+    <lastmod>2026-06-20T11:45:11+05:30</lastmod>
+  </url><url>
     <loc>http://localhost:1313/farmate/</loc>
     <lastmod>2026-06-18T15:47:51+05:30</lastmod>
   </url><url>
     <loc>http://localhost:1313/saved-posts/</loc>
     <lastmod>2026-06-17T18:43:59+05:30</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/</loc>
-    <lastmod>2026-06-18T15:47:51+05:30</lastmod>
   </url><url>
     <loc>http://localhost:1313/mpbse-10th-2nd-result/</loc>
     <lastmod>2026-06-16T16:06:44+05:30</lastmod>
@@ -39,9 +45,6 @@
     <lastmod>2026-06-14T10:14:54+05:30</lastmod>
   </url><url>
     <loc>http://localhost:1313/cbi-apprentice-vacancy-2026/</loc>
-    <lastmod>2026-06-14T10:14:54+05:30</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/jobs/</loc>
     <lastmod>2026-06-14T10:14:54+05:30</lastmod>
   </url><url>
     <loc>http://localhost:1313/pnst-exam-2026/</loc>
