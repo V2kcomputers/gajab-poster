@@ -1,6 +1,7 @@
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 {{ partial "imp-codes/seo-meta.html" . }}
 {{ with .Params.cssStyles }}{{ range . }}{{ $css := resources.Get . | resources.Minify | resources.Fingerprint }}<link rel="stylesheet" href="{{ $css.Permalink }}" integrity="{{ $css.Data.Integrity }}">{{ end }}{{ end }}
 {{ partial "imp-codes/article-schema.html" . }}
@@ -10,3 +11,12 @@
 {{ if and .Params.faqs (gt (len .Params.faqs) 0) }}
   {{ partial "imp-codes/json_ld_faqs.html" . }}
 {{ end }}
+<script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
+<script>
+  window.OneSignalDeferred = window.OneSignalDeferred || [];
+  OneSignalDeferred.push(async function(OneSignal) {
+    await OneSignal.init({
+      appId: "0ae02b63-20a7-4a29-82bc-48c7a576de91",
+    });
+  });
+</script>
