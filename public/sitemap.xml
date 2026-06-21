@@ -2,13 +2,19 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>http://localhost:1313/aeps-servieces-aadhar-payments/</loc>
+    <lastmod>2026-06-21T10:17:52+05:30</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/banking/</loc>
+    <lastmod>2026-06-21T10:17:52+05:30</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/</loc>
+    <lastmod>2026-06-21T10:17:52+05:30</lastmod>
+  </url><url>
     <loc>http://localhost:1313/pm-kisan-23th-kisht-jari/</loc>
     <lastmod>2026-06-20T16:39:17+05:30</lastmod>
   </url><url>
     <loc>http://localhost:1313/schemes/</loc>
-    <lastmod>2026-06-20T16:39:17+05:30</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/</loc>
     <lastmod>2026-06-20T16:39:17+05:30</lastmod>
   </url><url>
     <loc>http://localhost:1313/iaf-angniveer-vayu-2026/</loc>
@@ -109,9 +115,6 @@
   </url><url>
     <loc>http://localhost:1313/mptaas-profile-panjiyan-banner/</loc>
     <lastmod>2026-05-14T17:32:05+05:30</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/banking/</loc>
-    <lastmod>2026-05-13T18:42:58+05:30</lastmod>
   </url><url>
     <loc>http://localhost:1313/uco-bank-csp-banner/</loc>
     <lastmod>2026-05-13T18:42:58+05:30</lastmod>
@@ -352,8 +355,10 @@
     <loc>http://localhost:1313/channel.json</loc>
     <lastmod>2026-06-18T15:47:51+05:30</lastmod>
   </url><url>
-    <loc>http://localhost:1313/webstories/sbi-po-recruitment-2026/</loc>
+    <loc>http://localhost:1313/stories/sbi-po-2026/</loc>
+    <lastmod>2026-06-20T20:06:17+05:30</lastmod>
   </url><url>
     <loc>http://localhost:1313/webstories/</loc>
+    <lastmod>2026-06-20T20:06:17+05:30</lastmod>
   </url>
 </urlset>
