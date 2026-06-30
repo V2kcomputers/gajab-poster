@@ -2,80 +2,80 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Documents on Yojna Portal Posters</title>
-    <link>http://localhost:1313/document/</link>
+    <link>http://localhost:61555/document/</link>
     <description>Recent content in Documents on Yojna Portal Posters</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 28 Jun 2026 10:09:20 +0530</lastBuildDate>
-    <atom:link href="http://localhost:1313/document/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 28 Jun 2026 10:17:26 +0530</lastBuildDate>
+    <atom:link href="http://localhost:61555/document/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Passport Card Online Apply Service</title>
-      <link>http://localhost:1313/passport-card-online-apply-service/</link>
+      <link>http://localhost:61555/passport-card-online-apply-service/</link>
       <pubDate>Sun, 28 Jun 2026 10:09:20 +0530</pubDate>
-      <guid>http://localhost:1313/passport-card-online-apply-service/</guid>
+      <guid>http://localhost:61555/passport-card-online-apply-service/</guid>
       <description></description>
     </item>
     <item>
       <title>UDID Card - Divyang Card Poster</title>
-      <link>http://localhost:1313/udid-card-divyang-cerfiticate/</link>
+      <link>http://localhost:61555/udid-card-divyang-cerfiticate/</link>
       <pubDate>Wed, 27 May 2026 17:33:51 +0530</pubDate>
-      <guid>http://localhost:1313/udid-card-divyang-cerfiticate/</guid>
+      <guid>http://localhost:61555/udid-card-divyang-cerfiticate/</guid>
       <description></description>
     </item>
     <item>
       <title>EPFO Ralated Online Work</title>
-      <link>http://localhost:1313/epfo-ralated-online-work/</link>
+      <link>http://localhost:61555/epfo-ralated-online-work/</link>
       <pubDate>Wed, 13 May 2026 09:57:18 +0530</pubDate>
-      <guid>http://localhost:1313/epfo-ralated-online-work/</guid>
+      <guid>http://localhost:61555/epfo-ralated-online-work/</guid>
       <description></description>
     </item>
     <item>
       <title>Farmer Id Card</title>
-      <link>http://localhost:1313/farmer-id-card/</link>
+      <link>http://localhost:61555/farmer-id-card/</link>
       <pubDate>Thu, 07 May 2026 11:49:03 +0530</pubDate>
-      <guid>http://localhost:1313/farmer-id-card/</guid>
+      <guid>http://localhost:61555/farmer-id-card/</guid>
       <description></description>
     </item>
     <item>
       <title>Janm Praman Patra Apply</title>
-      <link>http://localhost:1313/janm-praman-patra-apply/</link>
+      <link>http://localhost:61555/janm-praman-patra-apply/</link>
       <pubDate>Wed, 06 May 2026 18:22:19 +0530</pubDate>
-      <guid>http://localhost:1313/janm-praman-patra-apply/</guid>
+      <guid>http://localhost:61555/janm-praman-patra-apply/</guid>
       <description></description>
     </item>
     <item>
       <title>Driving License Apply</title>
-      <link>http://localhost:1313/driving-license-apply/</link>
+      <link>http://localhost:61555/driving-license-apply/</link>
       <pubDate>Mon, 04 May 2026 19:30:19 +0530</pubDate>
-      <guid>http://localhost:1313/driving-license-apply/</guid>
+      <guid>http://localhost:61555/driving-license-apply/</guid>
       <description></description>
     </item>
     <item>
       <title>E Shram Card Scheme</title>
-      <link>http://localhost:1313/e-shram-card-scheme/</link>
+      <link>http://localhost:61555/e-shram-card-scheme/</link>
       <pubDate>Sun, 03 May 2026 19:10:41 +0530</pubDate>
-      <guid>http://localhost:1313/e-shram-card-scheme/</guid>
+      <guid>http://localhost:61555/e-shram-card-scheme/</guid>
       <description></description>
     </item>
     <item>
       <title>Digital Voter Id Card Download</title>
-      <link>http://localhost:1313/digital-voter-id-card-download/</link>
+      <link>http://localhost:61555/digital-voter-id-card-download/</link>
       <pubDate>Wed, 29 Apr 2026 12:54:15 +0530</pubDate>
-      <guid>http://localhost:1313/digital-voter-id-card-download/</guid>
+      <guid>http://localhost:61555/digital-voter-id-card-download/</guid>
       <description></description>
     </item>
     <item>
       <title>Aadhaar Card Name and Address</title>
-      <link>http://localhost:1313/aadhaar-card-name-and-address/</link>
+      <link>http://localhost:61555/aadhaar-card-name-and-address/</link>
       <pubDate>Wed, 29 Apr 2026 12:19:50 +0530</pubDate>
-      <guid>http://localhost:1313/aadhaar-card-name-and-address/</guid>
+      <guid>http://localhost:61555/aadhaar-card-name-and-address/</guid>
       <description></description>
     </item>
     <item>
       <title>Driving Lisense Apply Poster</title>
-      <link>http://localhost:1313/driving-lisense-apply-poster/</link>
+      <link>http://localhost:61555/driving-lisense-apply-poster/</link>
       <pubDate>Thu, 23 Apr 2026 15:30:54 +0530</pubDate>
-      <guid>http://localhost:1313/driving-lisense-apply-poster/</guid>
+      <guid>http://localhost:61555/driving-lisense-apply-poster/</guid>
       <description></description>
     </item>
   </channel>

@@ -2,11 +2,11 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Edits on Yojna Portal Posters</title>
-    <link>http://localhost:1313/edit/</link>
+    <link>http://localhost:61555/edit/</link>
     <description>Recent content in Edits on Yojna Portal Posters</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate></lastBuildDate>
-    <atom:link href="http://localhost:1313/edit/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:61555/edit/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>
