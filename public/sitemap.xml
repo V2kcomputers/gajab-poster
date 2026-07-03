@@ -2,17 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://localhost:1313/mp-college-clc-2-2026/</loc>
-    <lastmod>2026-07-01T10:08:51+05:30</lastmod>
+    <loc>http://localhost:1313/jobs/</loc>
+    <lastmod>2026-07-03T12:07:53+05:30</lastmod>
   </url><url>
-    <loc>http://localhost:1313/mp/</loc>
-    <lastmod>2026-07-01T10:08:51+05:30</lastmod>
+    <loc>http://localhost:1313/mpesb-group-02-sub-group-1-2026/</loc>
+    <lastmod>2026-07-03T12:07:53+05:30</lastmod>
   </url><url>
     <loc>http://localhost:1313/</loc>
-    <lastmod>2026-07-01T10:08:51+05:30</lastmod>
+    <lastmod>2026-07-03T12:07:53+05:30</lastmod>
   </url><url>
-    <loc>http://localhost:1313/jobs/</loc>
-    <lastmod>2026-06-30T19:20:29+05:30</lastmod>
+    <loc>http://localhost:1313/mp-college-clc-2-2026/</loc>
+    <lastmod>2026-07-01T10:27:00+05:30</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/mp/</loc>
+    <lastmod>2026-07-01T10:27:00+05:30</lastmod>
   </url><url>
     <loc>http://localhost:1313/mp-aganwadi-worker-and-helper-2026/</loc>
     <lastmod>2026-06-30T19:20:29+05:30</lastmod>
