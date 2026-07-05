@@ -2,14 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://localhost:1313/jobs/</loc>
-    <lastmod>2026-07-03T12:07:53+05:30</lastmod>
+    <loc>http://localhost:1313/apaar-id-or-abc-id-card-poster/</loc>
+    <lastmod>2026-07-05T09:13:58+05:30</lastmod>
   </url><url>
-    <loc>http://localhost:1313/mpesb-group-02-sub-group-1-2026/</loc>
-    <lastmod>2026-07-03T12:07:53+05:30</lastmod>
+    <loc>http://localhost:1313/document/</loc>
+    <lastmod>2026-07-05T09:13:58+05:30</lastmod>
   </url><url>
     <loc>http://localhost:1313/</loc>
-    <lastmod>2026-07-03T12:07:53+05:30</lastmod>
+    <lastmod>2026-07-05T09:13:58+05:30</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/jobs/</loc>
+    <lastmod>2026-07-03T13:43:00+05:30</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/mpesb-group-02-sub-group-1-2026/</loc>
+    <lastmod>2026-07-03T13:43:00+05:30</lastmod>
   </url><url>
     <loc>http://localhost:1313/mp-college-clc-2-2026/</loc>
     <lastmod>2026-07-01T10:27:00+05:30</lastmod>
@@ -19,9 +25,6 @@
   </url><url>
     <loc>http://localhost:1313/mp-aganwadi-worker-and-helper-2026/</loc>
     <lastmod>2026-06-30T19:20:29+05:30</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/document/</loc>
-    <lastmod>2026-06-28T10:17:26+05:30</lastmod>
   </url><url>
     <loc>http://localhost:1313/passport-card-online-apply-service/</loc>
     <lastmod>2026-06-28T10:17:26+05:30</lastmod>
