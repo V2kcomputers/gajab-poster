@@ -2,45 +2,45 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Schemes on Yojna Portal Posters</title>
-    <link>http://localhost:1313/schemes/</link>
+    <link>http://localhost:62899/schemes/</link>
     <description>Recent content in Schemes on Yojna Portal Posters</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 20 Jun 2026 16:39:17 +0530</lastBuildDate>
-    <atom:link href="http://localhost:1313/schemes/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:62899/schemes/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Pm Kisan 23th Kisht Jari</title>
-      <link>http://localhost:1313/pm-kisan-23th-kisht-jari/</link>
+      <link>http://localhost:62899/pm-kisan-23th-kisht-jari/</link>
       <pubDate>Sat, 20 Jun 2026 16:31:19 +0530</pubDate>
-      <guid>http://localhost:1313/pm-kisan-23th-kisht-jari/</guid>
+      <guid>http://localhost:62899/pm-kisan-23th-kisht-jari/</guid>
       <description></description>
     </item>
     <item>
       <title>PM Kisan 23 Kisht Update</title>
-      <link>http://localhost:1313/pm-kisan-23-kisht-update/</link>
+      <link>http://localhost:62899/pm-kisan-23-kisht-update/</link>
       <pubDate>Tue, 16 Jun 2026 08:38:15 +0530</pubDate>
-      <guid>http://localhost:1313/pm-kisan-23-kisht-update/</guid>
+      <guid>http://localhost:62899/pm-kisan-23-kisht-update/</guid>
       <description></description>
     </item>
     <item>
       <title>Ayushman Bharat Health Card</title>
-      <link>http://localhost:1313/ayushman-bharat-health-card/</link>
+      <link>http://localhost:62899/ayushman-bharat-health-card/</link>
       <pubDate>Wed, 20 May 2026 12:40:20 +0530</pubDate>
-      <guid>http://localhost:1313/ayushman-bharat-health-card/</guid>
+      <guid>http://localhost:62899/ayushman-bharat-health-card/</guid>
       <description></description>
     </item>
     <item>
       <title>PM Kisan Samman Nidhi Apply</title>
-      <link>http://localhost:1313/pm-kisan-samman-nidhi-apply/</link>
+      <link>http://localhost:62899/pm-kisan-samman-nidhi-apply/</link>
       <pubDate>Thu, 07 May 2026 18:47:05 +0530</pubDate>
-      <guid>http://localhost:1313/pm-kisan-samman-nidhi-apply/</guid>
+      <guid>http://localhost:62899/pm-kisan-samman-nidhi-apply/</guid>
       <description></description>
     </item>
     <item>
       <title>Pm Svanidhi Yojana</title>
-      <link>http://localhost:1313/pm-svanidhi-yojana/</link>
+      <link>http://localhost:62899/pm-svanidhi-yojana/</link>
       <pubDate>Sun, 03 May 2026 12:17:10 +0530</pubDate>
-      <guid>http://localhost:1313/pm-svanidhi-yojana/</guid>
+      <guid>http://localhost:62899/pm-svanidhi-yojana/</guid>
       <description></description>
     </item>
   </channel>

@@ -2,387 +2,390 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://localhost:1313/education/</loc>
-    <lastmod>2026-07-05T12:18:03+05:30</lastmod>
+    <loc>http://localhost:62899/cm-beej-anudan-yojna-mp/</loc>
+    <lastmod>2026-07-05T19:32:40+05:30</lastmod>
   </url><url>
-    <loc>http://localhost:1313/nsp-otr-one-time-registration/</loc>
-    <lastmod>2026-07-05T12:18:03+05:30</lastmod>
+    <loc>http://localhost:62899/mp/</loc>
+    <lastmod>2026-07-05T19:32:40+05:30</lastmod>
   </url><url>
-    <loc>http://localhost:1313/</loc>
-    <lastmod>2026-07-05T12:18:03+05:30</lastmod>
+    <loc>http://localhost:62899/</loc>
+    <lastmod>2026-07-05T19:32:40+05:30</lastmod>
   </url><url>
-    <loc>http://localhost:1313/apaar-id-or-abc-id-card-poster/</loc>
+    <loc>http://localhost:62899/education/</loc>
+    <lastmod>2026-07-05T12:27:27+05:30</lastmod>
+  </url><url>
+    <loc>http://localhost:62899/nsp-otr-one-time-registration/</loc>
+    <lastmod>2026-07-05T12:27:27+05:30</lastmod>
+  </url><url>
+    <loc>http://localhost:62899/apaar-id-or-abc-id-card-poster/</loc>
     <lastmod>2026-07-05T09:23:26+05:30</lastmod>
   </url><url>
-    <loc>http://localhost:1313/document/</loc>
+    <loc>http://localhost:62899/document/</loc>
     <lastmod>2026-07-05T09:23:26+05:30</lastmod>
   </url><url>
-    <loc>http://localhost:1313/jobs/</loc>
+    <loc>http://localhost:62899/jobs/</loc>
     <lastmod>2026-07-03T13:43:00+05:30</lastmod>
   </url><url>
-    <loc>http://localhost:1313/mpesb-group-02-sub-group-1-2026/</loc>
+    <loc>http://localhost:62899/mpesb-group-02-sub-group-1-2026/</loc>
     <lastmod>2026-07-03T13:43:00+05:30</lastmod>
   </url><url>
-    <loc>http://localhost:1313/mp-college-clc-2-2026/</loc>
+    <loc>http://localhost:62899/mp-college-clc-2-2026/</loc>
     <lastmod>2026-07-01T10:27:00+05:30</lastmod>
   </url><url>
-    <loc>http://localhost:1313/mp/</loc>
-    <lastmod>2026-07-01T10:27:00+05:30</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/mp-aganwadi-worker-and-helper-2026/</loc>
+    <loc>http://localhost:62899/mp-aganwadi-worker-and-helper-2026/</loc>
     <lastmod>2026-06-30T19:20:29+05:30</lastmod>
   </url><url>
-    <loc>http://localhost:1313/passport-card-online-apply-service/</loc>
+    <loc>http://localhost:62899/passport-card-online-apply-service/</loc>
     <lastmod>2026-06-28T10:17:26+05:30</lastmod>
   </url><url>
-    <loc>http://localhost:1313/rjny-admitcard-june-2026/</loc>
+    <loc>http://localhost:62899/rjny-admitcard-june-2026/</loc>
     <lastmod>2026-06-28T10:17:26+05:30</lastmod>
   </url><url>
-    <loc>http://localhost:1313/aeps-servieces-aadhar-payments/</loc>
+    <loc>http://localhost:62899/aeps-servieces-aadhar-payments/</loc>
     <lastmod>2026-06-21T10:24:27+05:30</lastmod>
   </url><url>
-    <loc>http://localhost:1313/banking/</loc>
+    <loc>http://localhost:62899/banking/</loc>
     <lastmod>2026-06-21T10:24:27+05:30</lastmod>
   </url><url>
-    <loc>http://localhost:1313/pm-kisan-23th-kisht-jari/</loc>
+    <loc>http://localhost:62899/pm-kisan-23th-kisht-jari/</loc>
     <lastmod>2026-06-20T16:39:17+05:30</lastmod>
   </url><url>
-    <loc>http://localhost:1313/schemes/</loc>
+    <loc>http://localhost:62899/schemes/</loc>
     <lastmod>2026-06-20T16:39:17+05:30</lastmod>
   </url><url>
-    <loc>http://localhost:1313/iaf-angniveer-vayu-2026/</loc>
+    <loc>http://localhost:62899/iaf-angniveer-vayu-2026/</loc>
     <lastmod>2026-06-20T11:56:08+05:30</lastmod>
   </url><url>
-    <loc>http://localhost:1313/farmate/</loc>
+    <loc>http://localhost:62899/farmate/</loc>
     <lastmod>2026-06-18T15:47:51+05:30</lastmod>
   </url><url>
-    <loc>http://localhost:1313/saved-posts/</loc>
+    <loc>http://localhost:62899/saved-posts/</loc>
     <lastmod>2026-06-17T18:43:59+05:30</lastmod>
   </url><url>
-    <loc>http://localhost:1313/mpbse-10th-2nd-result/</loc>
+    <loc>http://localhost:62899/mpbse-10th-2nd-result/</loc>
     <lastmod>2026-06-16T16:06:44+05:30</lastmod>
   </url><url>
-    <loc>http://localhost:1313/pm-kisan-23-kisht-update/</loc>
+    <loc>http://localhost:62899/pm-kisan-23-kisht-update/</loc>
     <lastmod>2026-06-16T08:57:09+05:30</lastmod>
   </url><url>
-    <loc>http://localhost:1313/mpbse-10th-result-upcoming/</loc>
+    <loc>http://localhost:62899/mpbse-10th-result-upcoming/</loc>
     <lastmod>2026-06-16T07:38:19+05:30</lastmod>
   </url><url>
-    <loc>http://localhost:1313/ruk-jana-nahin-yojna-june-2026/</loc>
+    <loc>http://localhost:62899/ruk-jana-nahin-yojna-june-2026/</loc>
     <lastmod>2026-06-15T19:47:35+05:30</lastmod>
   </url><url>
-    <loc>http://localhost:1313/mp-deled-2nd-round-2026/</loc>
+    <loc>http://localhost:62899/mp-deled-2nd-round-2026/</loc>
     <lastmod>2026-06-15T18:04:29+05:30</lastmod>
   </url><url>
-    <loc>http://localhost:1313/cmlby-ladli-behna-yojna-37/</loc>
+    <loc>http://localhost:62899/cmlby-ladli-behna-yojna-37/</loc>
     <lastmod>2026-06-14T20:14:24+05:30</lastmod>
   </url><url>
-    <loc>http://localhost:1313/mpbse-12th-2nd-result-2026/</loc>
+    <loc>http://localhost:62899/mpbse-12th-2nd-result-2026/</loc>
     <lastmod>2026-06-14T10:14:54+05:30</lastmod>
   </url><url>
-    <loc>http://localhost:1313/cbi-apprentice-vacancy-2026/</loc>
+    <loc>http://localhost:62899/cbi-apprentice-vacancy-2026/</loc>
     <lastmod>2026-06-14T10:14:54+05:30</lastmod>
   </url><url>
-    <loc>http://localhost:1313/pnst-exam-2026/</loc>
+    <loc>http://localhost:62899/pnst-exam-2026/</loc>
     <lastmod>2026-06-10T09:05:17+05:30</lastmod>
   </url><url>
-    <loc>http://localhost:1313/mp-sambal-card-yojna/</loc>
+    <loc>http://localhost:62899/mp-sambal-card-yojna/</loc>
     <lastmod>2026-05-30T19:24:02+05:30</lastmod>
   </url><url>
-    <loc>http://localhost:1313/udid-card-divyang-cerfiticate/</loc>
+    <loc>http://localhost:62899/udid-card-divyang-cerfiticate/</loc>
     <lastmod>2026-05-27T17:43:42+05:30</lastmod>
   </url><url>
-    <loc>http://localhost:1313/sbi-apprentice-2026/</loc>
+    <loc>http://localhost:62899/sbi-apprentice-2026/</loc>
     <lastmod>2026-05-26T19:39:38+05:30</lastmod>
   </url><url>
-    <loc>http://localhost:1313/mp-iti-admission-2026-27/</loc>
+    <loc>http://localhost:62899/mp-iti-admission-2026-27/</loc>
     <lastmod>2026-05-26T19:39:38+05:30</lastmod>
   </url><url>
-    <loc>http://localhost:1313/mp-up-pg-college-admission-2nd-round/</loc>
+    <loc>http://localhost:62899/mp-up-pg-college-admission-2nd-round/</loc>
     <lastmod>2026-05-25T17:31:55+05:30</lastmod>
   </url><url>
-    <loc>http://localhost:1313/ssc-cgl-vacancy-2026-poster/</loc>
+    <loc>http://localhost:62899/ssc-cgl-vacancy-2026-poster/</loc>
     <lastmod>2026-05-25T17:31:55+05:30</lastmod>
   </url><url>
-    <loc>http://localhost:1313/mp-college-admission-2nd-round-2026/</loc>
+    <loc>http://localhost:62899/mp-college-admission-2nd-round-2026/</loc>
     <lastmod>2026-05-23T17:27:45+05:30</lastmod>
   </url><url>
-    <loc>http://localhost:1313/photo-studio-poster/</loc>
+    <loc>http://localhost:62899/photo-studio-poster/</loc>
     <lastmod>2026-05-22T20:21:20+05:30</lastmod>
   </url><url>
-    <loc>http://localhost:1313/service/</loc>
+    <loc>http://localhost:62899/service/</loc>
     <lastmod>2026-05-22T20:21:20+05:30</lastmod>
   </url><url>
-    <loc>http://localhost:1313/ayushman-bharat-health-card/</loc>
+    <loc>http://localhost:62899/ayushman-bharat-health-card/</loc>
     <lastmod>2026-05-20T12:48:40+05:30</lastmod>
   </url><url>
-    <loc>http://localhost:1313/bike-repairing-center/</loc>
+    <loc>http://localhost:62899/bike-repairing-center/</loc>
     <lastmod>2026-05-20T12:48:40+05:30</lastmod>
   </url><url>
-    <loc>http://localhost:1313/mp-college-admission-allotment-letter/</loc>
+    <loc>http://localhost:62899/mp-college-admission-allotment-letter/</loc>
     <lastmod>2026-05-20T11:02:29+05:30</lastmod>
   </url><url>
-    <loc>http://localhost:1313/mobile-repairing-work/</loc>
+    <loc>http://localhost:62899/mobile-repairing-work/</loc>
     <lastmod>2026-05-19T10:33:47+05:30</lastmod>
   </url><url>
-    <loc>http://localhost:1313/rrb-technician-grade-1-3/</loc>
+    <loc>http://localhost:62899/rrb-technician-grade-1-3/</loc>
     <lastmod>2026-05-18T19:04:47+05:30</lastmod>
   </url><url>
-    <loc>http://localhost:1313/rrb-alp-2026/</loc>
+    <loc>http://localhost:62899/rrb-alp-2026/</loc>
     <lastmod>2026-05-18T10:15:50+05:30</lastmod>
   </url><url>
-    <loc>http://localhost:1313/ctet-sep-2026/</loc>
+    <loc>http://localhost:62899/ctet-sep-2026/</loc>
     <lastmod>2026-05-17T18:40:59+05:30</lastmod>
   </url><url>
-    <loc>http://localhost:1313/exams/</loc>
+    <loc>http://localhost:62899/exams/</loc>
     <lastmod>2026-05-17T18:40:59+05:30</lastmod>
   </url><url>
-    <loc>http://localhost:1313/mptaas-profile-panjiyan-banner/</loc>
+    <loc>http://localhost:62899/mptaas-profile-panjiyan-banner/</loc>
     <lastmod>2026-05-14T17:32:05+05:30</lastmod>
   </url><url>
-    <loc>http://localhost:1313/uco-bank-csp-banner/</loc>
+    <loc>http://localhost:62899/uco-bank-csp-banner/</loc>
     <lastmod>2026-05-13T18:42:58+05:30</lastmod>
   </url><url>
-    <loc>http://localhost:1313/mp-rte-admission-2nd-round-2026/</loc>
+    <loc>http://localhost:62899/mp-rte-admission-2nd-round-2026/</loc>
     <lastmod>2026-05-13T12:58:40+05:30</lastmod>
   </url><url>
-    <loc>http://localhost:1313/epfo-ralated-online-work/</loc>
+    <loc>http://localhost:62899/epfo-ralated-online-work/</loc>
     <lastmod>2026-05-13T12:58:40+05:30</lastmod>
   </url><url>
-    <loc>http://localhost:1313/indusind-bank-csp-servises/</loc>
+    <loc>http://localhost:62899/indusind-bank-csp-servises/</loc>
     <lastmod>2026-05-12T19:37:05+05:30</lastmod>
   </url><url>
-    <loc>http://localhost:1313/nsdl-payments-bank-csp/</loc>
+    <loc>http://localhost:62899/nsdl-payments-bank-csp/</loc>
     <lastmod>2026-05-12T19:37:05+05:30</lastmod>
   </url><url>
-    <loc>http://localhost:1313/kotak-mahindra-bank-csp/</loc>
+    <loc>http://localhost:62899/kotak-mahindra-bank-csp/</loc>
     <lastmod>2026-05-12T17:37:28+05:30</lastmod>
   </url><url>
-    <loc>http://localhost:1313/ubi-union-bank-of-india-csp/</loc>
+    <loc>http://localhost:62899/ubi-union-bank-of-india-csp/</loc>
     <lastmod>2026-05-12T17:37:28+05:30</lastmod>
   </url><url>
-    <loc>http://localhost:1313/iob-indian-overseas-bank-csp/</loc>
+    <loc>http://localhost:62899/iob-indian-overseas-bank-csp/</loc>
     <lastmod>2026-05-12T12:47:00+05:30</lastmod>
   </url><url>
-    <loc>http://localhost:1313/bob-bank-of-baroda-csp/</loc>
+    <loc>http://localhost:62899/bob-bank-of-baroda-csp/</loc>
     <lastmod>2026-05-12T12:47:00+05:30</lastmod>
   </url><url>
-    <loc>http://localhost:1313/bom-bank-of-maharastra-csp/</loc>
+    <loc>http://localhost:62899/bom-bank-of-maharastra-csp/</loc>
     <lastmod>2026-05-12T10:58:40+05:30</lastmod>
   </url><url>
-    <loc>http://localhost:1313/boi-bank-of-india-csp-poster/</loc>
+    <loc>http://localhost:62899/boi-bank-of-india-csp-poster/</loc>
     <lastmod>2026-05-12T12:47:00+05:30</lastmod>
   </url><url>
-    <loc>http://localhost:1313/apb-airtel-payments-bank-csp-poster/</loc>
+    <loc>http://localhost:62899/apb-airtel-payments-bank-csp-poster/</loc>
     <lastmod>2026-05-11T17:42:23+05:30</lastmod>
   </url><url>
-    <loc>http://localhost:1313/ippb-india-post-payments-bank/</loc>
+    <loc>http://localhost:62899/ippb-india-post-payments-bank/</loc>
     <lastmod>2026-05-12T10:58:40+05:30</lastmod>
   </url><url>
-    <loc>http://localhost:1313/rgb-rajasthan-gramin-bank-poster/</loc>
+    <loc>http://localhost:62899/rgb-rajasthan-gramin-bank-poster/</loc>
     <lastmod>2026-05-11T13:28:58+05:30</lastmod>
   </url><url>
-    <loc>http://localhost:1313/upgb-up-gramin-bank-poster/</loc>
+    <loc>http://localhost:62899/upgb-up-gramin-bank-poster/</loc>
     <lastmod>2026-05-11T13:28:58+05:30</lastmod>
   </url><url>
-    <loc>http://localhost:1313/mpgb-mp-gramin-bank-poster/</loc>
+    <loc>http://localhost:62899/mpgb-mp-gramin-bank-poster/</loc>
     <lastmod>2026-05-11T13:28:58+05:30</lastmod>
   </url><url>
-    <loc>http://localhost:1313/cgb-cg-gramin-bank-poster/</loc>
+    <loc>http://localhost:62899/cgb-cg-gramin-bank-poster/</loc>
     <lastmod>2026-05-11T13:28:58+05:30</lastmod>
   </url><url>
-    <loc>http://localhost:1313/bgb-bihar-gramin-bank-poster/</loc>
+    <loc>http://localhost:62899/bgb-bihar-gramin-bank-poster/</loc>
     <lastmod>2026-05-11T12:03:53+05:30</lastmod>
   </url><url>
-    <loc>http://localhost:1313/sbi-csp-banking-poster/</loc>
+    <loc>http://localhost:62899/sbi-csp-banking-poster/</loc>
     <lastmod>2026-05-10T18:05:23+05:30</lastmod>
   </url><url>
-    <loc>http://localhost:1313/pnb-account-opening-poster/</loc>
+    <loc>http://localhost:62899/pnb-account-opening-poster/</loc>
     <lastmod>2026-05-10T18:05:23+05:30</lastmod>
   </url><url>
-    <loc>http://localhost:1313/mp-ladli-behna-yojna-36th/</loc>
+    <loc>http://localhost:62899/mp-ladli-behna-yojna-36th/</loc>
     <lastmod>2026-05-10T11:14:49+05:30</lastmod>
   </url><url>
-    <loc>http://localhost:1313/mpesb-profile-registration/</loc>
+    <loc>http://localhost:62899/mpesb-profile-registration/</loc>
     <lastmod>2026-05-09T16:08:03+05:30</lastmod>
   </url><url>
-    <loc>http://localhost:1313/mpesb-hospital-assistant-recruitment-2026/</loc>
+    <loc>http://localhost:62899/mpesb-hospital-assistant-recruitment-2026/</loc>
     <lastmod>2026-05-09T10:41:29+05:30</lastmod>
   </url><url>
-    <loc>http://localhost:1313/mp-deled-couselling-2026-27/</loc>
+    <loc>http://localhost:62899/mp-deled-couselling-2026-27/</loc>
     <lastmod>2026-05-08T19:03:26+05:30</lastmod>
   </url><url>
-    <loc>http://localhost:1313/mp-college-admission-2026/</loc>
+    <loc>http://localhost:62899/mp-college-admission-2026/</loc>
     <lastmod>2026-05-08T11:25:41+05:30</lastmod>
   </url><url>
-    <loc>http://localhost:1313/pm-kisan-samman-nidhi-apply/</loc>
+    <loc>http://localhost:62899/pm-kisan-samman-nidhi-apply/</loc>
     <lastmod>2026-05-07T18:59:05+05:30</lastmod>
   </url><url>
-    <loc>http://localhost:1313/farmer-id-card/</loc>
+    <loc>http://localhost:62899/farmer-id-card/</loc>
     <lastmod>2026-05-07T18:59:05+05:30</lastmod>
   </url><url>
-    <loc>http://localhost:1313/janm-praman-patra-apply/</loc>
+    <loc>http://localhost:62899/janm-praman-patra-apply/</loc>
     <lastmod>2026-05-06T18:30:21+05:30</lastmod>
   </url><url>
-    <loc>http://localhost:1313/mp-dte-polytechnic/</loc>
+    <loc>http://localhost:62899/mp-dte-polytechnic/</loc>
     <lastmod>2026-05-05T09:50:17+05:30</lastmod>
   </url><url>
-    <loc>http://localhost:1313/driving-license-apply/</loc>
+    <loc>http://localhost:62899/driving-license-apply/</loc>
     <lastmod>2026-05-04T19:58:33+05:30</lastmod>
   </url><url>
-    <loc>http://localhost:1313/mpsos-rjny-alc-2026/</loc>
+    <loc>http://localhost:62899/mpsos-rjny-alc-2026/</loc>
     <lastmod>2026-05-04T19:58:33+05:30</lastmod>
   </url><url>
-    <loc>http://localhost:1313/e-shram-card-scheme/</loc>
+    <loc>http://localhost:62899/e-shram-card-scheme/</loc>
     <lastmod>2026-05-04T12:59:17+05:30</lastmod>
   </url><url>
-    <loc>http://localhost:1313/pm-svanidhi-yojana/</loc>
+    <loc>http://localhost:62899/pm-svanidhi-yojana/</loc>
     <lastmod>2026-05-03T12:56:37+05:30</lastmod>
   </url><url>
-    <loc>http://localhost:1313/mpbse-2nd-exam-admitcard-26/</loc>
+    <loc>http://localhost:62899/mpbse-2nd-exam-admitcard-26/</loc>
     <lastmod>2026-05-02T20:55:26+05:30</lastmod>
   </url><url>
-    <loc>http://localhost:1313/mpbse-2nd-exam-2026/</loc>
+    <loc>http://localhost:62899/mpbse-2nd-exam-2026/</loc>
     <lastmod>2026-05-02T18:21:30+05:30</lastmod>
   </url><url>
-    <loc>http://localhost:1313/mp-wheat-slot-booking/</loc>
+    <loc>http://localhost:62899/mp-wheat-slot-booking/</loc>
     <lastmod>2026-05-01T20:13:33+05:30</lastmod>
   </url><url>
-    <loc>http://localhost:1313/fino-bank-account-opening/</loc>
+    <loc>http://localhost:62899/fino-bank-account-opening/</loc>
     <lastmod>2026-05-13T10:12:08+05:30</lastmod>
   </url><url>
-    <loc>http://localhost:1313/up-jan-seva-kendra/</loc>
+    <loc>http://localhost:62899/up-jan-seva-kendra/</loc>
     <lastmod>2026-05-01T20:13:33+05:30</lastmod>
   </url><url>
-    <loc>http://localhost:1313/mp-all-digital-services/</loc>
+    <loc>http://localhost:62899/mp-all-digital-services/</loc>
     <lastmod>2026-05-01T13:14:19+05:30</lastmod>
   </url><url>
-    <loc>http://localhost:1313/mp-caste-certificate/</loc>
+    <loc>http://localhost:62899/mp-caste-certificate/</loc>
     <lastmod>2026-05-01T11:57:41+05:30</lastmod>
   </url><url>
-    <loc>http://localhost:1313/mp-guest-teacher-2026-27/</loc>
+    <loc>http://localhost:62899/mp-guest-teacher-2026-27/</loc>
     <lastmod>2026-05-09T10:41:29+05:30</lastmod>
   </url><url>
-    <loc>http://localhost:1313/mp-rojgar-panjiyan/</loc>
+    <loc>http://localhost:62899/mp-rojgar-panjiyan/</loc>
     <lastmod>2026-04-30T13:26:44+05:30</lastmod>
   </url><url>
-    <loc>http://localhost:1313/sambal-card-apply-poster/</loc>
+    <loc>http://localhost:62899/sambal-card-apply-poster/</loc>
     <lastmod>2026-04-29T20:03:27+05:30</lastmod>
   </url><url>
-    <loc>http://localhost:1313/mp-social-security-pension-update/</loc>
+    <loc>http://localhost:62899/mp-social-security-pension-update/</loc>
     <lastmod>2026-04-29T18:31:04+05:30</lastmod>
   </url><url>
-    <loc>http://localhost:1313/digital-voter-id-card-download/</loc>
+    <loc>http://localhost:62899/digital-voter-id-card-download/</loc>
     <lastmod>2026-04-29T12:57:06+05:30</lastmod>
   </url><url>
-    <loc>http://localhost:1313/aadhaar-card-name-and-address/</loc>
+    <loc>http://localhost:62899/aadhaar-card-name-and-address/</loc>
     <lastmod>2026-05-30T09:54:47+05:30</lastmod>
   </url><url>
-    <loc>http://localhost:1313/food-safety-license/</loc>
+    <loc>http://localhost:62899/food-safety-license/</loc>
     <lastmod>2026-04-28T17:34:21+05:30</lastmod>
   </url><url>
-    <loc>http://localhost:1313/poster/</loc>
+    <loc>http://localhost:62899/poster/</loc>
     <lastmod>2026-05-04T19:58:33+05:30</lastmod>
   </url><url>
-    <loc>http://localhost:1313/udyam-adhar-registration/</loc>
+    <loc>http://localhost:62899/udyam-adhar-registration/</loc>
     <lastmod>2026-04-28T17:34:21+05:30</lastmod>
   </url><url>
-    <loc>http://localhost:1313/gumasta-license-registration-poster/</loc>
+    <loc>http://localhost:62899/gumasta-license-registration-poster/</loc>
     <lastmod>2026-05-04T19:58:33+05:30</lastmod>
   </url><url>
-    <loc>http://localhost:1313/mp-college-admission/</loc>
+    <loc>http://localhost:62899/mp-college-admission/</loc>
     <lastmod>2026-04-28T11:56:27+05:30</lastmod>
   </url><url>
-    <loc>http://localhost:1313/mp-social-security-pension-scheme/</loc>
+    <loc>http://localhost:62899/mp-social-security-pension-scheme/</loc>
     <lastmod>2026-04-27T19:05:03+05:30</lastmod>
   </url><url>
-    <loc>http://localhost:1313/npci-dbt-update-service/</loc>
+    <loc>http://localhost:62899/npci-dbt-update-service/</loc>
     <lastmod>2026-05-01T20:13:33+05:30</lastmod>
   </url><url>
-    <loc>http://localhost:1313/mp-e-token-generation/</loc>
+    <loc>http://localhost:62899/mp-e-token-generation/</loc>
     <lastmod>2026-04-27T18:31:03+05:30</lastmod>
   </url><url>
-    <loc>http://localhost:1313/mp-income-and-domicile/</loc>
+    <loc>http://localhost:62899/mp-income-and-domicile/</loc>
     <lastmod>2026-04-26T16:27:09+05:30</lastmod>
   </url><url>
-    <loc>http://localhost:1313/mp-domicile-certificate/</loc>
+    <loc>http://localhost:62899/mp-domicile-certificate/</loc>
     <lastmod>2026-04-26T16:27:09+05:30</lastmod>
   </url><url>
-    <loc>http://localhost:1313/mp-income-certificate/</loc>
+    <loc>http://localhost:62899/mp-income-certificate/</loc>
     <lastmod>2026-04-26T16:27:09+05:30</lastmod>
   </url><url>
-    <loc>http://localhost:1313/pan-card-apply/</loc>
+    <loc>http://localhost:62899/pan-card-apply/</loc>
     <lastmod>2026-04-26T16:27:09+05:30</lastmod>
   </url><url>
-    <loc>http://localhost:1313/abha-health-card/</loc>
+    <loc>http://localhost:62899/abha-health-card/</loc>
     <lastmod>2026-04-28T18:47:09+05:30</lastmod>
   </url><url>
-    <loc>http://localhost:1313/samagra-id-related-works/</loc>
+    <loc>http://localhost:62899/samagra-id-related-works/</loc>
     <lastmod>2026-04-25T20:08:58+05:30</lastmod>
   </url><url>
-    <loc>http://localhost:1313/pmsym-mandhan-yojana/</loc>
+    <loc>http://localhost:62899/pmsym-mandhan-yojana/</loc>
     <lastmod>2026-04-25T20:08:58+05:30</lastmod>
   </url><url>
-    <loc>http://localhost:1313/airtel-payments-bank-account-opening/</loc>
+    <loc>http://localhost:62899/airtel-payments-bank-account-opening/</loc>
     <lastmod>2026-05-01T20:13:33+05:30</lastmod>
   </url><url>
-    <loc>http://localhost:1313/shadi-card-printing-service/</loc>
+    <loc>http://localhost:62899/shadi-card-printing-service/</loc>
     <lastmod>2026-04-25T20:08:58+05:30</lastmod>
   </url><url>
-    <loc>http://localhost:1313/bank-statement-print-service/</loc>
+    <loc>http://localhost:62899/bank-statement-print-service/</loc>
     <lastmod>2026-05-01T20:13:33+05:30</lastmod>
   </url><url>
-    <loc>http://localhost:1313/driving-lisense-apply-poster/</loc>
+    <loc>http://localhost:62899/driving-lisense-apply-poster/</loc>
     <lastmod>2026-05-04T19:58:33+05:30</lastmod>
   </url><url>
-    <loc>http://localhost:1313/ayushman-card-poster/</loc>
+    <loc>http://localhost:62899/ayushman-card-poster/</loc>
     <lastmod>2026-04-25T20:08:58+05:30</lastmod>
   </url><url>
-    <loc>http://localhost:1313/daily-fast-shop-enteries/</loc>
+    <loc>http://localhost:62899/daily-fast-shop-enteries/</loc>
     <lastmod>2026-04-25T20:08:58+05:30</lastmod>
   </url><url>
-    <loc>http://localhost:1313/forms/</loc>
+    <loc>http://localhost:62899/forms/</loc>
     <lastmod>2026-04-25T20:08:58+05:30</lastmod>
   </url><url>
-    <loc>http://localhost:1313/sbm-toilet-scheme/</loc>
+    <loc>http://localhost:62899/sbm-toilet-scheme/</loc>
     <lastmod>2026-04-25T20:08:58+05:30</lastmod>
   </url><url>
-    <loc>http://localhost:1313/downloads/</loc>
+    <loc>http://localhost:62899/downloads/</loc>
     <lastmod>2026-05-30T09:54:47+05:30</lastmod>
   </url><url>
-    <loc>http://localhost:1313/add-name/</loc>
+    <loc>http://localhost:62899/add-name/</loc>
     <lastmod>2026-05-28T11:58:21+05:30</lastmod>
   </url><url>
-    <loc>http://localhost:1313/edit/</loc>
+    <loc>http://localhost:62899/edit/</loc>
     <lastmod>2026-05-28T11:58:21+05:30</lastmod>
   </url><url>
-    <loc>http://localhost:1313/baner-update/</loc>
+    <loc>http://localhost:62899/baner-update/</loc>
     <lastmod>2026-06-18T12:03:56+05:30</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/list/</loc>
+    <loc>http://localhost:62899/tags/list/</loc>
     <lastmod>2026-06-18T12:03:56+05:30</lastmod>
   </url><url>
-    <loc>http://localhost:1313/page/</loc>
+    <loc>http://localhost:62899/page/</loc>
     <lastmod>2026-06-18T12:03:56+05:30</lastmod>
   </url><url>
-    <loc>http://localhost:1313/gallery/</loc>
+    <loc>http://localhost:62899/gallery/</loc>
     <lastmod>2026-06-18T12:03:56+05:30</lastmod>
   </url><url>
-    <loc>http://localhost:1313/search/</loc>
+    <loc>http://localhost:62899/search/</loc>
     <lastmod>2026-04-22T18:41:34+05:30</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/</loc>
+    <loc>http://localhost:62899/tags/</loc>
     <lastmod>2026-06-18T12:03:56+05:30</lastmod>
   </url><url>
-    <loc>http://localhost:1313/categories/</loc>
+    <loc>http://localhost:62899/categories/</loc>
   </url><url>
-    <loc>http://localhost:1313/channel.json</loc>
+    <loc>http://localhost:62899/channel.json</loc>
     <lastmod>2026-06-18T15:47:51+05:30</lastmod>
   </url><url>
-    <loc>http://localhost:1313/stories/sbi-po-2026/</loc>
+    <loc>http://localhost:62899/stories/sbi-po-2026/</loc>
     <lastmod>2026-06-20T20:06:17+05:30</lastmod>
   </url><url>
-    <loc>http://localhost:1313/webstories/</loc>
+    <loc>http://localhost:62899/webstories/</loc>
     <lastmod>2026-06-20T20:06:17+05:30</lastmod>
   </url>
 </urlset>
