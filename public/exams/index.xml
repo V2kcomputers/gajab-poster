@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Exams on Yojna Portal Posters</title>
-    <link>http://localhost:62899/exams/</link>
+    <link>http://localhost:1313/exams/</link>
     <description>Recent content in Exams on Yojna Portal Posters</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 17 May 2026 18:40:59 +0530</lastBuildDate>
-    <atom:link href="http://localhost:62899/exams/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/exams/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>CTET SEP 2026</title>
-      <link>http://localhost:62899/ctet-sep-2026/</link>
+      <link>http://localhost:1313/ctet-sep-2026/</link>
       <pubDate>Sun, 17 May 2026 18:34:29 +0530</pubDate>
-      <guid>http://localhost:62899/ctet-sep-2026/</guid>
+      <guid>http://localhost:1313/ctet-sep-2026/</guid>
       <description></description>
     </item>
   </channel>
