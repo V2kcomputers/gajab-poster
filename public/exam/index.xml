@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Exams on Yojna Portal Posters</title>
-    <link>http://localhost:53785/exam/</link>
+    <link>http://localhost:1313/exam/</link>
     <description>Recent content in Exams on Yojna Portal Posters</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 07 Jul 2026 17:00:54 +0530</lastBuildDate>
-    <atom:link href="http://localhost:53785/exam/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/exam/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Navodayal Vidyalaya Admision 2027 28</title>
-      <link>http://localhost:53785/navodayal-vidyalaya-admision-2027-28/</link>
+      <link>http://localhost:1313/navodayal-vidyalaya-admision-2027-28/</link>
       <pubDate>Tue, 07 Jul 2026 16:47:37 +0530</pubDate>
-      <guid>http://localhost:53785/navodayal-vidyalaya-admision-2027-28/</guid>
+      <guid>http://localhost:1313/navodayal-vidyalaya-admision-2027-28/</guid>
       <description></description>
     </item>
   </channel>

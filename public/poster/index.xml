@@ -2,73 +2,73 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posters on Yojna Portal Posters</title>
-    <link>http://localhost:53785/poster/</link>
+    <link>http://localhost:1313/poster/</link>
     <description>Recent content in Posters on Yojna Portal Posters</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 04 May 2026 19:58:33 +0530</lastBuildDate>
-    <atom:link href="http://localhost:53785/poster/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/poster/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Food Safety License</title>
-      <link>http://localhost:53785/food-safety-license/</link>
+      <link>http://localhost:1313/food-safety-license/</link>
       <pubDate>Tue, 28 Apr 2026 17:29:58 +0530</pubDate>
-      <guid>http://localhost:53785/food-safety-license/</guid>
+      <guid>http://localhost:1313/food-safety-license/</guid>
       <description></description>
     </item>
     <item>
       <title>Udyam Adhar Registration</title>
-      <link>http://localhost:53785/udyam-adhar-registration/</link>
+      <link>http://localhost:1313/udyam-adhar-registration/</link>
       <pubDate>Tue, 28 Apr 2026 16:36:15 +0530</pubDate>
-      <guid>http://localhost:53785/udyam-adhar-registration/</guid>
+      <guid>http://localhost:1313/udyam-adhar-registration/</guid>
       <description></description>
     </item>
     <item>
       <title>Gumasta License Registration Poster</title>
-      <link>http://localhost:53785/gumasta-license-registration-poster/</link>
+      <link>http://localhost:1313/gumasta-license-registration-poster/</link>
       <pubDate>Tue, 28 Apr 2026 16:14:20 +0530</pubDate>
-      <guid>http://localhost:53785/gumasta-license-registration-poster/</guid>
+      <guid>http://localhost:1313/gumasta-license-registration-poster/</guid>
       <description></description>
     </item>
     <item>
       <title>Pan Card Apply</title>
-      <link>http://localhost:53785/pan-card-apply/</link>
+      <link>http://localhost:1313/pan-card-apply/</link>
       <pubDate>Sat, 25 Apr 2026 11:05:31 +0530</pubDate>
-      <guid>http://localhost:53785/pan-card-apply/</guid>
+      <guid>http://localhost:1313/pan-card-apply/</guid>
       <description></description>
     </item>
     <item>
       <title>Abha Health Card</title>
-      <link>http://localhost:53785/abha-health-card/</link>
+      <link>http://localhost:1313/abha-health-card/</link>
       <pubDate>Fri, 24 Apr 2026 14:29:18 +0530</pubDate>
-      <guid>http://localhost:53785/abha-health-card/</guid>
+      <guid>http://localhost:1313/abha-health-card/</guid>
       <description></description>
     </item>
     <item>
       <title>Pmsym Mandhan Yojana</title>
-      <link>http://localhost:53785/pmsym-mandhan-yojana/</link>
+      <link>http://localhost:1313/pmsym-mandhan-yojana/</link>
       <pubDate>Thu, 23 Apr 2026 19:59:42 +0530</pubDate>
-      <guid>http://localhost:53785/pmsym-mandhan-yojana/</guid>
+      <guid>http://localhost:1313/pmsym-mandhan-yojana/</guid>
       <description></description>
     </item>
     <item>
       <title>Shadi Card Printing Service</title>
-      <link>http://localhost:53785/shadi-card-printing-service/</link>
+      <link>http://localhost:1313/shadi-card-printing-service/</link>
       <pubDate>Thu, 23 Apr 2026 18:59:17 +0530</pubDate>
-      <guid>http://localhost:53785/shadi-card-printing-service/</guid>
+      <guid>http://localhost:1313/shadi-card-printing-service/</guid>
       <description></description>
     </item>
     <item>
       <title>Ayushman Card Poster</title>
-      <link>http://localhost:53785/ayushman-card-poster/</link>
+      <link>http://localhost:1313/ayushman-card-poster/</link>
       <pubDate>Thu, 23 Apr 2026 15:10:11 +0530</pubDate>
-      <guid>http://localhost:53785/ayushman-card-poster/</guid>
+      <guid>http://localhost:1313/ayushman-card-poster/</guid>
       <description></description>
     </item>
     <item>
       <title>Sbm Toilet Scheme</title>
-      <link>http://localhost:53785/sbm-toilet-scheme/</link>
+      <link>http://localhost:1313/sbm-toilet-scheme/</link>
       <pubDate>Thu, 23 Apr 2026 08:45:03 +0530</pubDate>
-      <guid>http://localhost:53785/sbm-toilet-scheme/</guid>
+      <guid>http://localhost:1313/sbm-toilet-scheme/</guid>
       <description></description>
     </item>
   </channel>

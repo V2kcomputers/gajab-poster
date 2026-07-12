@@ -2,24 +2,24 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>List on Yojna Portal Posters</title>
-    <link>http://localhost:53785/tags/list/</link>
+    <link>http://localhost:1313/tags/list/</link>
     <description>Recent content in List on Yojna Portal Posters</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 18 Jun 2026 12:03:56 +0530</lastBuildDate>
-    <atom:link href="http://localhost:53785/tags/list/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/list/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Latest Baner</title>
-      <link>http://localhost:53785/baner-update/</link>
+      <link>http://localhost:1313/baner-update/</link>
       <pubDate>Sun, 18 Jan 2026 09:00:00 -0700</pubDate>
-      <guid>http://localhost:53785/baner-update/</guid>
+      <guid>http://localhost:1313/baner-update/</guid>
       <description></description>
     </item>
     <item>
       <title>Poster Gallery</title>
-      <link>http://localhost:53785/gallery/</link>
+      <link>http://localhost:1313/gallery/</link>
       <pubDate>Sun, 18 Jan 2026 09:00:00 -0700</pubDate>
-      <guid>http://localhost:53785/gallery/</guid>
+      <guid>http://localhost:1313/gallery/</guid>
       <description></description>
     </item>
   </channel>
