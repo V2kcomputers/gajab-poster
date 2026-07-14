@@ -2,14 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://localhost:1313/pm-yasasvi-yojna-2026/</loc>
-    <lastmod>2026-07-12T11:23:09+05:30</lastmod>
+    <loc>http://localhost:1313/mponline-related-work/</loc>
+    <lastmod>2026-07-14T09:55:36+05:30</lastmod>
   </url><url>
-    <loc>http://localhost:1313/schemes/</loc>
-    <lastmod>2026-07-12T11:23:09+05:30</lastmod>
+    <loc>http://localhost:1313/mp/</loc>
+    <lastmod>2026-07-14T09:55:36+05:30</lastmod>
   </url><url>
     <loc>http://localhost:1313/</loc>
-    <lastmod>2026-07-12T11:23:09+05:30</lastmod>
+    <lastmod>2026-07-14T09:55:36+05:30</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/pm-yasasvi-yojna-2026/</loc>
+    <lastmod>2026-07-12T11:29:09+05:30</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/schemes/</loc>
+    <lastmod>2026-07-12T11:29:09+05:30</lastmod>
   </url><url>
     <loc>http://localhost:1313/pm-fasal-bima-yojna-kharif-2026/</loc>
     <lastmod>2026-07-11T18:23:04+05:30</lastmod>
@@ -27,9 +33,6 @@
     <lastmod>2026-07-07T17:00:54+05:30</lastmod>
   </url><url>
     <loc>http://localhost:1313/cm-beej-anudan-yojna-mp/</loc>
-    <lastmod>2026-07-05T19:37:10+05:30</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/mp/</loc>
     <lastmod>2026-07-05T19:37:10+05:30</lastmod>
   </url><url>
     <loc>http://localhost:1313/education/</loc>
