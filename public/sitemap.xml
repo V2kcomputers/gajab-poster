@@ -2,14 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://localhost:1313/kalyani-sahayta-yojna-mp/</loc>
-    <lastmod>2026-07-17T13:06:54+05:30</lastmod>
+    <loc>http://localhost:1313/old-age-pension-ekyc-poster/</loc>
+    <lastmod>2026-07-18T17:07:30+05:30</lastmod>
   </url><url>
-    <loc>http://localhost:1313/mp/</loc>
-    <lastmod>2026-07-17T13:06:54+05:30</lastmod>
+    <loc>http://localhost:1313/schemes/</loc>
+    <lastmod>2026-07-18T17:07:30+05:30</lastmod>
   </url><url>
     <loc>http://localhost:1313/</loc>
-    <lastmod>2026-07-17T13:06:54+05:30</lastmod>
+    <lastmod>2026-07-18T17:07:30+05:30</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/kalyani-sahayta-yojna-mp/</loc>
+    <lastmod>2026-07-17T13:10:46+05:30</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/mp/</loc>
+    <lastmod>2026-07-17T13:10:46+05:30</lastmod>
   </url><url>
     <loc>http://localhost:1313/mp-bhoj-admission-2026-27/</loc>
     <lastmod>2026-07-16T16:08:19+05:30</lastmod>
@@ -21,9 +27,6 @@
     <lastmod>2026-07-14T11:12:53+05:30</lastmod>
   </url><url>
     <loc>http://localhost:1313/pm-yasasvi-yojna-2026/</loc>
-    <lastmod>2026-07-12T11:29:09+05:30</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/schemes/</loc>
     <lastmod>2026-07-12T11:29:09+05:30</lastmod>
   </url><url>
     <loc>http://localhost:1313/pm-fasal-bima-yojna-kharif-2026/</loc>
