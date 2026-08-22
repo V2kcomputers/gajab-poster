@@ -4,21 +4,9 @@
   {
     "id": {{ $p.File.UniqueID | default $p.RelPermalink | jsonify }},
     
-    "title": {{ with $p.Params.seo_title }}
-      {{ . | jsonify }}
-    {{ else }}
-      {{ $p.Title | jsonify }}
-    {{ end }},
+    "title": {{ with $p.Params.seo_title }} {{ . | jsonify }}{{ else }}{{ $p.Title | jsonify }}{{ end }},
 
-    "content": {{ with $p.Params.Hindi_Sharing }}
-      {{ index . 0 | jsonify }}
-    {{ else }}
-      {{ with $p.Params.Description }}
-        {{ . | jsonify }}
-      {{ else }}
-        {{ $p.Summary | plainify | jsonify }}
-      {{ end }}
-    {{ end }},
+    "content": {{ with $p.Params.Hindi_Sharing }} {{ index . 0 | jsonify }}{{ else }}{{ with $p.Params.Description }}{{ . | jsonify }}{{ else }} {{ $p.Summary | plainify | jsonify }}{{ end }}{{ end }},
 
     "type": "image",
 
@@ -30,15 +18,7 @@
 
     "sender_website": "https://poster.yojnaportal.com",
 
-    "image_url": {{ with $p.Params.imagePoster }}
-      {{ . | jsonify }}
-    {{ else }}
-      {{ with $p.Params.imageBanner }}
-        {{ . | jsonify }}
-      {{ else }}
-        {{ "" | jsonify }}
-      {{ end }}
-    {{ end }},
+    "image_url": {{ with $p.Params.imagePoster }} {{ . | jsonify }} {{ else }} {{ with $p.Params.imageBanner }}{{ . | jsonify }} {{ else }} {{ "" | jsonify }} {{ end }}{{ end }},
 
     "image_download_allowed": true,
 

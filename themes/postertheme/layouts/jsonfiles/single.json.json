@@ -1,30 +1,32 @@
 [
-{{- range $i, $p := first 20 ((where site.RegularPages "Section" "ne" "farmate").ByDate.Reverse) }}
-{{- if $i }},{{ end }}
-{
-  "title": {{ $p.Title | jsonify }},
-  "date": "{{ $p.Date.Format "2006-01-02T15:04:05Z07:00" }}",
-  "url": {{ printf "%s%s" site.BaseURL $p.RelPermalink | jsonify }},
+  {{- range $i, $p := first 10 ((where site.RegularPages "Section" "ne" "farmate").ByDate.Reverse) -}}
+  {{- if $i }},{{ end }}
+  {
+    "id": {{ $p.File.UniqueID | default $p.RelPermalink | jsonify }},
+    
+    "title": {{ with $p.Params.seo_title }} {{ . | jsonify }}{{ else }}{{ $p.Title | jsonify }}{{ end }},
 
-  "image": {{ with $p.Params.imagePoster }}
-      {{ . | jsonify }}
-    {{ else }}
-      {{ with $p.Params.imageBanner }}
-        {{ . | jsonify }}
-      {{ else }}
-        ""
-      {{ end }}
-    {{ end }},
+    "content": {{ with $p.Params.Hindi_Sharing }} {{ index . 0 | jsonify }}{{ else }}{{ with $p.Params.Description }}{{ . | jsonify }}{{ else }} {{ $p.Summary | plainify | jsonify }}{{ end }}{{ end }},
 
-  "description": {{ with $p.Params.Hindi_Sharing }}
-      {{ index . 0 | jsonify }}
-    {{ else }}
-      {{ with $p.Params.Description }}
-        {{ . | jsonify }}
-      {{ else }}
-        {{ $p.Summary | plainify | jsonify }}
-      {{ end }}
-    {{ end }}
-}
-{{- end }}
+    "type": "image",
+
+    "sender": "YOJNA PORTAL POSTER",
+
+    "sender_id": "yojna-portal",
+
+    "sender_logo": "https://poster.yojnaportal.com/favicon.ico",
+
+    "sender_website": "https://poster.yojnaportal.com",
+
+    "image_url": {{ with $p.Params.imagePoster }} {{ . | jsonify }} {{ else }} {{ with $p.Params.imageBanner }}{{ . | jsonify }} {{ else }} {{ "" | jsonify }} {{ end }}{{ end }},
+
+    "image_download_allowed": true,
+
+    "link_url": {{ $p.Permalink | jsonify }},
+
+    "pin": false,
+
+    "publish_at": {{ $p.Date.Format "2006-01-02T15:04:05Z07:00" | jsonify }}
+  }
+  {{- end }}
 ]
