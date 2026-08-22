@@ -9,7 +9,7 @@
     <lastmod>2026-08-19T18:58:44+05:30</lastmod>
   </url><url>
     <loc>http://localhost:1313/</loc>
-    <lastmod>2026-08-19T18:58:44+05:30</lastmod>
+    <lastmod>2026-08-22T18:11:23+05:30</lastmod>
   </url><url>
     <loc>http://localhost:1313/safai-karmchari-bharti-2026-rajasthan/</loc>
     <lastmod>2026-08-16T11:52:59+05:30</lastmod>
@@ -120,7 +120,7 @@
     <lastmod>2026-06-20T11:56:08+05:30</lastmod>
   </url><url>
     <loc>http://localhost:1313/farmate/</loc>
-    <lastmod>2026-06-18T15:47:51+05:30</lastmod>
+    <lastmod>2026-08-22T18:11:23+05:30</lastmod>
   </url><url>
     <loc>http://localhost:1313/saved-posts/</loc>
     <lastmod>2026-06-17T18:43:59+05:30</lastmod>
@@ -445,10 +445,11 @@
     <loc>http://localhost:1313/channel.json</loc>
     <lastmod>2026-06-18T15:47:51+05:30</lastmod>
   </url><url>
-    <loc>http://localhost:1313/social-update.json</loc>
-  </url><url>
     <loc>http://localhost:1313/stories/sbi-po-2026/</loc>
     <lastmod>2026-06-20T20:06:17+05:30</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/social-update.json</loc>
+    <lastmod>2026-08-22T18:11:23+05:30</lastmod>
   </url><url>
     <loc>http://localhost:1313/webstories/</loc>
     <lastmod>2026-06-20T20:06:17+05:30</lastmod>

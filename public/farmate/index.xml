@@ -6,7 +6,7 @@
     <description>Recent content in Farmates on Yojna Portal Posters</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 18 Jun 2026 15:47:51 +0530</lastBuildDate>
+    <lastBuildDate>Sat, 22 Aug 2026 18:11:23 +0530</lastBuildDate>
     <atom:link href="http://localhost:1313/farmate/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Channel JSON</title>
@@ -16,7 +16,7 @@
       <description></description>
     </item>
     <item>
-      <title>Channel JSON</title>
+      <title>Social Update JSON</title>
       <link>http://localhost:1313/social-update.json</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/social-update.json</guid>
