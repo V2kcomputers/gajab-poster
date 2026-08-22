@@ -1,8 +1,7 @@
 
 [
     {
-      "id": "poster-0",
-
+      
       "title": 
         "MPESB Primary \u0026 Secondary Teacher Eligibility Test 2026 – Eligibility, Age Limit, Fee \u0026 Dates"
       ,
@@ -29,19 +28,10 @@
 
       "link_url": "http://localhost:1313//mpesb-ms-ps-tet-2026/",
 
-      "publish_at": "2026-08-19T12:37:25+05:30",
-
-      "pin": false,
-
-      "views": 0,
-
-      "likes": 0,
-
-      "shares": 0
+    
     },
     {
-      "id": "poster-1",
-
+      
       "title": 
         "Rajasthan Safai Karmchari Recruitment 2026 – 24,752 Posts, Eligibility, Age Limit \u0026 Apply Dates"
       ,
@@ -68,14 +58,6 @@
 
       "link_url": "http://localhost:1313//safai-karmchari-bharti-2026-rajasthan/",
 
-      "publish_at": "2026-08-16T11:29:30+05:30",
-
-      "pin": false,
-
-      "views": 0,
-
-      "likes": 0,
-
-      "shares": 0
+    
     }
   ]
