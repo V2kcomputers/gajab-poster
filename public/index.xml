@@ -6,7 +6,7 @@
     <description>Recent content on Yojna Portal Posters</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 19 Aug 2026 12:37:25 +0530</lastBuildDate>
+    <lastBuildDate>Wed, 19 Aug 2026 18:58:44 +0530</lastBuildDate>
     <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Mpesb Ms Ps Tet 2026</title>
@@ -881,6 +881,13 @@
       <link>http://localhost:1313/stories/sbi-po-2026/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/stories/sbi-po-2026/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Social Update JSON</title>
+      <link>http://localhost:1313/social-update.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/social-update.json</guid>
       <description></description>
     </item>
   </channel>
