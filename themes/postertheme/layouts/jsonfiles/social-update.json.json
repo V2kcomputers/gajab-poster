@@ -1,5 +1,6 @@
 
-    {{- range $i, $p := first 1 ((where site.RegularPages "Section" "ne" "farmate").ByDate.Reverse) -}}
+[
+    {{- range $i, $p := first 2 ((where site.RegularPages "Section" "ne" "farmate").ByDate.Reverse) -}}
     {{- if $i }},{{ end }}
     {
       "id": {{ printf "%s-%d" (lower $p.Type) $i | jsonify }},
@@ -55,3 +56,4 @@
       "shares": 0
     }
     {{- end }}
+  ]
