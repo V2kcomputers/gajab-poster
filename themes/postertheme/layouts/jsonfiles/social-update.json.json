@@ -1,6 +1,6 @@
 
 [
-    {{- range $i, $p := first 2 ((where site.RegularPages "Section" "ne" "farmate").ByDate.Reverse) -}}
+    {{- range $i, $p := first 50 ((where site.RegularPages "Section" "ne" "farmate").ByDate.Reverse) -}}
     {{- if $i }},{{ end }}
     {
       
@@ -44,7 +44,7 @@
 
       "link_url": {{ printf "%s%s" site.BaseURL $p.RelPermalink | jsonify }},
 
-   
+      "publish_at": {{ $p.Date.Format "2006-01-02T15:04:05Z07:00" | jsonify }},
     }
     {{- end }}
   ]
