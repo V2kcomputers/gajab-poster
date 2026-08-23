@@ -2,14 +2,26 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>http://localhost:1313/tags/list/</loc>
+    <lastmod>2026-08-22T09:00:00-07:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/page/</loc>
+    <lastmod>2026-08-22T09:00:00-07:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/</loc>
+    <lastmod>2026-08-22T09:00:00-07:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/update/</loc>
+    <lastmod>2026-08-22T09:00:00-07:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/</loc>
+    <lastmod>2026-08-22T09:00:00-07:00</lastmod>
+  </url><url>
     <loc>http://localhost:1313/jobs/</loc>
     <lastmod>2026-08-19T18:58:44+05:30</lastmod>
   </url><url>
     <loc>http://localhost:1313/mpesb-ms-ps-tet-2026/</loc>
     <lastmod>2026-08-19T18:58:44+05:30</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/</loc>
-    <lastmod>2026-08-22T18:11:23+05:30</lastmod>
   </url><url>
     <loc>http://localhost:1313/safai-karmchari-bharti-2026-rajasthan/</loc>
     <lastmod>2026-08-16T11:52:59+05:30</lastmod>
@@ -425,20 +437,11 @@
     <loc>http://localhost:1313/baner-update/</loc>
     <lastmod>2026-06-18T12:03:56+05:30</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/list/</loc>
-    <lastmod>2026-06-18T12:03:56+05:30</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/page/</loc>
-    <lastmod>2026-06-18T12:03:56+05:30</lastmod>
-  </url><url>
     <loc>http://localhost:1313/gallery/</loc>
     <lastmod>2026-06-18T12:03:56+05:30</lastmod>
   </url><url>
     <loc>http://localhost:1313/search/</loc>
     <lastmod>2026-04-22T18:41:34+05:30</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/</loc>
-    <lastmod>2026-06-18T12:03:56+05:30</lastmod>
   </url><url>
     <loc>http://localhost:1313/categories/</loc>
   </url><url>

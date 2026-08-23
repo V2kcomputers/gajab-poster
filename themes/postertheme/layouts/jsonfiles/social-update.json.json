@@ -22,7 +22,7 @@
 
     "image_download_allowed": true,
 
-    "link_url": {{ $p.Permalink | jsonify }},
+   "link_url": {{ printf "https://poster.yojnaportal.com%s" $p.RelPermalink | jsonify }},
 
     "pin": false,
 

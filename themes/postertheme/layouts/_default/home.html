@@ -1,1030 +1,791 @@
-{{ define "main" }}
-
-<br>
-<div class="channel-feed">
-
-<div id="remotePosts"></div>
-<div id="channelFeed"></div>
-</div>
-
-<style>
-.post-header{
-    display:flex;
-    align-items:flex-start;
-    gap:12px;
-    padding:15px;
-}
-a:link {text-decoration: none;}
-.meta{
-    flex:1;
-    min-width:0;
-}
-
-.menu-wrap{
-    position:relative;
-    flex-shrink:0;
-}
-
-.menu-btn{
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    width:36px;
-    height:36px;
-    border:none;
-    background:none;
-    color:var(--text-light);
-    font-size:22px;
-    cursor:pointer;
-    border-radius:50%;
-}
-
-.menu-btn:hover{
-    background:var(--hover);
-}
-
-
-
-.menu-dropdown{
-    position:absolute;
-    right:0;
-    top:35px;
-    background:var(--bg);
-    min-width:180px;
-    border-radius:10px;
-    box-shadow:0 5px 20px rgba(0,0,0,.15);
-    display:none;
-    z-index:999;
-}
-
-.menu-dropdown.show{
-    display:block;
-}
-
-.menu-dropdown a,
-.menu-dropdown button{
-    width:100%;
-    border:none;
-    background:none;
-    text-align:left;
-    padding:12px;
-    cursor:pointer;
-    display:block;
-    color:var(--text);
-}
-
-.menu-dropdown a:hover,
-.menu-dropdown button:hover{
-    background:var(--save-bg);
-}
-
-
-.channel-feed{
-    max-width:850px;
-    margin:auto;
-    padding:15px;
-}
-
-.post-card{
-    background:var(--card-bg);
-    border-radius:16px;
-    overflow:hidden;
-    margin-bottom:20px;
-    box-shadow:0 2px 12px rgba(0,0,0,.08);
-}
-.saved-page-btn{
-    display:inline-flex;
-    align-items:center;
-    gap:8px;
-    padding:10px 16px;
-    border-radius:999px;
-    background:#fef3c7;
-    color:var(--save-bg);
-    font-weight:600;
-    text-decoration:none;
-    margin-bottom:15px;
-}
-.avatar{
-    width:40px;
-    height:40px;
-    border-radius:50%;
-    overflow:hidden;
-    background:var(--bg);
-    border:1px solid var(--border);
-    flex-shrink:0;
-    padding: 5px;
-}
-
-.avatar img{
-    width:100%;
-    height:100%;
-    object-fit:cover;
-    display:block;
-}
-
-.title{
-    font-weight:700;
-    display:flex;
-    align-items:center;
-    gap:6px;
-    color:var(--text)
-}
-
-.fa-check-circle {color:var(--blue);}
-
-.time{
-    font-size:13px;
-    color:var(--text-light);
-}
-.header-save-btn{
-    margin-left:auto;
-    border:none;
-    background:#fff7ed;
-    color:#f59e0b;
-    padding:8px 14px;
-    border-radius:999px;
-    font-size:14px;
-    font-weight:600;
-    cursor:pointer;
-    transition:.2s;
-}
-
-.header-save-btn:hover{
-    background:#fef3c7;
-}
-
-.header-save-btn.saved{
-    background:#f59e0b;
-    color:#fff;
-}
-.post-image img{
-    width:100%;
-    display:block;
-}
-
-.post-body{
-    padding:15px;
-}
- .channel-feed {margin: 80px auto;}
-.post-text{
-    white-space: pre-line;
-    line-height: 1.4;
-    cursor:pointer;
-    color: var(--text);
-    margin-top: -50px;
-}
-
-.post-text.collapsed::after{
-    content:" ...more";
-    color:var(--green);
-    font-weight:600;
-}
-
-.post-text.collapsed{
-    display: -webkit-box;
-    -webkit-line-clamp: 4;   /* 4 lines */
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-}
-
-.read-more-btn{
-    margin-top:0px;
-    background:none;
-    border:none;
-    color:var(--green);
-    font-weight:600;
-    cursor:pointer;
-    padding:0;
-}
-
-.post-link{
-    color:var(--blue);
-    text-decoration:none;
-    word-break:break-word;
-}
-
-.post-link:hover{
-    text-decoration:underline;
-}
-
-.post-tag{
-    color:var(--green);
-    font-weight:600;
-    text-decoration:none;
-}
-
-.post-tag:hover{
-    text-decoration:underline;
-}
-
-.post-footer{
-    display:flex;
-    justify-content:center;
-    gap:12px;
-    padding:14px;
-    border-top:1px solid var(--footer-bg);
-}
-
-.post-footer{
-    display:flex;
-    gap:10px;
-    padding:15px;
-    border-top:1px solid #eee;
-}
-
-.post-footer .action-btn{
-    flex:1;
-    height:48px;
-    border:none;
-    border-radius:12px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    gap:8px;
-    text-decoration:none;
-    cursor:pointer;
-    font-size:14px;
-    font-weight:600;
-    transition:.25s;
-}
-
-.post-footer .action-btn i{
-    font-size:18px;
-}
-
-/* Details */
-.details-btn{
-    background:var(--link-bg);
-    color:#2563eb;
-}
-
-.details-btn:hover{
-    background:#2563eb;
-    color:#fff;
-}
-
-/* Copy */
-.copy-btn{
-    background:var(--copy-bg);
-    color:var(--text);
-}
-
-.copy-btn:hover{
-    background:#0f172a;
-    color:#fff;
-}
-
-/* WhatsApp */
-.whatsapp-btn{
-    background:var(--wa-bg);
-    color:var(--green);
-}
-
-.whatsapp-btn:hover{
-    background:#16a34a;
-    color:#fff;
-}
-
-.action-btn:active{
-    transform:scale(.95);
-}
-/* Loading Skeleton */
-
-.skeleton{
-    background:linear-gradient(
-        90deg,
-        var(--card-bg) 25%,
-        var(--copy-bg) 50%,
-        var(--hover) 75%
-    );   
-
-    background-size:200% 100%;
-
-    animation:skeletonLoading 1.4s infinite;
-
-    border-radius:8px;
-}
-
-.skeleton.avatar{
-    width:45px;
-    height:45px;
-    border-radius:50%;
-}
-
-@keyframes skeletonLoading{
-
-    0%{
-        background-position:200% 0;
-    }
-
-    100%{
-        background-position:-200% 0;
-    }
-
-}
-</style>
-
-
-<script>
-
-function formatPostTime(unixTimestamp){
-
-    const now = Date.now();
-    const postTime = unixTimestamp * 1000;
-
-    const diffMinutes =
-        Math.floor((now - postTime) / 60000);
-
-    const diffHours =
-        Math.floor(diffMinutes / 60);
-
-    if(diffMinutes < 2){
-        return "Just now";
-    }
-
-    if(diffMinutes < 60){
-        return `${diffMinutes} minutes ago`;
-    }
-
-    if(diffHours < 24){
-        return diffHours === 1
-            ? "1 hour ago"
-            : `${diffHours} hours ago`;
-    }
-
-    return new Date(postTime)
-        .toLocaleDateString("en-IN",{
-            day:"2-digit",
-            month:"short",
-            year:"numeric"
-        });
-}
-
-function updateTimes(){
-
-    document
-    .querySelectorAll(".time")
-    .forEach(el=>{
-
-        const ts =
-            Number(el.dataset.time);
-
-        el.textContent =
-            formatPostTime(ts);
-
-    });
-
-}
-
-function linkifyText(text){
-
-    text = text.replace(
-        /(https?:\/\/[^\s]+)/g,
-        '<a href="$1" target="_blank" class="post-link">$1</a>'
-    );
-
-    text = text.replace(
-        /(^|\s)(#[a-zA-Z0-9_\u0900-\u097F]+)/g,
-        function(match,space,tag){
-
-            const keyword =
-                tag.slice(1);
-
-            return `${space}<a href="https://poster.yojnaportal.com/search/?q=${encodeURIComponent(keyword)}" class="post-tag">${tag}</a>`;
-
+{{ define "main" }}<br> <br> <br> <br>
+
+<head>
+
+    <style>
+        :root {
+            --yp-bg: #f0f2f5;
+            --yp-card: #ffffff;
+            --yp-text: #050505;
+            --yp-secondary: #65676b;
+            --yp-primary: #1877f2;
+            --yp-like: #e41e3f;
+            --yp-border: #e4e6eb;
+            --yp-radius: 12px;
+            --yp-font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
         }
-    );
 
-    return text;
-
-}
-
-let allPosts = [];
-let currentPage = 0;
-const postsPerPage = 20;
-
-async function loadFeed(){
-
-    const feed =
-        document.getElementById(
-            "channelFeed"
-        );
-
-    // Loading Skeleton
-
-    feed.innerHTML = Array(5).fill(`
-
-        <article class="post-card skeleton-card">
-
-            <div class="post-header">
-
-                <div class="avatar skeleton"></div>
-
-                <div class="meta">
-
-                    <div
-                        class="skeleton"
-                        style="
-                        height:18px;
-                        width:70%;
-                        margin-bottom:8px;">
-                    </div>
-
-                    <div
-                        class="skeleton"
-                        style="
-                        height:12px;
-                        width:120px;">
-                    </div>
-
-                </div>
-
-            </div>
-
-            <div
-                class="skeleton"
-                style="
-                height:220px;
-                margin:0 15px;
-                border-radius:12px;">
-            </div>
-
-            <div class="post-body">
-
-                <div
-                    class="skeleton"
-                    style="
-                    height:14px;
-                    margin-bottom:8px;">
-                </div>
-
-                <div
-                    class="skeleton"
-                    style="
-                    height:14px;
-                    margin-bottom:8px;">
-                </div>
-
-                <div
-                    class="skeleton"
-                    style="
-                    height:14px;
-                    width:60%;">
-                </div>
-
-            </div>
-
-        </article>
-
-    `).join("");
-
-   const feedSources = [
-
-{
-    url:"channel.json",
-    name:"Yojna Portal Poster",
-    logo:"favicon.ico"
-},
-{
-    url:"https://www.gajabjobs.com/channel.json",
-    name:"Gajab Jobs",
-    logo:"https://www.gajabjobs.com/favicon.ico"
-},
-
-
-{
-    url:"https://www.gajabtools.com/channel.json",
-    name:"Gajab Tools",
-    logo:"https://www.gajabtools.com/favicon.ico"
-},
-
-{
-    url:"https://www.yojnaportal.com/channel.json",
-    name:"Yojna Portal",
-    logo:"https://www.yojnaportal.com/favicon.ico"
-}
-
-];
-
-    try{
-
-        let posts = [];
-
-       const results =
-await Promise.allSettled(
-
-    feedSources.map(source=>
-
-        fetch(source.url)
-        .then(r=>r.json())
-        .then(data=>
-
-            data.map(post=>({
-
-                ...post,
-
-                sourceName:
-                    source.name,
-
-                sourceLogo:
-                    source.logo
-
-            }))
-
-        )
-
-    )
-
-);
-        results.forEach(result=>{
-
-            if(
-                result.status === "fulfilled"
-            ){
-
-                posts.push(
-                    ...result.value
-                );
-
-            }
-
-        });
-
-        posts.sort(
-            (a,b)=>
-            new Date(b.date) -
-            new Date(a.date)
-        );
-
-        allPosts = posts;
-
-        feed.innerHTML = "";
-
-        renderPosts();
-        updateSavedButtons();
-    }catch(err){
-
-        console.error(err);
-
-        feed.innerHTML =
-            "<h3>Feed loading failed</h3>";
-
-    }
-
-}
-
-function renderPosts(){
-
-    const feed =
-        document.getElementById(
-            "channelFeed"
-        );
-
-    const start =
-        currentPage * postsPerPage;
-
-    const end =
-        start + postsPerPage;
-
-    const chunk =
-        allPosts.slice(start,end);
-
-    if(chunk.length === 0){
-        return;
-    }
-
-    feed.insertAdjacentHTML(
-
-        "beforeend",
-
-        chunk.map(post=>`
-
-        <article class="post-card">
-
-            <div class="post-header">
-
-                <div class="avatar">
-
-    <img
-        src="${post.sourceLogo}"
-        alt="${post.sourceName}"
-        loading="lazy">
-
-      </div>
-
-                <div class="meta">
-
-                 <div class="title">
-
-    ${post.sourceName} <i class="fas fa-check-circle"></i>
-
-</div>
-
-<div
-    class="time"
-    data-time="${Date.parse(post.date)/1000}">
-</div>
-    
-                </div>
-
-          <button
-    class="header-save-btn save-btn"
-    data-post='${JSON.stringify(post).replace(/'/g,"&#39;")}'>
-    ⭐ Save
-</button>
-            <div class="menu-wrap">
-
-    <button class="menu-btn">⋮</button>
-    
-    <div class="menu-dropdown">
-
-        <a href="${post.url}" target="_blank">
-            <i class="fas fa-link"></i>
-        <span>Open</span>
-        </a>
-
-        <button
-            class="copy-btn"
-            data-text="${(post.description||'').replace(/"/g,'&quot;')}">
-             <i class="fas fa-copy"></i>
-        <span>Copy Text</span>
-        </button>
-
-        <button
-            class="whatsapp-btn"
-            data-text="${(post.description||'').replace(/"/g,'&quot;')}"
-            data-url="${post.url}">
-             <i class="fab fa-whatsapp"></i>
-        <span>Whatsapp Share</span>
-        </button>
-
-        <button
-            class="share-btn"
-            data-title="${post.title}"
-            data-url="${post.url}">
-             <i class="fas fa-share"></i>
-        <span>Share</span>
-        </button>
-      
-    </div>
-
-
-
-
-    </div>
-            </div>
-           
-                <div class="post-body">
-               
-                <div
-    class="post-text ${post.image ? 'collapsed' : ''}">
-           ${ linkifyText(  post.description || "" ) }
-    
-</div>
-            </div>
-
-            ${
-                post.image
-                ? `
-                <div class="post-image">
-                    <a href="${post.url}">
-                        <img
-                            src="${post.image}"
-                            alt="${post.title}">
-                    </a>
-                </div>
-                `
-                : ""
-            }
-
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { background-color: var(--yp-bg); color: var(--yp-text); font-family: var(--yp-font); line-height: 1.4; }
         
-           
-           <div class="post-footer">
-
-    <a href="${post.url}" target="_blank" class="action-btn details-btn">
-        <i class="fas fa-link"></i>
-        <span>Details</span>
-    </a>
-
-    <button
-        class="action-btn copy-btn"
-        data-text="${(post.description||'').replace(/"/g,'&quot;')}">
-        <i class="fas fa-copy"></i>
-        <span>Copy</span>
-    </button>
-
-    <button
-        class="action-btn whatsapp-btn"
-        data-text="${(post.description||'').replace(/"/g,'&quot;')}"
-        data-url="${post.url}">
-        <i class="fab fa-whatsapp"></i>
-        <span>Share</span>
-    </button>
-
-</div>
-
-        </article>
-
-        `).join("")
-
-    );
-
-    updateTimes();
-updateSavedButtons();
-
-}
-
-window.addEventListener(
-"scroll",
-function(){
-
-    if(
-
-        window.innerHeight +
-        window.scrollY >=
-
-        document.body.offsetHeight - 500
-
-    ){
-
-        currentPage++;
-
-        renderPosts();
-
-    }
-
-});
-
-loadFeed();
-
-document
-.querySelectorAll(".save-btn")
-.forEach(btn=>{
-
-    const url =
-        btn.dataset.url;
-
-    const savedPosts =
-        JSON.parse(
-            localStorage.getItem(
-                "savedPosts"
-            ) || "[]"
-        );
-
-    if(
-        savedPosts.some(
-            p => p.url === url
-        )
-    ){
-
-        btn.innerHTML =
-            "★ Saved";
-
-        btn.classList
-            .add("saved");
-
-    }
-
-});
-
-document.addEventListener(
-"click",
-async function(e){
-
-    if(
-        e.target.classList.contains(
-            "copy-btn"
-        )
-    ){
-
-        await navigator.clipboard
-        .writeText(
-            e.target.dataset.text
-        );
-
-        e.target.textContent = "✓ Copied";
-
-        setTimeout(()=>{
-            e.target.textContent = "📑 Copy again";
-        },1000);
-
-    }
-
-    if(
-        e.target.classList.contains(
-            "whatsapp-btn"
-        )
-    ){
-
-        const text =
-            e.target.dataset.text;
-
-        const url =
-            e.target.dataset.url;
-
-        window.open(
-            "https://wa.me/?text=" +
-            encodeURIComponent(
-                text + "\n\n" + url
-            ),
-            "_blank"
-        );
-
-    }
-
-});
-
-</script>
-<script>
-
-document.addEventListener("click", function(e){
-
-    if(e.target.classList.contains("menu-btn")){
-
-        const menu = e.target.nextElementSibling;
-
-        document
-            .querySelectorAll(".menu-dropdown")
-            .forEach(m => {
-                if(m !== menu) m.classList.remove("show");
-            });
-
-        menu.classList.toggle("show");
-        return;
-    }
-
-    document
-        .querySelectorAll(".menu-dropdown")
-        .forEach(m => m.classList.remove("show"));
-
-});
-
-
-</script>
-<script>
-document.addEventListener("click", async function(e){
-
-    if(!e.target.classList.contains("share-btn")) return;
-
-    const title = e.target.dataset.title;
-    const url = e.target.dataset.url;
-
-    try{
-
-        if(navigator.share){
-            await navigator.share({
-                title:title,
-                url:url
-            });
-        }else{
-            await navigator.clipboard.writeText(url);
-            alert("Link copied");
-        }
-
-    }catch(err){}
-});
-
-
-document.addEventListener("click", function(e){
-
-    if(!e.target.classList.contains("whatsapp-btn")) return;
-
-    const text = e.target.dataset.text;
-    const url = e.target.dataset.url;
-
-    const shareText = text + "\n\n" + url;
-
-    window.open(
-        "https://wa.me/?text=" + encodeURIComponent(shareText),
-        "_blank"
-    );
-
-});
-</script>
-<script>
-
-document.addEventListener("click", function(e){
-
-    const text = e.target.closest(".post-text");
-
-    if(!text) return;
-
-    text.classList.toggle("collapsed");
-
-});
-
-</script>
-<script>
-document.addEventListener("click",function(e){
-
-    const btn =
-        e.target.closest(".save-btn");
-
-    if(!btn) return;
-
-    const post =
-        JSON.parse(
-            btn.dataset.post
-                .replace(/&#39;/g,"'")
-        );
-
-    let savedPosts =
-        JSON.parse(
-            localStorage.getItem(
-                "savedPosts"
-            ) || "[]"
-        );
-
-    const exists =
-        savedPosts.find(
-            p => p.url === post.url
-        );
-
-    if(exists){
-
-        savedPosts =
-            savedPosts.filter(
-                p => p.url !== post.url
-            );
-
-        btn.innerHTML =
-            "⭐ Save";
-
-        btn.classList.remove(
-            "saved"
-        );
-
-    }else{
-
-        savedPosts.unshift(post);
-
-        btn.innerHTML =
-            "★ Saved";
-
-        btn.classList.add(
-            "saved"
-        );
-
-    }
-
-    localStorage.setItem(
-        "savedPosts",
-        JSON.stringify(savedPosts)
-    );
-
-});
-</script>
-<script>
-    function updateSavedButtons(){
-
-    const savedPosts =
-    JSON.parse(
-        localStorage.getItem(
-            "savedPosts"
-        ) || "[]"
-    );
-
-    document
-    .querySelectorAll(".save-btn")
-    .forEach(btn=>{
-
-        const post =
-        JSON.parse(
-            btn.dataset.post
-            .replace(/&#39;/g,"'")
-        );
-
-        const exists =
-        savedPosts.some(
-            p => p.url === post.url
-        );
-
-        if(exists){
-
-            btn.innerHTML =
-            "★ Saved";
-
-            btn.classList.add(
-                "saved"
-            );
-
-        }else{
-
-            btn.innerHTML =
-            "⭐ Save";
-
-            btn.classList.remove(
-                "saved"
-            );
-
-        }
-
-    });
-
-}
-</script>
-
-<br>
+        .yp-feed-container { max-width: 580px; margin: 0 auto; padding: 12px 10px 40px; }
+        
+        /* Navigation & Active Filters */
+        .yp-filter-header { display: none; background: var(--yp-card); border-radius: var(--yp-radius); padding: 12px 16px; margin-bottom: 12px; align-items: center; gap: 12px; box-shadow: 0 1px 2px rgba(0,0,0,0.1); }
+        .yp-filter-header.active { display: flex; }
+        .yp-back-btn { background: #e4e6eb; border: none; padding: 6px 12px; border-radius: 6px; font-weight: 600; cursor: pointer; display: flex; align-items: center; gap: 4px; font-size: 14px; }
+        .yp-back-btn:hover { background: #d8dadf; }
+        .yp-filter-title { font-size: 15px; font-weight: 700; color: var(--yp-text); }
+
+        /* Post Card Structure */
+        .yp-card { background: var(--yp-card); border-radius: var(--yp-radius); margin-bottom: 14px; box-shadow: 0 1px 2px rgba(0,0,0,0.08); border: 1px solid var(--yp-border); position: relative; overflow: visible; transition: background 0.3s ease; }
+        .yp-card.yp-highlight { animation: ypFlash 2s ease-out; }
+        @keyframes ypFlash { 0% { background: #e7f3ff; } 100% { background: var(--yp-card); } }
+
+        /* Card Header */
+        .yp-header { display: flex; align-items: center; padding: 12px 14px 4px; position: relative; }
+        .yp-avatar { width: 40px; height: 40px; border-radius: 50%; object-fit: cover; background: #e4e6eb; margin-right: 10px; cursor: pointer; flex-shrink: 0; }
+        .yp-meta { flex: 1; min-width: 0; }
+        .yp-sender-name { font-weight: 600; font-size: 14.5px; color: var(--yp-text); cursor: pointer; text-decoration: none; display: inline-block; }
+        .yp-sender-name:hover { text-decoration: underline; }
+        .yp-time { font-size: 12px; color: var(--yp-secondary); display: block; margin-top: -2px; }
+        .yp-menu-trigger { background: transparent; border: none; font-size: 20px; color: var(--yp-secondary); cursor: pointer; width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+        .yp-menu-trigger:hover { background: #f2f2f2; }
+
+        /* Action Menu Dropdown */
+        .yp-dropdown { position: absolute; top: 44px; right: 14px; background: #fff; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); border: 1px solid var(--yp-border); display: none; z-index: 100; min-width: 170px; overflow: hidden; }
+        .yp-dropdown.show { display: block; }
+        .yp-dropdown button { width: 100%; text-align: left; background: none; border: none; padding: 10px 14px; font-size: 13.5px; color: var(--yp-text); cursor: pointer; display: flex; align-items: center; gap: 8px; font-family: inherit; }
+        .yp-dropdown button:hover { background: #f0f2f5; }
+
+        /* Card Content & Text Formatting */
+        .yp-body { padding: 8px 14px 10px; font-size: 14px; }
+        .yp-post-title { font-weight: 700; font-size: 15px; margin-bottom: 6px; color: var(--yp-text); }
+        .yp-content-text { white-space: pre-wrap; word-break: break-word; color: var(--yp-text); cursor: pointer; }
+        .yp-content-text.collapsed { display: -webkit-box; -webkit-line-clamp: 1; -webkit-box-orient: vertical; overflow: hidden; }
+        .yp-toggle-expand { background: none; border: none; color: var(--yp-primary); font-weight: 600; font-size: 13.5px; cursor: pointer; padding: 2px 0 0; display: block; }
+        .yp-hashtag { color: var(--yp-primary); cursor: pointer; font-weight: 600; text-decoration: none; }
+        .yp-hashtag:hover { text-decoration: underline; }
+        .yp-url { color: var(--yp-primary); word-break: break-all; text-decoration: none; }
+        .yp-url:hover { text-decoration: underline; }
+
+        /* Media Container */
+        .yp-media-box { position: relative; width: 100%; background: #000; overflow: hidden; display: flex; justify-content: center; align-items: center; }
+        .yp-media-box img { width: 100%; height: auto; max-height: 580px; object-fit: contain; display: block; cursor: pointer; user-select: none; }
+        .yp-media-box iframe, .yp-media-box video { width: 100%; aspect-ratio: 16/9; border: none; }
+        
+        /* Floating Double-Tap Heart */
+        .yp-floating-heart { position: absolute; font-size: 80px; color: var(--yp-like); pointer-events: none; opacity: 0; transform: scale(0.3); transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.3s ease; text-shadow: 0 4px 8px rgba(0,0,0,0.3); }
+        .yp-floating-heart.animate { opacity: 1; transform: scale(1.1); }
+
+        /* Poll Display */
+        .yp-poll-box { padding: 12px 14px; background: #f7f8fa; border-radius: 8px; margin: 6px 14px 10px; border: 1px solid var(--yp-border); }
+        .yp-poll-q { font-weight: 600; font-size: 14.5px; margin-bottom: 10px; }
+        .yp-poll-item { position: relative; background: #fff; border: 1px solid var(--yp-border); border-radius: 6px; padding: 10px 12px; margin-bottom: 8px; cursor: pointer; overflow: hidden; display: flex; justify-content: space-between; align-items: center; font-size: 13.5px; font-weight: 500; }
+        .yp-poll-item.voted { cursor: default; }
+        .yp-poll-progress { position: absolute; left: 0; top: 0; bottom: 0; background: #e7f3ff; z-index: 1; transition: width 0.4s ease; }
+        .yp-poll-label { position: relative; z-index: 2; }
+        .yp-poll-meta { position: relative; z-index: 2; font-weight: 600; font-size: 12px; color: var(--yp-secondary); }
+
+        /* Complete Details External Link */
+        .yp-details-bar { padding: 8px 14px 10px; }
+        .yp-details-btn { display: flex; align-items: center; justify-content: center; gap: 6px; width: 100%; background: #ebf5ff; color: var(--yp-primary); border: 1px solid #cce4ff; border-radius: 6px; padding: 8px; font-weight: 600; font-size: 13.5px; text-decoration: none; }
+        .yp-details-btn:hover { background: #dbeafe; }
+
+        /* Footer Action Elements */
+        .yp-actions { display: flex; align-items: center; justify-content: space-between; padding: 8px 14px 10px; border-top: 1px solid var(--yp-border); color: var(--yp-secondary); font-size: 13.5px; }
+        .yp-action-group { display: flex; align-items: center; gap: 14px; }
+        .yp-action-btn { background: none; border: none; display: flex; align-items: center; gap: 5px; color: var(--yp-secondary); font-weight: 600; cursor: pointer; font-size: 13.5px; padding: 4px 6px; border-radius: 4px; }
+        .yp-action-btn:hover { background: #f0f2f5; }
+        .yp-action-btn.liked { color: var(--yp-like); }
+        .yp-action-static { display: flex; align-items: center; gap: 5px; font-weight: 600; }
+
+        /* Progressive Skeleton Placeholder */
+        .yp-skeleton { background: var(--yp-card); border-radius: var(--yp-radius); padding: 14px; margin-bottom: 14px; border: 1px solid var(--yp-border); }
+        .yp-sk-head { display: flex; gap: 10px; align-items: center; margin-bottom: 12px; }
+        .yp-sk-avatar { width: 40px; height: 40px; border-radius: 50%; background: #e4e6eb; }
+        .yp-sk-lines { flex: 1; }
+        .yp-sk-line { height: 10px; background: #e4e6eb; border-radius: 4px; margin-bottom: 6px; }
+        .yp-sk-media { width: 100%; height: 180px; background: #e4e6eb; border-radius: 6px; margin: 10px 0; }
+        .yp-anim-pulse { animation: ypPulse 1.4s ease-in-out infinite; }
+        @keyframes ypPulse { 0% { opacity: 0.6; } 50% { opacity: 1; } 100% { opacity: 0.6; } }
+
+        .yp-msg-alert { padding: 16px; background: #fff; border-radius: var(--yp-radius); text-align: center; color: var(--yp-secondary); border: 1px solid var(--yp-border); }
+    </style>
+</head>
+<body>
+
+    <div class="yp-feed-container">
+        <!-- Filter Header Bar -->
+        <div id="ypFilterHeader" class="yp-filter-header">
+            <button class="yp-back-btn" id="ypBackBtn">&#8592; Back</button>
+            <div class="yp-filter-title" id="ypFilterLabel">Filtered Feed</div>
+        </div>
+
+        <!-- Render Target -->
+        <div id="ypPostFeed"></div>
+
+        <!-- Skeleton Injector Node -->
+        <div id="ypLoadingSkeletons"></div>
+
+        <!-- Intersectional Observer Sentinel -->
+        <div id="ypScrollSentinel" style="height: 20px;"></div>
+    </div>
+
+    <script>
+        /**
+         * YOJNA SOCIAL FEED PRO - CLIENT DISTRIBUTION SCRIPT
+         */
+        const API_URL = "https://yojnaportals.com/wp-json/yp-social/v1/feed";
+
+        const FeedApp = {
+            state: {
+                page: 1,
+                per_page: 3,
+                loading: false,
+                hasMore: true,
+                sender: '',
+                hashtag: '',
+                renderedIds: new Set(),
+                targetPostId: null
+            },
+
+            init() {
+                this.parseHashNavigation();
+                this.bindGlobalEvents();
+                this.setupIntersectionObserver();
+                this.loadBatch();
+            },
+
+            parseHashNavigation() {
+                const hash = window.location.hash;
+                if (hash.startsWith('#post-')) {
+                    this.state.targetPostId = parseInt(hash.replace('#post-', ''), 10);
+                }
+            },
+
+            bindGlobalEvents() {
+                window.addEventListener('hashchange', () => {
+                    const oldTarget = this.state.targetPostId;
+                    this.parseHashNavigation();
+                    if (this.state.targetPostId && this.state.targetPostId !== oldTarget) {
+                        this.locateAndFocusPost(this.state.targetPostId);
+                    }
+                });
+
+                document.getElementById('ypBackBtn').addEventListener('click', () => {
+                    this.state.sender = '';
+                    this.state.hashtag = '';
+                    document.getElementById('ypFilterHeader').classList.remove('active');
+                    this.resetAndReload();
+                });
+
+                document.addEventListener('click', (e) => {
+                    if (!e.target.closest('.yp-menu-trigger') && !e.target.closest('.yp-dropdown')) {
+                        document.querySelectorAll('.yp-dropdown').forEach(d => d.classList.remove('show'));
+                    }
+                });
+            },
+
+           setupIntersectionObserver() {
+                const sentinel = document.getElementById('ypScrollSentinel');
+                const observer = new IntersectionObserver((entries) => {
+                    if (entries[0].isIntersecting && !this.state.loading && this.state.hasMore) {
+                        this.loadBatch();
+                    }
+                }, { rootMargin: '400px' });
+                observer.observe(sentinel);
+
+                // Fallback window scroll listener
+                window.addEventListener('scroll', () => {
+                    if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 500) {
+                        if (!this.state.loading && this.state.hasMore) {
+                            this.loadBatch();
+                        }
+                    }
+                }, { passive: true });
+            },
+
+            async loadBatch() {
+                if (this.state.loading || !this.state.hasMore) return;
+                this.state.loading = true;
+                this.renderSkeletons(true);
+
+                try {
+                    const endpoint = new URL(API_URL);
+                    endpoint.searchParams.set('page', this.state.page);
+                    endpoint.searchParams.set('per_page', this.state.per_page);
+                    if (this.state.sender) endpoint.searchParams.set('sender', this.state.sender);
+                    if (this.state.hashtag) endpoint.searchParams.set('hashtag', this.state.hashtag);
+
+                    const res = await fetch(endpoint.toString(), {
+                        method: 'GET',
+                        headers: { 'Accept': 'application/json' }
+                    });
+
+                    if (!res.ok) throw new Error(`HTTP Error ${res.status}`);
+
+                    const data = await res.json();
+                    this.renderSkeletons(false);
+
+                    if (data.items && data.items.length > 0) {
+                        data.items.forEach(item => this.renderPostCard(item));
+                        this.state.page++;
+                        this.state.hasMore = data.has_more;
+
+                        if (this.state.targetPostId) {
+                            const found = document.getElementById(`post-${this.state.targetPostId}`);
+                            if (found) {
+                                this.locateAndFocusPost(this.state.targetPostId);
+                                this.state.targetPostId = null;
+                            } else if (this.state.hasMore) {
+                                this.state.loading = false;
+                                this.loadBatch();
+                                return;
+                            }
+                        }
+
+                        // Agar screen abhi bhi scrollable nahi hui hai aur posts bache hain toh agla batch turant load karein
+                        if (this.state.hasMore && document.body.offsetHeight <= window.innerHeight) {
+                            this.state.loading = false;
+                            this.loadBatch();
+                        }
+                    } else {
+                        this.state.hasMore = false;
+                        if (this.state.page === 1) {
+                            document.getElementById('ypPostFeed').innerHTML = '<div class="yp-msg-alert">No posts found in this feed.</div>';
+                        }
+                    }
+                } catch (err) {
+                    this.renderSkeletons(false);
+                    document.getElementById('ypPostFeed').innerHTML = `<div class="yp-msg-alert">Failed loading content: ${err.message}</div>`;
+                } finally {
+                    this.state.loading = false;
+                }
+            },
+
+            resetAndReload() {
+                this.state.page = 1;
+                this.state.hasMore = true;
+                this.state.renderedIds.clear();
+                document.getElementById('ypPostFeed').innerHTML = '';
+                this.loadBatch();
+            },
+
+            filterBySender(senderId, senderName) {
+                this.state.sender = senderId;
+                this.state.hashtag = '';
+                document.getElementById('ypFilterLabel').textContent = `Posts by ${senderName}`;
+                document.getElementById('ypFilterHeader').classList.add('active');
+                this.resetAndReload();
+            },
+
+            filterByHashtag(tag) {
+                this.state.hashtag = tag;
+                this.state.sender = '';
+                document.getElementById('ypFilterLabel').textContent = `Hashtag: #${tag}`;
+                document.getElementById('ypFilterHeader').classList.add('active');
+                this.resetAndReload();
+            },
+
+            async loadBatch() {
+                if (this.state.loading) return;
+                this.state.loading = true;
+                this.renderSkeletons(true);
+
+                try {
+                    const endpoint = new URL(API_URL);
+                    endpoint.searchParams.set('page', this.state.page);
+                    endpoint.searchParams.set('per_page', this.state.per_page);
+                    if (this.state.sender) endpoint.searchParams.set('sender', this.state.sender);
+                    if (this.state.hashtag) endpoint.searchParams.set('hashtag', this.state.hashtag);
+
+                    const res = await fetch(endpoint.toString(), {
+                        method: 'GET',
+                        headers: { 'Accept': 'application/json' }
+                    });
+
+                    if (!res.ok) throw new Error(`HTTP Error ${res.status}`);
+
+                    const data = await res.json();
+                    this.renderSkeletons(false);
+
+                    if (data.items && data.items.length > 0) {
+                        data.items.forEach(item => this.renderPostCard(item));
+                        this.state.page++;
+                        this.state.hasMore = data.has_more;
+
+                        if (this.state.targetPostId) {
+                            const found = document.getElementById(`post-${this.state.targetPostId}`);
+                            if (found) {
+                                this.locateAndFocusPost(this.state.targetPostId);
+                                this.state.targetPostId = null;
+                            } else if (this.state.hasMore) {
+                                this.state.loading = false;
+                                this.loadBatch();
+                                return;
+                            }
+                        }
+                    } else {
+                        this.state.hasMore = false;
+                        if (this.state.page === 1) {
+                            document.getElementById('ypPostFeed').innerHTML = '<div class="yp-msg-alert">No posts found in this feed.</div>';
+                        }
+                    }
+                } catch (err) {
+                    this.renderSkeletons(false);
+                    document.getElementById('ypPostFeed').innerHTML = `<div class="yp-msg-alert">Failed loading content: ${err.message}</div>`;
+                } finally {
+                    this.state.loading = false;
+                }
+            },
+
+            renderSkeletons(show) {
+                const holder = document.getElementById('ypLoadingSkeletons');
+                if (!show) {
+                    holder.innerHTML = '';
+                    return;
+                }
+                let html = '';
+                for (let i = 0; i < 2; i++) {
+                    html += `
+                        <div class="yp-skeleton yp-anim-pulse">
+                            <div class="yp-sk-head">
+                                <div class="yp-sk-avatar"></div>
+                                <div class="yp-sk-lines">
+                                    <div class="yp-sk-line" style="width: 40%;"></div>
+                                    <div class="yp-sk-line" style="width: 25%;"></div>
+                                </div>
+                            </div>
+                            <div class="yp-sk-line" style="width: 90%;"></div>
+                            <div class="yp-sk-line" style="width: 70%;"></div>
+                            <div class="yp-sk-media"></div>
+                        </div>
+                    `;
+                }
+                holder.innerHTML = html;
+            },
+
+            renderPostCard(post) {
+                if (this.state.renderedIds.has(post.id)) return;
+                this.state.renderedIds.add(post.id);
+
+                const card = document.createElement('article');
+                card.className = 'yp-card';
+                card.id = `post-${post.id}`;
+
+                const formattedText = this.formatWhatsAppText(post.content || '');
+                const timeAgo = this.formatTimeAgo(post.publish_at);
+
+                card.innerHTML = `
+                    <div class="yp-header">
+                        <img class="yp-avatar" src="${post.sender_logo || 'data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'40\' height=\'40\' fill=\'%23ccc\'><rect width=\'40\' height=\'40\'/></svg>'}" alt="${post.sender}" data-sender-id="${post.sender_id}" data-sender-name="${post.sender}" />
+                        <div class="yp-meta">
+                            <span class="yp-sender-name" data-sender-id="${post.sender_id}" data-sender-name="${post.sender}">${post.sender}</span>
+                            <span class="yp-time">${timeAgo}</span>
+                        </div>
+                        <button class="yp-menu-trigger" aria-label="Menu">&#8942;</button>
+                        <div class="yp-dropdown">
+                            ${post.type === 'image' && post.image_download_allowed ? `<button class="yp-dl-img-btn" data-id="${post.id}">📥 Download Image</button>` : ''}
+                            <button class="yp-copy-text-btn">📋 Copy Text</button>
+                            <button class="yp-copy-link-btn" data-id="${post.id}">🔗 Copy Post Link</button>
+                            <button class="yp-smart-share-btn" data-id="${post.id}">↗ Share Post</button>
+                        </div>
+                    </div>
+
+                    <div class="yp-body">
+                        ${post.title ? `<div class="yp-post-title">${this.escapeHTML(post.title)}</div>` : ''}
+                        <div class="yp-content-text collapsed">${formattedText}</div>
+                        <button class="yp-toggle-expand" style="display:none;">More</button>
+                    </div>
+
+                    ${this.renderMedia(post)}
+                    ${this.renderPoll(post)}
+
+                    ${post.link_url ? `
+                        <div class="yp-details-bar">
+                            <a href="${encodeURI(post.link_url)}" target="_blank" rel="noopener noreferrer" class="yp-details-btn">🔗 Complete Details</a>
+                        </div>
+                    ` : ''}
+
+                    <div class="yp-actions">
+                        <div class="yp-action-group">
+                            <button class="yp-action-btn yp-like-btn" data-id="${post.id}">
+                                <span>❤️</span> <span class="yp-like-count">${post.likes}</span>
+                            </button>
+                            <div class="yp-action-static" title="Total Views">
+                                <span>👁️</span> <span class="yp-view-count">${post.views}</span>
+                            </div>
+                        </div>
+                        <button class="yp-action-btn yp-smart-share-btn" data-id="${post.id}" title="Share Post">
+                            <span>↪️</span> <span class="yp-share-count">${post.shares || 0}</span>
+                        </button>
+                    </div>
+                `;
+
+                this.attachCardInteractions(card, post);
+                document.getElementById('ypPostFeed').appendChild(card);
+                this.recordViewCounter(post.id, card);
+            },
+
+            renderMedia(post) {
+                if (post.type === 'image' && post.image_url) {
+                    return `
+                        <div class="yp-media-box">
+                            <img class="yp-zoomable-img" src="${encodeURI(post.image_url)}" alt="Post Image" loading="lazy" />
+                            <div class="yp-floating-heart">❤️</div>
+                        </div>
+                    `;
+                }
+
+                if (post.type === 'video' && post.video_url) {
+                    const embed = this.getVideoEmbedUrl(post.video_url);
+                    if (embed.type === 'iframe') {
+                        return `<div class="yp-media-box"><iframe src="${embed.url}" allowfullscreen loading="lazy"></iframe></div>`;
+                    }
+                    if (embed.type === 'video') {
+                        return `<div class="yp-media-box"><video src="${embed.url}" controls playsinline preload="metadata"></video></div>`;
+                    }
+                }
+                return '';
+            },
+
+            renderPoll(post) {
+                if (post.type !== 'poll' || !post.poll_data || !post.poll_data.options) return '';
+                const opts = post.poll_data.options;
+                const totalVotes = opts.reduce((acc, cur) => acc + (parseInt(cur.votes, 10) || 0), 0);
+                const hasVoted = Boolean(localStorage.getItem(`yp_voted_${post.id}`));
+
+                let optionsHTML = '';
+                opts.forEach((opt) => {
+                    const votes = parseInt(opt.votes, 10) || 0;
+                    const pct = totalVotes > 0 ? Math.round((votes / totalVotes) * 100) : 0;
+                    optionsHTML += `
+                        <div class="yp-poll-item ${hasVoted ? 'voted' : ''}" data-post-id="${post.id}" data-opt-id="${opt.id}">
+                            ${hasVoted ? `<div class="yp-poll-progress" style="width: ${pct}%"></div>` : ''}
+                            <span class="yp-poll-label">${this.escapeHTML(opt.text)}</span>
+                            ${hasVoted ? `<span class="yp-poll-meta">${pct}% (${votes})</span>` : ''}
+                        </div>
+                    `;
+                });
+
+                return `
+                    <div class="yp-poll-box" id="poll-${post.id}">
+                        <div class="yp-poll-q">${this.escapeHTML(post.poll_data.question)}</div>
+                        <div class="yp-poll-options">${optionsHTML}</div>
+                    </div>
+                `;
+            },
+
+            attachCardInteractions(card, post) {
+                const bodyText = card.querySelector('.yp-content-text');
+                const moreBtn = card.querySelector('.yp-toggle-expand');
+
+                if (bodyText.scrollHeight > bodyText.clientHeight + 5 || (post.content && post.content.includes('\n'))) {
+                    moreBtn.style.display = 'block';
+                }
+
+                const toggleExpand = () => {
+                    const isCollapsed = bodyText.classList.toggle('collapsed');
+                    moreBtn.textContent = isCollapsed ? 'More' : 'Minimize';
+                };
+
+                bodyText.addEventListener('click', toggleExpand);
+                moreBtn.addEventListener('click', (e) => { e.stopPropagation(); toggleExpand(); });
+
+                card.querySelectorAll('[data-sender-id]').forEach(el => {
+                    el.addEventListener('click', () => {
+                        this.filterBySender(el.dataset.senderId, el.dataset.senderName);
+                    });
+                });
+
+                card.querySelectorAll('.yp-hashtag').forEach(tag => {
+                    tag.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        this.filterByHashtag(tag.dataset.tag);
+                    });
+                });
+
+                const menuBtn = card.querySelector('.yp-menu-trigger');
+                const drop = card.querySelector('.yp-dropdown');
+                menuBtn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    document.querySelectorAll('.yp-dropdown').forEach(d => { if (d !== drop) d.classList.remove('show'); });
+                    drop.classList.toggle('show');
+                });
+
+                const mediaBox = card.querySelector('.yp-media-box');
+                if (mediaBox && post.type === 'image') {
+                    let lastTap = 0;
+                    mediaBox.addEventListener('pointerdown', (e) => {
+                        const now = Date.now();
+                        if (now - lastTap < 300) {
+                            this.handleLike(post.id, card);
+                            const heart = mediaBox.querySelector('.yp-floating-heart');
+                            heart.classList.add('animate');
+                            setTimeout(() => heart.classList.remove('animate'), 700);
+                        }
+                        lastTap = now;
+                    });
+                }
+
+                card.querySelector('.yp-like-btn').addEventListener('click', () => this.handleLike(post.id, card));
+
+                card.querySelectorAll('.yp-poll-item:not(.voted)').forEach(item => {
+                    item.addEventListener('click', async () => {
+                        const optId = item.dataset.optId;
+                        await this.submitPollVote(post.id, optId, card);
+                    });
+                });
+
+                card.querySelector('.yp-copy-text-btn').addEventListener('click', () => {
+                    const txt = this.extractPureText(post);
+                    navigator.clipboard.writeText(txt).then(() => alert('Post text copied!'));
+                });
+
+                card.querySelector('.yp-copy-link-btn').addEventListener('click', () => {
+                    const exactUrl = `${window.location.origin}${window.location.pathname}#post-${post.id}`;
+                    navigator.clipboard.writeText(exactUrl).then(() => alert('Exact post link copied!'));
+                });
+
+                const dlBtn = card.querySelector('.yp-dl-img-btn');
+                if (dlBtn) {
+                    dlBtn.addEventListener('click', () => {
+                        window.location.href = `${API_URL.replace('/feed', '/image-proxy')}?post_id=${post.id}`;
+                    });
+                }
+
+                // Dynamic Smart Share (Text, Image+Text, Poll Canvas Image)
+                card.querySelectorAll('.yp-smart-share-btn').forEach(btn => {
+                    btn.addEventListener('click', async () => {
+                        await this.executeSmartShare(post, card);
+                    });
+                });
+            },
+
+            async executeSmartShare(post, card) {
+                const text = this.extractPureText(post);
+                const exactUrl = `${window.location.origin}${window.location.pathname}#post-${post.id}`;
+                const shareText = `${text}\n\n🔗 Link: ${exactUrl}`;
+                let fileToShare = null;
+
+                try {
+                    // Scenario 1: Image Post -> Share Image File Blob + Text
+                    if (post.type === 'image' && post.image_url && post.image_download_allowed) {
+                        const proxyUrl = `${API_URL.replace('/feed', '/image-proxy')}?post_id=${post.id}`;
+                        const imgRes = await fetch(proxyUrl);
+                        const blob = await imgRes.blob();
+                        fileToShare = new File([blob], `post-${post.id}.jpg`, { type: blob.type || 'image/jpeg' });
+                    }
+                    // Scenario 2: Poll Post -> Generate Image Blob from Canvas & Share
+                    else if (post.type === 'poll' && post.poll_data) {
+                        const pollBlob = await this.generatePollImageBlob(post);
+                        if (pollBlob) {
+                            fileToShare = new File([pollBlob], `poll-${post.id}.png`, { type: 'image/png' });
+                        }
+                    }
+
+                    if (navigator.canShare && fileToShare && navigator.canShare({ files: [fileToShare] })) {
+                        await navigator.share({
+                            title: post.title || 'Social Update',
+                            text: shareText,
+                            files: [fileToShare]
+                        });
+                    } else if (navigator.share) {
+                        await navigator.share({
+                            title: post.title || 'Social Update',
+                            text: shareText
+                        });
+                    } else {
+                        await navigator.clipboard.writeText(shareText);
+                        alert('Details copied to clipboard!');
+                    }
+
+                    // Increment Share counter on WordPress server
+                    this.recordShareCounter(post.id, card);
+                } catch (e) {
+                    console.log('Share dismissed or cancelled', e);
+                }
+            },
+
+            generatePollImageBlob(post) {
+                return new Promise((resolve) => {
+                    const canvas = document.createElement('canvas');
+                    canvas.width = 600;
+                    const opts = (post.poll_data && post.poll_data.options) ? post.poll_data.options : [];
+                    canvas.height = 200 + (opts.length * 60);
+                    const ctx = canvas.getContext('2d');
+
+                    // Background
+                    ctx.fillStyle = '#ffffff';
+                    ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+                    // Brand Top Banner
+                    ctx.fillStyle = '#1877f2';
+                    ctx.fillRect(0, 0, canvas.width, 10);
+
+                    // Header
+                    ctx.fillStyle = '#65676b';
+                    ctx.font = 'bold 15px -apple-system, sans-serif';
+                    ctx.fillText((post.sender || 'Yojna Portal').toUpperCase() + ' POLL', 30, 42);
+
+                    // Question
+                    ctx.fillStyle = '#050505';
+                    ctx.font = 'bold 20px -apple-system, sans-serif';
+                    const qText = (post.poll_data.question || 'Poll Question').substring(0, 75);
+                    ctx.fillText(qText, 30, 80);
+
+                    // Options Boxes
+                    let startY = 110;
+                    opts.forEach((opt, idx) => {
+                        ctx.fillStyle = '#f0f2f5';
+                        if (ctx.roundRect) {
+                            ctx.beginPath();
+                            ctx.roundRect(30, startY, 540, 46, 8);
+                            ctx.fill();
+                        } else {
+                            ctx.fillRect(30, startY, 540, 46);
+                        }
+
+                        ctx.fillStyle = '#050505';
+                        ctx.font = '16px -apple-system, sans-serif';
+                        const optText = `${idx + 1}. ${opt.text || ''}`.substring(0, 55);
+                        ctx.fillText(optText, 45, startY + 28);
+                        startY += 58;
+                    });
+
+                    // Footer Call to Action
+                    ctx.fillStyle = '#65676b';
+                    ctx.font = '13px -apple-system, sans-serif';
+                    ctx.fillText('Tap or open link to cast your vote live.', 30, startY + 25);
+
+                    canvas.toBlob((blob) => resolve(blob), 'image/png');
+                });
+            },
+
+            async recordViewCounter(postId, card) {
+                const endpoint = `${API_URL.replace('/feed', '/view')}/${postId}`;
+                try {
+                    const res = await fetch(endpoint, { method: 'POST' });
+                    const data = await res.json();
+                    if (data.success) {
+                        const vSpan = card.querySelector('.yp-view-count');
+                        if (vSpan) vSpan.textContent = data.views;
+                    }
+                } catch {}
+            },
+
+            async recordShareCounter(postId, card) {
+                const endpoint = `${API_URL.replace('/feed', '/share')}/${postId}`;
+                try {
+                    const res = await fetch(endpoint, { method: 'POST' });
+                    const data = await res.json();
+                    if (data.success) {
+                        const sSpan = card.querySelector('.yp-share-count');
+                        if (sSpan) sSpan.textContent = data.shares;
+                    }
+                } catch {}
+            },
+
+            async handleLike(postId, card) {
+                const btn = card.querySelector('.yp-like-btn');
+                if (btn.classList.contains('liked')) return;
+
+                btn.classList.add('liked');
+                const countSpan = card.querySelector('.yp-like-count');
+                countSpan.textContent = parseInt(countSpan.textContent, 10) + 1;
+
+                const endpoint = `${API_URL.replace('/feed', '/like')}/${postId}`;
+                try {
+                    const res = await fetch(endpoint, { method: 'POST' });
+                    const data = await res.json();
+                    if (!data.success) {
+                        countSpan.textContent = data.likes;
+                    }
+                } catch {
+                    btn.classList.remove('liked');
+                    countSpan.textContent = Math.max(0, parseInt(countSpan.textContent, 10) - 1);
+                }
+            },
+
+            async submitPollVote(postId, optId, card) {
+                const endpoint = `${API_URL.replace('/feed', '/vote')}/${postId}`;
+                try {
+                    const res = await fetch(endpoint, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ option_id: optId })
+                    });
+                    const data = await res.json();
+                    if (data.success) {
+                        localStorage.setItem(`yp_voted_${postId}`, optId);
+                        const pollWrap = card.querySelector(`#poll-${postId}`);
+                        pollWrap.outerHTML = this.renderPoll({ id: postId, type: 'poll', poll_data: data.poll_data });
+                    }
+                } catch {
+                    alert('Vote registration error.');
+                }
+            },
+
+            locateAndFocusPost(postId) {
+                const el = document.getElementById(`post-${postId}`);
+                if (el) {
+                    el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    el.classList.add('yp-highlight');
+                    setTimeout(() => el.classList.remove('yp-highlight'), 2200);
+                }
+            },
+
+            formatWhatsAppText(text) {
+                let out = this.escapeHTML(text);
+                out = out.replace(/\*([^\*]+)\*/g, '<strong>$1</strong>');
+                out = out.replace(/_([^_]+)_/g, '<em>$1</em>');
+                out = out.replace(/~([^~]+)~/g, '<del>$1</del>');
+                out = out.replace(/`([^`]+)`/g, '<code>$1</code>');
+                out = out.replace(/#([\p{L}\p{N}_\-]+)/gu, (match, tag) => {
+                    return `<span class="yp-hashtag" data-tag="${tag.toLowerCase()}">#${tag}</span>`;
+                });
+                out = out.replace(/(https?:\/\/[^\s<]+)/g, '<a href="$1" target="_blank" rel="noopener noreferrer" class="yp-url">$1</a>');
+                return out;
+            },
+
+            extractPureText(post) {
+                let base = '';
+                if (post.title) base += `${post.title}\n\n`;
+                if (post.content) base += `${post.content}\n`;
+                if (post.type === 'poll' && post.poll_data) {
+                    base += `\n📊 Poll: ${post.poll_data.question}\n`;
+                    post.poll_data.options.forEach(o => { base += `▪ ${o.text}\n`; });
+                }
+                return base.trim();
+            },
+
+            getVideoEmbedUrl(url) {
+                const ytMatch = url.match(/(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?|shorts)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/\s]{11})/i);
+                if (ytMatch) return { type: 'iframe', url: `https://www.youtube.com/embed/${ytMatch[1]}` };
+                const vimeoMatch = url.match(/vimeo\.com\/(?:channels\/(?:\\w+\/)?|groups\/([^\\/]*)\/videos\/|album\/(\d+)\/video\/|)(\d+)(?:$|\/|\?)/);
+                if (vimeoMatch) return { type: 'iframe', url: `https://player.vimeo.com/video/${vimeoMatch[3]}` };
+                return { type: 'video', url: url };
+            },
+
+            formatTimeAgo(isoString) {
+                const date = new Date(isoString);
+                const seconds = Math.floor((new Date() - date) / 1000);
+                if (seconds < 60) return 'Just now';
+                const m = Math.floor(seconds / 60);
+                if (m < 60) return `${m}m ago`;
+                const h = Math.floor(m / 60);
+                if (h < 24) return `${h}h ago`;
+                const d = Math.floor(h / 24);
+                if (d < 30) return `${d}d ago`;
+                return date.toLocaleDateString();
+            },
+
+            escapeHTML(str) {
+                return str.replace(/[&<>'"]/g, tag => ({
+                    '&': '&amp;',
+                    '<': '&lt;',
+                    '>': '&gt;',
+                    "'": '&#39;',
+                    '"': '&quot;'
+                }[tag] || tag));
+            }
+        };
+
+        document.addEventListener('DOMContentLoaded', () => FeedApp.init());
+    </script>
+<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/v4513226cdae34746b4dedf0b4dfa099e1781791509496" integrity="sha512-ZE9pZaUXND66v380QUtch/5sE9tPFh2zg45pR2PB0CVkCtOREv2AJKkSidISWkysEuQ0EH8faUU5du78bx87UQ==" data-cf-beacon='{"version":"2024.11.0","token":"300dcb7545b34eb592884b2d8a4812f3","r":1}' crossorigin="anonymous"></script>
+<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/v4513226cdae34746b4dedf0b4dfa099e1781791509496" integrity="sha512-ZE9pZaUXND66v380QUtch/5sE9tPFh2zg45pR2PB0CVkCtOREv2AJKkSidISWkysEuQ0EH8faUU5du78bx87UQ==" data-cf-beacon='{"version":"2024.11.0","token":"a751bb6316cf44b48f7cb60e5507c01e","r":1}' crossorigin="anonymous"></script>
 {{ end }}
 
 
