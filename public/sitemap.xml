@@ -2,13 +2,19 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>http://localhost:1313/india-post-gds-2026/</loc>
+    <lastmod>2026-08-30T17:04:32+05:30</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/jobs/</loc>
+    <lastmod>2026-08-30T17:04:32+05:30</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/</loc>
+    <lastmod>2026-08-30T17:04:32+05:30</lastmod>
+  </url><url>
     <loc>http://localhost:1313/document/</loc>
     <lastmod>2026-08-25T10:53:39+05:30</lastmod>
   </url><url>
     <loc>http://localhost:1313/pancard-online-apply-poster/</loc>
-    <lastmod>2026-08-25T10:53:39+05:30</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/</loc>
     <lastmod>2026-08-25T10:53:39+05:30</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/list/</loc>
@@ -22,9 +28,6 @@
   </url><url>
     <loc>http://localhost:1313/update/</loc>
     <lastmod>2026-08-23T19:26:20+05:30</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/jobs/</loc>
-    <lastmod>2026-08-19T18:58:44+05:30</lastmod>
   </url><url>
     <loc>http://localhost:1313/mpesb-ms-ps-tet-2026/</loc>
     <lastmod>2026-08-19T18:58:44+05:30</lastmod>
