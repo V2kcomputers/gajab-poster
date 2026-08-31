@@ -550,20 +550,6 @@ toggle.addEventListener('change', () => {
 
   <div class="gallery">
     
-      <a href="/mp-sambal-card-yojna/" class="gallery-item">
-
-        
-          <img src="https://cdn.yojnaportal.com/Banner/mp/MP-Sambal-Card.webp" alt="All MP Digital Services">
-        
-
-        
-
-        
-
-     
-
-      </a>
-    
       <a href="/mp-ladli-behna-yojna-36th/" class="gallery-item">
 
         
@@ -578,24 +564,10 @@ toggle.addEventListener('change', () => {
 
       </a>
     
-      <a href="/mmsky-cm-seekho-kamao-yojna/" class="gallery-item">
+      <a href="/cm-beej-anudan-yojna-mp/" class="gallery-item">
 
         
-          <img src="https://cdn.yojnaportal.com/Banner/mp/mmsky-mp.webp" alt="All MP Digital Services">
-        
-
-        
-
-        
-
-     
-
-      </a>
-    
-      <a href="/mp-all-digital-services/" class="gallery-item">
-
-        
-          <img src="https://cdn.yojnaportal.com/Banner/mp/mp-online-related-work.webp" alt="All MP Digital Services">
+          <img src="https://cdn.yojnaportal.com/Banner/mp/cm-beej-anudan-yojna-mp.webp" alt="All MP Digital Services">
         
 
         
@@ -606,10 +578,10 @@ toggle.addEventListener('change', () => {
 
       </a>
     
-      <a href="/rgb-rajasthan-gramin-bank-poster/" class="gallery-item">
+      <a href="/pnst-exam-2026/" class="gallery-item">
 
         
-          <img src="https://cdn.yojnaportal.com/Banner/25x32/banking/RGB-rajasthan-gramin-bank.webp" alt="All MP Digital Services">
+          <img src="https://cdn.yojnaportal.com/exam/2026/pnst-exam-2026.webp" alt="All MP Digital Services">
         
 
         
@@ -620,10 +592,38 @@ toggle.addEventListener('change', () => {
 
       </a>
     
-      <a href="/driving-lisense-apply-poster/" class="gallery-item">
+      <a href="/mp-bhoj-admission-2026-27/" class="gallery-item">
 
         
-          <img src="https://ia800103.us.archive.org/20/items/driving-licence_202505/Driving%20Licence.gif" alt="All MP Digital Services">
+          <img src="https://cdn.yojnaportal.com/2026/MP-Bhoj-University-July-2026-27.webp" alt="All MP Digital Services">
+        
+
+        
+
+        
+
+     
+
+      </a>
+    
+      <a href="/boi-bank-of-india-csp-poster/" class="gallery-item">
+
+        
+          <img src="https://cdn.yojnaportal.com/Banner/25x32/banking/BOI-Bank-of-India-CSP-Poster.webp" alt="All MP Digital Services">
+        
+
+        
+
+        
+
+     
+
+      </a>
+    
+      <a href="/airtel-payments-bank-account-opening/" class="gallery-item">
+
+        
+          <img src="https://cdn.yojnaportal.com/Banner/25x32/banking/airtel-bank-account.webp" alt="All MP Digital Services">
         
 
         
@@ -1299,5 +1299,22 @@ document.addEventListener("DOMContentLoaded", () => {
     <script src="http://localhost:1313/js/pages/disabled.min.163900fe20f6f627929f358a505bf043308f959eb66947d7285eb575e51b24b2.js" integrity="sha256-FjkA/iD29ieSnzWKUFvwQzCPlZ62aUfXKF61deUbJLI=" defer></script>
   
 
+<script>
+(function () {
+
+    fetch("https://post-feed-api.yojnaportal-com.workers.dev/api/view", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            site: "yojnaportal",
+            url: window.location.href
+        })
+    })
+    .catch(function () {});
+
+})();
+</script>
 </body>
 </html>

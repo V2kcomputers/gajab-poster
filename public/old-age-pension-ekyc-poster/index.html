@@ -550,38 +550,10 @@ toggle.addEventListener('change', () => {
 
   <div class="gallery">
     
-      <a href="/ayushman-bharat-health-card/" class="gallery-item">
+      <a href="/old-age-pension-ekyc-poster/" class="gallery-item">
 
         
-          <img src="https://cdn.yojnaportal.com/Banner/25x32/scheme/Aayushman-Card-yojana.webp" alt="Old Age Pension Ekyc Poster">
-        
-
-        
-
-        
-
-     
-
-      </a>
-    
-      <a href="/pm-internship-scheme-poster/" class="gallery-item">
-
-        
-          <img src="https://cdn.yojnaportal.com/Banner/25x32/scheme/PM%20Internship/PM-Internship-Schemes-2026.webp" alt="Old Age Pension Ekyc Poster">
-        
-
-        
-
-        
-
-     
-
-      </a>
-    
-      <a href="/pm-kisan-23-kisht-update/" class="gallery-item">
-
-        
-          <img src="https://cdn.yojnaportal.com/2026/PM-Kisan-23th-Installment.webp" alt="Old Age Pension Ekyc Poster">
+          <img src="https://cdn.yojnaportal.com/Banner/25x32/scheme/Pension-Updates-2026.webp" alt="Old Age Pension Ekyc Poster">
         
 
         
@@ -606,10 +578,10 @@ toggle.addEventListener('change', () => {
 
       </a>
     
-      <a href="/mobile-repairing-work/" class="gallery-item">
+      <a href="/pm-svanidhi-yojana/" class="gallery-item">
 
         
-          <img src="https://cdn.yojnaportal.com/Banner/25x32/bussiness/Mobile-Reparing-Work.webp" alt="Old Age Pension Ekyc Poster">
+          <img src="https://cdn.yojnaportal.com/Banner/25x32/scheme/pm-svanidhi-yojana.webp" alt="Old Age Pension Ekyc Poster">
         
 
         
@@ -620,10 +592,38 @@ toggle.addEventListener('change', () => {
 
       </a>
     
-      <a href="/kotak-mahindra-bank-csp/" class="gallery-item">
+      <a href="/pm-kisan-samman-nidhi-apply/" class="gallery-item">
 
         
-          <img src="https://cdn.yojnaportal.com/Banner/25x32/banking/Kotak-Mahindra-Bank.webp" alt="Old Age Pension Ekyc Poster">
+          <img src="https://cdn.yojnaportal.com/Banner/25x32/scheme/pm-kisan-samman-nidhi.webp" alt="Old Age Pension Ekyc Poster">
+        
+
+        
+
+        
+
+     
+
+      </a>
+    
+      <a href="/channel.json" class="gallery-item">
+
+        
+          <img src="/default.jpg" alt="default">
+        
+
+        
+
+        
+
+     
+
+      </a>
+    
+      <a href="/passport-card-online-apply-service/" class="gallery-item">
+
+        
+          <img src="https://cdn.yojnaportal.com/Banner/25x32/documents/Passport-Card-Sewa.webp" alt="Old Age Pension Ekyc Poster">
         
 
         
@@ -1675,5 +1675,22 @@ document.addEventListener("DOMContentLoaded", () => {
     <script src="http://localhost:1313/js/pages/disabled.min.163900fe20f6f627929f358a505bf043308f959eb66947d7285eb575e51b24b2.js" integrity="sha256-FjkA/iD29ieSnzWKUFvwQzCPlZ62aUfXKF61deUbJLI=" defer></script>
   
 
+<script>
+(function () {
+
+    fetch("https://post-feed-api.yojnaportal-com.workers.dev/api/view", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            site: "yojnaportal",
+            url: window.location.href
+        })
+    })
+    .catch(function () {});
+
+})();
+</script>
 </body>
 </html>

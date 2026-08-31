@@ -563,6 +563,34 @@ toggle.addEventListener('change', () => {
 
   <div class="gallery">
     
+      <a href="/shadi-card-printing-service/" class="gallery-item">
+
+        
+          <img src="https://cdn.yojnaportal.com/Banner/25x32/marrige-card.webp" alt="Abha Health Card">
+        
+
+        
+
+        
+
+     
+
+      </a>
+    
+      <a href="/gumasta-license-registration-poster/" class="gallery-item">
+
+        
+          <img src="https://cdn.yojnaportal.com/Banner/25x32/bussiness/gumasta-license.webp" alt="Abha Health Card">
+        
+
+        
+
+        
+
+     
+
+      </a>
+    
       <a href="/pan-card-apply/" class="gallery-item">
 
         
@@ -591,24 +619,10 @@ toggle.addEventListener('change', () => {
 
       </a>
     
-      <a href="/food-safety-license/" class="gallery-item">
+      <a href="/pnst-exam-2026/" class="gallery-item">
 
         
-          <img src="https://cdn.yojnaportal.com/Banner/25x32/bussiness/food-safety-license.webp" alt="Abha Health Card">
-        
-
-        
-
-        
-
-     
-
-      </a>
-    
-      <a href="/shadi-card-printing-service/" class="gallery-item">
-
-        
-          <img src="https://cdn.yojnaportal.com/Banner/25x32/marrige-card.webp" alt="Abha Health Card">
+          <img src="https://cdn.yojnaportal.com/exam/2026/pnst-exam-2026.webp" alt="Abha Health Card">
         
 
         
@@ -619,24 +633,10 @@ toggle.addEventListener('change', () => {
 
       </a>
     
-      <a href="/boi-bank-of-india-csp-poster/" class="gallery-item">
+      <a href="/npci-dbt-update-service/" class="gallery-item">
 
         
-          <img src="https://cdn.yojnaportal.com/Banner/25x32/banking/BOI-Bank-of-India-CSP-Poster.webp" alt="Abha Health Card">
-        
-
-        
-
-        
-
-     
-
-      </a>
-    
-      <a href="/epfo-ralated-online-work/" class="gallery-item">
-
-        
-          <img src="https://cdn.yojnaportal.com/Banner/25x32/banking/EPFO-Related-Online-Works.webp" alt="Abha Health Card">
+          <img src="https://cdn.yojnaportal.com/Banner/25x32/banking/dbt-npci-link.webp" alt="Abha Health Card">
         
 
         
@@ -1205,5 +1205,22 @@ document.addEventListener("DOMContentLoaded", () => {
     <script src="http://localhost:1313/js/pages/disabled.min.163900fe20f6f627929f358a505bf043308f959eb66947d7285eb575e51b24b2.js" integrity="sha256-FjkA/iD29ieSnzWKUFvwQzCPlZ62aUfXKF61deUbJLI=" defer></script>
   
 
+<script>
+(function () {
+
+    fetch("https://post-feed-api.yojnaportal-com.workers.dev/api/view", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            site: "yojnaportal",
+            url: window.location.href
+        })
+    })
+    .catch(function () {});
+
+})();
+</script>
 </body>
 </html>

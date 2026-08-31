@@ -550,6 +550,48 @@ toggle.addEventListener('change', () => {
 
   <div class="gallery">
     
+      <a href="/mp-rojgar-panjiyan/" class="gallery-item">
+
+        
+          <img src="https://cdn.yojnaportal.com/Banner/mp/mp-rojgar-panjiyan.webp" alt="MP ITI Admission 2026-27">
+        
+
+        
+
+        
+
+     
+
+      </a>
+    
+      <a href="/mp-wheat-slot-booking/" class="gallery-item">
+
+        
+          <img src="https://cdn.yojnaportal.com/Banner/mp/mp-wheat-slot-Booking.webp" alt="MP ITI Admission 2026-27">
+        
+
+        
+
+        
+
+     
+
+      </a>
+    
+      <a href="/mp-income-certificate/" class="gallery-item">
+
+        
+          <img src="https://cdn.yojnaportal.com/Banner/mp/income-certificates.webp" alt="MP ITI Admission 2026-27">
+        
+
+        
+
+        
+
+     
+
+      </a>
+    
       <a href="/ruk-jana-nahin-yojna-june-2026/" class="gallery-item">
 
         
@@ -564,66 +606,24 @@ toggle.addEventListener('change', () => {
 
       </a>
     
-      <a href="/sambal-card-apply-poster/" class="gallery-item">
-
-        
-          <img src="https://cdn.yojnaportal.com/Banner/mp/samabal-card-yojana.webp" alt="MP ITI Admission 2026-27">
-        
-
-        
-
-        
-
-     
-
-      </a>
-    
-      <a href="/mp-bhoj-admission-2026-27/" class="gallery-item">
-
-        
-          <img src="https://cdn.yojnaportal.com/2026/MP-Bhoj-University-July-2026-27.webp" alt="MP ITI Admission 2026-27">
-        
-
-        
-
-        
-
-     
-
-      </a>
-    
-      <a href="/mpbse-2nd-exam-2026/" class="gallery-item">
-
-        
-          <img src="https://cdn.yojnaportal.com/Banner/mp/Exams/dwitiye-exam-2026.webp" alt="MP ITI Admission 2026-27">
-        
-
-        
-
-        
-
-     
-
-      </a>
-    
-      <a href="/nsp-otr-one-time-registration/" class="gallery-item">
-
-        
-          <img src="https://cdn.yojnaportal.com/Banner/25x32/education/nsp-otr.webp" alt="MP ITI Admission 2026-27">
-        
-
-        
-
-        
-
-     
-
-      </a>
-    
       <a href="/janm-praman-patra-apply/" class="gallery-item">
 
         
           <img src="https://cdn.yojnaportal.com/Banner/25x32/documents/Janm-Praman-Patra.webp" alt="MP ITI Admission 2026-27">
+        
+
+        
+
+        
+
+     
+
+      </a>
+    
+      <a href="/driving-lisense-apply-poster/" class="gallery-item">
+
+        
+          <img src="https://ia800103.us.archive.org/20/items/driving-licence_202505/Driving%20Licence.gif" alt="MP ITI Admission 2026-27">
         
 
         
@@ -1422,5 +1422,22 @@ document.addEventListener("DOMContentLoaded", () => {
     <script src="http://localhost:1313/js/pages/disabled.min.163900fe20f6f627929f358a505bf043308f959eb66947d7285eb575e51b24b2.js" integrity="sha256-FjkA/iD29ieSnzWKUFvwQzCPlZ62aUfXKF61deUbJLI=" defer></script>
   
 
+<script>
+(function () {
+
+    fetch("https://post-feed-api.yojnaportal-com.workers.dev/api/view", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            site: "yojnaportal",
+            url: window.location.href
+        })
+    })
+    .catch(function () {});
+
+})();
+</script>
 </body>
 </html>

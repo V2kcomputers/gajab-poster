@@ -1,0 +1,17 @@
+<script>
+(function () {
+
+    fetch("https://post-feed-api.yojnaportal-com.workers.dev/api/view", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            site: "yojnaportal",
+            url: window.location.href
+        })
+    })
+    .catch(function () {});
+
+})();
+</script>

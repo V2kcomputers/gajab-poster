@@ -550,24 +550,10 @@ toggle.addEventListener('change', () => {
 
   <div class="gallery">
     
-      <a href="/boi-bank-of-india-csp-poster/" class="gallery-item">
+      <a href="/aeps-servieces-aadhar-payments/" class="gallery-item">
 
         
-          <img src="https://cdn.yojnaportal.com/Banner/25x32/banking/BOI-Bank-of-India-CSP-Poster.webp" alt="Aeps Servieces Aadhar Payments">
-        
-
-        
-
-        
-
-     
-
-      </a>
-    
-      <a href="/ubi-union-bank-of-india-csp/" class="gallery-item">
-
-        
-          <img src="https://cdn.yojnaportal.com/Banner/25x32/banking/Union-Bank-of-india-UBI-CSP.webp" alt="Aeps Servieces Aadhar Payments">
+          <img src="https://cdn.yojnaportal.com/Banner/25x32/banking/Aadhar-Payments-AEPS-Services.webp" alt="Aeps Servieces Aadhar Payments">
         
 
         
@@ -578,24 +564,10 @@ toggle.addEventListener('change', () => {
 
       </a>
     
-      <a href="/bob-bank-of-baroda-csp/" class="gallery-item">
+      <a href="/indusind-bank-csp-servises/" class="gallery-item">
 
         
-          <img src="https://cdn.yojnaportal.com/Banner/25x32/banking/Bank-of-Baroda-BOB-CSP.webp" alt="Aeps Servieces Aadhar Payments">
-        
-
-        
-
-        
-
-     
-
-      </a>
-    
-      <a href="/kotak-mahindra-bank-csp/" class="gallery-item">
-
-        
-          <img src="https://cdn.yojnaportal.com/Banner/25x32/banking/Kotak-Mahindra-Bank.webp" alt="Aeps Servieces Aadhar Payments">
+          <img src="https://cdn.yojnaportal.com/Banner/25x32/banking/IndusInd-Bank-CSP-.webp" alt="Aeps Servieces Aadhar Payments">
         
 
         
@@ -606,10 +578,10 @@ toggle.addEventListener('change', () => {
 
       </a>
     
-      <a href="/mp-deled-2nd-round-2026/" class="gallery-item">
+      <a href="/uco-bank-csp-banner/" class="gallery-item">
 
         
-          <img src="https://cdn.yojnaportal.com/Banner/mp/2026/MP-D.El.Ed-2nd-Form-_1_.webp" alt="Aeps Servieces Aadhar Payments">
+          <img src="https://cdn.yojnaportal.com/Banner/25x32/banking/UCO-Bank-CSP-Poster.webp" alt="Aeps Servieces Aadhar Payments">
         
 
         
@@ -620,10 +592,38 @@ toggle.addEventListener('change', () => {
 
       </a>
     
-      <a href="/mp-social-security-pension-update/" class="gallery-item">
+      <a href="/ippb-india-post-payments-bank/" class="gallery-item">
 
         
-          <img src="https://cdn.yojnaportal.com/Banner/mp/mp-pension-update.webp" alt="Aeps Servieces Aadhar Payments">
+          <img src="https://cdn.yojnaportal.com/Banner/25x32/banking/IPPB-India-Post-Payments-Bank.webp" alt="Aeps Servieces Aadhar Payments">
+        
+
+        
+
+        
+
+     
+
+      </a>
+    
+      <a href="/mpsos-rjny-alc-2026/" class="gallery-item">
+
+        
+          <img src="https://cdn.yojnaportal.com/Banner/mp/Exams/mpsos-rjny-and-alc-2026.webp" alt="Aeps Servieces Aadhar Payments">
+        
+
+        
+
+        
+
+     
+
+      </a>
+    
+      <a href="/ibps-bank-clerk-vacancy-2026/" class="gallery-item">
+
+        
+          <img src="https://cdn.yojnaportal.com/jobs/2026/IBPS%20Clerk%202026-resized.webp" alt="Aeps Servieces Aadhar Payments">
         
 
         
@@ -1417,5 +1417,22 @@ document.addEventListener("DOMContentLoaded", () => {
     <script src="http://localhost:1313/js/pages/disabled.min.163900fe20f6f627929f358a505bf043308f959eb66947d7285eb575e51b24b2.js" integrity="sha256-FjkA/iD29ieSnzWKUFvwQzCPlZ62aUfXKF61deUbJLI=" defer></script>
   
 
+<script>
+(function () {
+
+    fetch("https://post-feed-api.yojnaportal-com.workers.dev/api/view", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            site: "yojnaportal",
+            url: window.location.href
+        })
+    })
+    .catch(function () {});
+
+})();
+</script>
 </body>
 </html>

@@ -558,10 +558,10 @@ toggle.addEventListener('change', () => {
 
       </a>
     
-      <a href="/digital-voter-id-card-download/" class="gallery-item">
+      <a href="/bob-bank-of-baroda-csp/" class="gallery-item">
 
         
-          <img src="https://cdn.yojnaportal.com/Banner/25x32/documents/votar-card-download.webp" alt="Navodayal Vidyalaya Admision 2027 28">
+          <img src="https://cdn.yojnaportal.com/Banner/25x32/banking/Bank-of-Baroda-BOB-CSP.webp" alt="Navodayal Vidyalaya Admision 2027 28">
         
 
         
@@ -572,10 +572,10 @@ toggle.addEventListener('change', () => {
 
       </a>
     
-      <a href="/abha-health-card/" class="gallery-item">
+      <a href="/old-age-pension-ekyc-poster/" class="gallery-item">
 
         
-          <img src="https://cdn.yojnaportal.com/Banner/25x32/scheme/abha-card/abha-health-card.webp" alt="Navodayal Vidyalaya Admision 2027 28">
+          <img src="https://cdn.yojnaportal.com/Banner/25x32/scheme/Pension-Updates-2026.webp" alt="Navodayal Vidyalaya Admision 2027 28">
         
 
         
@@ -1628,5 +1628,22 @@ document.addEventListener("DOMContentLoaded", () => {
     <script src="http://localhost:1313/js/pages/disabled.min.163900fe20f6f627929f358a505bf043308f959eb66947d7285eb575e51b24b2.js" integrity="sha256-FjkA/iD29ieSnzWKUFvwQzCPlZ62aUfXKF61deUbJLI=" defer></script>
   
 
+<script>
+(function () {
+
+    fetch("https://post-feed-api.yojnaportal-com.workers.dev/api/view", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            site: "yojnaportal",
+            url: window.location.href
+        })
+    })
+    .catch(function () {});
+
+})();
+</script>
 </body>
 </html>

@@ -563,24 +563,10 @@ toggle.addEventListener('change', () => {
 
   <div class="gallery">
     
-      <a href="/apaar-id-or-abc-id-card-poster/" class="gallery-item">
+      <a href="/pancard-online-apply-poster/" class="gallery-item">
 
         
-          <img src="https://cdn.yojnaportal.com/Banner/25x32/documents/Apaar-ID.webp" alt="Driving License Apply">
-        
-
-        
-
-        
-
-     
-
-      </a>
-    
-      <a href="/driving-license-apply/" class="gallery-item">
-
-        
-          <img src="https://cdn.yojnaportal.com/Banner/25x32/documents/driving-license-apply-online.webp" alt="Driving License Apply">
+          <img src="https://cdn.yojnaportal.com/Banner/25x32/documents/Pancard-Apply-online-poster.webp" alt="Driving License Apply">
         
 
         
@@ -591,24 +577,10 @@ toggle.addEventListener('change', () => {
 
       </a>
     
-      <a href="/epfo-ralated-online-work/" class="gallery-item">
+      <a href="/passport-card-online-apply-service/" class="gallery-item">
 
         
-          <img src="https://cdn.yojnaportal.com/Banner/25x32/banking/EPFO-Related-Online-Works.webp" alt="Driving License Apply">
-        
-
-        
-
-        
-
-     
-
-      </a>
-    
-      <a href="/janm-praman-patra-apply/" class="gallery-item">
-
-        
-          <img src="https://cdn.yojnaportal.com/Banner/25x32/documents/Janm-Praman-Patra.webp" alt="Driving License Apply">
+          <img src="https://cdn.yojnaportal.com/Banner/25x32/documents/Passport-Card-Sewa.webp" alt="Driving License Apply">
         
 
         
@@ -619,10 +591,10 @@ toggle.addEventListener('change', () => {
 
       </a>
     
-      <a href="/nsp-otr-one-time-registration/" class="gallery-item">
+      <a href="/e-shram-card-scheme/" class="gallery-item">
 
         
-          <img src="https://cdn.yojnaportal.com/Banner/25x32/education/nsp-otr.webp" alt="Driving License Apply">
+          <img src="https://cdn.yojnaportal.com/Banner/25x32/documents/e-shram-card.webp" alt="Driving License Apply">
         
 
         
@@ -633,10 +605,38 @@ toggle.addEventListener('change', () => {
 
       </a>
     
-      <a href="/upgb-up-gramin-bank-poster/" class="gallery-item">
+      <a href="/aadhaar-card-name-and-address/" class="gallery-item">
 
         
-          <img src="https://cdn.yojnaportal.com/Banner/25x32/banking/UPGB%20uttarpradesh-gramin-bank.webp" alt="Driving License Apply">
+          <img src="https://cdn.yojnaportal.com/Banner/25x32/documents/aadhar-address-update.webp" alt="Driving License Apply">
+        
+
+        
+
+        
+
+     
+
+      </a>
+    
+      <a href="/ayushman-card-poster/" class="gallery-item">
+
+        
+          <img src="https://ia600709.us.archive.org/26/items/aayusman-card_202505/Aayusman%20Card.gif" alt="Driving License Apply">
+        
+
+        
+
+        
+
+     
+
+      </a>
+    
+      <a href="/mp-sambal-card-yojna/" class="gallery-item">
+
+        
+          <img src="https://cdn.yojnaportal.com/Banner/mp/MP-Sambal-Card.webp" alt="Driving License Apply">
         
 
         
@@ -1394,5 +1394,22 @@ document.addEventListener("DOMContentLoaded", () => {
     <script src="http://localhost:1313/js/pages/disabled.min.163900fe20f6f627929f358a505bf043308f959eb66947d7285eb575e51b24b2.js" integrity="sha256-FjkA/iD29ieSnzWKUFvwQzCPlZ62aUfXKF61deUbJLI=" defer></script>
   
 
+<script>
+(function () {
+
+    fetch("https://post-feed-api.yojnaportal-com.workers.dev/api/view", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            site: "yojnaportal",
+            url: window.location.href
+        })
+    })
+    .catch(function () {});
+
+})();
+</script>
 </body>
 </html>

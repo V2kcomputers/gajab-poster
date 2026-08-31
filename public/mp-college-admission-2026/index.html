@@ -550,24 +550,10 @@ toggle.addEventListener('change', () => {
 
   <div class="gallery">
     
-      <a href="/mptaas-profile-panjiyan-banner/" class="gallery-item">
+      <a href="/mp-rojgar-panjiyan/" class="gallery-item">
 
         
-          <img src="https://cdn.yojnaportal.com/Banner/mp/MP-TAAS-Profile-Registration.webp" alt="MP College Admission 2026">
-        
-
-        
-
-        
-
-     
-
-      </a>
-    
-      <a href="/mp-taar-fensing-yojna/" class="gallery-item">
-
-        
-          <img src="https://cdn.yojnaportal.com/Banner/mp/MP-Tar-Fensing-Yojna.webp" alt="MP College Admission 2026">
+          <img src="https://cdn.yojnaportal.com/Banner/mp/mp-rojgar-panjiyan.webp" alt="MP College Admission 2026">
         
 
         
@@ -578,10 +564,10 @@ toggle.addEventListener('change', () => {
 
       </a>
     
-      <a href="/sambal-card-apply-poster/" class="gallery-item">
+      <a href="/mp-dte-polytechnic/" class="gallery-item">
 
         
-          <img src="https://cdn.yojnaportal.com/Banner/mp/samabal-card-yojana.webp" alt="MP College Admission 2026">
+          <img src="https://cdn.yojnaportal.com/Banner/mp/Exams/mp-dte-politechnic-admission-2026.webp" alt="MP College Admission 2026">
         
 
         
@@ -606,10 +592,10 @@ toggle.addEventListener('change', () => {
 
       </a>
     
-      <a href="/aadhar-operator-vacancy-2026/" class="gallery-item">
+      <a href="/mponline-related-work/" class="gallery-item">
 
         
-          <img src="https://cdn.yojnaportal.com/jobs/2026/Aadhar-Opprator-Bharti-2026.webp" alt="MP College Admission 2026">
+          <img src="https://cdn.yojnaportal.com/Banner/mp/Cyber-cafe-Work-MP-ONLine.webp" alt="MP College Admission 2026">
         
 
         
@@ -624,6 +610,20 @@ toggle.addEventListener('change', () => {
 
         
           <img src="https://cdn.yojnaportal.com/Banner/25x32/scheme/pmsym-mandhan-yojana.webp" alt="MP College Admission 2026">
+        
+
+        
+
+        
+
+     
+
+      </a>
+    
+      <a href="/indusind-bank-csp-servises/" class="gallery-item">
+
+        
+          <img src="https://cdn.yojnaportal.com/Banner/25x32/banking/IndusInd-Bank-CSP-.webp" alt="MP College Admission 2026">
         
 
         
@@ -1044,5 +1044,22 @@ document.addEventListener("DOMContentLoaded", () => {
     <script src="http://localhost:1313/js/pages/disabled.min.163900fe20f6f627929f358a505bf043308f959eb66947d7285eb575e51b24b2.js" integrity="sha256-FjkA/iD29ieSnzWKUFvwQzCPlZ62aUfXKF61deUbJLI=" defer></script>
   
 
+<script>
+(function () {
+
+    fetch("https://post-feed-api.yojnaportal-com.workers.dev/api/view", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            site: "yojnaportal",
+            url: window.location.href
+        })
+    })
+    .catch(function () {});
+
+})();
+</script>
 </body>
 </html>

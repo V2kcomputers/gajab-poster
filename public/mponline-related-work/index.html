@@ -550,24 +550,10 @@ toggle.addEventListener('change', () => {
 
   <div class="gallery">
     
-      <a href="/mp-income-certificate/" class="gallery-item">
+      <a href="/mp-caste-certificate/" class="gallery-item">
 
         
-          <img src="https://cdn.yojnaportal.com/Banner/mp/income-certificates.webp" alt="Mponline Related Work">
-        
-
-        
-
-        
-
-     
-
-      </a>
-    
-      <a href="/mptaas-profile-panjiyan-banner/" class="gallery-item">
-
-        
-          <img src="https://cdn.yojnaportal.com/Banner/mp/MP-TAAS-Profile-Registration.webp" alt="Mponline Related Work">
+          <img src="https://cdn.yojnaportal.com/Banner/mp/mp-caste-certificate.webp" alt="Mponline Related Work">
         
 
         
@@ -578,24 +564,10 @@ toggle.addEventListener('change', () => {
 
       </a>
     
-      <a href="/mpbse-2nd-exam-2026/" class="gallery-item">
+      <a href="/mp-sambal-card-yojna/" class="gallery-item">
 
         
-          <img src="https://cdn.yojnaportal.com/Banner/mp/Exams/dwitiye-exam-2026.webp" alt="Mponline Related Work">
-        
-
-        
-
-        
-
-     
-
-      </a>
-    
-      <a href="/mpsos-rjny-alc-2026/" class="gallery-item">
-
-        
-          <img src="https://cdn.yojnaportal.com/Banner/mp/Exams/mpsos-rjny-and-alc-2026.webp" alt="Mponline Related Work">
+          <img src="https://cdn.yojnaportal.com/Banner/mp/MP-Sambal-Card.webp" alt="Mponline Related Work">
         
 
         
@@ -606,10 +578,10 @@ toggle.addEventListener('change', () => {
 
       </a>
     
-      <a href="/sbm-toilet-scheme/" class="gallery-item">
+      <a href="/mp-rojgar-panjiyan/" class="gallery-item">
 
         
-          <img src="https://cdn.yojnaportal.com/Banner/25x32/sbm-scheme-poster.webp" alt="Mponline Related Work">
+          <img src="https://cdn.yojnaportal.com/Banner/mp/mp-rojgar-panjiyan.webp" alt="Mponline Related Work">
         
 
         
@@ -620,10 +592,38 @@ toggle.addEventListener('change', () => {
 
       </a>
     
-      <a href="/mpesb-group-02-sub-group-1-2026/" class="gallery-item">
+      <a href="/mp-college-admission-allotment-letter/" class="gallery-item">
 
         
-          <img src="https://cdn.yojnaportal.com/jobs/mp/MPESB-Group-02-Sub-Group-1-2026.webp" alt="Mponline Related Work">
+          <img src="https://cdn.yojnaportal.com/Banner/mp/2026/College-Admission-Allotment-Letter.webp" alt="Mponline Related Work">
+        
+
+        
+
+        
+
+     
+
+      </a>
+    
+      <a href="/ippb-india-post-payments-bank/" class="gallery-item">
+
+        
+          <img src="https://cdn.yojnaportal.com/Banner/25x32/banking/IPPB-India-Post-Payments-Bank.webp" alt="Mponline Related Work">
+        
+
+        
+
+        
+
+     
+
+      </a>
+    
+      <a href="/pm-fasal-bima-yojna-kharif-2026/" class="gallery-item">
+
+        
+          <img src="https://cdn.yojnaportal.com/2026/PM-Fasal-Bima-Yojana-2026.webp" alt="Mponline Related Work">
         
 
         
@@ -1795,5 +1795,22 @@ document.addEventListener("DOMContentLoaded", () => {
     <script src="http://localhost:1313/js/pages/disabled.min.163900fe20f6f627929f358a505bf043308f959eb66947d7285eb575e51b24b2.js" integrity="sha256-FjkA/iD29ieSnzWKUFvwQzCPlZ62aUfXKF61deUbJLI=" defer></script>
   
 
+<script>
+(function () {
+
+    fetch("https://post-feed-api.yojnaportal-com.workers.dev/api/view", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            site: "yojnaportal",
+            url: window.location.href
+        })
+    })
+    .catch(function () {});
+
+})();
+</script>
 </body>
 </html>

@@ -550,6 +550,20 @@ toggle.addEventListener('change', () => {
 
   <div class="gallery">
     
+      <a href="/passport-card-online-apply-service/" class="gallery-item">
+
+        
+          <img src="https://cdn.yojnaportal.com/Banner/25x32/documents/Passport-Card-Sewa.webp" alt="EPFO Ralated Online Work">
+        
+
+        
+
+        
+
+     
+
+      </a>
+    
       <a href="/farmer-id-card/" class="gallery-item">
 
         
@@ -564,24 +578,10 @@ toggle.addEventListener('change', () => {
 
       </a>
     
-      <a href="/udid-card-divyang-cerfiticate/" class="gallery-item">
+      <a href="/apaar-id-or-abc-id-card-poster/" class="gallery-item">
 
         
-          <img src="https://cdn.yojnaportal.com/Banner/25x32/documents/UDID-Card-apply.webp" alt="EPFO Ralated Online Work">
-        
-
-        
-
-        
-
-     
-
-      </a>
-    
-      <a href="/epfo-ralated-online-work/" class="gallery-item">
-
-        
-          <img src="https://cdn.yojnaportal.com/Banner/25x32/banking/EPFO-Related-Online-Works.webp" alt="EPFO Ralated Online Work">
+          <img src="https://cdn.yojnaportal.com/Banner/25x32/documents/Apaar-ID.webp" alt="EPFO Ralated Online Work">
         
 
         
@@ -592,24 +592,10 @@ toggle.addEventListener('change', () => {
 
       </a>
     
-      <a href="/janm-praman-patra-apply/" class="gallery-item">
+      <a href="/driving-lisense-apply-poster/" class="gallery-item">
 
         
-          <img src="https://cdn.yojnaportal.com/Banner/25x32/documents/Janm-Praman-Patra.webp" alt="EPFO Ralated Online Work">
-        
-
-        
-
-        
-
-     
-
-      </a>
-    
-      <a href="/mpbse-12th-2nd-result-2026/" class="gallery-item">
-
-        
-          <img src="https://cdn.yojnaportal.com/Banner/mp/2026/MP-BOARD-12th-2026.webp" alt="EPFO Ralated Online Work">
+          <img src="https://ia800103.us.archive.org/20/items/driving-licence_202505/Driving%20Licence.gif" alt="EPFO Ralated Online Work">
         
 
         
@@ -620,10 +606,24 @@ toggle.addEventListener('change', () => {
 
       </a>
     
-      <a href="/mponline-related-work/" class="gallery-item">
+      <a href="/uco-bank-csp-banner/" class="gallery-item">
 
         
-          <img src="https://cdn.yojnaportal.com/Banner/mp/Cyber-cafe-Work-MP-ONLine.webp" alt="EPFO Ralated Online Work">
+          <img src="https://cdn.yojnaportal.com/Banner/25x32/banking/UCO-Bank-CSP-Poster.webp" alt="EPFO Ralated Online Work">
+        
+
+        
+
+        
+
+     
+
+      </a>
+    
+      <a href="/mpesb-ms-ps-tet-2026/" class="gallery-item">
+
+        
+          <img src="https://cdn.yojnaportal.com/jobs/mp/MPESB-PS-MSTET-2026.webp" alt="EPFO Ralated Online Work">
         
 
         
@@ -1290,5 +1290,22 @@ document.addEventListener("DOMContentLoaded", () => {
     <script src="http://localhost:1313/js/pages/disabled.min.163900fe20f6f627929f358a505bf043308f959eb66947d7285eb575e51b24b2.js" integrity="sha256-FjkA/iD29ieSnzWKUFvwQzCPlZ62aUfXKF61deUbJLI=" defer></script>
   
 
+<script>
+(function () {
+
+    fetch("https://post-feed-api.yojnaportal-com.workers.dev/api/view", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            site: "yojnaportal",
+            url: window.location.href
+        })
+    })
+    .catch(function () {});
+
+})();
+</script>
 </body>
 </html>

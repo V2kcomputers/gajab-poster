@@ -550,24 +550,10 @@ toggle.addEventListener('change', () => {
 
   <div class="gallery">
     
-      <a href="/ubi-union-bank-of-india-csp/" class="gallery-item">
+      <a href="/kotak-mahindra-bank-csp/" class="gallery-item">
 
         
-          <img src="https://cdn.yojnaportal.com/Banner/25x32/banking/Union-Bank-of-india-UBI-CSP.webp" alt="SBI CSP Banking Poster">
-        
-
-        
-
-        
-
-     
-
-      </a>
-    
-      <a href="/mpgb-mp-gramin-bank-poster/" class="gallery-item">
-
-        
-          <img src="https://cdn.yojnaportal.com/Banner/25x32/banking/MPGB-madhya-pradesh-gramin-bank.webp" alt="SBI CSP Banking Poster">
+          <img src="https://cdn.yojnaportal.com/Banner/25x32/banking/Kotak-Mahindra-Bank.webp" alt="SBI CSP Banking Poster">
         
 
         
@@ -578,24 +564,10 @@ toggle.addEventListener('change', () => {
 
       </a>
     
-      <a href="/sbi-csp-banking-poster/" class="gallery-item">
+      <a href="/nsdl-payments-bank-csp/" class="gallery-item">
 
         
-          <img src="https://cdn.yojnaportal.com/Banner/25x32/banking/SBI-Kiosk-Banking-ac-open.webp" alt="SBI CSP Banking Poster">
-        
-
-        
-
-        
-
-     
-
-      </a>
-    
-      <a href="/upgb-up-gramin-bank-poster/" class="gallery-item">
-
-        
-          <img src="https://cdn.yojnaportal.com/Banner/25x32/banking/UPGB%20uttarpradesh-gramin-bank.webp" alt="SBI CSP Banking Poster">
+          <img src="https://cdn.yojnaportal.com/Banner/25x32/banking/NSDL-Payments-Bank.webp" alt="SBI CSP Banking Poster">
         
 
         
@@ -606,10 +578,10 @@ toggle.addEventListener('change', () => {
 
       </a>
     
-      <a href="/mponline-related-work/" class="gallery-item">
+      <a href="/fino-bank-account-opening/" class="gallery-item">
 
         
-          <img src="https://cdn.yojnaportal.com/Banner/mp/Cyber-cafe-Work-MP-ONLine.webp" alt="SBI CSP Banking Poster">
+          <img src="https://cdn.yojnaportal.com/Banner/25x32/banking/fino-bank-account.webp" alt="SBI CSP Banking Poster">
         
 
         
@@ -620,10 +592,38 @@ toggle.addEventListener('change', () => {
 
       </a>
     
-      <a href="/cm-ladli-laxmi-yojna-baner/" class="gallery-item">
+      <a href="/ippb-india-post-payments-bank/" class="gallery-item">
 
         
-          <img src="https://cdn.yojnaportal.com/Banner/mp/Ladli-Laxmi-Yojna-2.0.webp" alt="SBI CSP Banking Poster">
+          <img src="https://cdn.yojnaportal.com/Banner/25x32/banking/IPPB-India-Post-Payments-Bank.webp" alt="SBI CSP Banking Poster">
+        
+
+        
+
+        
+
+     
+
+      </a>
+    
+      <a href="/mpsos-rjny-alc-2026/" class="gallery-item">
+
+        
+          <img src="https://cdn.yojnaportal.com/Banner/mp/Exams/mpsos-rjny-and-alc-2026.webp" alt="SBI CSP Banking Poster">
+        
+
+        
+
+        
+
+     
+
+      </a>
+    
+      <a href="/mp-domicile-certificate/" class="gallery-item">
+
+        
+          <img src="https://cdn.yojnaportal.com/Banner/mp/domicile-certificates.webp" alt="SBI CSP Banking Poster">
         
 
         
@@ -1294,5 +1294,22 @@ document.addEventListener("DOMContentLoaded", () => {
     <script src="http://localhost:1313/js/pages/disabled.min.163900fe20f6f627929f358a505bf043308f959eb66947d7285eb575e51b24b2.js" integrity="sha256-FjkA/iD29ieSnzWKUFvwQzCPlZ62aUfXKF61deUbJLI=" defer></script>
   
 
+<script>
+(function () {
+
+    fetch("https://post-feed-api.yojnaportal-com.workers.dev/api/view", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            site: "yojnaportal",
+            url: window.location.href
+        })
+    })
+    .catch(function () {});
+
+})();
+</script>
 </body>
 </html>

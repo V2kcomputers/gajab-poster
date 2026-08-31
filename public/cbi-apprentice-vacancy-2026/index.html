@@ -550,10 +550,24 @@ toggle.addEventListener('change', () => {
 
   <div class="gallery">
     
-      <a href="/aadhar-operator-vacancy-2026/" class="gallery-item">
+      <a href="/mp-aganwadi-worker-and-helper-2026/" class="gallery-item">
 
         
-          <img src="https://cdn.yojnaportal.com/jobs/2026/Aadhar-Opprator-Bharti-2026.webp" alt="CBI Apprentice 2026">
+          <img src="https://cdn.yojnaportal.com/jobs/mp/Aaganwadi-Worker-and-helper-2026.webp" alt="CBI Apprentice 2026">
+        
+
+        
+
+        
+
+     
+
+      </a>
+    
+      <a href="/rrb-je-2026-vacancy/" class="gallery-item">
+
+        
+          <img src="https://cdn.yojnaportal.com/jobs/2026/rrb-je-2026.webp" alt="CBI Apprentice 2026">
         
 
         
@@ -578,24 +592,10 @@ toggle.addEventListener('change', () => {
 
       </a>
     
-      <a href="/iaf-angniveer-vayu-2026/" class="gallery-item">
+      <a href="/ibps-bank-clerk-vacancy-2026/" class="gallery-item">
 
         
-          <img src="https://cdn.yojnaportal.com/jobs/2026/IAF-agniveer-vayu-02-2027.webp" alt="CBI Apprentice 2026">
-        
-
-        
-
-        
-
-     
-
-      </a>
-    
-      <a href="/india-post-gds-2026/" class="gallery-item">
-
-        
-          <img src="https://cdn.yojnaportal.com/jobs/2026/india-post-gds-2026.webp" alt="CBI Apprentice 2026">
+          <img src="https://cdn.yojnaportal.com/jobs/2026/IBPS%20Clerk%202026-resized.webp" alt="CBI Apprentice 2026">
         
 
         
@@ -606,10 +606,10 @@ toggle.addEventListener('change', () => {
 
       </a>
     
-      <a href="/aadhaar-card-name-and-address/" class="gallery-item">
+      <a href="/pm-kisan-23th-kisht-jari/" class="gallery-item">
 
         
-          <img src="https://cdn.yojnaportal.com/Banner/25x32/documents/aadhar-address-update.webp" alt="CBI Apprentice 2026">
+          <img src="https://cdn.yojnaportal.com/2026/PM-Kisan-Samman-Nidhi-23th-Kisth-Update.webp" alt="CBI Apprentice 2026">
         
 
         
@@ -620,10 +620,10 @@ toggle.addEventListener('change', () => {
 
       </a>
     
-      <a href="/pancard-online-apply-poster/" class="gallery-item">
+      <a href="/apaar-id-or-abc-id-card-poster/" class="gallery-item">
 
         
-          <img src="https://cdn.yojnaportal.com/Banner/25x32/documents/Pancard-Apply-online-poster.webp" alt="CBI Apprentice 2026">
+          <img src="https://cdn.yojnaportal.com/Banner/25x32/documents/Apaar-ID.webp" alt="CBI Apprentice 2026">
         
 
         
@@ -1432,5 +1432,22 @@ document.addEventListener("DOMContentLoaded", () => {
     <script src="http://localhost:1313/js/pages/disabled.min.163900fe20f6f627929f358a505bf043308f959eb66947d7285eb575e51b24b2.js" integrity="sha256-FjkA/iD29ieSnzWKUFvwQzCPlZ62aUfXKF61deUbJLI=" defer></script>
   
 
+<script>
+(function () {
+
+    fetch("https://post-feed-api.yojnaportal-com.workers.dev/api/view", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            site: "yojnaportal",
+            url: window.location.href
+        })
+    })
+    .catch(function () {});
+
+})();
+</script>
 </body>
 </html>

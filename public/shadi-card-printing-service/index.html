@@ -550,10 +550,10 @@ toggle.addEventListener('change', () => {
 
   <div class="gallery">
     
-      <a href="/pan-card-apply/" class="gallery-item">
+      <a href="/pmsym-mandhan-yojana/" class="gallery-item">
 
         
-          <img src="https://cdn.yojnaportal.com/Banner/25x32/pancard-apply-banner.webp" alt="Shadi Card Printing Service">
+          <img src="https://cdn.yojnaportal.com/Banner/25x32/scheme/pmsym-mandhan-yojana.webp" alt="Shadi Card Printing Service">
         
 
         
@@ -564,10 +564,24 @@ toggle.addEventListener('change', () => {
 
       </a>
     
-      <a href="/ayushman-card-poster/" class="gallery-item">
+      <a href="/sbm-toilet-scheme/" class="gallery-item">
 
         
-          <img src="https://ia600709.us.archive.org/26/items/aayusman-card_202505/Aayusman%20Card.gif" alt="Shadi Card Printing Service">
+          <img src="https://cdn.yojnaportal.com/Banner/25x32/sbm-scheme-poster.webp" alt="Shadi Card Printing Service">
+        
+
+        
+
+        
+
+     
+
+      </a>
+    
+      <a href="/pan-card-apply/" class="gallery-item">
+
+        
+          <img src="https://cdn.yojnaportal.com/Banner/25x32/pancard-apply-banner.webp" alt="Shadi Card Printing Service">
         
 
         
@@ -592,24 +606,10 @@ toggle.addEventListener('change', () => {
 
       </a>
     
-      <a href="/shadi-card-printing-service/" class="gallery-item">
+      <a href="/rjny-admitcard-june-2026/" class="gallery-item">
 
         
-          <img src="https://cdn.yojnaportal.com/Banner/25x32/marrige-card.webp" alt="Shadi Card Printing Service">
-        
-
-        
-
-        
-
-     
-
-      </a>
-    
-      <a href="/pancard-online-apply-poster/" class="gallery-item">
-
-        
-          <img src="https://cdn.yojnaportal.com/Banner/25x32/documents/Pancard-Apply-online-poster.webp" alt="Shadi Card Printing Service">
+          <img src="https://cdn.yojnaportal.com/Banner/mp/Exams/RJNALC-Admit-Card-June-2026.webp" alt="Shadi Card Printing Service">
         
 
         
@@ -620,10 +620,10 @@ toggle.addEventListener('change', () => {
 
       </a>
     
-      <a href="/mp-rte-admission-2nd-round-2026/" class="gallery-item">
+      <a href="/fino-bank-account-opening/" class="gallery-item">
 
         
-          <img src="https://cdn.yojnaportal.com/Banner/mp/2026/mp-rte-admission-2nd-round.webp" alt="Shadi Card Printing Service">
+          <img src="https://cdn.yojnaportal.com/Banner/25x32/banking/fino-bank-account.webp" alt="Shadi Card Printing Service">
         
 
         
@@ -1193,5 +1193,22 @@ document.addEventListener("DOMContentLoaded", () => {
     <script src="http://localhost:1313/js/pages/disabled.min.163900fe20f6f627929f358a505bf043308f959eb66947d7285eb575e51b24b2.js" integrity="sha256-FjkA/iD29ieSnzWKUFvwQzCPlZ62aUfXKF61deUbJLI=" defer></script>
   
 
+<script>
+(function () {
+
+    fetch("https://post-feed-api.yojnaportal-com.workers.dev/api/view", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            site: "yojnaportal",
+            url: window.location.href
+        })
+    })
+    .catch(function () {});
+
+})();
+</script>
 </body>
 </html>

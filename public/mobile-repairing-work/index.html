@@ -548,10 +548,10 @@ toggle.addEventListener('change', () => {
 
   <div class="gallery">
     
-      <a href="/mobile-repairing-work/" class="gallery-item">
+      <a href="/photo-studio-poster/" class="gallery-item">
 
         
-          <img src="https://cdn.yojnaportal.com/Banner/25x32/bussiness/Mobile-Reparing-Work.webp" alt="Mobile Repairing Work">
+          <img src="https://cdn.yojnaportal.com/Banner/25x32/documents/argent-photo-poster.webp" alt="Mobile Repairing Work">
         
 
         
@@ -576,24 +576,10 @@ toggle.addEventListener('change', () => {
 
       </a>
     
-      <a href="/photo-studio-poster/" class="gallery-item">
+      <a href="/mobile-repairing-work/" class="gallery-item">
 
         
-          <img src="https://cdn.yojnaportal.com/Banner/25x32/documents/argent-photo-poster.webp" alt="Mobile Repairing Work">
-        
-
-        
-
-        
-
-     
-
-      </a>
-    
-      <a href="/ayushman-bharat-health-card/" class="gallery-item">
-
-        
-          <img src="https://cdn.yojnaportal.com/Banner/25x32/scheme/Aayushman-Card-yojana.webp" alt="Mobile Repairing Work">
+          <img src="https://cdn.yojnaportal.com/Banner/25x32/bussiness/Mobile-Reparing-Work.webp" alt="Mobile Repairing Work">
         
 
         
@@ -604,10 +590,24 @@ toggle.addEventListener('change', () => {
 
       </a>
     
-      <a href="/bob-bank-of-baroda-csp/" class="gallery-item">
+      <a href="/bom-bank-of-maharastra-csp/" class="gallery-item">
 
         
-          <img src="https://cdn.yojnaportal.com/Banner/25x32/banking/Bank-of-Baroda-BOB-CSP.webp" alt="Mobile Repairing Work">
+          <img src="https://cdn.yojnaportal.com/Banner/25x32/banking/Bank-of-Maharashtra-BOM-CSP.webp" alt="Mobile Repairing Work">
+        
+
+        
+
+        
+
+     
+
+      </a>
+    
+      <a href="/ippb-india-post-payments-bank/" class="gallery-item">
+
+        
+          <img src="https://cdn.yojnaportal.com/Banner/25x32/banking/IPPB-India-Post-Payments-Bank.webp" alt="Mobile Repairing Work">
         
 
         
@@ -1320,5 +1320,22 @@ document.addEventListener("DOMContentLoaded", () => {
     <script src="http://localhost:1313/js/pages/disabled.min.163900fe20f6f627929f358a505bf043308f959eb66947d7285eb575e51b24b2.js" integrity="sha256-FjkA/iD29ieSnzWKUFvwQzCPlZ62aUfXKF61deUbJLI=" defer></script>
   
 
+<script>
+(function () {
+
+    fetch("https://post-feed-api.yojnaportal-com.workers.dev/api/view", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            site: "yojnaportal",
+            url: window.location.href
+        })
+    })
+    .catch(function () {});
+
+})();
+</script>
 </body>
 </html>

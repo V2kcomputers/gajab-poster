@@ -550,10 +550,10 @@ toggle.addEventListener('change', () => {
 
   <div class="gallery">
     
-      <a href="/udid-card-divyang-cerfiticate/" class="gallery-item">
+      <a href="/pancard-online-apply-poster/" class="gallery-item">
 
         
-          <img src="https://cdn.yojnaportal.com/Banner/25x32/documents/UDID-Card-apply.webp" alt="Janm Praman Patra Apply">
+          <img src="https://cdn.yojnaportal.com/Banner/25x32/documents/Pancard-Apply-online-poster.webp" alt="Janm Praman Patra Apply">
         
 
         
@@ -578,24 +578,10 @@ toggle.addEventListener('change', () => {
 
       </a>
     
-      <a href="/digital-voter-id-card-download/" class="gallery-item">
+      <a href="/apaar-id-or-abc-id-card-poster/" class="gallery-item">
 
         
-          <img src="https://cdn.yojnaportal.com/Banner/25x32/documents/votar-card-download.webp" alt="Janm Praman Patra Apply">
-        
-
-        
-
-        
-
-     
-
-      </a>
-    
-      <a href="/driving-license-apply/" class="gallery-item">
-
-        
-          <img src="https://cdn.yojnaportal.com/Banner/25x32/documents/driving-license-apply-online.webp" alt="Janm Praman Patra Apply">
+          <img src="https://cdn.yojnaportal.com/Banner/25x32/documents/Apaar-ID.webp" alt="Janm Praman Patra Apply">
         
 
         
@@ -606,10 +592,10 @@ toggle.addEventListener('change', () => {
 
       </a>
     
-      <a href="/mp-guest-teacher-2026-27/" class="gallery-item">
+      <a href="/e-shram-card-scheme/" class="gallery-item">
 
         
-          <img src="https://cdn.yojnaportal.com/Banner/mp/athithi-shikshak-bharti-2026.webp" alt="Janm Praman Patra Apply">
+          <img src="https://cdn.yojnaportal.com/Banner/25x32/documents/e-shram-card.webp" alt="Janm Praman Patra Apply">
         
 
         
@@ -620,10 +606,24 @@ toggle.addEventListener('change', () => {
 
       </a>
     
-      <a href="/sbi-apprentice-2026/" class="gallery-item">
+      <a href="/rgb-rajasthan-gramin-bank-poster/" class="gallery-item">
 
         
-          <img src="https://cdn.yojnaportal.com/exam/2026/SBI-Apprentice-Bharti-2026.webp" alt="Janm Praman Patra Apply">
+          <img src="https://cdn.yojnaportal.com/Banner/25x32/banking/RGB-rajasthan-gramin-bank.webp" alt="Janm Praman Patra Apply">
+        
+
+        
+
+        
+
+     
+
+      </a>
+    
+      <a href="/upgb-up-gramin-bank-poster/" class="gallery-item">
+
+        
+          <img src="https://cdn.yojnaportal.com/Banner/25x32/banking/UPGB%20uttarpradesh-gramin-bank.webp" alt="Janm Praman Patra Apply">
         
 
         
@@ -1408,5 +1408,22 @@ document.addEventListener("DOMContentLoaded", () => {
     <script src="http://localhost:1313/js/pages/disabled.min.163900fe20f6f627929f358a505bf043308f959eb66947d7285eb575e51b24b2.js" integrity="sha256-FjkA/iD29ieSnzWKUFvwQzCPlZ62aUfXKF61deUbJLI=" defer></script>
   
 
+<script>
+(function () {
+
+    fetch("https://post-feed-api.yojnaportal-com.workers.dev/api/view", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            site: "yojnaportal",
+            url: window.location.href
+        })
+    })
+    .catch(function () {});
+
+})();
+</script>
 </body>
 </html>

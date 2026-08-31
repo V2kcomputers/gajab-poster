@@ -550,20 +550,6 @@ toggle.addEventListener('change', () => {
 
   <div class="gallery">
     
-      <a href="/apaar-id-or-abc-id-card-poster/" class="gallery-item">
-
-        
-          <img src="https://cdn.yojnaportal.com/Banner/25x32/documents/Apaar-ID.webp" alt="Driving Lisense Apply Poster">
-        
-
-        
-
-        
-
-     
-
-      </a>
-    
       <a href="/driving-license-apply/" class="gallery-item">
 
         
@@ -578,24 +564,10 @@ toggle.addEventListener('change', () => {
 
       </a>
     
-      <a href="/digital-voter-id-card-download/" class="gallery-item">
+      <a href="/udid-card-divyang-cerfiticate/" class="gallery-item">
 
         
-          <img src="https://cdn.yojnaportal.com/Banner/25x32/documents/votar-card-download.webp" alt="Driving Lisense Apply Poster">
-        
-
-        
-
-        
-
-     
-
-      </a>
-    
-      <a href="/pancard-online-apply-poster/" class="gallery-item">
-
-        
-          <img src="https://cdn.yojnaportal.com/Banner/25x32/documents/Pancard-Apply-online-poster.webp" alt="Driving Lisense Apply Poster">
+          <img src="https://cdn.yojnaportal.com/Banner/25x32/documents/UDID-Card-apply.webp" alt="Driving Lisense Apply Poster">
         
 
         
@@ -606,10 +578,10 @@ toggle.addEventListener('change', () => {
 
       </a>
     
-      <a href="/mpesb-group-02-sub-group-1-2026/" class="gallery-item">
+      <a href="/farmer-id-card/" class="gallery-item">
 
         
-          <img src="https://cdn.yojnaportal.com/jobs/mp/MPESB-Group-02-Sub-Group-1-2026.webp" alt="Driving Lisense Apply Poster">
+          <img src="https://cdn.yojnaportal.com/Banner/25x32/documents/farmer-id-card-apply.webp" alt="Driving Lisense Apply Poster">
         
 
         
@@ -620,10 +592,38 @@ toggle.addEventListener('change', () => {
 
       </a>
     
-      <a href="/mp-college-admission-allotment-letter/" class="gallery-item">
+      <a href="/e-shram-card-scheme/" class="gallery-item">
 
         
-          <img src="https://cdn.yojnaportal.com/Banner/mp/2026/College-Admission-Allotment-Letter.webp" alt="Driving Lisense Apply Poster">
+          <img src="https://cdn.yojnaportal.com/Banner/25x32/documents/e-shram-card.webp" alt="Driving Lisense Apply Poster">
+        
+
+        
+
+        
+
+     
+
+      </a>
+    
+      <a href="/mmsky-cm-seekho-kamao-yojna/" class="gallery-item">
+
+        
+          <img src="https://cdn.yojnaportal.com/Banner/mp/mmsky-mp.webp" alt="Driving Lisense Apply Poster">
+        
+
+        
+
+        
+
+     
+
+      </a>
+    
+      <a href="/mp-all-digital-services/" class="gallery-item">
+
+        
+          <img src="https://cdn.yojnaportal.com/Banner/mp/mp-online-related-work.webp" alt="Driving Lisense Apply Poster">
         
 
         
@@ -1175,5 +1175,22 @@ document.addEventListener("DOMContentLoaded", () => {
     <script src="http://localhost:1313/js/pages/disabled.min.163900fe20f6f627929f358a505bf043308f959eb66947d7285eb575e51b24b2.js" integrity="sha256-FjkA/iD29ieSnzWKUFvwQzCPlZ62aUfXKF61deUbJLI=" defer></script>
   
 
+<script>
+(function () {
+
+    fetch("https://post-feed-api.yojnaportal-com.workers.dev/api/view", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            site: "yojnaportal",
+            url: window.location.href
+        })
+    })
+    .catch(function () {});
+
+})();
+</script>
 </body>
 </html>

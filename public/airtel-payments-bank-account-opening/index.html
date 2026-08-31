@@ -550,24 +550,10 @@ toggle.addEventListener('change', () => {
 
   <div class="gallery">
     
-      <a href="/ubi-union-bank-of-india-csp/" class="gallery-item">
+      <a href="/bom-bank-of-maharastra-csp/" class="gallery-item">
 
         
-          <img src="https://cdn.yojnaportal.com/Banner/25x32/banking/Union-Bank-of-india-UBI-CSP.webp" alt="Airtel Bank Account Opening">
-        
-
-        
-
-        
-
-     
-
-      </a>
-    
-      <a href="/cgb-cg-gramin-bank-poster/" class="gallery-item">
-
-        
-          <img src="https://cdn.yojnaportal.com/Banner/25x32/banking/CGB-Chhattisgarh-gramin-bank.webp" alt="Airtel Bank Account Opening">
+          <img src="https://cdn.yojnaportal.com/Banner/25x32/banking/Bank-of-Maharashtra-BOM-CSP.webp" alt="Airtel Bank Account Opening">
         
 
         
@@ -578,24 +564,10 @@ toggle.addEventListener('change', () => {
 
       </a>
     
-      <a href="/npci-dbt-update-service/" class="gallery-item">
+      <a href="/upgb-up-gramin-bank-poster/" class="gallery-item">
 
         
-          <img src="https://cdn.yojnaportal.com/Banner/25x32/banking/dbt-npci-link.webp" alt="Airtel Bank Account Opening">
-        
-
-        
-
-        
-
-     
-
-      </a>
-    
-      <a href="/airtel-payments-bank-account-opening/" class="gallery-item">
-
-        
-          <img src="https://cdn.yojnaportal.com/Banner/25x32/banking/airtel-bank-account.webp" alt="Airtel Bank Account Opening">
+          <img src="https://cdn.yojnaportal.com/Banner/25x32/banking/UPGB%20uttarpradesh-gramin-bank.webp" alt="Airtel Bank Account Opening">
         
 
         
@@ -606,10 +578,10 @@ toggle.addEventListener('change', () => {
 
       </a>
     
-      <a href="/mp-all-digital-services/" class="gallery-item">
+      <a href="/nsdl-payments-bank-csp/" class="gallery-item">
 
         
-          <img src="https://cdn.yojnaportal.com/Banner/mp/mp-online-related-work.webp" alt="Airtel Bank Account Opening">
+          <img src="https://cdn.yojnaportal.com/Banner/25x32/banking/NSDL-Payments-Bank.webp" alt="Airtel Bank Account Opening">
         
 
         
@@ -620,10 +592,38 @@ toggle.addEventListener('change', () => {
 
       </a>
     
-      <a href="/mp-e-token-generation/" class="gallery-item">
+      <a href="/bgb-bihar-gramin-bank-poster/" class="gallery-item">
 
         
-          <img src="https://cdn.yojnaportal.com/Banner/mp/mp-e-tokan.webp" alt="Airtel Bank Account Opening">
+          <img src="https://cdn.yojnaportal.com/Banner/25x32/banking/BGB-Bihar-Gramin-Bank-Poster.webp" alt="Airtel Bank Account Opening">
+        
+
+        
+
+        
+
+     
+
+      </a>
+    
+      <a href="/mp-deled-2nd-round-2026/" class="gallery-item">
+
+        
+          <img src="https://cdn.yojnaportal.com/Banner/mp/2026/MP-D.El.Ed-2nd-Form-_1_.webp" alt="Airtel Bank Account Opening">
+        
+
+        
+
+        
+
+     
+
+      </a>
+    
+      <a href="/mp-income-certificate/" class="gallery-item">
+
+        
+          <img src="https://cdn.yojnaportal.com/Banner/mp/income-certificates.webp" alt="Airtel Bank Account Opening">
         
 
         
@@ -1215,5 +1215,22 @@ document.addEventListener("DOMContentLoaded", () => {
     <script src="http://localhost:1313/js/pages/disabled.min.163900fe20f6f627929f358a505bf043308f959eb66947d7285eb575e51b24b2.js" integrity="sha256-FjkA/iD29ieSnzWKUFvwQzCPlZ62aUfXKF61deUbJLI=" defer></script>
   
 
+<script>
+(function () {
+
+    fetch("https://post-feed-api.yojnaportal-com.workers.dev/api/view", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            site: "yojnaportal",
+            url: window.location.href
+        })
+    })
+    .catch(function () {});
+
+})();
+</script>
 </body>
 </html>

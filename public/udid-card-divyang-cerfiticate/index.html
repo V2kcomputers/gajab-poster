@@ -550,10 +550,24 @@ toggle.addEventListener('change', () => {
 
   <div class="gallery">
     
-      <a href="/farmer-id-card/" class="gallery-item">
+      <a href="/pancard-online-apply-poster/" class="gallery-item">
 
         
-          <img src="https://cdn.yojnaportal.com/Banner/25x32/documents/farmer-id-card-apply.webp" alt="UDID Card - Divyang Card Poster">
+          <img src="https://cdn.yojnaportal.com/Banner/25x32/documents/Pancard-Apply-online-poster.webp" alt="UDID Card - Divyang Card Poster">
+        
+
+        
+
+        
+
+     
+
+      </a>
+    
+      <a href="/digital-voter-id-card-download/" class="gallery-item">
+
+        
+          <img src="https://cdn.yojnaportal.com/Banner/25x32/documents/votar-card-download.webp" alt="UDID Card - Divyang Card Poster">
         
 
         
@@ -578,24 +592,10 @@ toggle.addEventListener('change', () => {
 
       </a>
     
-      <a href="/passport-card-online-apply-service/" class="gallery-item">
+      <a href="/janm-praman-patra-apply/" class="gallery-item">
 
         
-          <img src="https://cdn.yojnaportal.com/Banner/25x32/documents/Passport-Card-Sewa.webp" alt="UDID Card - Divyang Card Poster">
-        
-
-        
-
-        
-
-     
-
-      </a>
-    
-      <a href="/aadhaar-card-name-and-address/" class="gallery-item">
-
-        
-          <img src="https://cdn.yojnaportal.com/Banner/25x32/documents/aadhar-address-update.webp" alt="UDID Card - Divyang Card Poster">
+          <img src="https://cdn.yojnaportal.com/Banner/25x32/documents/Janm-Praman-Patra.webp" alt="UDID Card - Divyang Card Poster">
         
 
         
@@ -606,10 +606,10 @@ toggle.addEventListener('change', () => {
 
       </a>
     
-      <a href="/abha-health-card/" class="gallery-item">
+      <a href="/rrb-alp-2026/" class="gallery-item">
 
         
-          <img src="https://cdn.yojnaportal.com/Banner/25x32/scheme/abha-card/abha-health-card.webp" alt="UDID Card - Divyang Card Poster">
+          <img src="https://cdn.yojnaportal.com/exam/2026/RRB-Assistant-Loco-Pilot-_ALP_-Recruitment-2026.webp" alt="UDID Card - Divyang Card Poster">
         
 
         
@@ -620,10 +620,10 @@ toggle.addEventListener('change', () => {
 
       </a>
     
-      <a href="/pm-kisan-samman-nidhi-apply/" class="gallery-item">
+      <a href="/mp-income-certificate/" class="gallery-item">
 
         
-          <img src="https://cdn.yojnaportal.com/Banner/25x32/scheme/pm-kisan-samman-nidhi.webp" alt="UDID Card - Divyang Card Poster">
+          <img src="https://cdn.yojnaportal.com/Banner/mp/income-certificates.webp" alt="UDID Card - Divyang Card Poster">
         
 
         
@@ -1336,5 +1336,22 @@ document.addEventListener("DOMContentLoaded", () => {
     <script src="http://localhost:1313/js/pages/disabled.min.163900fe20f6f627929f358a505bf043308f959eb66947d7285eb575e51b24b2.js" integrity="sha256-FjkA/iD29ieSnzWKUFvwQzCPlZ62aUfXKF61deUbJLI=" defer></script>
   
 
+<script>
+(function () {
+
+    fetch("https://post-feed-api.yojnaportal-com.workers.dev/api/view", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            site: "yojnaportal",
+            url: window.location.href
+        })
+    })
+    .catch(function () {});
+
+})();
+</script>
 </body>
 </html>

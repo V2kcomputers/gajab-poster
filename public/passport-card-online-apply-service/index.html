@@ -550,10 +550,10 @@ toggle.addEventListener('change', () => {
 
   <div class="gallery">
     
-      <a href="/passport-card-online-apply-service/" class="gallery-item">
+      <a href="/pancard-online-apply-poster/" class="gallery-item">
 
         
-          <img src="https://cdn.yojnaportal.com/Banner/25x32/documents/Passport-Card-Sewa.webp" alt="Passport Card Online Apply Service">
+          <img src="https://cdn.yojnaportal.com/Banner/25x32/documents/Pancard-Apply-online-poster.webp" alt="Passport Card Online Apply Service">
         
 
         
@@ -564,10 +564,10 @@ toggle.addEventListener('change', () => {
 
       </a>
     
-      <a href="/epfo-ralated-online-work/" class="gallery-item">
+      <a href="/driving-lisense-apply-poster/" class="gallery-item">
 
         
-          <img src="https://cdn.yojnaportal.com/Banner/25x32/banking/EPFO-Related-Online-Works.webp" alt="Passport Card Online Apply Service">
+          <img src="https://ia800103.us.archive.org/20/items/driving-licence_202505/Driving%20Licence.gif" alt="Passport Card Online Apply Service">
         
 
         
@@ -592,24 +592,10 @@ toggle.addEventListener('change', () => {
 
       </a>
     
-      <a href="/driving-license-apply/" class="gallery-item">
+      <a href="/janm-praman-patra-apply/" class="gallery-item">
 
         
-          <img src="https://cdn.yojnaportal.com/Banner/25x32/documents/driving-license-apply-online.webp" alt="Passport Card Online Apply Service">
-        
-
-        
-
-        
-
-     
-
-      </a>
-    
-      <a href="/pm-kisan-23th-kisht-jari/" class="gallery-item">
-
-        
-          <img src="https://cdn.yojnaportal.com/2026/PM-Kisan-Samman-Nidhi-23th-Kisth-Update.webp" alt="Passport Card Online Apply Service">
+          <img src="https://cdn.yojnaportal.com/Banner/25x32/documents/Janm-Praman-Patra.webp" alt="Passport Card Online Apply Service">
         
 
         
@@ -620,10 +606,24 @@ toggle.addEventListener('change', () => {
 
       </a>
     
-      <a href="/npci-dbt-update-service/" class="gallery-item">
+      <a href="/mp-income-and-domicile/" class="gallery-item">
 
         
-          <img src="https://cdn.yojnaportal.com/Banner/25x32/banking/dbt-npci-link.webp" alt="Passport Card Online Apply Service">
+          <img src="https://cdn.yojnaportal.com/Banner/mp/income-and-domicile.webp" alt="Passport Card Online Apply Service">
+        
+
+        
+
+        
+
+     
+
+      </a>
+    
+      <a href="/mp-all-digital-services/" class="gallery-item">
+
+        
+          <img src="https://cdn.yojnaportal.com/Banner/mp/mp-online-related-work.webp" alt="Passport Card Online Apply Service">
         
 
         
@@ -1417,5 +1417,22 @@ document.addEventListener("DOMContentLoaded", () => {
     <script src="http://localhost:1313/js/pages/disabled.min.163900fe20f6f627929f358a505bf043308f959eb66947d7285eb575e51b24b2.js" integrity="sha256-FjkA/iD29ieSnzWKUFvwQzCPlZ62aUfXKF61deUbJLI=" defer></script>
   
 
+<script>
+(function () {
+
+    fetch("https://post-feed-api.yojnaportal-com.workers.dev/api/view", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            site: "yojnaportal",
+            url: window.location.href
+        })
+    })
+    .catch(function () {});
+
+})();
+</script>
 </body>
 </html>

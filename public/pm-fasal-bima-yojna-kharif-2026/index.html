@@ -550,10 +550,24 @@ toggle.addEventListener('change', () => {
 
   <div class="gallery">
     
-      <a href="/pm-kisan-samman-nidhi-apply/" class="gallery-item">
+      <a href="/pm-svanidhi-yojana/" class="gallery-item">
 
         
-          <img src="https://cdn.yojnaportal.com/Banner/25x32/scheme/pm-kisan-samman-nidhi.webp" alt="Pm Fasal Bima Yojna Kharif 2026">
+          <img src="https://cdn.yojnaportal.com/Banner/25x32/scheme/pm-svanidhi-yojana.webp" alt="Pm Fasal Bima Yojna Kharif 2026">
+        
+
+        
+
+        
+
+     
+
+      </a>
+    
+      <a href="/pm-yasasvi-yojna-2026/" class="gallery-item">
+
+        
+          <img src="https://cdn.yojnaportal.com/2026/PM-Yasasvi-yojna-2026.webp" alt="Pm Fasal Bima Yojna Kharif 2026">
         
 
         
@@ -578,24 +592,10 @@ toggle.addEventListener('change', () => {
 
       </a>
     
-      <a href="/pm-kisan-23th-kisht-jari/" class="gallery-item">
+      <a href="/pm-kisan-samman-nidhi-apply/" class="gallery-item">
 
         
-          <img src="https://cdn.yojnaportal.com/2026/PM-Kisan-Samman-Nidhi-23th-Kisth-Update.webp" alt="Pm Fasal Bima Yojna Kharif 2026">
-        
-
-        
-
-        
-
-     
-
-      </a>
-    
-      <a href="/old-age-pension-ekyc-poster/" class="gallery-item">
-
-        
-          <img src="https://cdn.yojnaportal.com/Banner/25x32/scheme/Pension-Updates-2026.webp" alt="Pm Fasal Bima Yojna Kharif 2026">
+          <img src="https://cdn.yojnaportal.com/Banner/25x32/scheme/pm-kisan-samman-nidhi.webp" alt="Pm Fasal Bima Yojna Kharif 2026">
         
 
         
@@ -606,10 +606,10 @@ toggle.addEventListener('change', () => {
 
       </a>
     
-      <a href="/bank-statement-print-service/" class="gallery-item">
+      <a href="/ssc-cgl-vacancy-2026-poster/" class="gallery-item">
 
         
-          <img src="https://cdn.yojnaportal.com/Banner/25x32/All-Bank-Statement.webp" alt="Pm Fasal Bima Yojna Kharif 2026">
+          <img src="https://cdn.yojnaportal.com/exam/2026/SSC-Combined-Graduate-Level-CGL-2026.webp" alt="Pm Fasal Bima Yojna Kharif 2026">
         
 
         
@@ -620,10 +620,10 @@ toggle.addEventListener('change', () => {
 
       </a>
     
-      <a href="/navodayal-vidyalaya-admision-2027-28/" class="gallery-item">
+      <a href="/food-safety-license/" class="gallery-item">
 
         
-          <img src="https://cdn.yojnaportal.com/exam/2026/Navodaya-Vidhayalaya-2027-28.webp" alt="Pm Fasal Bima Yojna Kharif 2026">
+          <img src="https://cdn.yojnaportal.com/Banner/25x32/bussiness/food-safety-license.webp" alt="Pm Fasal Bima Yojna Kharif 2026">
         
 
         
@@ -1613,5 +1613,22 @@ document.addEventListener("DOMContentLoaded", () => {
     <script src="http://localhost:1313/js/pages/disabled.min.163900fe20f6f627929f358a505bf043308f959eb66947d7285eb575e51b24b2.js" integrity="sha256-FjkA/iD29ieSnzWKUFvwQzCPlZ62aUfXKF61deUbJLI=" defer></script>
   
 
+<script>
+(function () {
+
+    fetch("https://post-feed-api.yojnaportal-com.workers.dev/api/view", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            site: "yojnaportal",
+            url: window.location.href
+        })
+    })
+    .catch(function () {});
+
+})();
+</script>
 </body>
 </html>

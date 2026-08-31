@@ -550,24 +550,10 @@ toggle.addEventListener('change', () => {
 
   <div class="gallery">
     
-      <a href="/sbi-clerk-vacancy-2026/" class="gallery-item">
+      <a href="/mpesb-patwari-vacancy-2026/" class="gallery-item">
 
         
-          <img src="https://cdn.yojnaportal.com/jobs/2026/sbi-clerk-vacancy-2026.webp" alt="Mpesb Patwari Vacancy 2026">
-        
-
-        
-
-        
-
-     
-
-      </a>
-    
-      <a href="/mpesb-hospital-assistant-recruitment-2026/" class="gallery-item">
-
-        
-          <img src="https://cdn.yojnaportal.com/jobs/mp/MPESB-Hospital-Assistant-Recruitment-2026.webp" alt="Mpesb Patwari Vacancy 2026">
+          <img src="https://cdn.yojnaportal.com/jobs/mp/MPESB-Patwari-Vacancy-2026.webp" alt="Mpesb Patwari Vacancy 2026">
         
 
         
@@ -578,24 +564,10 @@ toggle.addEventListener('change', () => {
 
       </a>
     
-      <a href="/rrb-alp-2026/" class="gallery-item">
+      <a href="/rrb-je-2026-vacancy/" class="gallery-item">
 
         
-          <img src="https://cdn.yojnaportal.com/exam/2026/RRB-Assistant-Loco-Pilot-_ALP_-Recruitment-2026.webp" alt="Mpesb Patwari Vacancy 2026">
-        
-
-        
-
-        
-
-     
-
-      </a>
-    
-      <a href="/safai-karmchari-bharti-2026-rajasthan/" class="gallery-item">
-
-        
-          <img src="https://cdn.yojnaportal.com/jobs/rj/Rajasthan-Safai-Karamchari-Bharti-2026%20%281%29.webp" alt="Mpesb Patwari Vacancy 2026">
+          <img src="https://cdn.yojnaportal.com/jobs/2026/rrb-je-2026.webp" alt="Mpesb Patwari Vacancy 2026">
         
 
         
@@ -606,10 +578,10 @@ toggle.addEventListener('change', () => {
 
       </a>
     
-      <a href="/navodayal-vidyalaya-admision-2027-28/" class="gallery-item">
+      <a href="/cbi-apprentice-vacancy-2026/" class="gallery-item">
 
         
-          <img src="https://cdn.yojnaportal.com/exam/2026/Navodaya-Vidhayalaya-2027-28.webp" alt="Mpesb Patwari Vacancy 2026">
+          <img src="https://cdn.yojnaportal.com/jobs/2026/CBI-Apprentice-2026.webp" alt="Mpesb Patwari Vacancy 2026">
         
 
         
@@ -620,10 +592,38 @@ toggle.addEventListener('change', () => {
 
       </a>
     
-      <a href="/mp-college-admission/" class="gallery-item">
+      <a href="/ibps-bank-clerk-vacancy-2026/" class="gallery-item">
 
         
-          <img src="https://cdn.yojnaportal.com/Banner/25x32/admission/2026/MP-College-Admission.webp" alt="Mpesb Patwari Vacancy 2026">
+          <img src="https://cdn.yojnaportal.com/jobs/2026/IBPS%20Clerk%202026-resized.webp" alt="Mpesb Patwari Vacancy 2026">
+        
+
+        
+
+        
+
+     
+
+      </a>
+    
+      <a href="/pm-kisan-samman-nidhi-apply/" class="gallery-item">
+
+        
+          <img src="https://cdn.yojnaportal.com/Banner/25x32/scheme/pm-kisan-samman-nidhi.webp" alt="Mpesb Patwari Vacancy 2026">
+        
+
+        
+
+        
+
+     
+
+      </a>
+    
+      <a href="/kalyani-sahayta-yojna-mp/" class="gallery-item">
+
+        
+          <img src="https://cdn.yojnaportal.com/Banner/mp/MP-Kalyani-Sahayta-Yojna.webp" alt="Mpesb Patwari Vacancy 2026">
         
 
         
@@ -1414,5 +1414,22 @@ document.addEventListener("DOMContentLoaded", () => {
     <script src="http://localhost:1313/js/pages/disabled.min.163900fe20f6f627929f358a505bf043308f959eb66947d7285eb575e51b24b2.js" integrity="sha256-FjkA/iD29ieSnzWKUFvwQzCPlZ62aUfXKF61deUbJLI=" defer></script>
   
 
+<script>
+(function () {
+
+    fetch("https://post-feed-api.yojnaportal-com.workers.dev/api/view", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            site: "yojnaportal",
+            url: window.location.href
+        })
+    })
+    .catch(function () {});
+
+})();
+</script>
 </body>
 </html>

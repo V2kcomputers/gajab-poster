@@ -550,24 +550,10 @@ toggle.addEventListener('change', () => {
 
   <div class="gallery">
     
-      <a href="/mpbse-12th-2nd-result-2026/" class="gallery-item">
+      <a href="/pnst-exam-2026/" class="gallery-item">
 
         
-          <img src="https://cdn.yojnaportal.com/Banner/mp/2026/MP-BOARD-12th-2026.webp" alt="MP RTE Admission 2nd Round 2026">
-        
-
-        
-
-        
-
-     
-
-      </a>
-    
-      <a href="/mpbse-2nd-exam-admitcard-26/" class="gallery-item">
-
-        
-          <img src="https://cdn.yojnaportal.com/Banner/mp/Exams/mp-board-second-exam-2026.webp" alt="MP RTE Admission 2nd Round 2026">
+          <img src="https://cdn.yojnaportal.com/exam/2026/pnst-exam-2026.webp" alt="MP RTE Admission 2nd Round 2026">
         
 
         
@@ -578,24 +564,10 @@ toggle.addEventListener('change', () => {
 
       </a>
     
-      <a href="/mpsos-rjny-alc-2026/" class="gallery-item">
+      <a href="/mp-dte-polytechnic/" class="gallery-item">
 
         
-          <img src="https://cdn.yojnaportal.com/Banner/mp/Exams/mpsos-rjny-and-alc-2026.webp" alt="MP RTE Admission 2nd Round 2026">
-        
-
-        
-
-        
-
-     
-
-      </a>
-    
-      <a href="/mp-social-security-pension-scheme/" class="gallery-item">
-
-        
-          <img src="https://cdn.yojnaportal.com/Banner/25x32/mp/mp-pansion-baner.webp" alt="MP RTE Admission 2nd Round 2026">
+          <img src="https://cdn.yojnaportal.com/Banner/mp/Exams/mp-dte-politechnic-admission-2026.webp" alt="MP RTE Admission 2nd Round 2026">
         
 
         
@@ -606,10 +578,10 @@ toggle.addEventListener('change', () => {
 
       </a>
     
-      <a href="/uco-bank-csp-banner/" class="gallery-item">
+      <a href="/mp-wheat-slot-booking/" class="gallery-item">
 
         
-          <img src="https://cdn.yojnaportal.com/Banner/25x32/banking/UCO-Bank-CSP-Poster.webp" alt="MP RTE Admission 2nd Round 2026">
+          <img src="https://cdn.yojnaportal.com/Banner/mp/mp-wheat-slot-Booking.webp" alt="MP RTE Admission 2nd Round 2026">
         
 
         
@@ -620,10 +592,38 @@ toggle.addEventListener('change', () => {
 
       </a>
     
-      <a href="/apb-airtel-payments-bank-csp-poster/" class="gallery-item">
+      <a href="/mp-college-admission-allotment-letter/" class="gallery-item">
 
         
-          <img src="https://cdn.yojnaportal.com/Banner/25x32/banking/ABP-CSP-Services.webp" alt="MP RTE Admission 2nd Round 2026">
+          <img src="https://cdn.yojnaportal.com/Banner/mp/2026/College-Admission-Allotment-Letter.webp" alt="MP RTE Admission 2nd Round 2026">
+        
+
+        
+
+        
+
+     
+
+      </a>
+    
+      <a href="/pancard-online-apply-poster/" class="gallery-item">
+
+        
+          <img src="https://cdn.yojnaportal.com/Banner/25x32/documents/Pancard-Apply-online-poster.webp" alt="MP RTE Admission 2nd Round 2026">
+        
+
+        
+
+        
+
+     
+
+      </a>
+    
+      <a href="/driving-lisense-apply-poster/" class="gallery-item">
+
+        
+          <img src="https://ia800103.us.archive.org/20/items/driving-licence_202505/Driving%20Licence.gif" alt="MP RTE Admission 2nd Round 2026">
         
 
         
@@ -1316,5 +1316,22 @@ document.addEventListener("DOMContentLoaded", () => {
     <script src="http://localhost:1313/js/pages/disabled.min.163900fe20f6f627929f358a505bf043308f959eb66947d7285eb575e51b24b2.js" integrity="sha256-FjkA/iD29ieSnzWKUFvwQzCPlZ62aUfXKF61deUbJLI=" defer></script>
   
 
+<script>
+(function () {
+
+    fetch("https://post-feed-api.yojnaportal-com.workers.dev/api/view", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            site: "yojnaportal",
+            url: window.location.href
+        })
+    })
+    .catch(function () {});
+
+})();
+</script>
 </body>
 </html>

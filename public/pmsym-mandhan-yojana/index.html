@@ -550,38 +550,38 @@ toggle.addEventListener('change', () => {
 
   <div class="gallery">
     
-      <a href="/udyam-adhar-registration/" class="gallery-item">
-
-        
-          <img src="https://cdn.yojnaportal.com/Banner/25x32/bussiness/udhyam-aadhar-registration.webp" alt="Pmsym Mandhan Yojana">
-        
-
-        
-
-        
-
-     
-
-      </a>
-    
-      <a href="/abha-health-card/" class="gallery-item">
-
-        
-          <img src="https://cdn.yojnaportal.com/Banner/25x32/scheme/abha-card/abha-health-card.webp" alt="Pmsym Mandhan Yojana">
-        
-
-        
-
-        
-
-     
-
-      </a>
-    
       <a href="/sbm-toilet-scheme/" class="gallery-item">
 
         
           <img src="https://cdn.yojnaportal.com/Banner/25x32/sbm-scheme-poster.webp" alt="Pmsym Mandhan Yojana">
+        
+
+        
+
+        
+
+     
+
+      </a>
+    
+      <a href="/food-safety-license/" class="gallery-item">
+
+        
+          <img src="https://cdn.yojnaportal.com/Banner/25x32/bussiness/food-safety-license.webp" alt="Pmsym Mandhan Yojana">
+        
+
+        
+
+        
+
+     
+
+      </a>
+    
+      <a href="/pmsym-mandhan-yojana/" class="gallery-item">
+
+        
+          <img src="https://cdn.yojnaportal.com/Banner/25x32/scheme/pmsym-mandhan-yojana.webp" alt="Pmsym Mandhan Yojana">
         
 
         
@@ -606,10 +606,10 @@ toggle.addEventListener('change', () => {
 
       </a>
     
-      <a href="/mpsos-rjny-alc-2026/" class="gallery-item">
+      <a href="/mp-deled-2nd-round-2026/" class="gallery-item">
 
         
-          <img src="https://cdn.yojnaportal.com/Banner/mp/Exams/mpsos-rjny-and-alc-2026.webp" alt="Pmsym Mandhan Yojana">
+          <img src="https://cdn.yojnaportal.com/Banner/mp/2026/MP-D.El.Ed-2nd-Form-_1_.webp" alt="Pmsym Mandhan Yojana">
         
 
         
@@ -620,10 +620,10 @@ toggle.addEventListener('change', () => {
 
       </a>
     
-      <a href="/pancard-online-apply-poster/" class="gallery-item">
+      <a href="/mp-income-and-domicile/" class="gallery-item">
 
         
-          <img src="https://cdn.yojnaportal.com/Banner/25x32/documents/Pancard-Apply-online-poster.webp" alt="Pmsym Mandhan Yojana">
+          <img src="https://cdn.yojnaportal.com/Banner/mp/income-and-domicile.webp" alt="Pmsym Mandhan Yojana">
         
 
         
@@ -1234,5 +1234,22 @@ document.addEventListener("DOMContentLoaded", () => {
     <script src="http://localhost:1313/js/pages/disabled.min.163900fe20f6f627929f358a505bf043308f959eb66947d7285eb575e51b24b2.js" integrity="sha256-FjkA/iD29ieSnzWKUFvwQzCPlZ62aUfXKF61deUbJLI=" defer></script>
   
 
+<script>
+(function () {
+
+    fetch("https://post-feed-api.yojnaportal-com.workers.dev/api/view", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            site: "yojnaportal",
+            url: window.location.href
+        })
+    })
+    .catch(function () {});
+
+})();
+</script>
 </body>
 </html>

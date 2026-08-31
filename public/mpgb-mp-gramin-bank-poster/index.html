@@ -550,24 +550,10 @@ toggle.addEventListener('change', () => {
 
   <div class="gallery">
     
-      <a href="/cgb-cg-gramin-bank-poster/" class="gallery-item">
+      <a href="/ubi-union-bank-of-india-csp/" class="gallery-item">
 
         
-          <img src="https://cdn.yojnaportal.com/Banner/25x32/banking/CGB-Chhattisgarh-gramin-bank.webp" alt="MPGB MP Gramin Bank Poster">
-        
-
-        
-
-        
-
-     
-
-      </a>
-    
-      <a href="/fino-bank-account-opening/" class="gallery-item">
-
-        
-          <img src="https://cdn.yojnaportal.com/Banner/25x32/banking/fino-bank-account.webp" alt="MPGB MP Gramin Bank Poster">
+          <img src="https://cdn.yojnaportal.com/Banner/25x32/banking/Union-Bank-of-india-UBI-CSP.webp" alt="MPGB MP Gramin Bank Poster">
         
 
         
@@ -578,24 +564,10 @@ toggle.addEventListener('change', () => {
 
       </a>
     
-      <a href="/npci-dbt-update-service/" class="gallery-item">
+      <a href="/bob-bank-of-baroda-csp/" class="gallery-item">
 
         
-          <img src="https://cdn.yojnaportal.com/Banner/25x32/banking/dbt-npci-link.webp" alt="MPGB MP Gramin Bank Poster">
-        
-
-        
-
-        
-
-     
-
-      </a>
-    
-      <a href="/iob-indian-overseas-bank-csp/" class="gallery-item">
-
-        
-          <img src="https://cdn.yojnaportal.com/Banner/25x32/banking/Indina-Overseas-Bank-IOB-CSP.webp" alt="MPGB MP Gramin Bank Poster">
+          <img src="https://cdn.yojnaportal.com/Banner/25x32/banking/Bank-of-Baroda-BOB-CSP.webp" alt="MPGB MP Gramin Bank Poster">
         
 
         
@@ -606,10 +578,10 @@ toggle.addEventListener('change', () => {
 
       </a>
     
-      <a href="/shadi-card-printing-service/" class="gallery-item">
+      <a href="/indusind-bank-csp-servises/" class="gallery-item">
 
         
-          <img src="https://cdn.yojnaportal.com/Banner/25x32/marrige-card.webp" alt="MPGB MP Gramin Bank Poster">
+          <img src="https://cdn.yojnaportal.com/Banner/25x32/banking/IndusInd-Bank-CSP-.webp" alt="MPGB MP Gramin Bank Poster">
         
 
         
@@ -620,10 +592,38 @@ toggle.addEventListener('change', () => {
 
       </a>
     
-      <a href="/india-post-gds-2026/" class="gallery-item">
+      <a href="/bom-bank-of-maharastra-csp/" class="gallery-item">
 
         
-          <img src="https://cdn.yojnaportal.com/jobs/2026/india-post-gds-2026.webp" alt="MPGB MP Gramin Bank Poster">
+          <img src="https://cdn.yojnaportal.com/Banner/25x32/banking/Bank-of-Maharashtra-BOM-CSP.webp" alt="MPGB MP Gramin Bank Poster">
+        
+
+        
+
+        
+
+     
+
+      </a>
+    
+      <a href="/janm-praman-patra-apply/" class="gallery-item">
+
+        
+          <img src="https://cdn.yojnaportal.com/Banner/25x32/documents/Janm-Praman-Patra.webp" alt="MPGB MP Gramin Bank Poster">
+        
+
+        
+
+        
+
+     
+
+      </a>
+    
+      <a href="/mp-income-certificate/" class="gallery-item">
+
+        
+          <img src="https://cdn.yojnaportal.com/Banner/mp/income-certificates.webp" alt="MPGB MP Gramin Bank Poster">
         
 
         
@@ -1331,5 +1331,22 @@ document.addEventListener("DOMContentLoaded", () => {
     <script src="http://localhost:1313/js/pages/disabled.min.163900fe20f6f627929f358a505bf043308f959eb66947d7285eb575e51b24b2.js" integrity="sha256-FjkA/iD29ieSnzWKUFvwQzCPlZ62aUfXKF61deUbJLI=" defer></script>
   
 
+<script>
+(function () {
+
+    fetch("https://post-feed-api.yojnaportal-com.workers.dev/api/view", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            site: "yojnaportal",
+            url: window.location.href
+        })
+    })
+    .catch(function () {});
+
+})();
+</script>
 </body>
 </html>

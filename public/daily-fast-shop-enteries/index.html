@@ -558,10 +558,10 @@ toggle.addEventListener('change', () => {
 
       </a>
     
-      <a href="/pm-kisan-23th-kisht-jari/" class="gallery-item">
+      <a href="/rrb-je-2026-vacancy/" class="gallery-item">
 
         
-          <img src="https://cdn.yojnaportal.com/2026/PM-Kisan-Samman-Nidhi-23th-Kisth-Update.webp" alt="Daily Fast Shop Enteries">
+          <img src="https://cdn.yojnaportal.com/jobs/2026/rrb-je-2026.webp" alt="Daily Fast Shop Enteries">
         
 
         
@@ -572,10 +572,10 @@ toggle.addEventListener('change', () => {
 
       </a>
     
-      <a href="/navodayal-vidyalaya-admision-2027-28/" class="gallery-item">
+      <a href="/shadi-card-printing-service/" class="gallery-item">
 
         
-          <img src="https://cdn.yojnaportal.com/exam/2026/Navodaya-Vidhayalaya-2027-28.webp" alt="Daily Fast Shop Enteries">
+          <img src="https://cdn.yojnaportal.com/Banner/25x32/marrige-card.webp" alt="Daily Fast Shop Enteries">
         
 
         
@@ -1229,5 +1229,22 @@ document.addEventListener("DOMContentLoaded", () => {
     <script src="http://localhost:1313/js/pages/disabled.min.163900fe20f6f627929f358a505bf043308f959eb66947d7285eb575e51b24b2.js" integrity="sha256-FjkA/iD29ieSnzWKUFvwQzCPlZ62aUfXKF61deUbJLI=" defer></script>
   
 
+<script>
+(function () {
+
+    fetch("https://post-feed-api.yojnaportal-com.workers.dev/api/view", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            site: "yojnaportal",
+            url: window.location.href
+        })
+    })
+    .catch(function () {});
+
+})();
+</script>
 </body>
 </html>

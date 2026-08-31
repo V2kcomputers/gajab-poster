@@ -550,10 +550,10 @@ toggle.addEventListener('change', () => {
 
   <div class="gallery">
     
-      <a href="/pnb-account-opening-poster/" class="gallery-item">
+      <a href="/npci-dbt-update-service/" class="gallery-item">
 
         
-          <img src="https://cdn.yojnaportal.com/Banner/25x32/banking/PNB-Account-Opening-Poster.webp" alt="UP Jan Seva Kendra">
+          <img src="https://cdn.yojnaportal.com/Banner/25x32/banking/dbt-npci-link.webp" alt="UP Jan Seva Kendra">
         
 
         
@@ -564,10 +564,10 @@ toggle.addEventListener('change', () => {
 
       </a>
     
-      <a href="/upgb-up-gramin-bank-poster/" class="gallery-item">
+      <a href="/aeps-servieces-aadhar-payments/" class="gallery-item">
 
         
-          <img src="https://cdn.yojnaportal.com/Banner/25x32/banking/UPGB%20uttarpradesh-gramin-bank.webp" alt="UP Jan Seva Kendra">
+          <img src="https://cdn.yojnaportal.com/Banner/25x32/banking/Aadhar-Payments-AEPS-Services.webp" alt="UP Jan Seva Kendra">
         
 
         
@@ -592,24 +592,10 @@ toggle.addEventListener('change', () => {
 
       </a>
     
-      <a href="/uco-bank-csp-banner/" class="gallery-item">
+      <a href="/sbi-csp-banking-poster/" class="gallery-item">
 
         
-          <img src="https://cdn.yojnaportal.com/Banner/25x32/banking/UCO-Bank-CSP-Poster.webp" alt="UP Jan Seva Kendra">
-        
-
-        
-
-        
-
-     
-
-      </a>
-    
-      <a href="/mp-college-admission-allotment-letter/" class="gallery-item">
-
-        
-          <img src="https://cdn.yojnaportal.com/Banner/mp/2026/College-Admission-Allotment-Letter.webp" alt="UP Jan Seva Kendra">
+          <img src="https://cdn.yojnaportal.com/Banner/25x32/banking/SBI-Kiosk-Banking-ac-open.webp" alt="UP Jan Seva Kendra">
         
 
         
@@ -620,10 +606,24 @@ toggle.addEventListener('change', () => {
 
       </a>
     
-      <a href="/udid-card-divyang-cerfiticate/" class="gallery-item">
+      <a href="/mp-social-security-pension-update/" class="gallery-item">
 
         
-          <img src="https://cdn.yojnaportal.com/Banner/25x32/documents/UDID-Card-apply.webp" alt="UP Jan Seva Kendra">
+          <img src="https://cdn.yojnaportal.com/Banner/mp/mp-pension-update.webp" alt="UP Jan Seva Kendra">
+        
+
+        
+
+        
+
+     
+
+      </a>
+    
+      <a href="/pm-fasal-bima-yojna-kharif-2026/" class="gallery-item">
+
+        
+          <img src="https://cdn.yojnaportal.com/2026/PM-Fasal-Bima-Yojana-2026.webp" alt="UP Jan Seva Kendra">
         
 
         
@@ -1276,5 +1276,22 @@ document.addEventListener("DOMContentLoaded", () => {
     <script src="http://localhost:1313/js/pages/disabled.min.163900fe20f6f627929f358a505bf043308f959eb66947d7285eb575e51b24b2.js" integrity="sha256-FjkA/iD29ieSnzWKUFvwQzCPlZ62aUfXKF61deUbJLI=" defer></script>
   
 
+<script>
+(function () {
+
+    fetch("https://post-feed-api.yojnaportal-com.workers.dev/api/view", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            site: "yojnaportal",
+            url: window.location.href
+        })
+    })
+    .catch(function () {});
+
+})();
+</script>
 </body>
 </html>
