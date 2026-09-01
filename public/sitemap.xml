@@ -2,13 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://localhost:1313/india-post-gds-2026/</loc>
-    <lastmod>2026-08-30T17:26:46+05:30</lastmod>
+    <loc>http://localhost:1313/ipbs-rrb-2026-vacancy-poster/</loc>
+    <lastmod>2026-09-01T09:55:11+05:30</lastmod>
   </url><url>
     <loc>http://localhost:1313/jobs/</loc>
-    <lastmod>2026-08-30T17:26:46+05:30</lastmod>
+    <lastmod>2026-09-01T09:55:11+05:30</lastmod>
   </url><url>
     <loc>http://localhost:1313/</loc>
+    <lastmod>2026-09-01T09:55:11+05:30</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/india-post-gds-2026/</loc>
     <lastmod>2026-08-30T17:26:46+05:30</lastmod>
   </url><url>
     <loc>http://localhost:1313/document/</loc>
