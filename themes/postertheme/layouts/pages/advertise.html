@@ -1,0 +1,689 @@
+{{ define "main" }}
+<link rel="stylesheet" href="/css/advertise.css">
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- jsPDF Library added for Blob PDF Generation -->
+<script data-cdn="codex/js/desabled.js" ></script>
+<script data-cdn="/codex/js/additional.js" n></script>
+<script src="https://cdn.yojnaportal.com/codex/js/required/files-data-cdn.js" ></script>
+    <title>Advertise With Us - Yojna Portal Partner Dashboard</title>
+    <style>
+        :root {
+            --bg-base: #0a0f1d;
+            --bg-card: rgba(15, 23, 42, 0.75);
+            --bg-card-solid: #0f172a;
+            --border-glow: rgba(56, 189, 248, 0.2);
+            --border-subtle: rgba(255, 255, 255, 0.08);
+            --accent-primary: #38bdf8;
+            --accent-glow: #0284c7;
+            --accent-emerald: #10b981;
+            --accent-rose: #f43f5e;
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --text-muted: #64748b;
+        }
+
+    
+
+        body {
+            background-color: var(--bg-base);
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 32px 20px;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* Ambient Glowing Background Animations */
+        .ambient-glow {
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(120px);
+            z-index: 0;
+            pointer-events: none;
+            opacity: 0.45;
+            animation: pulse-glow 8s infinite alternate ease-in-out;
+        }
+        .glow-1 {
+            width: 500px;
+            height: 500px;
+            background: #0284c7;
+            top: -10%;
+            left: -5%;
+        }
+        .glow-2 {
+            width: 450px;
+            height: 450px;
+            background: #4f46e5;
+            bottom: -10%;
+            right: -5%;
+            animation-duration: 10s;
+        }
+
+        @keyframes pulse-glow {
+            0% { transform: scale(1) translate(0, 0); opacity: 0.35; }
+            100% { transform: scale(1.15) translate(30px, 30px); opacity: 0.55; }
+        }
+
+        /* Main Split Dashboard Container */
+        .dashboard-wrapper {
+            position: relative;
+            z-index: 1;
+            width: 100%;
+            max-width: 1280px;
+            background: var(--bg-card);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--border-glow);
+            border-radius: 20px;
+            box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.7), 0 0 35px rgba(56, 189, 248, 0.1);
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            overflow: hidden;
+            animation: fadeInCard 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        @keyframes fadeInCard {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* LEFT COLUMN: BRANDING & HIGHLIGHTS */
+        .dashboard-sidebar {
+            padding: 44px;
+            background: linear-gradient(180deg, rgba(15, 23, 42, 0.95) 0%, rgba(10, 15, 29, 0.98) 100%);
+            border-right: 1px solid var(--border-subtle);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .brand-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 14px;
+            background: rgba(56, 189, 248, 0.1);
+            border: 1px solid rgba(56, 189, 248, 0.25);
+            border-radius: 999px;
+            color: var(--accent-primary);
+            font-size: 12.5px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            width: fit-content;
+        }
+
+        .pulse-dot {
+            width: 8px;
+            height: 8px;
+            background-color: var(--accent-primary);
+            border-radius: 50%;
+            box-shadow: 0 0 10px var(--accent-primary);
+            animation: blink 2s infinite;
+        }
+        @keyframes blink {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.4; transform: scale(0.8); }
+        }
+
+        .sidebar-title {
+            font-size: 32px;
+            font-weight: 800;
+            line-height: 1.25;
+            color: #fff;
+            margin-bottom: 14px;
+            letter-spacing: -0.5px;
+        }
+        .sidebar-title span {
+            background: linear-gradient(135deg, #38bdf8 0%, #818cf8 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .sidebar-desc {
+            font-size: 14.5px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+
+        /* Metrics Showcase */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+            margin-bottom: 30px;
+        }
+        .stat-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border-subtle);
+            padding: 16px;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+        .stat-card:hover {
+            border-color: var(--accent-primary);
+            transform: translateY(-3px);
+            background: rgba(56, 189, 248, 0.04);
+        }
+        .stat-number {
+            font-size: 22px;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 4px;
+        }
+        .stat-label {
+            font-size: 12px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* Policy Highlights */
+        .policy-box {
+            background: rgba(16, 185, 129, 0.05);
+            border-left: 3px solid var(--accent-emerald);
+            padding: 14px 18px;
+            border-radius: 0 8px 8px 0;
+            margin-bottom: 20px;
+        }
+        .policy-box strong {
+            display: block;
+            font-size: 13px;
+            color: var(--accent-emerald);
+            margin-bottom: 4px;
+        }
+        .policy-box p {
+            font-size: 12.5px;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
+        .sidebar-footer {
+            font-size: 12px;
+            color: var(--text-muted);
+            border-top: 1px solid var(--border-subtle);
+            padding-top: 18px;
+        }
+
+        /* RIGHT COLUMN: INTERACTIVE FORM & PREVIEW */
+        .dashboard-content {
+            padding: 44px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .form-header {
+            margin-bottom: 24px;
+        }
+        .form-header h2 {
+            font-size: 22px;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 6px;
+        }
+        .form-header p {
+            font-size: 13.5px;
+            color: var(--text-secondary);
+        }
+
+        /* Side-by-Side 2 Column Field Grid */
+        .input-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            column-gap: 16px;
+            row-gap: 14px;
+        }
+        .col-2 {
+            grid-column: span 2;
+        }
+
+        .field-group {
+            display: flex;
+            flex-direction: column;
+        }
+        .field-group label {
+            font-size: 12.5px;
+            font-weight: 600;
+            color: var(--text-secondary);
+            margin-bottom: 6px;
+        }
+        .field-group label .req {
+            color: var(--accent-rose);
+        }
+
+        input[type="text"],
+        input[type="tel"],
+        input[type="email"],
+        input[type="url"],
+        select,
+        textarea {
+            width: 100%;
+            background: rgba(15, 23, 42, 0.8);
+            border: 1px solid var(--border-subtle);
+            color: var(--text-primary);
+            padding: 10px 14px;
+            border-radius: 8px;
+            font-size: 13.5px;
+            transition: all 0.25s ease;
+        }
+
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: var(--accent-primary);
+            background: rgba(15, 23, 42, 1);
+            box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.15);
+        }
+
+        select option {
+            background-color: var(--bg-card-solid);
+            color: #fff;
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 72px;
+        }
+
+        /* Terms Acceptance Checkbox */
+        .terms-row {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin: 16px 0 22px 0;
+            font-size: 13px;
+            color: var(--text-secondary);
+            cursor: pointer;
+        }
+        .terms-row input {
+            accent-color: var(--accent-primary);
+            width: 17px;
+            height: 17px;
+            cursor: pointer;
+        }
+
+        /* Submit Button with Glow */
+        .btn-submit {
+            width: 100%;
+            padding: 13px 20px;
+            background: linear-gradient(135deg, #0284c7 0%, #2563eb 100%);
+            color: #ffffff;
+            border: none;
+            border-radius: 8px;
+            font-size: 14.5px;
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(2, 132, 199, 0.35);
+            transition: all 0.25s ease;
+        }
+        .btn-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(2, 132, 199, 0.5);
+        }
+        .btn-submit:active {
+            transform: translateY(0);
+        }
+        .btn-submit:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        /* PREVIEW DASHBOARD CARD */
+        .preview-panel {
+            display: none;
+            animation: fadeInCard 0.4s ease forwards;
+        }
+        .preview-header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .preview-header svg {
+            margin-bottom: 10px;
+        }
+        .preview-header h3 {
+            font-size: 20px;
+            color: #fff;
+            margin-bottom: 4px;
+        }
+        .preview-header p {
+            font-size: 13px;
+            color: var(--text-secondary);
+        }
+
+        /* Structured Preview Details (2-Column Grid) */
+        .preview-data-grid {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border-subtle);
+            border-radius: 10px;
+            padding: 18px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            column-gap: 16px;
+            row-gap: 10px;
+            margin-bottom: 20px;
+        }
+        .preview-cell {
+            font-size: 13px;
+            color: var(--text-secondary);
+        }
+        .preview-cell strong {
+            color: #fff;
+            font-weight: 600;
+        }
+
+        /* Action Buttons Row */
+        .actions-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 10px;
+            margin-bottom: 12px;
+        }
+        .btn-dash-action {
+            padding: 11px 12px;
+            border: none;
+            border-radius: 8px;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-align: center;
+        }
+        .btn-dash-action:hover {
+            transform: translateY(-1px);
+        }
+        .btn-mail {
+            background: #ef4444;
+            color: #fff;
+        }
+        .btn-mail:hover {
+            background: #dc2626;
+        }
+        .btn-copy {
+            background: #0d9488;
+            color: #fff;
+        }
+        .btn-copy:hover {
+            background: #0f766e;
+        }
+        .btn-reveal {
+            background: #334155;
+            color: #fff;
+        }
+        .btn-reveal:hover {
+            background: #475569;
+        }
+
+        /* Revealed Support Box */
+        .revealed-email-box {
+            display: none;
+            background: rgba(56, 189, 248, 0.08);
+            border: 1px dashed var(--accent-primary);
+            border-radius: 8px;
+            padding: 12px;
+            text-align: center;
+            cursor: pointer;
+            margin-bottom: 12px;
+        }
+        .revealed-email-box strong {
+            color: var(--accent-primary);
+            font-size: 14.5px;
+            letter-spacing: 0.3px;
+        }
+        .revealed-email-box span {
+            display: block;
+            font-size: 11px;
+            color: var(--text-muted);
+            margin-top: 3px;
+        }
+
+        .btn-reset-form {
+            background: none;
+            border: none;
+            color: var(--text-muted);
+            font-size: 12.5px;
+            text-decoration: underline;
+            cursor: pointer;
+            width: 100%;
+            text-align: center;
+            padding: 6px;
+        }
+
+        /* Mobile Layout */
+        @media (max-width: 992px) {
+            .dashboard-wrapper {
+                grid-template-columns: 1fr;
+            }
+            .dashboard-sidebar {
+                border-right: none;
+                border-bottom: 1px solid var(--border-subtle);
+                padding: 30px 24px;
+            }
+            .dashboard-content {
+                padding: 30px 24px;
+            }
+            .input-grid, .preview-data-grid {
+                grid-template-columns: 1fr;
+            }
+            .col-2 {
+                grid-column: span 1;
+            }
+            .actions-layout {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Ambient Glow Drops -->
+    <div class="ambient-glow glow-1"></div>
+    <div class="ambient-glow glow-2"></div>
+
+    <!-- Main Split Dashboard -->
+    <div class="dashboard-wrapper">
+
+        <!-- LEFT SIDE: Branding, Statistics & Ad Text -->
+        <aside class="dashboard-sidebar">
+            <div>
+                <div class="brand-badge">
+                    <span class="pulse-dot"></span> Partner Dashboard
+                </div>
+                <h1 class="sidebar-title">
+                    Empower Your Brand with <span>Yojna Portal</span>
+                </h1>
+                <p class="sidebar-desc">
+                    Connect directly with millions of citizens, digital service operators (CSC / MP Online), students, and business owners looking for verified services across India.
+                </p>
+
+                <!-- Analytics / Metrics Panel -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-number">2.4M+</div>
+                        <div class="stat-label">Monthly Impressions</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">650K+</div>
+                        <div class="stat-label">Active Citizens</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">4.8%</div>
+                        <div class="stat-label">Avg. CTR Rate</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">Top #1</div>
+                        <div class="stat-label">Scheme/Jobs Directory</div>
+                    </div>
+                </div>
+
+                <!-- Advertising Rule Notice -->
+                <div class="policy-box">
+                    <strong>Transparent Advertising Rules</strong>
+                    <p>We approve verified business promotions, digital tools, educational services, and kiosk solutions. Fraudulent, MLM, betting, or fake recruitment ads are strictly banned.</p>
+                </div>
+            </div>
+
+            <div class="sidebar-footer">
+                Official Business Promotion Desk &copy; Yojna Portal. All rights reserved.
+            </div>
+        </aside>
+
+        <!-- RIGHT SIDE: Form / Dynamic Action Panel -->
+        <main class="dashboard-content">
+
+            <!-- FORM PANEL -->
+            <div id="form-panel">
+                <div class="form-header">
+                    <h2>Submit Advertisement Request</h2>
+                    <p>Provide your campaign parameters to receive immediate clearance and rates.</p>
+                </div>
+
+                <form name="search-form" id="ad-form">
+                    <input type="hidden" name="TimeStamp" id="timestamp-field">
+                    <input type="hidden" name="SiteName" value="YojnaPortal.Com">
+
+                    <div class="input-grid">
+                        <!-- 1. Business Name -->
+                        <div class="field-group">
+                            <label for="businessName">Business / Company Name <span class="req">*</span></label>
+                            <input type="text" name="businessName" id="businessName" placeholder="e.g. Apex Kiosk Solutions" required>
+                        </div>
+
+                        <!-- 2. Contact Person -->
+                        <div class="field-group">
+                            <label for="contactPerson">Contact Person Name <span class="req">*</span></label>
+                            <input type="text" name="contactPerson" id="contactPerson" placeholder="e.g. Vikas Sharma" required>
+                        </div>
+
+                        <!-- 3. Mobile -->
+                        <div class="field-group">
+                            <label for="mobile">Mobile Number <span class="req">*</span></label>
+                            <input type="tel" name="mobile" id="mobile" placeholder="10-digit mobile number" pattern="[0-9]{10}" maxlength="10" required>
+                        </div>
+
+                        <!-- 4. WhatsApp -->
+                        <div class="field-group">
+                            <label for="whatsapp">WhatsApp Number</label>
+                            <input type="tel" name="whatsapp" id="whatsapp" placeholder="WhatsApp number" pattern="[0-9]{10}" maxlength="10">
+                        </div>
+
+                        <!-- 5. Email -->
+                        <div class="field-group">
+                            <label for="email">Email Address <span class="req">*</span></label>
+                            <input type="email" name="email" id="email" placeholder="name@company.com" required>
+                        </div>
+
+                        <!-- 6. Website URL -->
+                        <div class="field-group">
+                            <label for="websiteURL">Website URL</label>
+                            <input type="url" name="websiteURL" id="websiteURL" placeholder="https://yourwebsite.com">
+                        </div>
+
+                        <!-- 7. Advertisement Type -->
+                        <div class="field-group">
+                            <label for="advertisementType">Advertisement Type <span class="req">*</span></label>
+                            <select name="advertisementType" id="advertisementType" required>
+                                <option value="" disabled selected>Select Format</option>
+                                <option value="Premium Top Banner">Premium Top Banner</option>
+                                <option value="Homepage Featured">Homepage Featured</option>
+                                <option value="Article Advertisement">Article Advertisement</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+
+                        <!-- 8. Duration -->
+                        <div class="field-group">
+                            <label for="duration">Advertisement Duration <span class="req">*</span></label>
+                            <select name="duration" id="duration" required>
+                                <option value="" disabled selected>Select Duration</option>
+                                <option value="24 Hours">24 Hours</option>
+                                 <option value="2 Days">2 Days</option>
+                                <option value="7 Days">7 Days</option>
+                                <option value="15 Days">15 Days</option>
+                                <option value="30 Days">30 Days</option>
+                                <option value="Custom">Custom</option>
+                            </select>
+                        </div>
+
+                        <!-- 9. Bid Amount -->
+                        <div class="field-group col-2">
+                            <label for="bidAmount">Bid / Advertisement Amount (INR)</label>
+                            <input type="text" name="bidAmount" id="bidAmount" placeholder="e.g. ₹1,000 / Negotiable">
+                        </div>
+
+                        <!-- 10. Description -->
+                        <div class="field-group col-2">
+                            <label for="advertisementDescription">Advertisement Description <span class="req">*</span></label>
+                            <textarea name="advertisementDescription" id="advertisementDescription" rows="3" placeholder="Describe the product, landing link, target region, or special requests..." required></textarea>
+                        </div>
+                    </div>
+
+                    <!-- 11. Terms Acceptance -->
+                    <label class="terms-row">
+                        <input type="checkbox" name="termsAccepted" id="termsAccepted" value="Yes" required>
+                        <span>I accept the Yojna Portal Advertising Terms & Conditions <span class="req">*</span></span>
+                    </label>
+
+                    <button type="submit" class="btn-submit" id="submit-btn">Review & Submit Campaign</button>
+                </form>
+            </div>
+
+            <!-- PREVIEW PANEL -->
+            <div class="preview-panel" id="preview-panel">
+                <div class="preview-header">
+                    <svg width="52" height="52" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                        <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                    </svg>
+                    <h3>Request Logged, <span id="pv-contactPerson-header"></span>!</h3>
+                    <p>Your data is prepared. Use the dashboard controls below to send or copy details.</p>
+                </div>
+
+                <!-- Structured Overview -->
+                <div class="preview-data-grid">
+                    <div class="preview-cell"><strong>Business:</strong> <span id="pv-businessName"></span></div>
+                    <div class="preview-cell"><strong>Contact:</strong> <span id="pv-contactPerson"></span></div>
+                    <div class="preview-cell"><strong>Mobile:</strong> <span id="pv-mobile"></span></div>
+                    <div class="preview-cell"><strong>WhatsApp:</strong> <span id="pv-whatsapp"></span></div>
+                    <div class="preview-cell"><strong>Email:</strong> <span id="pv-email"></span></div>
+                    <div class="preview-cell"><strong>Website:</strong> <span id="pv-websiteURL"></span></div>
+                    <div class="preview-cell"><strong>Format:</strong> <span id="pv-advertisementType"></span></div>
+                    <div class="preview-cell"><strong>Duration:</strong> <span id="pv-duration"></span></div>
+                    <div class="preview-cell col-2"><strong>Bid Amount:</strong> <span id="pv-bidAmount"></span></div>
+                    <div class="preview-cell col-2"><strong>Description:</strong> <span id="pv-advertisementDescription"></span></div>
+                    <div class="preview-cell col-2"><strong>Terms Accepted:</strong> <span id="pv-termsAccepted"></span></div>
+                </div>
+
+                <!-- 3 Action Controls -->
+                <div class="actions-layout">
+                    <button type="button" class="btn-dash-action btn-mail" id="SendEmailBtn">📧 Send Mail Now</button>
+                    <button type="button" class="btn-dash-action btn-copy" id="CopyBtn">📋 Copy Details</button>
+                    <button type="button" class="btn-dash-action btn-reveal" id="ShowEmailBtn">🔍 Show Desk Email</button>
+                </div>
+
+                <!-- Revealed Desk Email Box -->
+                <div class="revealed-email-box" id="emailDisplayBox">
+                    <strong id="targetEmailText">yojnaportalhelp@gmail.com</strong>
+                    <span id="emailCopyNotify">(Click box to copy email address)</span>
+                </div>
+
+                <button type="button" class="btn-reset-form" onclick="resetForm()">Submit Another Campaign</button>
+            </div>
+
+        </main>
+    </div>
+
+
+
+<script src="/js/advertise.js"></script>
+
+{{ end }}

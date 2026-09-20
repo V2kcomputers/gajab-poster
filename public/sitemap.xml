@@ -2,20 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://localhost:1313/mp-e-tokan-e-viakas/</loc>
-    <lastmod>2026-09-03T10:05:44+05:30</lastmod>
-  </url><url>
     <loc>http://localhost:1313/mp/</loc>
-    <lastmod>2026-09-03T10:05:44+05:30</lastmod>
+    <lastmod>2026-09-20T18:33:42+05:30</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/patte-khasra-ekyc-mp/</loc>
+    <lastmod>2026-09-20T18:33:42+05:30</lastmod>
   </url><url>
     <loc>http://localhost:1313/</loc>
-    <lastmod>2026-09-03T10:05:44+05:30</lastmod>
+    <lastmod>2026-09-20T18:33:42+05:30</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/mp-e-tokan-e-viakas/</loc>
+    <lastmod>2026-09-03T10:17:56+05:30</lastmod>
   </url><url>
     <loc>http://localhost:1313/education/</loc>
-    <lastmod>2026-09-03T09:27:23+05:30</lastmod>
+    <lastmod>2026-09-03T10:17:56+05:30</lastmod>
   </url><url>
     <loc>http://localhost:1313/nvs-9th-admision-2027-28/</loc>
-    <lastmod>2026-09-03T09:27:23+05:30</lastmod>
+    <lastmod>2026-09-03T10:17:56+05:30</lastmod>
   </url><url>
     <loc>http://localhost:1313/ipbs-rrb-2026-vacancy-poster/</loc>
     <lastmod>2026-09-01T10:05:27+05:30</lastmod>
@@ -457,6 +460,8 @@
   </url><url>
     <loc>http://localhost:1313/search/</loc>
     <lastmod>2026-04-22T18:41:34+05:30</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/advertise/</loc>
   </url><url>
     <loc>http://localhost:1313/categories/</loc>
   </url><url>
