@@ -1,0 +1,32 @@
+<div class="yp-random-affiliate-ad">
+  <div class="yp-affiliate-option">
+    {{ partial "ads/size/affiliat-900x300.html" . }}
+  </div>
+
+  <div class="yp-affiliate-option">
+    {{ partial "ads/size/affiliat-900x300.html" . }}
+  </div>
+
+  <div class="yp-affiliate-option">
+    {{ partial "ads/size/affiliat-900x300.html" . }}
+  </div>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const ads = document.querySelectorAll(".yp-affiliate-option");
+
+  if (!ads.length) return;
+
+  // सभी ads को hide करें
+  ads.forEach(ad => {
+    ad.style.display = "none";
+  });
+
+  // Random ad select करें
+  const randomIndex = Math.floor(Math.random() * ads.length);
+
+  // सिर्फ selected ad दिखाएँ
+  ads[randomIndex].style.display = "block";
+});
+</script>
