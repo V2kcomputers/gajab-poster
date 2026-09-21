@@ -1,0 +1,32 @@
+[[ads]]
+id = "ad-01"
+imageBanner = "https://m.media-amazon.com/images/W/BW_MEDIAX_AVIF_MEASUREMENT_1306696-T4/images/I/41ZJJrJp7XL._MCnd_AC_.jpg"
+website = ""
+link = "https://link.amazon/B0bQSYwCU"
+title = "Office Chair"
+description = "C190 Berlin Office Chair, High Back Mesh Ergonomic Home Office Desk Chair (Grey - White)"
+button = "View Offer"
+active = true
+expire = "2026-09-30T23:59:59+05:30"
+
+[[ads]]
+id = "ad-02"
+imageBanner = "https://m.media-amazon.com/images/W/BW_MEDIAX_AVIF_MEASUREMENT_1306696-T4/images/I/51eNsBQYxrL._SX522_.jpg"
+website = ""
+link = "https://link.amazon/B025Hnzah"
+title = "Best Deals"
+description = "3D Printed Steering Wheel for G27/29/920, Strong and Durable"
+button = "Shop Now"
+active = true
+expire = "2026-10-05T23:59:59+05:30"
+
+[[ads]]
+id = "ad-03"
+imageBanner = "https://m.media-amazon.com/images/W/BW_MEDIAX_AVIF_MEASUREMENT_1306696-T4/images/I/812M98OZNKL._SX679_.jpg"
+website = ""
+link = "https://link.amazon/B0hqu050V"
+title = "Limited Time Offer"
+description = "Green Soul Atom | Ergonomic Office Chair for Home & Office | 12 Months Warranty | Comfortable & Spacious Seat | Rocking-tilt Mechanism | Heavy Duty Metal Base (Black)"
+button = "Get Offer"
+active = true
+expire = "2026-10-10T23:59:59+05:30"

@@ -1,0 +1,41 @@
+<div class="ad-container-900x300">
+  {{ partial "ads/affiliate-ads.html" . }}
+</div>
+
+<style>
+.ad-container-900x300 {
+  width: 100%;
+  max-width: 900px;
+  height: 300px;
+  margin: 20px auto;
+  box-sizing: border-box;
+}
+
+/* 300px हाइट में ऐड्स को हॉरिजॉन्टल (साइड-बाय-साइड) लॉक रखने के लिए */
+.ad-container-900x300 .yp-affiliate-ad {
+  height: 100%;
+  flex-wrap: nowrap;
+}
+
+/* 300px हाइट के हिसाब से 1:1 स्क्वायर बैनर */
+.ad-container-900x300 .yp-affiliate-ad__banner {
+  flex: 0 0 300px;
+  width: 300px;
+  height: 300px;
+}
+
+/* मोबाइल/छोटी स्क्रीन पर हाइट ऑटो करने के लिए ताकि कंटेंट कटे नहीं */
+@media (max-width: 640px) {
+  .ad-container-900x300 {
+    height: auto;
+  }
+  .ad-container-900x300 .yp-affiliate-ad {
+    flex-wrap: wrap;
+  }
+  .ad-container-900x300 .yp-affiliate-ad__banner {
+    flex: 1 1 100%;
+    width: 100%;
+    height: auto;
+  }
+}
+</style>
