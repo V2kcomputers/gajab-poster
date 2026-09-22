@@ -63,7 +63,7 @@ bannerSize = "720x90"
 
 [[ads]]
 id = "ad-05"
-imageBanner = "https://m.media-amazon.com/images/I/717XnI6ar0L._AC_AIweblab1378949,T2_FMavif_SF516.0,327.0_PQ65_.jpg"
+imageBanner = "https://m.media-amazon.com/images/I/717XnI6ar0L.jpg"
 website = ""
 link = "https://link.amazon/B0eb6vCAL"
 title = "Atomic Habits: Chote Badlav, Asadharan Parinaam (Hindi)"
@@ -76,7 +76,7 @@ bannerSize = "responsive"
 
 [[ads]]
 id = "ad-06"
-imageBanner = "https://m.media-amazon.com/images/I/717XnI6ar0L._AC_AIweblab1378949,T2_FMavif_SF516.0,327.0_PQ65_.jpg"
+imageBanner = "https://m.media-amazon.com/images/I/717XnI6ar0L.jpg"
 website = ""
 link = "https://link.amazon/B0eb6vCAL"
 title = "Atomic Habits: Chote Badlav, Asadharan Parinaam (Hindi)"
@@ -89,7 +89,7 @@ bannerSize = "900x300"
 
 [[ads]]
 id = "ad-07"
-imageBanner = "https://m.media-amazon.com/images/I/81fIiCe4ZhL._AC_AIweblab1378949,T2_FMavif_SF516.0,327.0_PQ65_.jpg"
+imageBanner = "https://m.media-amazon.com/images/I/81fIiCe4ZhL.jpg"
 website = ""
 link = "https://link.amazon/B0ivcggsU"
 title = "The Power of A Positive Attitude (Hindi)"
@@ -102,7 +102,7 @@ bannerSize = "900x300"
 
 [[ads]]
 id = "ad-08"
-imageBanner = "https://m.media-amazon.com/images/I/81fIiCe4ZhL._AC_AIweblab1378949,T2_FMavif_SF516.0,327.0_PQ65_.jpg"
+imageBanner = "https://m.media-amazon.com/images/I/81fIiCe4ZhL.jpg"
 website = ""
 link = "https://link.amazon/B0ivcggsU"
 title = "The Power of A Positive Attitude (Hindi)"
