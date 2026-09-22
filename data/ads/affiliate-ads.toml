@@ -62,3 +62,107 @@ active = true
 expire = "2026-10-10T23:59:59+05:30"
 imageWidth = "auto"
 bannerSize = "720x90"
+
+[[ads]]
+id = "ad-05"
+imageBanner = "https://m.media-amazon.com/images/I/717XnI6ar0L.jpg"
+website = ""
+link = "https://link.amazon/B0eb6vCAL"
+title = "Atomic Habits: Chote Badlav, Asadharan Parinaam (Hindi)"
+description = "छोटी-छोटी अच्छी आदतों से जीवन में बड़े बदलाव लाने की आसान और प्रभावी किताब।"
+button = "अभी खरीदें"
+active = true
+expire = "2027-09-22T23:59:59+05:30"
+imageWidth = "auto"
+bannerSize = "responsive"
+
+[[ads]]
+id = "ad-06"
+imageBanner = "https://m.media-amazon.com/images/I/717XnI6ar0L.jpg"
+website = ""
+link = "https://link.amazon/B0eb6vCAL"
+title = "Atomic Habits: Chote Badlav, Asadharan Parinaam (Hindi)"
+description = "छोटी-छोटी अच्छी आदतों से जीवन में बड़े बदलाव लाने की आसान और प्रभावी किताब।"
+button = "अभी खरीदें"
+active = true
+expire = "2027-09-22T23:59:59+05:30"
+imageWidth = "auto"
+bannerSize = "900x300"
+
+[[ads]]
+id = "ad-07"
+imageBanner = "https://m.media-amazon.com/images/I/81fIiCe4ZhL.jpg"
+website = ""
+link = "https://link.amazon/B0ivcggsU"
+title = "The Power of A Positive Attitude (Hindi)"
+description = "सकारात्मक सोच अपनाकर जीवन में सफलता, आत्मविश्वास और खुशियाँ बढ़ाने की प्रेरणादायक किताब।"
+button = "अभी खरीदें"
+active = true
+expire = "2027-09-22T23:59:59+05:30"
+imageWidth = "auto"
+bannerSize = "900x300"
+
+[[ads]]
+id = "ad-08"
+imageBanner = "https://m.media-amazon.com/images/I/81fIiCe4ZhL.jpg"
+website = ""
+link = "https://link.amazon/B0ivcggsU"
+title = "The Power of A Positive Attitude (Hindi)"
+description = "सकारात्मक सोच अपनाकर जीवन में सफलता, आत्मविश्वास और खुशियाँ बढ़ाने की प्रेरणादायक किताब।"
+button = "अभी खरीदें"
+active = true
+expire = "2027-09-22T23:59:59+05:30"
+imageWidth = "auto"
+bannerSize = "responsive"
+
+[[ads]]
+id = "ad-09"
+imageBanner = "https://m.media-amazon.com/images/W/BW_MEDIAX_AVIF_MEASUREMENT_1306696-T4/images/I/71sGiVleerL._SY466_.jpg"
+website = ""
+link = "https://link.amazon/B0elmW42k"
+title = "धन-संपत्ति का मनोविज्ञान | The Psychology of Money (Hindi)"
+description = "पैसे को समझने, बचाने और सही तरीके से बढ़ाने की सोच विकसित करने वाली उपयोगी किताब।"
+button = "अभी खरीदें"
+active = true
+expire = "2027-09-22T23:59:59+05:30"
+imageWidth = "auto"
+bannerSize = "900x300"
+
+[[ads]]
+id = "ad-10"
+imageBanner = "https://m.media-amazon.com/images/W/BW_MEDIAX_AVIF_MEASUREMENT_1306696-T4/images/I/71sGiVleerL._SY466_.jpg"
+website = ""
+link = "https://link.amazon/B0elmW42k"
+title = "धन-संपत्ति का मनोविज्ञान | The Psychology of Money (Hindi)"
+description = "पैसे को समझने, बचाने और सही तरीके से बढ़ाने की सोच विकसित करने वाली उपयोगी किताब।"
+button = "अभी खरीदें"
+active = true
+expire = "2028-09-22T23:59:59+05:30"
+imageWidth = "auto"
+bannerSize = "responsive"
+
+[[ads]]
+id = "ad-11"
+imageBanner = "https://m.media-amazon.com/images/W/BW_MEDIAX_AVIF_MEASUREMENT_1306696-T4/images/I/814u4vr3tzL._SY466_.jpg"
+website = ""
+link = "https://link.amazon/B0fQu1Twi"
+title = "Rich Dad Poor Dad - 20Th Anniversary Edition - Hindi"
+description = "पैसे, निवेश और आर्थिक सफलता की सही सोच विकसित करने वाली लोकप्रिय किताब।"
+button = "अभी खरीदें"
+active = true
+expire = "2028-09-22T23:59:59+05:30"
+imageWidth = "auto"
+bannerSize = "responsive"
+
+[[ads]]
+id = "ad-12"
+imageBanner = "https://m.media-amazon.com/images/W/BW_MEDIAX_AVIF_MEASUREMENT_1306696-T4/images/I/814u4vr3tzL._SY466_.jpg"
+website = ""
+link = "https://link.amazon/B0fQu1Twi"
+title = "Rich Dad Poor Dad - 20Th Anniversary Edition - Hindi"
+description = "पैसे, निवेश और आर्थिक सफलता की सही सोच विकसित करने वाली लोकप्रिय किताब।"
+button = "अभी खरीदें"
+active = true
+expire = "2028-09-22T23:59:59+05:30"
+imageWidth = "auto"
+bannerSize = "900x300"
