@@ -11,6 +11,8 @@
 {{ if and .Params.faqs (gt (len .Params.faqs) 0) }}
   {{ partial "imp-codes/json_ld_faqs.html" . }}
 {{ end }}
+ <link rel="stylesheet" href="https://cdn.yojnaportal.com/advertisement/css/affiliate-ads-pro.css">
+  <script src="https://cdn.yojnaportal.com/advertisement/js/affiliate-ads-pro.js" defer></script>
 <script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
 <script>
   window.OneSignalDeferred = window.OneSignalDeferred || [];

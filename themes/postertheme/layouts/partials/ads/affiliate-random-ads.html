@@ -1,32 +1,79 @@
-<div class="yp-random-affiliate-ad">
-  <div class="yp-affiliate-option">
-    {{ partial "ads/size/affiliat-900x300.html" . }}
-  </div>
 
-  <div class="yp-affiliate-option">
-    {{ partial "ads/size/affiliat-900x300.html" . }}
-  </div>
+<head>
+  <link rel="stylesheet" href="https://cdn.yojnaportal.com/advertisement/css/affiliate-ads-pro.css">
+  <script src="https://cdn.yojnaportal.com/advertisement/js/affiliate-ads-pro.js" defer></script>
+<style>
+  /* Zero Padding Ad Holder (Strict Limit: Max 300px) */
+  .pro-ad-box {
+    position: relative;
+    width: 100%;
+    max-width: 900px;
+    height: 300px;            /* Fix height under 300px */
+    max-height: 300px;
+    padding: 0;                /* Zero padding */
+    margin: 20px auto;
+    background: #ffffff38;
+    border: 1px solid #0000006b;
+    border-radius: 8px;
+    overflow: hidden;         /* Bahar kuch nahi niklega */
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  }
 
-  <div class="yp-affiliate-option">
-    {{ partial "ads/size/affiliat-900x300.html" . }}
-  </div>
+  /* Placeholder ke andar Top-Left kone me clickable Advertisement badge */
+  .ad-badge-link {
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    z-index: 10;              /* Hamesha image/card ke upar rahega */
+    background: rgba(17, 24, 39, 0.75);
+    color: #ffffff;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 3px 8px;
+    border-radius: 4px;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    text-decoration: none;
+    backdrop-filter: blur(4px);
+    transition: background-color 0.2s ease, transform 0.1s ease;
+  }
+
+  .ad-badge-link:hover {
+    background: rgba(37, 99, 235, 0.95); /* Hover par primary blue */
+    color: #ffffff;
+    text-decoration: none;
+  }
+
+  /* Direct child full area cover karega */
+  .pro-ad-box > a:not(.ad-badge-link),
+  .pro-ad-box > div {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* Image auto fit */
+  .pro-ad-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    margin: 0;
+    padding: 0;
+  }
+</style>
+
+<!-- Ad Container -->
+<div class="pro-ad-box">
+<a href="/advertise" class="ad-badge-link" title="Click to advertise">Advertisement</a>
+<div class="yp-ad-slot" data-zone="responsive"></div>
+
 </div>
-
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-  const ads = document.querySelectorAll(".yp-affiliate-option");
-
-  if (!ads.length) return;
-
-  // सभी ads को hide करें
-  ads.forEach(ad => {
-    ad.style.display = "none";
-  });
-
-  // Random ad select करें
-  const randomIndex = Math.floor(Math.random() * ads.length);
-
-  // सिर्फ selected ad दिखाएँ
-  ads[randomIndex].style.display = "block";
-});
-</script>
