@@ -73,6 +73,7 @@ active = true
 expire = "2027-09-22T23:59:59+05:30"
 imageWidth = "auto"
 bannerSize = "responsive"
+
 [[ads]]
 id = "ad-04"
 imageBanner = "https://m.media-amazon.com/images/I/717XnI6ar0L._AC_AIweblab1378949,T2_FMavif_SF516.0,327.0_PQ65_.jpg"
@@ -86,7 +87,7 @@ expire = "2027-09-22T23:59:59+05:30"
 imageWidth = "auto"
 bannerSize = "900x300"
 
-
+[[ads]]
 imageBanner = "https://m.media-amazon.com/images/I/81fIiCe4ZhL._AC_AIweblab1378949,T2_FMavif_SF516.0,327.0_PQ65_.jpg"
 website = ""
 link = "https://link.amazon/B0ivcggsU"
@@ -98,7 +99,7 @@ expire = "2027-09-22T23:59:59+05:30"
 imageWidth = "auto"
 bannerSize = "900x300"
 
-
+[[ads]]
 imageBanner = "https://m.media-amazon.com/images/I/81fIiCe4ZhL._AC_AIweblab1378949,T2_FMavif_SF516.0,327.0_PQ65_.jpg"
 website = ""
 link = "https://link.amazon/B0ivcggsU"
@@ -110,6 +111,7 @@ expire = "2027-09-22T23:59:59+05:30"
 imageWidth = "auto"
 bannerSize = "responsive"
 
+[[ads]]
 imageBanner = "https://m.media-amazon.com/images/W/BW_MEDIAX_AVIF_MEASUREMENT_1306696-T4/images/I/71sGiVleerL._SY466_.jpg"
 website = ""
 link = "https://link.amazon/B0elmW42k"
@@ -121,6 +123,7 @@ expire = "2027-09-22T23:59:59+05:30"
 imageWidth = "auto"
 bannerSize = "900x300"
 
+[[ads]]
 imageBanner = "https://m.media-amazon.com/images/W/BW_MEDIAX_AVIF_MEASUREMENT_1306696-T4/images/I/71sGiVleerL._SY466_.jpg"
 website = ""
 link = "https://link.amazon/B0elmW42k"
@@ -132,6 +135,7 @@ expire = "2028-09-22T23:59:59+05:30"
 imageWidth = "auto"
 bannerSize = "responsive"
 
+[[ads]]
 imageBanner = "https://m.media-amazon.com/images/W/BW_MEDIAX_AVIF_MEASUREMENT_1306696-T4/images/I/814u4vr3tzL._SY466_.jpg"
 website = ""
 link = "https://link.amazon/B0fQu1Twi"
@@ -143,6 +147,7 @@ expire = "2028-09-22T23:59:59+05:30"
 imageWidth = "auto"
 bannerSize = "responsive"
 
+[[ads]]
 imageBanner = "https://m.media-amazon.com/images/W/BW_MEDIAX_AVIF_MEASUREMENT_1306696-T4/images/I/814u4vr3tzL._SY466_.jpg"
 website = ""
 link = "https://link.amazon/B0fQu1Twi"
