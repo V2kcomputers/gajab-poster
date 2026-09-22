@@ -1,196 +1,376 @@
-(function () {
+/**
+ * Production-Ready Vanilla JS Affiliate Advertisement Engine
+ * Zero dependencies. Secure DOM operations. Responsive & Dynamic.
+ */
+(function (root) {
   'use strict';
 
-  const CONFIG = {
-    endpoint: '/affiliate-ads.json',
-    slotSelector: '.yp-ad-slot[data-ad-type="affiliate"]',
-    safeProtocolRegex: /^https?:\/\//i
-  };
+  // Configurable rotation timer in ms (0 = disabled, 15000 = 15 seconds)
+  const ROTATE_INTERVAL = 15000;
+  const DATA_ENDPOINT = 'https://poster.yojnaportal.com/affiliate.json';
+
+  let rawAdsCache = null;
+  let fetchPromise = null;
+  const activeRotations = new WeakMap();
 
   /**
-   * Validate destination and image URLs to avoid XSS (javascript: or data: URIs)
+   * Normalizes banner zone identifiers and handles common typos
    */
- // Function to validate URLs safely
-function isValidImageSrc(string) {
-  if (!string || typeof string !== 'string') return false;
-  const trimmed = string.trim();
-  // https://, http:// या रिलेटिव पाथ जैसे /resources/...webp दोनों चलेंगे
-  return /^https?:\/\//i.test(trimmed) || trimmed.startsWith('/');
-}
+  function normalizeZone(zone) {
+    if (!zone || typeof zone !== 'string') return '';
+    const clean = zone.trim().toLowerCase();
+    if (clean === 'resposive') return 'responsive';
+    return clean;
+  }
+
   /**
-   * Parse and validate ads based on active status and expiration time
+   * Safe URL protocol validation (XSS defense)
    */
-  function filterActiveAndValidAds(rawAds) {
-    if (!Array.isArray(rawAds)) return [];
+  function sanitizeUrl(url) {
+    if (!url || typeof url !== 'string') return '#';
+    const trimmed = url.trim();
+    if (/^(https?:|\/\/)/i.test(trimmed)) {
+      return trimmed;
+    }
+    return '#';
+  }
 
-    const now = Date.now();
+  /**
+   * Fetches JSON payload once and caches in memory
+   */
+  function fetchAdsData() {
+    if (rawAdsCache) {
+      return Promise.resolve(rawAdsCache);
+    }
+    if (fetchPromise) {
+      return fetchPromise;
+    }
 
-    return rawAds.filter(function (ad) {
-      if (!ad || ad.active !== true) {
-        return false;
+    fetchPromise = fetch(DATA_ENDPOINT, { cache: 'default' })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error('HTTP error ' + response.status);
+        }
+        return response.json();
+      })
+      .then((data) => {
+        if (data && Array.isArray(data.ads)) {
+          rawAdsCache = data.ads;
+        } else {
+          rawAdsCache = [];
+        }
+        return rawAdsCache;
+      })
+      .catch((err) => {
+        console.warn('[AffiliateAds] Failed to load ads data:', err);
+        rawAdsCache = [];
+        return rawAdsCache;
+      });
+
+    return fetchPromise;
+  }
+
+  /**
+   * Core Zone-Specific Priority Selection:
+   * 1. Matches bannerSize === zone
+   * 2. If one or more active === true exist: returns only active: true ads
+   * 3. If zero active === true exist: returns active: false fallback ads
+   * active: false is NEVER treated as a global disable.
+   */
+  function getEligibleAds(zone, adsList) {
+    const normTarget = normalizeZone(zone);
+    if (!normTarget) return [];
+
+    const matchingAds = adsList.filter((ad) => {
+      return normalizeZone(ad.bannerSize) === normTarget;
+    });
+
+    const activeAds = matchingAds.filter((ad) => ad.active === true);
+    if (activeAds.length > 0) {
+      return activeAds;
+    }
+
+    return matchingAds.filter((ad) => ad.active === false);
+  }
+
+  /**
+   * Random integer generator within [0, max - 1]
+   */
+  function getRandomIndex(max) {
+    return Math.floor(Math.random() * max);
+  }
+
+  /**
+   * Applies aspect-ratio or dimensional constraints for fixed sizes (e.g. 900x300, 300x250)
+   */
+  function applySizeConstraints(slotEl, normalizedZone) {
+    if (normalizedZone === 'responsive') {
+      slotEl.style.aspectRatio = '';
+      slotEl.style.maxWidth = '100%';
+      return;
+    }
+
+    const match = normalizedZone.match(/^(\d+)x(\d+)$/);
+    if (match) {
+      const width = parseInt(match[1], 10);
+      const height = parseInt(match[2], 10);
+      if (width > 0 && height > 0) {
+        slotEl.style.maxWidth = width + 'px';
+        slotEl.style.aspectRatio = width + ' / ' + height;
       }
+    }
+  }
 
-      // Check Expiry Date
-      if (ad.expire && typeof ad.expire === 'string' && ad.expire.trim() !== '') {
-        const expireTimestamp = new Date(ad.expire).getTime();
-        // If unparseable date, skip it safely
-        if (isNaN(expireTimestamp) || expireTimestamp <= now) {
-          return false;
+  /**
+   * Safe DOM node generator for an advertisement
+   */
+  function createAdElement(ad) {
+    const adArticle = document.createElement('article');
+    adArticle.className = 'yp-affiliate-ad';
+
+    const anchor = document.createElement('a');
+    anchor.className = 'yp-affiliate-link';
+    anchor.href = sanitizeUrl(ad.website);
+    anchor.target = '_blank';
+    anchor.rel = 'noopener noreferrer nofollow sponsored';
+    anchor.setAttribute('role', 'group');
+
+    const cleanTitle = (ad.title || '').trim();
+    const cleanDesc = (ad.description || '').trim();
+    const cleanBtn = (ad.button || '').trim();
+    const imgWidth = (ad.imageWidth || 'auto').trim().toLowerCase();
+
+    // Accessible ARIA label
+    const accessibleLabel = [cleanTitle, cleanDesc].filter(Boolean).join(' - ') || 'Advertisement';
+    anchor.setAttribute('aria-label', accessibleLabel);
+
+    // Image container & element
+    const imgWrapper = document.createElement('div');
+    imgWrapper.className = 'yp-affiliate-image-wrap';
+
+    const img = document.createElement('img');
+    img.className = 'yp-affiliate-image';
+    img.src = sanitizeUrl(ad.imageBanner);
+    img.loading = 'lazy';
+    img.decoding = 'async';
+    img.alt = accessibleLabel;
+
+    imgWrapper.appendChild(img);
+
+    // Check if 100% image-only banner
+    const isImageOnly = imgWidth === '100%';
+
+    // Handle image load error securely
+    img.addEventListener('error', function () {
+      if (isImageOnly) {
+        adArticle.style.display = 'none';
+      } else {
+        imgWrapper.style.display = 'none';
+        if (contentWrapper) {
+          contentWrapper.style.width = '100%';
+          contentWrapper.style.flex = '1 1 100%';
         }
       }
+    });
 
-      // Must have at least a title and valid destination link
-      const link = ad.website || ad.link;
-      const image = ad.imageBanner || ad.image;
+    let contentWrapper = null;
 
-      if (!isValidHttpUrl(link) || !isValidHttpUrl(image)) {
-        return false;
+    if (isImageOnly) {
+      adArticle.classList.add('yp-mode-image-only');
+      anchor.appendChild(imgWrapper);
+    } else {
+      contentWrapper = document.createElement('div');
+      contentWrapper.className = 'yp-affiliate-content';
+
+      if (cleanTitle) {
+        const titleEl = document.createElement('div');
+        titleEl.className = 'yp-affiliate-title';
+        titleEl.textContent = cleanTitle;
+        contentWrapper.appendChild(titleEl);
       }
 
-      return true;
+      if (cleanDesc) {
+        const descEl = document.createElement('div');
+        descEl.className = 'yp-affiliate-description';
+        descEl.textContent = cleanDesc;
+        contentWrapper.appendChild(descEl);
+      }
+
+      if (cleanBtn) {
+        const btnEl = document.createElement('span');
+        btnEl.className = 'yp-affiliate-button';
+        btnEl.textContent = cleanBtn;
+        contentWrapper.appendChild(btnEl);
+      }
+
+      // Configure widths according to imageWidth rules
+      switch (imgWidth) {
+        case '75%':
+          adArticle.classList.add('yp-layout-split');
+          imgWrapper.style.flex = '0 0 75%';
+          contentWrapper.style.flex = '0 0 25%';
+          break;
+        case '50%':
+          adArticle.classList.add('yp-layout-split');
+          imgWrapper.style.flex = '0 0 50%';
+          contentWrapper.style.flex = '0 0 50%';
+          break;
+        case '30%':
+          adArticle.classList.add('yp-layout-split');
+          imgWrapper.style.flex = '0 0 30%';
+          contentWrapper.style.flex = '0 0 70%';
+          break;
+        case 'auto':
+        default:
+          adArticle.classList.add('yp-layout-auto');
+          // Wait for image dimensions to dynamically determine orientation
+          img.addEventListener('load', function () {
+            const w = img.naturalWidth || 1;
+            const h = img.naturalHeight || 1;
+            if (h > w) {
+              adArticle.classList.add('yp-img-portrait');
+            } else if (w > h) {
+              adArticle.classList.add('yp-img-landscape');
+            } else {
+              adArticle.classList.add('yp-img-square');
+            }
+          });
+          break;
+      }
+
+      anchor.appendChild(imgWrapper);
+      anchor.appendChild(contentWrapper);
+    }
+
+    adArticle.appendChild(anchor);
+    return adArticle;
+  }
+
+  /**
+   * Renders a specific ad into a designated slot
+   */
+  function renderAdIntoSlot(slotEl, ad, normalizedZone) {
+    slotEl.innerHTML = '';
+    applySizeConstraints(slotEl, normalizedZone);
+    const adNode = createAdElement(ad);
+    slotEl.appendChild(adNode);
+    slotEl._currentAd = ad;
+  }
+
+  /**
+   * Attaches rotation interval to an ad slot
+   */
+  function setupSlotRotation(slotEl, zone, allAds) {
+    if (activeRotations.has(slotEl)) {
+      clearInterval(activeRotations.get(slotEl));
+      activeRotations.delete(slotEl);
+    }
+
+    if (ROTATE_INTERVAL <= 0) return;
+
+    const timerId = setInterval(() => {
+      if (!document.body.contains(slotEl)) {
+        clearInterval(timerId);
+        activeRotations.delete(slotEl);
+        return;
+      }
+
+      // Re-evaluate eligible ads during rotation (ensuring active priority)
+      const eligible = getEligibleAds(zone, allAds);
+      if (eligible.length <= 1) return;
+
+      const current = slotEl._currentAd;
+      const candidates = eligible.filter((ad) => ad !== current);
+      const nextAd = candidates.length > 0
+        ? candidates[getRandomIndex(candidates.length)]
+        : eligible[getRandomIndex(eligible.length)];
+
+      renderAdIntoSlot(slotEl, nextAd, normalizeZone(zone));
+    }, ROTATE_INTERVAL);
+
+    activeRotations.set(slotEl, timerId);
+  }
+
+  /**
+   * Initializes or updates all matching ad slots on the page
+   */
+  function processSlots() {
+    const slots = Array.from(document.querySelectorAll('.yp-ad-slot'));
+    if (slots.length === 0) return;
+
+    fetchAdsData().then((allAds) => {
+      if (!allAds || allAds.length === 0) return;
+
+      // Group slots by normalized zone to prevent duplicate displays
+      const zoneToSlots = new Map();
+      slots.forEach((slot) => {
+        const zone = slot.getAttribute('data-zone') || '';
+        const normZone = normalizeZone(zone);
+        if (!zoneToSlots.has(normZone)) {
+          zoneToSlots.set(normZone, []);
+        }
+        zoneToSlots.get(normZone).push({ slot, rawZone: zone });
+      });
+
+      // Render slots per zone avoiding duplicate ads if enough unique ones exist
+      zoneToSlots.forEach((slotItems, normZone) => {
+        const eligible = getEligibleAds(normZone, allAds);
+        if (eligible.length === 0) return;
+
+        // Shuffle eligible ads for non-deterministic distribution
+        const pool = eligible.slice().sort(() => Math.random() - 0.5);
+        let poolIndex = 0;
+
+        slotItems.forEach(({ slot, rawZone }) => {
+          let chosenAd;
+          if (poolIndex < pool.length) {
+            chosenAd = pool[poolIndex++];
+          } else {
+            // Re-use ads randomly if there are more slots than eligible ads
+            chosenAd = eligible[getRandomIndex(eligible.length)];
+          }
+
+          renderAdIntoSlot(slot, chosenAd, normZone);
+          setupSlotRotation(slot, rawZone, allAds);
+        });
+      });
     });
   }
 
   /**
-   * Securely create the Affiliate Ad card using native DOM methods (Zero innerHTML injection)
+   * Public API
    */
-  function buildAdElement(ad) {
-    const targetLink = ad.website || ad.link || '#';
-    const targetImage = ad.imageBanner || ad.image || '';
-    const titleText = ad.title || 'Special Offer';
-    const descText = ad.description || '';
-    const buttonText = ad.button || 'View Offer';
-
-    // <a> Container
-    const anchor = document.createElement('a');
-    anchor.className = 'yp-affiliate-ad';
-    anchor.href = targetLink;
-    anchor.target = '_blank';
-    anchor.rel = 'nofollow sponsored noopener';
-    anchor.setAttribute('aria-label', titleText);
-
-    // Banner Container
-    const banner = document.createElement('div');
-    banner.className = 'yp-affiliate-ad__banner';
-
-    // Image
-    const img = document.createElement('img');
-    img.className = 'yp-affiliate-ad__image';
-    img.src = targetImage;
-    img.alt = titleText;
-    img.loading = 'lazy';
-    img.decoding = 'async';
-    img.setAttribute('referrerpolicy', 'no-referrer');
-    banner.appendChild(img);
-
-    // Sponsored Badge
-    const label = document.createElement('span');
-    label.className = 'yp-affiliate-ad__label';
-    label.textContent = 'Sponsored';
-    banner.appendChild(label);
-
-    anchor.appendChild(banner);
-
-    // Content Container
-    const content = document.createElement('div');
-    content.className = 'yp-affiliate-ad__content';
-
-    if (titleText) {
-      const title = document.createElement('h3');
-      title.className = 'yp-affiliate-ad__title';
-      title.textContent = titleText;
-      content.appendChild(title);
-    }
-
-    if (descText) {
-      const desc = document.createElement('p');
-      desc.className = 'yp-affiliate-ad__desc';
-      desc.textContent = descText;
-      content.appendChild(desc);
-    }
-
-    const button = document.createElement('span');
-    button.className = 'yp-affiliate-ad__button';
-    button.setAttribute('aria-hidden', 'true');
-    button.textContent = buttonText;
-    content.appendChild(button);
-
-    anchor.appendChild(content);
-
-    return anchor;
-  }
-
-  /**
-   * Fisher-Yates shuffle algorithm
-   */
-  function shuffle(array) {
-    const arr = array.slice();
-    for (let i = arr.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      const temp = arr[i];
-      arr[i] = arr[j];
-      arr[j] = temp;
-    }
-    return arr;
-  }
-
-  /**
-   * Main initializer
-   */
-  async function initAffiliateAds() {
-    const slots = document.querySelectorAll(CONFIG.slotSelector);
-    if (!slots || slots.length === 0) {
-      return;
-    }
-
-    try {
-      const response = await fetch(CONFIG.endpoint, {
-        headers: { 'Accept': 'application/json' },
-        cache: 'default'
-      });
-
-      if (!response.ok) {
-        throw new Error(`Failed to load affiliate ads: HTTP ${response.status}`);
+  const YP_AffiliateAds = {
+    init: function () {
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', processSlots);
+      } else {
+        processSlots();
       }
+    },
+    refresh: function () {
+      processSlots();
+    },
+    rotate: function () {
+      const slots = Array.from(document.querySelectorAll('.yp-ad-slot'));
+      if (slots.length === 0 || !rawAdsCache) return;
 
-      const data = await response.json();
-      const validAds = filterActiveAndValidAds(data.ads);
+      slots.forEach((slot) => {
+        const zone = slot.getAttribute('data-zone') || '';
+        const eligible = getEligibleAds(zone, rawAdsCache);
+        if (eligible.length <= 1) return;
 
-      if (validAds.length === 0) {
-        // No ads available: clean up empty slots without visual disruption
-        slots.forEach(slot => {
-          slot.style.display = 'none';
-        });
-        return;
-      }
+        const current = slot._currentAd;
+        const candidates = eligible.filter((ad) => ad !== current);
+        const nextAd = candidates.length > 0
+          ? candidates[getRandomIndex(candidates.length)]
+          : eligible[getRandomIndex(eligible.length)];
 
-      // Prepare an ad pool to avoid repeating ads across multiple slots
-      let adPool = shuffle(validAds);
-
-      slots.forEach(function (slot) {
-        if (adPool.length === 0) {
-          // Replenish and re-shuffle if there are more slots than ads
-          adPool = shuffle(validAds);
-        }
-
-        const selectedAd = adPool.pop();
-        const adNode = buildAdElement(selectedAd);
-
-        // Clear existing slot placeholders and append
-        slot.replaceChildren(adNode);
-      });
-
-    } catch (err) {
-      console.error('Yojna Portal Ad Engine Error:', err);
-      slots.forEach(slot => {
-        slot.style.display = 'none';
+        renderAdIntoSlot(slot, nextAd, normalizeZone(zone));
       });
     }
-  }
+  };
 
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initAffiliateAds);
-  } else {
-    initAffiliateAds();
-  }
-})();
+  root.YP_AffiliateAds = YP_AffiliateAds;
+  YP_AffiliateAds.init();
+})(window);

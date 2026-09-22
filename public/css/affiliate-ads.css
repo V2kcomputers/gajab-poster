@@ -1,164 +1,214 @@
-/* Container Slot */
-.yp-ad-slot[data-ad-type="affiliate"] {
+/* ==========================================================================
+   Isolated Affiliate Advertisement Styles (.yp-* namespace)
+   No external UI frameworks required. Mobile-first & fluid.
+   ========================================================================== */
+
+.yp-ad-slot {
   display: block;
   width: 100%;
-  margin: 1.5rem 0;
+  max-width: 100%;
+  margin: 1.5rem auto;
   box-sizing: border-box;
+  overflow: hidden;
+  clear: both;
 }
 
-/* Full Clickable Card Anchor */
+.yp-ad-slot:empty {
+  display: none !important;
+}
+
 .yp-affiliate-ad {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+  box-sizing: border-box;
   width: 100%;
   height: 100%;
-  box-sizing: border-box;
-  text-decoration: none;
-  color: inherit;
-  border-radius: 12px;
-  overflow: hidden;
   background: #ffffff;
-  border: 1px solid rgba(0, 0, 0, 0.08);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
-  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  position: relative;
 }
 
 .yp-affiliate-ad:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
-  border-color: rgba(0, 0, 0, 0.15);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
-/* 1:1 Aspect Ratio Banner */
-.yp-affiliate-ad__banner {
-  position: relative;
-  flex: 1 1 200px;
-  min-width: 160px;
-  aspect-ratio: 1 / 1;
-  overflow: hidden;
-  background-color: #f3f4f6;
+.yp-affiliate-link {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  text-decoration: none;
+  color: inherit;
+  box-sizing: border-box;
+  outline: none;
 }
 
-.yp-affiliate-ad__image {
+.yp-affiliate-link:focus-visible {
+  outline: 2px solid #2563eb;
+  outline-offset: -2px;
+}
+
+/* 100% Image-Only Banner */
+.yp-mode-image-only .yp-affiliate-link {
   display: block;
+  height: 100%;
+}
+
+.yp-mode-image-only .yp-affiliate-image-wrap {
+  width: 100%;
+  height: 100%;
+  max-height: none;
+}
+
+.yp-mode-image-only .yp-affiliate-image {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center;
-  transition: transform 0.3s ease;
 }
 
-.yp-affiliate-ad:hover .yp-affiliate-ad__image {
-  transform: scale(1.04);
-}
-
-.yp-affiliate-ad__label {
-  position: absolute;
-  top: 8px;
-  left: 8px;
-  padding: 3px 6px;
-  font-size: 10px;
-  font-weight: 600;
-  line-height: 1;
-  color: #ffffff;
-  background: rgba(0, 0, 0, 0.65);
-  border-radius: 4px;
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
-  z-index: 1;
-}
-
-/* Text Content Area */
-.yp-affiliate-ad__content {
-  flex: 2 1 220px;
-  padding: 16px;
+/* Image Wrappers */
+.yp-affiliate-image-wrap {
   box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background-color: #f8fafc;
+  min-height: 80px;
+}
+
+.yp-affiliate-image {
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  transition: opacity 0.3s ease;
+}
+
+/* Content Area */
+.yp-affiliate-content {
+  box-sizing: border-box;
+  padding: 1rem 1.25rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  min-width: 0;
+  gap: 0.5rem;
+  overflow: hidden;
 }
 
-.yp-affiliate-ad__title {
-  margin: 0 0 8px;
-  font-size: clamp(15px, 2vw, 18px);
-  line-height: 1.35;
+.yp-affiliate-title {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 1rem;
   font-weight: 700;
-  color: #111827;
-  word-break: break-word;
+  line-height: 1.3;
+  color: #0f172a;
+  margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
-.yp-affiliate-ad__desc {
-  margin: 0 0 14px;
-  font-size: clamp(13px, 1.5vw, 14px);
-  line-height: 1.45;
-  color: #4b5563;
-  word-break: break-word;
+.yp-affiliate-description {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 0.875rem;
+  line-height: 1.4;
+  color: #475569;
+  margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
-/* Button Appearance (Visual only) */
-.yp-affiliate-ad__button {
-  align-self: flex-start;
+.yp-affiliate-button {
   display: inline-flex;
+  align-self: flex-start;
   align-items: center;
   justify-content: center;
-  min-height: 36px;
-  padding: 6px 16px;
-  border-radius: 6px;
-  background: #111827;
-  color: #ffffff;
-  font-size: 13px;
+  padding: 0.5rem 1rem;
+  margin-top: 0.25rem;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 0.8125rem;
   font-weight: 600;
-  transition: background-color 0.2s ease;
+  color: #ffffff;
+  background-color: #ff9900; /* Warm e-commerce accent */
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background-color 0.15s ease;
 }
 
-.yp-affiliate-ad:hover .yp-affiliate-ad__button {
-  background: #2563eb;
+.yp-affiliate-link:hover .yp-affiliate-button {
+  background-color: #e68a00;
 }
 
-/* Mobile Layout: Stack Image on top of text */
-@media (max-width: 520px) {
-  .yp-affiliate-ad {
-    flex-direction: column;
-  }
+/* Dynamic Orientation Styling (imageWidth = 'auto') */
+.yp-layout-auto .yp-affiliate-image-wrap {
+  flex: 0 0 40%;
+}
+.yp-layout-auto .yp-affiliate-content {
+  flex: 0 0 60%;
+}
 
-  .yp-affiliate-ad__banner {
-    width: 100%;
-    flex: none;
+.yp-img-portrait .yp-affiliate-image-wrap {
+  flex: 0 0 30% !important;
+}
+.yp-img-portrait .yp-affiliate-content {
+  flex: 0 0 70% !important;
+}
+
+.yp-img-landscape .yp-affiliate-image-wrap {
+  flex: 0 0 45% !important;
+}
+.yp-img-landscape .yp-affiliate-content {
+  flex: 0 0 55% !important;
+}
+
+/* Compact Banners (e.g. 720x90, 728x90) */
+@container (max-height: 120px) or (max-width: 480px) {
+  .yp-affiliate-content {
+    padding: 0.5rem 0.75rem;
+    gap: 0.25rem;
+  }
+  .yp-affiliate-title {
+    font-size: 0.875rem;
+    -webkit-line-clamp: 1;
+  }
+  .yp-affiliate-description {
+    font-size: 0.75rem;
+    -webkit-line-clamp: 1;
+  }
+  .yp-affiliate-button {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.75rem;
   }
 }
 
-/* Dark Mode Support */
-@media (prefers-color-scheme: dark) {
-  .yp-affiliate-ad {
-    background: #1f2937;
-    border-color: rgba(255, 255, 255, 0.1);
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
+/* Mobile Split Layout Breakpoint */
+@media screen and (max-width: 600px) {
+  .yp-affiliate-link:not(.yp-mode-image-only .yp-affiliate-link) {
+    flex-direction: column !important;
   }
 
-  .yp-affiliate-ad:hover {
-    border-color: rgba(255, 255, 255, 0.2);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+  .yp-affiliate-image-wrap {
+    width: 100% !important;
+    flex: none !important;
+    height: 180px;
   }
 
-  .yp-affiliate-ad__banner {
-    background-color: #111827;
+  .yp-affiliate-content {
+    width: 100% !important;
+    flex: none !important;
+    padding: 1rem;
   }
 
-  .yp-affiliate-ad__title {
-    color: #f9fafb;
-  }
-
-  .yp-affiliate-ad__desc {
-    color: #9ca3af;
-  }
-
-  .yp-affiliate-ad__button {
-    background: #3b82f6;
-  }
-
-  .yp-affiliate-ad:hover .yp-affiliate-ad__button {
-    background: #60a5fa;
+  .yp-ad-slot {
+    aspect-ratio: auto !important;
   }
 }
