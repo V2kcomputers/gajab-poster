@@ -2,12 +2,12 @@
 <html lang="{{ or site.Language.LanguageCode }}" dir="{{ or site.Language.LanguageDirection `ltr` }}">
 <head>
   {{ partial "head.html" . }}
-
+<link rel="stylesheet" href="{{ "css/affiliate-ads.css" | relURL }}">
 </head>
 <body>
 
       {{ partial "channel/header.html" . }}
-     
+     <div class="yp-ad-slot" data-ad-type="affiliate"></div>
   <main>
    
     {{ block "main" . }}{{ end }}
@@ -16,5 +16,6 @@
    {{ partial "channel/footer.html" . }}
   </footer>
    {{ partial "main-parts/jsfooter.html" . }}
+   <script src="{{ "js/affiliate-ads.js" | relURL }}" defer></script>
 </body>
 </html>

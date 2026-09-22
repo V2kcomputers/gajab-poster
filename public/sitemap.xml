@@ -464,10 +464,14 @@
     <loc>http://localhost:1313/advertise/</loc>
     <lastmod>2026-09-20T18:38:52+05:30</lastmod>
   </url><url>
+    <loc>http://localhost:1313/affiliate.json</loc>
+  </url><url>
     <loc>http://localhost:1313/categories/</loc>
   </url><url>
     <loc>http://localhost:1313/channel.json</loc>
     <lastmod>2026-06-18T15:47:51+05:30</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/json/</loc>
   </url><url>
     <loc>http://localhost:1313/stories/sbi-po-2026/</loc>
     <lastmod>2026-06-20T20:06:17+05:30</lastmod>
