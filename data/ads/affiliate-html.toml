@@ -1,6 +1,6 @@
 [[ads]]
 id = "ad-04"
-htmlBanner = ["""<div style="width:100%; display:flex; justify-content:center; padding:12px; box-sizing:border-box;">
+htmlBanner = ["""<div style="width:100%; display:flex; justify-content:center; padding:0px; box-sizing:border-box;">
   <div style="position:relative; width:100%; max-width:100%; height:300px; max-height:300px; background:linear-gradient(135deg, #09090b 0%, #18181b 50%, #27272a 100%); border-radius:18px; overflow:hidden; font-family:'Inter', -apple-system, BlinkMacSystemFont, sans-serif; box-sizing:border-box; padding:24px 28px; display:flex; flex-direction:column; justify-content:space-between; box-shadow:0 20px 30px -10px rgba(0,0,0,0.5); border:1px solid rgba(255,255,255,0.12);">
     <!-- Ambient Glow FX -->
     <div style="position:absolute; top:-60px; right:-60px; width:220px; height:220px; border-radius:50%; background:rgba(255,255,255,0.1); filter:blur(50px); pointer-events:none;"></div>
