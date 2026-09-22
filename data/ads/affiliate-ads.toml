@@ -32,7 +32,7 @@ description = "3D Printed Steering Wheel for G27/29/920, Strong and Durable"
 button = "Shop Now"
 active = true
 expire = "2026-10-05T23:59:59+05:30"
-imageWidth = "100%"
+imageWidth = "auto"
 bannerSize = "responsive"
 
 [[ads]]
