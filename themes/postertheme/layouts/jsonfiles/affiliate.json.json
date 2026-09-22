@@ -3,47 +3,59 @@
 
 {{- if and $adsData (isset $adsData "ads") -}}
   {{- range $adsData.ads -}}
-    {{- $rawImage := or .imageBanner .image "" -}}
-    {{- $finalImageURL := $rawImage -}}
 
-    {{/* Hugo Image Processing: Remote & Local Images to 500x500 WebP */}}
-    {{- if $rawImage -}}
-      {{- $img := false -}}
-      {{- $isRemote := or (hasPrefix $rawImage "http://") (hasPrefix $rawImage "https://") -}}
-
-      {{- if $isRemote -}}
-        {{- $remoteRes := try (resources.GetRemote $rawImage) -}}
-        {{- with $remoteRes.Err -}}
-          {{- warnf "Ad image fetch failed (%s): %s" $rawImage . -}}
-        {{- else -}}
-          {{- $img = $remoteRes.Value -}}
-        {{- end -}}
-      {{- else -}}
-        {{- $img = resources.Get $rawImage -}}
-      {{- end -}}
-
-      {{- if and $img (ne $img.MediaType.SubType "svg") -}}
-        {{- $webp := $img.Process "fill 500x500 webp q85" -}}
-        {{- $finalImageURL = $webp.Permalink -}}
-      {{- else if not $isRemote -}}
-        {{- $finalImageURL = $finalImageURL | absURL -}}
+    {{/* Expire चेक: अगर एक्सपायर हो चुका है तो इस ad को प्रोसेस न करें */}}
+    {{- $isExpired := false -}}
+    {{- if .expire -}}
+      {{- $expireDate := time .expire -}}
+      {{- if now.After $expireDate -}}
+        {{- $isExpired = true -}}
       {{- end -}}
     {{- end -}}
 
-    {{/* JSON ऑब्जेक्ट तैयार करना */}}
-    {{- $adObj := dict
-      "active" (default true .active)
-      "title" (default "" .title)
-      "description" (default "" .description)
-      "button" (default "View Offer" .button)
-      "website" (or .website .link "#")
-      "imageBanner" $finalImageURL
-      "bannerSize" (default "responsive" (or .bannerSize .Banersize))
-      "imageWidth" (default "auto" .imageWidth)
-      "expire" (default "" .expire)
-    -}}
+    {{- if not $isExpired -}}
+      {{- $rawImage := or .imageBanner .image "" -}}
+      {{- $finalImageURL := $rawImage -}}
 
-    {{- $processedAds = $processedAds | append $adObj -}}
+      {{/* Hugo Image Processing: Remote & Local Images to 500x500 WebP */}}
+      {{- if $rawImage -}}
+        {{- $img := false -}}
+        {{- $isRemote := or (hasPrefix $rawImage "http://") (hasPrefix $rawImage "https://") -}}
+
+        {{- if $isRemote -}}
+          {{- $remoteRes := try (resources.GetRemote $rawImage) -}}
+          {{- with $remoteRes.Err -}}
+            {{- warnf "Ad image fetch failed (%s): %s" $rawImage . -}}
+          {{- else -}}
+            {{- $img = $remoteRes.Value -}}
+          {{- end -}}
+        {{- else -}}
+          {{- $img = resources.Get $rawImage -}}
+        {{- end -}}
+
+        {{- if and $img (ne $img.MediaType.SubType "svg") -}}
+          {{- $webp := $img.Process "fill 500x500 webp q85" -}}
+          {{- $finalImageURL = $webp.Permalink -}}
+        {{- else if not $isRemote -}}
+          {{- $finalImageURL = $finalImageURL | absURL -}}
+        {{- end -}}
+      {{- end -}}
+
+      {{/* JSON ऑब्जेक्ट तैयार करना (expire को यहाँ से हटा दिया गया है) */}}
+      {{- $adObj := dict
+        "active" (default true .active)
+        "title" (default "" .title)
+        "description" (default "" .description)
+        "button" (default "View Offer" .button)
+        "website" (or .website .link "#")
+        "imageBanner" $finalImageURL
+        "bannerSize" (default "auto" (or .bannerSize .Banersize))
+        "imageWidth" (default "auto" .imageWidth)
+      -}}
+
+      {{- $processedAds = $processedAds | append $adObj -}}
+    {{- end -}}
+
   {{- end -}}
 {{- end -}}
 
