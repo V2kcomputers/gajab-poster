@@ -62,7 +62,7 @@ imageWidth = "auto"
 bannerSize = "720x90"
 
 [[ads]]
-id = "ad-04"
+id = "ad-05"
 imageBanner = "https://m.media-amazon.com/images/I/717XnI6ar0L._AC_AIweblab1378949,T2_FMavif_SF516.0,327.0_PQ65_.jpg"
 website = ""
 link = "https://link.amazon/B0eb6vCAL"
@@ -75,7 +75,7 @@ imageWidth = "auto"
 bannerSize = "responsive"
 
 [[ads]]
-id = "ad-04"
+id = "ad-06"
 imageBanner = "https://m.media-amazon.com/images/I/717XnI6ar0L._AC_AIweblab1378949,T2_FMavif_SF516.0,327.0_PQ65_.jpg"
 website = ""
 link = "https://link.amazon/B0eb6vCAL"
@@ -88,6 +88,7 @@ imageWidth = "auto"
 bannerSize = "900x300"
 
 [[ads]]
+id = "ad-07"
 imageBanner = "https://m.media-amazon.com/images/I/81fIiCe4ZhL._AC_AIweblab1378949,T2_FMavif_SF516.0,327.0_PQ65_.jpg"
 website = ""
 link = "https://link.amazon/B0ivcggsU"
@@ -100,6 +101,7 @@ imageWidth = "auto"
 bannerSize = "900x300"
 
 [[ads]]
+id = "ad-08"
 imageBanner = "https://m.media-amazon.com/images/I/81fIiCe4ZhL._AC_AIweblab1378949,T2_FMavif_SF516.0,327.0_PQ65_.jpg"
 website = ""
 link = "https://link.amazon/B0ivcggsU"
@@ -112,6 +114,7 @@ imageWidth = "auto"
 bannerSize = "responsive"
 
 [[ads]]
+id = "ad-09"
 imageBanner = "https://m.media-amazon.com/images/W/BW_MEDIAX_AVIF_MEASUREMENT_1306696-T4/images/I/71sGiVleerL._SY466_.jpg"
 website = ""
 link = "https://link.amazon/B0elmW42k"
@@ -124,6 +127,7 @@ imageWidth = "auto"
 bannerSize = "900x300"
 
 [[ads]]
+id = "ad-10"
 imageBanner = "https://m.media-amazon.com/images/W/BW_MEDIAX_AVIF_MEASUREMENT_1306696-T4/images/I/71sGiVleerL._SY466_.jpg"
 website = ""
 link = "https://link.amazon/B0elmW42k"
@@ -136,6 +140,7 @@ imageWidth = "auto"
 bannerSize = "responsive"
 
 [[ads]]
+id = "ad-11"
 imageBanner = "https://m.media-amazon.com/images/W/BW_MEDIAX_AVIF_MEASUREMENT_1306696-T4/images/I/814u4vr3tzL._SY466_.jpg"
 website = ""
 link = "https://link.amazon/B0fQu1Twi"
@@ -148,6 +153,7 @@ imageWidth = "auto"
 bannerSize = "responsive"
 
 [[ads]]
+id = "ad-12"
 imageBanner = "https://m.media-amazon.com/images/W/BW_MEDIAX_AVIF_MEASUREMENT_1306696-T4/images/I/814u4vr3tzL._SY466_.jpg"
 website = ""
 link = "https://link.amazon/B0fQu1Twi"
