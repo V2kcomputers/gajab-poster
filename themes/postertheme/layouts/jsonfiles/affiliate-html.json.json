@@ -1,0 +1,74 @@
+{{- $adsData := index site.Data.ads "affiliate-html" -}}
+{{- $processedAds := slice -}}
+
+{{- if and $adsData (isset $adsData "ads") -}}
+  {{- range $adsData.ads -}}
+
+    {{/* 1. Expire Check: Agar expire ho chuka hai toh skip karein */}}
+    {{- $isExpired := false -}}
+    {{- if .expire -}}
+      {{- $expireDate := time .expire -}}
+      {{- if now.After $expireDate -}}
+        {{- $isExpired = true -}}
+      {{- end -}}
+    {{- end -}}
+
+    {{- if not $isExpired -}}
+
+      {{/* 2. HTML Banner Extraction (String ya Array dono ko handle karega) */}}
+      {{- $htmlContent := "" -}}
+      {{- if .htmlBanner -}}
+        {{- if reflect.IsSlice .htmlBanner -}}
+          {{- $htmlContent = delimit .htmlBanner "" -}}
+        {{- else -}}
+          {{- $htmlContent = printf "%s" .htmlBanner -}}
+        {{- end -}}
+      {{- end -}}
+
+      {{/* 3. Image Processing: Sirf tab chale jab ad ke paas image ho aur HTML Banner na ho */}}
+      {{- $rawImage := or .imageBanner .image "" -}}
+      {{- $finalImageURL := $rawImage -}}
+
+      {{- if and $rawImage (not $htmlContent) -}}
+        {{- $img := false -}}
+        {{- $isRemote := or (hasPrefix $rawImage "http://") (hasPrefix $rawImage "https://") -}}
+
+        {{- if $isRemote -}}
+          {{- $remoteRes := try (resources.GetRemote $rawImage) -}}
+          {{- with $remoteRes.Err -}}
+            {{- warnf "Ad image fetch failed (%s): %s" $rawImage . -}}
+          {{- else -}}
+            {{- $img = $remoteRes.Value -}}
+          {{- end -}}
+        {{- else -}}
+          {{- $img = resources.Get $rawImage -}}
+        {{- end -}}
+
+        {{- if and $img (ne $img.MediaType.SubType "svg") -}}
+          {{- $webp := $img.Process "fill 500x500 webp q85" -}}
+          {{- $finalImageURL = $webp.Permalink -}}
+        {{- else if and $finalImageURL (not $isRemote) -}}
+          {{- $finalImageURL = $finalImageURL | absURL -}}
+        {{- end -}}
+      {{- end -}}
+
+      {{/* 4. JSON Object Generation (htmlBanner field ke saath) */}}
+      {{- $adObj := dict
+        "active" (default true .active)
+        "title" (default "" .title)
+        "description" (default "" .description)
+        "button" (default "View Offer" .button)
+        "website" (or .website .link "#")
+        "imageBanner" $finalImageURL
+        "htmlBanner" $htmlContent
+        "bannerSize" (default "auto" (or .bannerSize .Banersize))
+        "imageWidth" (default "auto" .imageWidth)
+      -}}
+
+      {{- $processedAds = $processedAds | append $adObj -}}
+    {{- end -}}
+
+  {{- end -}}
+{{- end -}}
+
+{{- dict "ads" $processedAds | jsonify (dict "indent" "  ") -}}

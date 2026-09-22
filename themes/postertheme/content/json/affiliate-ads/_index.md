@@ -1,7 +1,7 @@
 +++
 title = "Affiliate Ads JSON"
 type = "jsonfiles"
-layout = "affiliate"
+layout = "affiliate-ads"
 outputs = ["JSON"]
-url = "/affiliate.json"
+url = "/affiliate-ads.json"
 +++

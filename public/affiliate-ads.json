@@ -1,0 +1,44 @@
+{
+  "ads": [
+    {
+      "active": true,
+      "bannerSize": "responsive",
+      "button": "View Offer",
+      "description": "C190 Berlin Office Chair, High Back Mesh Ergonomic Home Office Desk Chair (Grey - White)",
+      "imageBanner": "http://localhost:1313/41ZJJrJp7XL._MCnd_AC__2715659722512032452_hu_c1fea0fa4be06e73.webp",
+      "imageWidth": "auto",
+      "title": "Office Chair",
+      "website": "https://link.amazon/B0bQSYwCU"
+    },
+    {
+      "active": true,
+      "bannerSize": "responsive",
+      "button": "Shop Now",
+      "description": "3D Printed Steering Wheel for G27/29/920, Strong and Durable",
+      "imageBanner": "http://localhost:1313/51eNsBQYxrL._SX522__6621973836247426900_hu_2dafc624f18f6b74.webp",
+      "imageWidth": "100%",
+      "title": "Best Deals",
+      "website": "https://link.amazon/B025Hnzah"
+    },
+    {
+      "active": true,
+      "bannerSize": "900x300",
+      "button": "Get Offer",
+      "description": "Green Soul Atom | Ergonomic Office Chair for Home \u0026 Office | 12 Months Warranty | Comfortable \u0026 Spacious Seat | Rocking-tilt Mechanism | Heavy Duty Metal Base (Black)",
+      "imageBanner": "http://localhost:1313/812M98OZNKL._SX679__3027320673161089435_hu_2e342dba183b9632.webp",
+      "imageWidth": "100%",
+      "title": "Limited Time Offer",
+      "website": "https://link.amazon/B0hqu050V"
+    },
+    {
+      "active": true,
+      "bannerSize": "720x90",
+      "button": "Get Offer",
+      "description": "Green Soul Atom | Ergonomic Office Chair for Home \u0026 Office | 12 Months Warranty | Comfortable \u0026 Spacious Seat | Rocking-tilt Mechanism | Heavy Duty Metal Base (Black)",
+      "imageBanner": "http://localhost:1313/812M98OZNKL._SX679__3027320673161089435_hu_2e342dba183b9632.webp",
+      "imageWidth": "auto",
+      "title": "Limited Time Offer",
+      "website": "https://link.amazon/B0hqu050V"
+    }
+  ]
+}

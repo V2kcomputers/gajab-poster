@@ -1,0 +1,39 @@
+[[ads]]
+id = "ad-04"
+htmlBanner = ["""<div style="width:100%; display:flex; justify-content:center; padding:12px; box-sizing:border-box;">
+  <div style="position:relative; width:100%; max-width:800px; height:300px; max-height:300px; background:linear-gradient(135deg, #09090b 0%, #18181b 50%, #27272a 100%); border-radius:18px; overflow:hidden; font-family:'Inter', -apple-system, BlinkMacSystemFont, sans-serif; box-sizing:border-box; padding:24px 28px; display:flex; flex-direction:column; justify-content:space-between; box-shadow:0 20px 30px -10px rgba(0,0,0,0.5); border:1px solid rgba(255,255,255,0.12);">
+    <!-- Ambient Glow FX -->
+    <div style="position:absolute; top:-60px; right:-60px; width:220px; height:220px; border-radius:50%; background:rgba(255,255,255,0.1); filter:blur(50px); pointer-events:none;"></div>
+    <!-- Header -->
+    <div style="position:relative; z-index:2; display:flex; justify-content:space-between; align-items:center;">
+      <div style="display:flex; align-items:center; gap:8px;">
+        <span style="display:inline-flex; align-items:center; justify-content:center; width:28px; height:28px; border-radius:8px; background:rgba(255,255,255,0.2); font-size:13px;">⚡</span>
+        <span style="font-size:12px; font-weight:700; letter-spacing:0.05em; text-transform:uppercase; color:rgba(255,255,255,0.9);">GROWTH PRO</span>
+      </div>
+      <span style="display:inline-block; font-size:11px; font-weight:800; background:#f59e0b; color:#0f172a; padding:4px 12px; border-radius:9999px; letter-spacing:0.05em; text-transform:uppercase;">
+        LIMITED OFFER 50% OFF
+      </span>
+    </div>
+    <!-- Center Content -->
+    <div style="position:relative; z-index:2; margin:auto 0; padding:8px 0;">
+      <h2 style="margin:0; font-size:26px; line-height:1.2; font-weight:800; color:#ffffff; max-height:64px; overflow:hidden;">
+        Boost Your Business Growth By 10X
+      </h2>
+      <p style="margin:8px 0 0 0; font-size:13px; line-height:1.4; color:rgba(255,255,255,0.85); max-height:38px; overflow:hidden;">
+        ऑटोमेटेड टूल्स और स्मार्ट एनालिटिक्स के साथ अपनी सेल्स को तेजी से बढ़ाएं। आज ही 14 दिनों का फ्री ट्रायल शुरू करें।
+      </p>
+    </div>
+    <!-- Bottom Action Bar -->
+    <div style="position:relative; z-index:2; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px;">
+      <a href="#" style="text-decoration:none; display:inline-flex; align-items:center; gap:8px; background:#fbbf24; color:#0f172a; font-size:14px; font-weight:700; padding:10px 22px; border-radius:12px; box-shadow:0 4px 14px rgba(0,0,0,0.25);">
+        Claim Free Trial &rarr;
+      </a>
+      <span style="font-size:11px; color:rgba(255,255,255,0.7); font-weight:500;">
+        No Credit Card Required • Instant Setup
+      </span>
+    </div>
+  </div>
+</div>"""]
+link = "https://link.amazon/B0growthPro"
+active = true
+bannerSize = "responsive"
