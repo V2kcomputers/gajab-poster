@@ -12,8 +12,10 @@
    
     {{ block "main" . }}{{ end }}
   </main>
+  {{ partial "ads/adterra-bottom-ads.html" . }}
   <footer>
    {{ partial "channel/footer.html" . }}
+    
   </footer>
    {{ partial "main-parts/jsfooter.html" . }}
    <script src="{{ "js/affiliate-ads.js" | relURL }}" defer></script>
