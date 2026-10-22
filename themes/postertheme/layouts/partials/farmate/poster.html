@@ -10,28 +10,59 @@
   </div>
 
 
-<div class="preview">
-  <img id="previewImg" src="{{ .Params.imagePoster | relURL }}" onclick="openModal()">
-</div>
-<div class="top-actions">
- <a href="{{ with .Params.link }}{{ . }}{{ else }}https://yojnaportal.com/search?q={{ .Title | urlize }}{{ end }}" target="_blank">
-  <button id="viewBtn">🔗 Link</button>
-</a>
-
-<button onclick="downloadImg(this)">⬇️ Download</button>
-<button onclick="shareImg(this)">🔗 Share</button>
-<button onclick="printImg(this)">🖨️ Print</button>
-
 {{ with .Params.imagePoster }}
 
-<a
-  class="add-name-btn"
-  href="https://poster.yojnaportal.com/add-name/?img={{ . | urlquery }}&tittle={{ $.Params.posterName | urlquery }}"
-  target="_blank"
-> <button>
-  ➕ Add Name
-  </button>
-</a>
+  {{ $posterImage := . }}
+
+  {{/* Same final URL used by preview and Add Name */}}
+  {{ $posterURL := partial "imp-codes/image-url.html" (dict
+    "src" $posterImage
+  ) }}
+
+  <div class="preview">
+
+    {{ partial "imp-codes/image-processor.html" (dict
+      "context" $
+      "src" $posterImage
+      "id" "previewImg"
+      "onclick" "openModal()"
+      "width" "600x"
+    ) }}
+
+  </div>
+
+  <div class="top-actions">
+
+    <a
+      href="{{ with $.Params.link }}{{ . }}{{ else }}https://yojnaportal.com/search?q={{ $.Title | urlize }}{{ end }}"
+      target="_blank"
+    >
+      <button id="viewBtn">🔗 Link</button>
+    </a>
+
+    <button onclick="downloadImg(this)">
+      ⬇️ Download
+    </button>
+
+    <button onclick="shareImg(this)">
+      🔗 Share
+    </button>
+
+    <button onclick="printImg(this)">
+      🖨️ Print
+    </button>
+
+    <a
+      class="add-name-btn"
+      href="https://poster.yojnaportal.com/add-name/?img={{ $posterURL | urlquery }}&tittle={{ $.Params.posterName | urlquery }}"
+      target="_blank"
+    >
+      <button>
+        ➕ Add Name
+      </button>
+    </a>
+
+  </div>
 
 {{ end }}
 

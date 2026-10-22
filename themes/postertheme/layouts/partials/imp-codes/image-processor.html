@@ -1,0 +1,52 @@
+{{/* Map context validation */}}
+{{ $src := "" }}
+{{ if reflect.IsMap . }}
+  {{ $src = .src }}
+{{ end }}
+
+{{ $id := .id | default "" }}
+{{ $onclick := .onclick | default "" }}
+
+{{ $title := "" }}
+{{ with .context }}
+  {{ $title = .Title }}
+{{ end }}
+
+{{ with $src }}
+  {{ $img := "" }}
+  {{ $isRemote := or (hasPrefix . "http://") (hasPrefix . "https://") }}
+
+  {{ if $isRemote }}
+    {{ with try (resources.GetRemote .) }}
+      {{ with .Err }}
+        {{ warnf "%s" . }}
+      {{ else }}
+        {{ $img = .Value }}
+      {{ end }}
+    {{ end }}
+  {{ else }}
+    {{ $img = resources.Get . }}
+  {{ end }}
+
+  {{ if $img }}
+    {{/* 1. Assets Folder / Remote Resource: Untouched Original Image */}}
+    <img {{ if $id }}id="{{ $id }}"{{ end }}
+         src="{{ $img.RelPermalink }}"
+         width="{{ $img.Width }}"
+         height="{{ $img.Height }}"
+         loading="lazy"
+         decoding="async"
+         referrerpolicy="no-referrer"
+         alt="{{ $title }} | www.YojnaPortal.com"
+         {{ if $onclick }}onclick="{{ $onclick | safeJS }}" style="cursor: pointer; display: block; margin: 0 auto; max-width: 100%; height: auto;"{{ else }}style="display: block; margin: 0 auto; max-width: 100%; height: auto;"{{ end }}>
+  {{ else }}
+    {{/* 2. Fallback: Agar image static folder me ho ya download fail hua ho */}}
+    <img {{ if $id }}id="{{ $id }}"{{ end }}
+         src="{{ . | relURL }}"
+         loading="lazy"
+         decoding="async"
+         referrerpolicy="no-referrer"
+         alt="{{ $title }} | www.YojnaPortal.com"
+         {{ if $onclick }}onclick="{{ $onclick | safeJS }}" style="cursor: pointer; display: block; margin: 0 auto; max-width: 100%; height: auto;"{{ else }}style="display: block; margin: 0 auto; max-width: 100%; height: auto;"{{ end }}>
+  {{ end }}
+{{ end }}

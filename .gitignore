@@ -1,0 +1,11 @@
+# Hugo temporary & cache directories
+.hugo_build.lock
+resources/_gen/
+.cache/
+
+# Final generated static site (Build output)
+public/
+
+# OS specific files
+Thumbs.db
+.DS_Store

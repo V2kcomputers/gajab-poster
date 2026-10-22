@@ -1,0 +1,28 @@
+{{ $src := .src | default "" }}
+
+{{ $img := "" }}
+
+{{ $isRemote := or
+  (hasPrefix $src "http://")
+  (hasPrefix $src "https://")
+}}
+
+{{ if $isRemote }}
+
+  {{ with try (resources.GetRemote $src) }}
+    {{ with .Err }}
+      {{ warnf "%s" . }}
+    {{ else }}
+      {{ $img = .Value }}
+    {{ end }}
+  {{ end }}
+
+{{ else }}
+
+  {{ $img = resources.Get $src }}
+
+{{ end }}
+
+{{ if $img }}
+  {{ $img.RelPermalink }}
+{{ end }}
